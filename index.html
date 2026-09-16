@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guide utilisateur — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html" class="active">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+
+        <h1>Guide utilisateur de VisualPosiScreen&nbsp;LITE</h1>
+
+        <p>
+            <strong>VisualPosiScreen&nbsp;LITE</strong> est un utilitaire Windows destiné aux
+            joueurs de <strong>DCS&nbsp;World</strong> (Digital Combat Simulator). Il centralise,
+            dans une seule fenêtre, la préparation et le lancement du simulateur&nbsp;: choix
+            d'un profil de jeu (2D ou VR), copie automatique des fichiers <code>options.lua</code>
+            et de configuration moniteur, activation/désactivation de mods, lancement des
+            logiciels compagnons (SRS, SimApp&nbsp;Pro, Helios, VoiceAttack…), suivi de la
+            version de DCS et conversion de <em>tracks</em> <code>.trk</code> en missions <code>.miz</code>.
+        </p>
+
+        <div class="callout tip">
+            <span class="callout-title">En une phrase</span>
+            <p>
+                Au lieu d'éditer manuellement les fichiers de DCS et de démarrer chaque
+                programme à la main avant une session, vous sélectionnez une
+                <em>configuration</em> et vous cliquez sur <strong>2D</strong> ou
+                <strong>VR</strong>&nbsp;: l'application applique tout et démarre DCS.
+            </p>
+        </div>
+
+        <h2>Que trouve-t-on dans ce guide&nbsp;?</h2>
+
+        <div class="cards">
+            <a class="card" href="presentation.html">
+                <h3>Description &amp; éditions</h3>
+                <p>À quoi sert le logiciel, et ce qui distingue la version LITE de la version PRO.</p>
+            </a>
+            <a class="card" href="installation.html">
+                <h3>Installation</h3>
+                <p>Prérequis, mise en place et assistant de premier lancement.</p>
+            </a>
+            <a class="card" href="interface.html">
+                <h3>Fenêtre principale</h3>
+                <p>Chaque zone de l'écran d'accueil expliquée.</p>
+            </a>
+            <a class="card" href="configurations.html">
+                <h3>Les configurations</h3>
+                <p>Le concept central&nbsp;: profils, arborescence de dossiers, fichiers gérés.</p>
+            </a>
+            <a class="card" href="parametrage.html">
+                <h3>L'éditeur de configuration</h3>
+                <p>Paramétrer les chemins, les fichiers, les lancements, Helios et les mods.</p>
+            </a>
+            <a class="card" href="ecrans.html">
+                <h3>Gestion des écrans</h3>
+                <p>Ce que fait LITE, ce qu'ajoute PRO pour le multi-écran.</p>
+            </a>
+            <a class="card" href="mods.html">
+                <h3>Gestion des mods</h3>
+                <p>Déployer, retirer, sauvegarder, gérer les incompatibilités.</p>
+            </a>
+            <a class="card" href="lancement.html">
+                <h3>Lancer DCS World</h3>
+                <p>Ce qui se passe exactement quand vous cliquez sur 2D ou VR.</p>
+            </a>
+            <a class="card" href="outils.html">
+                <h3>Outils intégrés</h3>
+                <p>Trk⇒miz, comparaison d'<code>options.lua</code>, version DCS, carte graphique, journaux.</p>
+            </a>
+            <a class="card" href="reference-xml.html">
+                <h3>Référence XML</h3>
+                <p>Structure complète du fichier <code>config-ecrans.xml</code>.</p>
+            </a>
+            <a class="card" href="faq.html">
+                <h3>FAQ &amp; dépannage</h3>
+                <p>Questions fréquentes et solutions aux problèmes courants.</p>
+            </a>
+        </div>
+
+        <h2>Résumé LITE vs PRO</h2>
+        <p>
+            Les deux éditions partagent le même moteur et la même interface. La seule
+            différence fonctionnelle concerne la <strong>gestion des écrans</strong>&nbsp;:
+        </p>
+        <div class="table-wrap">
+        <table>
+            <thead>
+                <tr><th>Domaine</th><th>LITE</th><th>PRO</th></tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Configurations multiples, mods, lancements, Helios, Trk⇒miz, suivi de version</td>
+                    <td>Oui</td>
+                    <td>Oui</td>
+                </tr>
+                <tr>
+                    <td>Copie du fichier de configuration moniteur de DCS par configuration</td>
+                    <td>Oui</td>
+                    <td>Oui</td>
+                </tr>
+                <tr class="pro-row">
+                    <td>Déclaration de plusieurs écrans dans une configuration</td>
+                    <td>Saisie possible, non appliquée</td>
+                    <td>Oui</td>
+                </tr>
+                <tr class="pro-row">
+                    <td>Repositionnement automatique des écrans Windows (position, écran principal, orientation) au changement de configuration</td>
+                    <td>Non</td>
+                    <td>Oui</td>
+                </tr>
+                <tr class="pro-row">
+                    <td>Restauration de la disposition d'écrans d'origine en quittant</td>
+                    <td>Non</td>
+                    <td>Oui</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <p class="tag-legend">
+            <span class="badge pro">PRO</span> signale, dans tout le guide, une fonction réservée à la version PRO.
+        </p>
+
+        <div class="pager">
+            <span></span>
+            <a class="next" href="presentation.html"><span>Suite</span>Description &amp; éditions →</a>
+        </div>
+
+        <footer class="site">
+            © Ryback Games — VisualPosiScreen LITE 3.0. DCS World est une marque d'Eagle Dynamics SA.
+            Ce guide décrit le comportement du logiciel tel que livré.
+        </footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

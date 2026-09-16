@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestion des mods — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html" class="active">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Fonctions › Gestion des mods</div>
+        <h1>Gestion des mods</h1>
+
+        <p>
+            L'application gère les mods « manuels » de DCS&nbsp;: des ensembles de fichiers à
+            copier dans l'installation de DCS et/ou dans le dossier <em>Saved&nbsp;Games</em>,
+            que l'on veut pouvoir activer ou retirer proprement, avec sauvegarde.
+        </p>
+
+        <h2>Où sont rangés les mods</h2>
+        <p>
+            Le dossier des mods est déclaré une fois dans le bloc <code>&lt;dcs&gt;</code>
+            (élément <code>&lt;mod Folder="Mods"/&gt;</code>), relatif au répertoire de
+            configurations. Chaque mod est un sous-dossier contenant un fichier
+            <code>manifest.xml</code>&nbsp;:
+        </p>
+        <pre><code>ConfigRep\Mods\
+├─ ESCA_FA18\
+│   ├─ manifest.xml
+│   ├─ &lt;fichiers du mod pour l'installation DCS&gt;
+│   └─ &lt;fichiers du mod pour Saved Games&gt;
+└─ CustomCockpit\
+    └─ manifest.xml</code></pre>
+
+        <h3>Contenu du <code>manifest.xml</code></h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Élément</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>name</code></td><td>Nom du mod (doit correspondre au nom du dossier).</td></tr>
+                <tr><td><code>version</code></td><td>Version du mod, affichée dans l'éditeur de mod.</td></tr>
+                <tr><td><code>status/@enabled</code></td><td>État déployé (vrai) ou non (faux). Mis à jour par l'application.</td></tr>
+                <tr><td><code>description</code></td><td>Texte affiché dans la liste des mods.</td></tr>
+                <tr><td><code>root</code></td><td>Sous-dossier du mod à copier vers l'<strong>installation</strong> de DCS. Attribut <code>backup</code>&nbsp;: sauvegarder les fichiers écrasés.</td></tr>
+                <tr><td><code>saveGames</code></td><td>Sous-dossier du mod à copier vers <strong>Saved&nbsp;Games</strong>. Attribut <code>backup</code> également.</td></tr>
+                <tr><td><code>incompatibleMods</code></td><td>Liste de noms de mods incompatibles avec celui-ci.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>Le cadre « Mods » de la fenêtre principale</h2>
+        <ul>
+            <li>Chaque mod détecté apparaît avec sa <strong>description</strong> et une pastille&nbsp;: <strong>verte</strong> = déployé, <strong>rouge</strong> = non déployé.</li>
+            <li><strong>Clic droit</strong> sur un mod&nbsp;:
+                <ul>
+                    <li><em>Enable</em> / <em>Disable</em>&nbsp;: déploie ou retire le mod <strong>immédiatement</strong> (barre de progression).</li>
+                    <li><em>Ajouter/Supprimer de la liste des mods à activer</em> ou <em>à désactiver</em>&nbsp;: modifie les <strong>actions planifiées</strong> pour la configuration courante (appliquées au lancement).</li>
+                </ul>
+            </li>
+            <li><strong>Double-clic</strong> sur un mod&nbsp;: le retire (désactive) immédiatement.</li>
+            <li><strong>Modifier</strong>&nbsp;: ouvre l'éditeur de mod.</li>
+            <li><strong>Supprimer</strong>&nbsp;: désactive le mod, retire ses sauvegardes, l'enlève de la liste et enregistre. <span class="badge pro">—</span> <strong>irréversible</strong>, une confirmation est demandée.</li>
+            <li>La zone de texte de droite récapitule les actions planifiées&nbsp;: « Activer&nbsp;: X » (vert), « Désactiver&nbsp;: Y » (rouge).</li>
+        </ul>
+
+        <div class="callout warn">
+            <span class="callout-title">Activation « immédiate » ou « planifiée »&nbsp;?</span>
+            <p>
+                <em>Enable/Disable</em> et le double-clic agissent <strong>tout de suite</strong>
+                sur les fichiers. Les listes « à activer / à désactiver » ne sont exécutées
+                qu'au moment où vous cliquez sur <strong>VR</strong> ou <strong>2D</strong> —
+                d'abord les désactivations, puis les activations.
+            </p>
+        </div>
+
+        <h2>Que fait le déploiement d'un mod</h2>
+        <ol class="steps">
+            <li>Le sous-dossier <code>root</code> du mod est copié vers le répertoire d'installation de DCS. Si <code>backup</code> est actif, chaque fichier écrasé est d'abord copié dans un dossier <code>&lt;root&gt;.BAK</code> du mod.</li>
+            <li>Le sous-dossier <code>saveGames</code> du mod est copié vers <em>Saved&nbsp;Games</em>, avec la même logique de sauvegarde vers <code>&lt;saveGames&gt;.BAK</code>.</li>
+            <li>L'état <code>enabled</code> du mod est inversé et le <code>manifest.xml</code> est réécrit.</li>
+        </ol>
+
+        <h3>Que fait le retrait d'un mod</h3>
+        <ol class="steps">
+            <li>Les fichiers du mod présents aux emplacements de destination sont supprimés.</li>
+            <li>Si une sauvegarde <code>.BAK</code> existe, les fichiers d'origine sont restaurés.</li>
+            <li>Les dossiers devenus vides sont supprimés.</li>
+            <li>L'état <code>enabled</code> repasse à « non » et le <code>manifest.xml</code> est réécrit.</li>
+        </ol>
+
+        <h2>Éditeur de mod</h2>
+        <p>Ouvert par <strong>Modifier</strong> ou par le menu, il permet de régler&nbsp;:</p>
+        <ul>
+            <li><strong>Répertoire Root</strong> et <strong>Répertoire Partie enregistrée</strong> (SaveGames), avec sélecteur de dossier — les chemins sont mémorisés relativement au dossier du mod.</li>
+            <li>Cases <strong>sauvegarde</strong> pour Root et pour SaveGames.</li>
+            <li><strong>Description</strong> et <strong>Version</strong>.</li>
+            <li><strong>Incompatibilités</strong>&nbsp;: liste à cocher des autres mods incompatibles.</li>
+            <li><strong>Associer ce mod aux configurations</strong>&nbsp;: cocher les configurations pour lesquelles ce mod doit être actif (met à jour la liste « Mods associés » de chaque configuration).</li>
+        </ul>
+        <p>À la validation, le <code>manifest.xml</code> du mod et le fichier <code>config-ecrans.xml</code> sont réécrits.</p>
+
+        <h2>Incompatibilités</h2>
+        <p>
+            Lorsque vous activez un mod déclaré incompatible avec un mod déjà actif,
+            l'application le signale et propose de <strong>désactiver</strong> les mods en
+            conflit avant de poursuivre. Le calcul des actions planifiées d'une configuration
+            tient aussi compte des incompatibilités&nbsp;: si un mod à activer est en conflit
+            avec un mod actif ou avec un autre candidat, la désactivation de ce dernier est
+            planifiée.
+        </p>
+
+        <h2>Mise à jour de DCS et mods</h2>
+        <p>
+            Avant une mise à jour de DCS, il est recommandé de <strong>désactiver les mods</strong>
+            qui touchent l'installation, pour éviter que le programme de mise à jour ne détecte
+            des fichiers modifiés. Réactivez-les ensuite via la configuration.
+        </p>
+
+        <div class="pager">
+            <a class="prev" href="ecrans.html"><span>Précédent</span>← Gestion des écrans</a>
+            <a class="next" href="lancement.html"><span>Suite</span>Lancer DCS World →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

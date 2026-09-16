@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>L'éditeur de configuration — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html" class="active">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Prise en main › L'éditeur de configuration</div>
+        <h1>L'éditeur de configuration</h1>
+
+        <p>
+            On y accède par le lien <strong>Configurer</strong> de la barre d'outils (ou
+            automatiquement au premier lancement). L'éditeur travaille sur une
+            <strong>copie</strong> du modèle&nbsp;: rien n'est écrit tant que vous ne cliquez pas
+            sur <strong>Save</strong>. La fenêtre est organisée en <em>maître&nbsp;/&nbsp;détail</em>&nbsp;:
+            la liste des configurations à gauche, le panneau d'édition à droite.
+        </p>
+
+        <h2>Réglages globaux</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Champ</th><th>Comment le renseigner</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Répertoire de configurations</strong></td><td>Dossier qui recevra <code>config-ecrans.xml</code>. En premier lancement, il est pré-rempli avec le dossier de l'exécutable ou vos <em>Documents</em>.</td></tr>
+                <tr><td><strong>Répertoire DCS</strong></td><td><strong>Double-cliquez</strong> le champ pour ouvrir un sélecteur de dossier. Pointez le dossier d'installation de DCS.</td></tr>
+                <tr><td><strong>Répertoire DCS&nbsp;Save</strong></td><td><strong>Double-cliquez</strong> le champ pour parcourir. Pointez le dossier <em>Saved&nbsp;Games</em> de DCS.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>Liste des configurations</h2>
+        <ul>
+            <li><strong>Nouvelle configuration</strong>&nbsp;: demande un nom (clé unique) et crée une configuration vide.</li>
+            <li><strong>Renommer</strong>&nbsp;: change la clé (le sous-dossier existant n'est pas déplacé).</li>
+            <li><strong>Supprimer</strong>&nbsp;: retire la configuration du modèle après confirmation (ne supprime pas le sous-dossier sur le disque).</li>
+            <li>Le passage d'une configuration à l'autre enregistre automatiquement les modifications en cours sur le profil que vous quittez.</li>
+        </ul>
+
+        <h2>Panneau d'édition d'une configuration</h2>
+
+        <h3>Général</h3>
+        <ul>
+            <li><strong>Clé</strong>&nbsp;: en lecture seule (utilisez <em>Renommer</em>).</li>
+            <li><strong>Fichier options</strong>, <strong>Configuration moniteur</strong>, <strong>Script d'export</strong>&nbsp;: bouton <em>Parcourir</em>. Si le fichier choisi est sous <code>ConfigRep\&lt;Clé&gt;</code>, seul son nom relatif est mémorisé.</li>
+        </ul>
+
+        <h3>Grille « Fichiers DCS » (Mainfiles)</h3>
+        <p>Fichiers à copier depuis <code>ConfigRep\&lt;Clé&gt;</code> vers l'installation de DCS.</p>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Source</strong></td><td>Fichier relatif au sous-dossier de la configuration. Bouton <em>…</em> pour parcourir.</td></tr>
+                <tr><td><strong>Destination</strong></td><td>Chemin (relatif au répertoire DCS) où copier le fichier. Bouton <em>…</em> pour parcourir.</td></tr>
+                <tr><td><strong>Force</strong></td><td>Écrase le fichier de destination s'il existe.</td></tr>
+                <tr><td><strong>Backup</strong></td><td>Fait une copie horodatée avant d'écraser.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>Boutons <em>Ajouter&nbsp;/&nbsp;Supprimer&nbsp;/&nbsp;Monter&nbsp;/&nbsp;Descendre</em> pour gérer l'ordre.</p>
+
+        <h3>Grille « Lancements » (LaunchCommands)</h3>
+        <p>Programmes ou scripts à démarrer avec DCS.</p>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Champ</th><th>Signification</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Command</strong></td><td>Chemin de l'exécutable ou du script. Bouton <em>…</em> (filtre <code>*.exe</code>).</td></tr>
+                <tr><td><strong>runtimeTag</strong></td><td>Quand lancer&nbsp;: <code>all</code> (toujours), <code>2D</code> (uniquement au démarrage 2D), <code>VR</code> (uniquement en VR). Les valeurs déjà présentes dans le fichier sont proposées en plus.</td></tr>
+                <tr><td><strong>Répertoire de travail</strong></td><td>Dossier de démarrage du programme (panneau <em>Détails</em>, bouton <em>Parcourir</em>).</td></tr>
+                <tr><td><strong>Param&nbsp;1 à 9</strong></td><td>Arguments passés au programme (panneau <em>Détails</em>).</td></tr>
+                <tr><td><strong>needAdminRights</strong></td><td>Attribut du fichier XML&nbsp;: exécute le programme avec élévation de privilèges.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="callout tip">
+            <span class="callout-title">Exemples de lancements courants</span>
+            <p>
+                DCS-SRS (client radio), SimApp&nbsp;Pro (Winwing), VoiceAttack, un script
+                <code>.bat</code> qui bascule une sortie audio, l'application de son cockpit,
+                etc. Mettez <code>runtimeTag = VR</code> sur ce qui n'a de sens qu'en réalité
+                virtuelle.
+            </p>
+        </div>
+
+        <h3>Onglet « Écrans »</h3>
+        <p>
+            Voir la page dédiée <a href="ecrans.html">Gestion des écrans</a>. En résumé&nbsp;:
+            grille des écrans (index, <em>deviceName</em>, <em>HwId</em>, <em>primary</em>,
+            <em>orientation</em>, largeur, hauteur, position X/Y) et bouton
+            <strong>Import moniteurs</strong> qui récupère la géométrie des affichages Windows.
+            <span class="badge lite">LITE</span> ces valeurs sont enregistrées mais non
+            appliquées&nbsp;; <span class="badge pro">PRO</span> elles pilotent la disposition du
+            bureau.
+        </p>
+
+        <h3>Onglet « Helios »</h3>
+        <ul>
+            <li><strong>Case « actif »</strong>&nbsp;: si décochée, aucun bloc Helios n'est enregistré pour la configuration.</li>
+            <li><strong>runtimeTag</strong>&nbsp;: mode dans lequel Helios est concerné.</li>
+            <li><strong>Dossier de profils</strong>&nbsp;: répertoire des profils Helios (bouton <em>Parcourir</em>).</li>
+            <li><strong>Control&nbsp;Center</strong>&nbsp;: exécutable de Helios Control Center.</li>
+            <li><strong>Fichier de profil</strong>&nbsp;: profil <code>.hpf</code> à utiliser.</li>
+        </ul>
+
+        <h3>Onglet « Mods associés »</h3>
+        <p>
+            Liste à cases à cocher des mods détectés dans le dossier de mods. Cochez ceux qui
+            doivent être <strong>actifs</strong> pour cette configuration. À la sélection de la
+            configuration dans la fenêtre principale, l'application planifie l'activation des
+            mods cochés manquants et la désactivation des mods actifs non cochés (en tenant
+            compte des incompatibilités déclarées). Voir <a href="mods.html">Gestion des mods</a>.
+        </p>
+
+        <h2>Valider et enregistrer</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Bouton</th><th>Action</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Valider</strong></td><td>Applique le panneau courant, supprime les lignes vides et contrôle le modèle par rapport au schéma <code>config-ecrans.xsd</code>. N'écrit rien. Affiche la liste des erreurs le cas échéant.</td></tr>
+                <tr><td><strong>Save</strong></td><td>Valide puis écrit <code>config-ecrans.xml</code> (copie <code>.bak</code> horodatée de l'ancien), crée et initialise les sous-dossiers des nouvelles configurations. Au premier lancement, génère aussi le bloc <code>&lt;dcs&gt;</code> et vérifie les exécutables DCS.</td></tr>
+                <tr><td><strong>Fermer</strong></td><td>Abandonne les modifications. Si des changements sont en attente, une confirmation est demandée.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="callout danger">
+            <span class="callout-title">Configuration non conforme</span>
+            <p>
+                Si la validation échoue, <strong>rien n'est enregistré</strong>. La boîte
+                d'erreurs peut être copiée dans le presse-papiers pour analyse. Corrigez les
+                points signalés (souvent un chemin obligatoire vide ou un attribut manquant sur
+                un écran) puis réessayez.
+            </p>
+        </div>
+
+        <div class="pager">
+            <a class="prev" href="configurations.html"><span>Précédent</span>← Les configurations</a>
+            <a class="next" href="ecrans.html"><span>Suite</span>Gestion des écrans →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

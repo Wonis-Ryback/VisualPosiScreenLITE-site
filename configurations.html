@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les configurations — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html" class="active">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Prise en main › Les configurations</div>
+        <h1>Les configurations</h1>
+
+        <p>
+            Une <strong>configuration</strong> (élément <code>&lt;config&gt;</code> du fichier
+            <code>config-ecrans.xml</code>) est un profil complet de préparation d'une session
+            DCS. Vous en créez autant que de contextes de jeu.
+        </p>
+
+        <h2>Ce que contient une configuration</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Élément</th><th>Description</th><th>Obligatoire</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Clé</strong> (nom)</td><td>Identifiant affiché dans la liste déroulante. Sert aussi de nom de sous-dossier dans le répertoire de configurations.</td><td>Oui</td></tr>
+                <tr><td><strong>Fichier options</strong></td><td>Nom du fichier <code>options.lua</code> propre à cette configuration, copié dans <code>Saved&nbsp;Games\Config\options.lua</code> au lancement.</td><td>Recommandé</td></tr>
+                <tr><td><strong>Configuration moniteur</strong></td><td>Nom du fichier de configuration moniteur de DCS, copié dans <code>Saved&nbsp;Games\Config\</code> au lancement.</td><td>Recommandé</td></tr>
+                <tr><td><strong>Script d'export</strong></td><td>Fichier <code>Export.lua</code> à installer dans <code>Saved&nbsp;Games\Scripts\</code> (l'ancien est sauvegardé avec un horodatage).</td><td>Non</td></tr>
+                <tr><td><strong>Fichiers DCS</strong> (Mainfiles)</td><td>Liste de fichiers à copier depuis le sous-dossier de la configuration vers l'installation de DCS, avec options « forcer » et « sauvegarde ».</td><td>Non</td></tr>
+                <tr><td><strong>Lancements</strong> (LaunchCommands)</td><td>Programmes/scripts compagnons à démarrer, filtrables par mode (<code>all</code>, <code>2D</code>, <code>VR</code>).</td><td>Non</td></tr>
+                <tr><td><strong>Helios</strong></td><td>Bloc optionnel&nbsp;: dossier de profils, Control&nbsp;Center, fichier de profil.</td><td>Non</td></tr>
+                <tr><td><strong>Écrans</strong></td><td>Liste d'écrans (géométrie, écran principal, orientation). <span class="badge lite">LITE</span> saisie documentaire&nbsp;; <span class="badge pro">PRO</span> appliquée au bureau Windows.</td><td>Non</td></tr>
+                <tr><td><strong>Mods associés</strong></td><td>Noms des mods à activer automatiquement quand la configuration est sélectionnée (les autres mods actifs non listés sont planifiés pour désactivation).</td><td>Non</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>Arborescence des dossiers</h2>
+        <p>Une organisation typique ressemble à ceci&nbsp;:</p>
+        <pre><code>C:\Users\vous\Saved Games\Posiscreen\        &lt;-- Répertoire de configurations (ConfigRep)
+│
+├─ config-ecrans.xml                         &lt;-- fichier maître (toutes les configurations)
+├─ last_run.xml                              &lt;-- mémoire du dernier lancement
+│
+├─ Solo VR\                                  &lt;-- sous-dossier = clé de la configuration
+│   ├─ options.lua
+│   ├─ MonitorSetup-1cam.lua
+│   └─ Export.lua
+│
+├─ Multi 2D\
+│   ├─ options.lua
+│   └─ MonitorSetup-3ecrans.lua
+│
+├─ Cockpit Helios\
+│   ├─ options.lua
+│   └─ MonitorSetup-helios.lua
+│
+└─ Mods\                                     &lt;-- dossier des mods (élément &lt;mod Folder="Mods"&gt;)
+    ├─ ESCA_FA18\
+    │   └─ manifest.xml
+    └─ CustomCockpit\
+        └─ manifest.xml</code></pre>
+
+        <div class="callout note">
+            <span class="callout-title">Chemins relatifs</span>
+            <p>
+                Dans l'éditeur, les noms de fichiers d'une configuration (options, moniteur,
+                export, sources des Mainfiles) sont enregistrés <strong>relativement</strong> au
+                sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> quand le fichier choisi s'y trouve.
+                Gardez donc les fichiers d'une configuration dans son propre sous-dossier.
+            </p>
+        </div>
+
+        <h2>Cycle de vie</h2>
+        <ol class="steps">
+            <li><strong>Création</strong>&nbsp;: dans l'éditeur, bouton <em>Nouvelle configuration</em>, vous saisissez la clé.</li>
+            <li><strong>Initialisation des dossiers</strong>&nbsp;: à l'enregistrement, si le sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> n'existe pas, il est créé et l'application y copie l'<code>Options.lua</code> et le fichier de configuration moniteur actuellement en place dans DCS, renommés d'après la configuration. Les configurations déjà installées (dossier présent) ne sont pas modifiées.</li>
+            <li><strong>Personnalisation</strong>&nbsp;: vous ajustez le contenu du sous-dossier (préparez chaque <code>options.lua</code> avec les réglages DCS voulus) et complétez l'éditeur (Mainfiles, lancements, mods, Helios, écrans).</li>
+            <li><strong>Utilisation</strong>&nbsp;: vous sélectionnez la configuration dans la fenêtre principale et vous lancez en 2D ou VR.</li>
+            <li><strong>Renommage / suppression</strong>&nbsp;: possibles dans l'éditeur. Le renommage ne déplace pas le sous-dossier existant&nbsp;; adaptez-le si besoin.</li>
+        </ol>
+
+        <h2>Le fichier <code>last_run.xml</code></h2>
+        <p>
+            À chaque lancement, l'application écrit dans <code>ConfigRep\last_run.xml</code>&nbsp;:
+            la dernière configuration utilisée, la version de DCS au moment du lancement et la
+            date du fichier <code>Options.lua</code> de la configuration. Au démarrage suivant,
+            la dernière configuration est resélectionnée automatiquement.
+        </p>
+
+        <h2>Réglages globaux (communs à toutes les configurations)</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Réglage</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><strong>ConfigRep</strong></td><td>Dossier contenant <code>config-ecrans.xml</code>, les sous-dossiers de configurations et le dossier des mods.</td></tr>
+                <tr><td><strong>DcsPath</strong></td><td>Dossier d'installation de DCS (contient <code>bin\dcs.exe</code>).</td></tr>
+                <tr><td><strong>DcsSavePath</strong></td><td>Dossier <em>Saved&nbsp;Games</em> de DCS (contient <code>Config\</code>, <code>Scripts\</code>, <code>Missions\</code>, <code>Tracks\</code>).</td></tr>
+                <tr><td><strong>Bloc <code>&lt;dcs&gt;</code></strong></td><td>Profils de démarrage (2D / VR), entrée de mise à jour, réglages Trk⇒miz, dossier des mods. Généré au premier enregistrement, modifiable dans le XML.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <div class="pager">
+            <a class="prev" href="interface.html"><span>Précédent</span>← La fenêtre principale</a>
+            <a class="next" href="parametrage.html"><span>Suite</span>L'éditeur de configuration →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fichier config-ecrans.xml — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html" class="active">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Référence › Fichier config-ecrans.xml</div>
+        <h1>Fichier <code>config-ecrans.xml</code></h1>
+
+        <p>
+            Toute la configuration tient dans un fichier XML unique, généralement
+            <code>ConfigRep\config-ecrans.xml</code>. Il est validé contre le schéma
+            <code>config-ecrans.xsd</code> à chaque enregistrement par l'éditeur. Vous pouvez
+            l'éditer à la main (l'éditeur en fait une sauvegarde <code>.bak</code> horodatée
+            avant réécriture), mais gardez-le conforme.
+        </p>
+
+        <h2>Squelette</h2>
+        <pre><code>&lt;posiscreen configRep="C:\Users\vous\Saved Games\Posiscreen"&gt;
+
+  &lt;dcs&gt;
+    &lt;build num="MT-VR" tag="VR" threading="MT"&gt;
+      &lt;name&gt;DCS MT VR&lt;/name&gt;
+      &lt;command&gt;C:\Program Files\DCS World\bin\dcs.exe&lt;/command&gt;
+      &lt;params&gt;
+        &lt;param&gt;--force_enable_VR&lt;/param&gt;
+        &lt;param&gt;--force_OpenXR&lt;/param&gt;
+      &lt;/params&gt;
+    &lt;/build&gt;
+    &lt;build num="MT-2D" tag="2D" threading="MT"&gt;
+      &lt;name&gt;DCS MT 2D&lt;/name&gt;
+      &lt;command&gt;C:\Program Files\DCS World\bin\dcs.exe&lt;/command&gt;
+      &lt;params&gt;
+        &lt;param&gt;--force_no_VR&lt;/param&gt;
+      &lt;/params&gt;
+    &lt;/build&gt;
+
+    &lt;update name="Update DCS"
+            command="C:\Program Files\DCS World\bin\DCS_updater.exe"
+            noUpdateDelay="2500" needUpdateDelay="8000" removeshadder="true" /&gt;
+
+    &lt;trkmiz KeepTimeStamp="true" MissionFolder="Missions" Prefill="true"&gt;
+      &lt;exclude&gt;Scripts&lt;/exclude&gt;
+      &lt;exclude&gt;track_data&lt;/exclude&gt;
+      &lt;exclude&gt;track&lt;/exclude&gt;
+      &lt;exclude&gt;Config&lt;/exclude&gt;
+    &lt;/trkmiz&gt;
+
+    &lt;mod Folder="Mods" /&gt;
+  &lt;/dcs&gt;
+
+  &lt;dcssavepath&gt;C:\Users\vous\Saved Games\DCS&lt;/dcssavepath&gt;
+  &lt;dcspath&gt;C:\Program Files\DCS World&lt;/dcspath&gt;
+
+  &lt;config key="Solo VR"&gt;
+    &lt;dcsOptionsSetupFile&gt;options.lua&lt;/dcsOptionsSetupFile&gt;
+    &lt;dcsMonitorConfig&gt;MonitorSetup-1cam.lua&lt;/dcsMonitorConfig&gt;
+    &lt;dcsCustomExportScript&gt;Export.lua&lt;/dcsCustomExportScript&gt;
+
+    &lt;dcsMainFile source="mods\extra.lua"
+                 destination="Config\extra.lua" force="true" backup="true" /&gt;
+
+    &lt;launchCommand runtimeTag="all"
+                   workingdir="C:\Program Files\DCS-SRS"
+                   needAdminRights="false"&gt;C:\Program Files\DCS-SRS\SR-ClientRadio.exe&lt;/launchCommand&gt;
+
+    &lt;Helios runtimeTag="2D"
+            profiledir="C:\Users\vous\Documents\Helios"
+            controlcenter="C:\Program Files\Helios\ControlCenter.exe"&gt;MonProfil.hpf&lt;/Helios&gt;
+
+    &lt;ecran index="1" deviceName="\\.\DISPLAY1" HwId="MONITOR\ABC1234" primary="true" orientation="Default"&gt;
+      &lt;width&gt;2560&lt;/width&gt;
+      &lt;height&gt;1440&lt;/height&gt;
+      &lt;pos_X&gt;0&lt;/pos_X&gt;
+      &lt;pos_Y&gt;0&lt;/pos_Y&gt;
+      &lt;oldPos_X&gt;0&lt;/oldPos_X&gt;
+      &lt;oldPos_Y&gt;0&lt;/oldPos_Y&gt;
+    &lt;/ecran&gt;
+
+    &lt;mods&gt;
+      &lt;mod&gt;ESCA_FA18&lt;/mod&gt;
+    &lt;/mods&gt;
+  &lt;/config&gt;
+
+&lt;/posiscreen&gt;</code></pre>
+
+        <h2>Élément racine <code>&lt;posiscreen&gt;</code></h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut / enfant</th><th>Type</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>@configRep</code></td><td>texte, requis</td><td>Dossier de configurations (contient ce fichier, les sous-dossiers de configurations et le dossier des mods).</td></tr>
+                <tr><td><code>&lt;dcs&gt;</code></td><td>bloc</td><td>Réglages techniques communs (voir ci-dessous).</td></tr>
+                <tr><td><code>&lt;dcssavepath&gt;</code></td><td>texte</td><td>Dossier <em>Saved&nbsp;Games</em> de DCS.</td></tr>
+                <tr><td><code>&lt;dcspath&gt;</code></td><td>texte</td><td>Dossier d'installation de DCS.</td></tr>
+                <tr><td><code>&lt;config&gt;</code></td><td>1..n</td><td>Une configuration (profil). Au moins une requise.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>Bloc <code>&lt;dcs&gt;</code></h2>
+
+        <h3><code>&lt;build&gt;</code> — profil de démarrage (0..n)</h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut / enfant</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>@num</code> (requis)</td><td>Identifiant du profil.</td></tr>
+                <tr><td><code>@tag</code> (requis)</td><td><code>2D</code> ou <code>VR</code> — sélectionné par le bouton de lancement correspondant.</td></tr>
+                <tr><td><code>@threading</code></td><td><code>MT</code> pour le moteur multi-thread de DCS.</td></tr>
+                <tr><td><code>@wait</code>, <code>@needAdminRights</code></td><td>Booléens optionnels.</td></tr>
+                <tr><td><code>&lt;name&gt;</code></td><td>Libellé lisible.</td></tr>
+                <tr><td><code>&lt;command&gt;</code></td><td>Chemin de <code>dcs.exe</code>.</td></tr>
+                <tr><td><code>&lt;params&gt;/&lt;param&gt;</code></td><td>Arguments de ligne de commande passés à DCS.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3><code>&lt;update&gt;</code> — mise à jour DCS (0..n)</h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>@name</code> (requis)</td><td>Libellé.</td></tr>
+                <tr><td><code>@command</code> (requis)</td><td>Chemin de <code>DCS_updater.exe</code>.</td></tr>
+                <tr><td><code>@noUpdateDelay</code> / <code>@needUpdateDelay</code></td><td>Délais (ms) utilisés par la logique de mise à jour.</td></tr>
+                <tr><td><code>@removeshadder</code></td><td>Purge le cache de shaders (<code>fxo</code>, <code>metashaders2</code>) après la mise à jour.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3><code>&lt;trkmiz&gt;</code> — réglages Trk⇒miz (0..1)</h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut / enfant</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>@KeepTimeStamp</code></td><td>Conserver l'horodatage dans le nom du fichier généré.</td></tr>
+                <tr><td><code>@MissionFolder</code></td><td>Dossier des missions (relatif à <em>Saved&nbsp;Games</em>), ex. <code>Missions</code>.</td></tr>
+                <tr><td><code>@Prefill</code></td><td>Proposer automatiquement le nom du <code>.miz</code>.</td></tr>
+                <tr><td><code>&lt;exclude&gt;</code> (0..n)</td><td>Entrées à retirer de l'archive lors de la conversion.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3><code>&lt;mod Folder="…"/&gt;</code></h3>
+        <p>Dossier racine des mods, relatif au répertoire de configurations (souvent <code>Mods</code>).</p>
+
+        <h2>Élément <code>&lt;config&gt;</code></h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut / enfant</th><th>Cardinalité</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>@key</code></td><td>requis</td><td>Nom de la configuration = nom du sous-dossier.</td></tr>
+                <tr><td><code>&lt;dcsOptionsSetupFile&gt;</code></td><td>0..1</td><td>Nom du <code>options.lua</code> à copier dans <code>Config\options.lua</code>.</td></tr>
+                <tr><td><code>&lt;dcsMonitorConfig&gt;</code></td><td>0..1</td><td>Nom du fichier de configuration moniteur à copier dans <code>Config\</code>.</td></tr>
+                <tr><td><code>&lt;dcsCustomExportScript&gt;</code></td><td>0..1</td><td>Fichier <code>Export.lua</code> à installer dans <code>Scripts\</code> (l'existant est sauvegardé, horodaté).</td></tr>
+                <tr><td><code>&lt;dcsMainFile&gt;</code></td><td>0..n</td><td>Copie de fichier&nbsp;: <code>@source</code>, <code>@destination</code> (requis), <code>@force</code>, <code>@backup</code>.</td></tr>
+                <tr><td><code>&lt;launchCommand&gt;</code></td><td>0..n</td><td>Programme compagnon (texte = chemin)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@workingdir</code>, <code>@needAdminRights</code>, <code>@param1</code>…<code>@param9</code>.</td></tr>
+                <tr><td><code>&lt;Helios&gt;</code></td><td>0..1</td><td>texte = fichier de profil&nbsp;: <code>@runtimeTag</code>, <code>@profiledir</code>, <code>@controlcenter</code>.</td></tr>
+                <tr class="pro-row"><td><code>&lt;ecran&gt;</code></td><td>0..n</td><td>Écran (voir <a href="ecrans.html">Gestion des écrans</a>)&nbsp;: <code>@index</code>, <code>@deviceName</code>, <code>@HwId</code> (requis), <code>@primary</code>, <code>@orientation</code>, enfants <code>width</code>, <code>height</code>, <code>pos_X</code>, <code>pos_Y</code>, <code>oldPos_X</code>, <code>oldPos_Y</code>. <span class="badge pro">PRO</span> appliqué&nbsp;; <span class="badge lite">LITE</span> documentaire.</td></tr>
+                <tr><td><code>&lt;mods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods à activer automatiquement pour cette configuration.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2><code>manifest.xml</code> d'un mod</h2>
+        <pre><code>&lt;mod name="ESCA_FA18" version="2.0"&gt;
+  &lt;status enabled="false" /&gt;
+  &lt;description&gt;Cockpit F/A-18 personnalisé&lt;/description&gt;
+  &lt;root backup="true"&gt;root&lt;/root&gt;
+  &lt;saveGames backup="true"&gt;savegames&lt;/saveGames&gt;
+  &lt;incompatibleMods&gt;
+    &lt;mod&gt;AutreCockpitHornet&lt;/mod&gt;
+  &lt;/incompatibleMods&gt;
+&lt;/mod&gt;</code></pre>
+        <ul>
+            <li><code>&lt;root&gt;</code>&nbsp;: sous-dossier copié vers l'installation de DCS (<code>@backup</code>&nbsp;: sauver les fichiers écrasés dans <code>root.BAK</code>).</li>
+            <li><code>&lt;saveGames&gt;</code>&nbsp;: sous-dossier copié vers <em>Saved&nbsp;Games</em> (<code>@backup</code>&nbsp;: <code>savegames.BAK</code>).</li>
+            <li><code>&lt;status enabled&gt;</code>&nbsp;: géré par l'application.</li>
+        </ul>
+
+        <h2><code>last_run.xml</code></h2>
+        <pre><code>&lt;LastRun&gt;
+  &lt;LastConfig&gt;Solo VR&lt;/LastConfig&gt;
+  &lt;LastVersion&gt;2.9.x.xxxxx&lt;/LastVersion&gt;
+  &lt;LastOptionConfigDate&gt;03/09/2026 21:14:07&lt;/LastOptionConfigDate&gt;
+&lt;/LastRun&gt;</code></pre>
+        <p>Écrit à chaque lancement dans <code>ConfigRep\last_run.xml</code>. Sert à resélectionner la dernière configuration au démarrage.</p>
+
+        <div class="pager">
+            <a class="prev" href="outils.html"><span>Précédent</span>← Outils intégrés</a>
+            <a class="next" href="faq.html"><span>Suite</span>FAQ &amp; dépannage →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

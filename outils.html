@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Outils intégrés — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html" class="active">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Fonctions › Outils intégrés</div>
+        <h1>Outils intégrés</h1>
+
+        <h2>Suivi de la version de DCS</h2>
+        <p>Dans le cadre <em>Version DCS</em> de la fenêtre principale&nbsp;:</p>
+        <ul>
+            <li><strong>Version installée</strong>&nbsp;: lue dans <code>bin\dcs.exe</code>.</li>
+            <li><strong>Version en ligne</strong>&nbsp;: récupérée sur le serveur de mise à jour de DCS. « À&nbsp;jour » si elle correspond, sinon le numéro disponible s'affiche en rouge et le bouton <strong>M.a.J</strong> devient actif.</li>
+            <li><strong>M.a.J</strong>&nbsp;: lance <code>DCS_updater.exe</code> (avec élévation). Désactivez d'abord les mods qui touchent l'installation.</li>
+            <li><strong>Notes de version</strong>&nbsp;: ouvre le <em>changelog</em> officiel dans le navigateur.</li>
+            <li><strong>Effacer FXO</strong>&nbsp;: vide <code>Saved&nbsp;Games\fxo</code> et <code>Saved&nbsp;Games\metashaders2</code> (cache de shaders). À faire après une mise à jour de DCS ou de pilote graphique si vous constatez des artefacts.</li>
+        </ul>
+
+        <h2>Informations carte graphique</h2>
+        <ul>
+            <li>Détection automatique du fabricant (NVIDIA / AMD / Intel), modèle, VRAM, version de pilote.</li>
+            <li><strong>NVIDIA</strong>&nbsp;: comparaison automatique avec la dernière version connue&nbsp;; message « à jour » (vert) ou « nouveau pilote disponible » (orange) avec lien.</li>
+            <li><strong>AMD / Intel</strong>&nbsp;: lien direct vers la page pilote du fabricant.</li>
+            <li>Les liens s'ouvrent dans le navigateur par défaut d'un simple clic.</li>
+        </ul>
+
+        <h2>Comparaison d'<code>options.lua</code></h2>
+        <p>
+            Bouton <strong>Comparer</strong> de la barre d'outils. Compare&nbsp;:
+        </p>
+        <ul>
+            <li><strong>à gauche</strong>&nbsp;: <code>ConfigRep\&lt;dernière config&gt;\Options.lua</code>&nbsp;;</li>
+            <li><strong>à droite</strong>&nbsp;: <code>DcsSavePath\Config\Options.lua</code> (celui utilisé par DCS).</li>
+        </ul>
+        <p>
+            La comparaison est <strong>structurée</strong> (analyse de la table Lua, pas une
+            simple différence de texte)&nbsp;: elle liste les clés absentes d'un côté ou de
+            l'autre, les types différents et les valeurs différentes. Si les deux fichiers sont
+            équivalents, un message le confirme. Sinon, une fenêtre affiche les écarts et permet
+            de <strong>reporter</strong> le fichier de DCS vers celui de la configuration.
+        </p>
+        <div class="callout tip">
+            <span class="callout-title">Usage typique</span>
+            <p>
+                Vous avez peaufiné des réglages graphiques <em>dans</em> DCS pendant une
+                session. De retour dans VisualPosiScreen&nbsp;LITE, <strong>Comparer</strong>
+                vous montre ce qui a changé et vous propose de sauvegarder ces réglages dans la
+                configuration pour les conserver.
+            </p>
+        </div>
+
+        <h2>Trk⇒miz — conversion de <em>tracks</em> en missions</h2>
+        <p>
+            Bouton <strong>Trk⇒miz</strong> de la barre d'outils. Un fichier <em>track</em>
+            <code>.trk</code> (un <em>replay</em> enregistré) est en réalité une archive contenant
+            la mission plus des données de <em>replay</em>. Cet outil recrée un <code>.miz</code>
+            jouable en <strong>retirant</strong> les éléments de <em>replay</em>.
+        </p>
+
+        <h3>Disposition de la fenêtre</h3>
+        <ul>
+            <li><strong>Liste des tracks</strong>&nbsp;: fichiers de <code>Saved&nbsp;Games\Tracks\Multiplayer</code>, du plus récent au plus ancien, avec cases à cocher.</li>
+            <li><strong>Arborescence des missions</strong>&nbsp;: le dossier <em>Missions</em> de DCS&nbsp;; sélectionnez le nœud pour définir le <strong>dossier cible</strong>.</li>
+            <li><strong>Options</strong>&nbsp;:
+                <ul>
+                    <li><em>Garder l'horodatage</em>&nbsp;: conserve (ou retire) le suffixe date/heure dans le nom généré.</li>
+                    <li><em>Prefill</em>&nbsp;: propose automatiquement le nom du fichier mission à partir du <em>track</em> sélectionné.</li>
+                    <li><em>Supprimer le track</em> après conversion.</li>
+                </ul>
+            </li>
+            <li><strong>File d'attente</strong>&nbsp;: liste des conversions à effectuer (colonnes horodatage, suppression, source, cible).</li>
+        </ul>
+
+        <h3>Deux modes de conversion</h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Situation</th><th>Comportement du bouton « Convertir »</th></tr></thead>
+            <tbody>
+                <tr><td><strong>File d'attente vide</strong></td><td>Conversion unique&nbsp;: le <em>track</em> coché/sélectionné est converti vers le dossier cible et le nom de mission saisis dans les champs.</td></tr>
+                <tr><td><strong>File d'attente remplie</strong></td><td>Conversion par lot&nbsp;: chaque ligne de la file est convertie&nbsp;; les champs de saisie sont ignorés. Un bilan indique le nombre de fichiers convertis et d'échecs.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Éléments exclus</h3>
+        <p>
+            Lors de la conversion, les entrées correspondant aux exclusions Trk⇒miz du bloc
+            <code>&lt;dcs&gt;</code> sont retirées de l'archive (par défaut&nbsp;:
+            <code>Scripts</code>, <code>track_data</code>, <code>track</code>, <code>Config</code>).
+            Vous pouvez ajuster cette liste dans <code>config-ecrans.xml</code>.
+        </p>
+
+        <div class="callout warn">
+            <span class="callout-title">Sauvegardez vos tracks d'origine</span>
+            <p>
+                L'option <em>Supprimer le track après conversion</em> efface le fichier
+                <code>.trk</code> source. Ne l'activez que si vous n'en avez plus besoin.
+            </p>
+        </div>
+
+        <h2>Journal d'activité</h2>
+        <p>
+            L'icône « bug » de la barre d'outils ouvre la fenêtre de journal. Elle recense les
+            opérations effectuées (copies, déploiements de mods, lancements, mises à jour) et
+            les erreurs, avec leur origine. C'est la première chose à consulter quand une action
+            ne produit pas l'effet attendu.
+        </p>
+
+        <div class="pager">
+            <a class="prev" href="lancement.html"><span>Précédent</span>← Lancer DCS World</a>
+            <a class="next" href="reference-xml.html"><span>Suite</span>Fichier config-ecrans.xml →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

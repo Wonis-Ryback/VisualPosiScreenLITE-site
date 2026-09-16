@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQ &amp; dépannage — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html" class="active">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Référence › FAQ &amp; dépannage</div>
+        <h1>FAQ &amp; dépannage</h1>
+
+        <h2>Général</h2>
+
+        <h3>Quelle est la différence entre LITE et PRO&nbsp;?</h3>
+        <p>
+            Fonctionnellement, une seule&nbsp;: <strong>PRO gère le multi-écran au niveau de la
+            configuration</strong> et repositionne les moniteurs Windows (position, écran
+            principal, orientation) au changement de configuration, avec restauration en fin de
+            session. LITE enregistre la liste d'écrans à titre documentaire mais ne touche pas
+            au bureau. Tout le reste (configurations multiples, mods, lancements, Helios,
+            Trk⇒miz, suivi de version, comparaison d'<code>options.lua</code>, copie du fichier
+            de configuration moniteur DCS) est identique. Voir <a href="ecrans.html">Gestion des
+            écrans</a>.
+        </p>
+
+        <h3>Puis-je passer de LITE à PRO sans refaire ma configuration&nbsp;?</h3>
+        <p>
+            Oui. Le fichier <code>config-ecrans.xml</code> est commun. En PRO, complétez l'onglet
+            <em>Écrans</em> de vos configurations (notamment <code>HwId</code>) pour activer le
+            repositionnement.
+        </p>
+
+        <h2>Démarrage</h2>
+
+        <h3>L'éditeur de configuration s'ouvre à chaque lancement</h3>
+        <p>
+            L'application ne trouve pas de <code>config-ecrans.xml</code>. Renseignez et
+            enregistrez la configuration, ou lancez l'application en lui passant le chemin du
+            fichier en argument&nbsp;:
+        </p>
+        <pre><code>VisualPosiScreenLITE.exe "C:\Users\vous\Saved Games\Posiscreen\config-ecrans.xml"</code></pre>
+
+        <h3>Message « exécutables DCS introuvables » à l'enregistrement</h3>
+        <p>
+            Le <em>Répertoire DCS</em> ne pointe pas sur une installation valide&nbsp;: il doit
+            contenir <code>bin\dcs.exe</code> et <code>bin\DCS_updater.exe</code>. Corrigez le
+            chemin. Vous pouvez enregistrer malgré tout si vous savez que le chemin sera correct
+            plus tard.
+        </p>
+
+        <h3>« Impossible de charger la config XML »</h3>
+        <p>
+            Le fichier est absent ou corrompu. Restaurez la dernière sauvegarde
+            <code>config-ecrans.xml.AAAAMMJJ_HHMMSS.bak</code> présente dans le répertoire de
+            configurations.
+        </p>
+
+        <h2>Configuration</h2>
+
+        <h3>« Configuration non conforme — rien n'a été enregistré »</h3>
+        <p>
+            La validation contre le schéma a échoué. Causes fréquentes&nbsp;: un
+            <code>@destination</code> vide sur un <em>Fichier DCS</em>, un écran sans
+            <code>HwId</code>, un attribut requis manquant. La boîte d'erreurs est copiable
+            (bouton <em>Copier</em>)&nbsp;; corrigez les lignes citées puis
+            <strong>Valider</strong> à nouveau.
+        </p>
+
+        <h3>Mon <code>options.lua</code> n'est pas pris en compte en jeu</h3>
+        <ul>
+            <li>Vérifiez que le <em>Fichier options</em> de la configuration pointe bien sur le fichier présent dans <code>ConfigRep\&lt;Clé&gt;</code>.</li>
+            <li>Utilisez <strong>Comparer</strong> après le lancement pour voir si le fichier de DCS correspond.</li>
+            <li>Rappel&nbsp;: la copie a lieu au clic sur <strong>2D</strong>/<strong>VR</strong>, pas à la sélection de la configuration.</li>
+        </ul>
+
+        <h3>Le renommage d'une configuration a « perdu » ses fichiers</h3>
+        <p>
+            Le renommage ne déplace pas le sous-dossier sur le disque. Renommez manuellement
+            <code>ConfigRep\&lt;ancienne clé&gt;</code> en <code>ConfigRep\&lt;nouvelle clé&gt;</code>.
+        </p>
+
+        <h2>Écrans</h2>
+
+        <h3><span class="badge lite">LITE</span> J'ai rempli l'onglet Écrans mais rien ne bouge</h3>
+        <p>
+            Normal&nbsp;: en édition LITE, la liste d'écrans n'est pas appliquée au bureau
+            Windows. Réglez la disposition via Windows, ou passez à l'édition PRO.
+        </p>
+
+        <h3><span class="badge pro">PRO</span> Un écran n'est pas repositionné</h3>
+        <ul>
+            <li>Renseignez son <code>HwId</code> (l'import ne le fournit pas).</li>
+            <li>L'écran doit être <strong>actif</strong> dans Windows&nbsp;: un moniteur éteint ou désactivé ne peut pas être déplacé.</li>
+            <li>Certaines combinaisons pilote/GPU limitent le changement d'orientation à chaud.</li>
+        </ul>
+
+        <h2>Mods</h2>
+
+        <h3>Aucun mod n'apparaît</h3>
+        <p>
+            Le dossier des mods (<code>&lt;mod Folder="…"/&gt;</code>, relatif à
+            <code>ConfigRep</code>) est introuvable ou vide, ou les sous-dossiers n'ont pas de
+            <code>manifest.xml</code>. Voir <a href="mods.html">Gestion des mods</a>.
+        </p>
+
+        <h3>Un mod reste « rouge » après activation</h3>
+        <p>
+            Consultez le journal (icône « bug »). Causes possibles&nbsp;: chemins <code>root</code>
+            / <code>saveGames</code> du manifeste incorrects, dossiers source absents, droits
+            d'écriture insuffisants sur l'installation de DCS.
+        </p>
+
+        <h3>Conflit de mods au lancement</h3>
+        <p>
+            Un mod à activer est déclaré incompatible avec un mod actif. Acceptez la
+            désactivation proposée, ou revoyez les <em>Mods associés</em> de la configuration et
+            les <em>incompatibilités</em> dans l'éditeur de mod.
+        </p>
+
+        <h3>Avant une mise à jour de DCS</h3>
+        <p>
+            Désactivez les mods qui écrivent dans l'installation de DCS, lancez
+            <strong>M.a.J</strong>, puis réactivez-les via la configuration. Pensez à
+            <strong>Effacer FXO</strong> si des artefacts graphiques apparaissent après.
+        </p>
+
+        <h2>Lancement</h2>
+
+        <h3>DCS ne démarre pas au clic sur 2D / VR</h3>
+        <ul>
+            <li>Vérifiez <code>&lt;command&gt;</code> des <code>&lt;build&gt;</code> dans <code>config-ecrans.xml</code> (chemin de <code>dcs.exe</code>).</li>
+            <li>Il faut un <code>&lt;build&gt;</code> avec <code>tag="2D"</code> et un avec <code>tag="VR"</code>, tous deux <code>threading="MT"</code>.</li>
+            <li>Consultez le journal.</li>
+        </ul>
+
+        <h3>Un logiciel compagnon ne se lance pas</h3>
+        <p>
+            Vérifiez le chemin, le <em>répertoire de travail</em> et surtout le
+            <code>runtimeTag</code>&nbsp;: <code>VR</code> ne se déclenche qu'au bouton VR,
+            <code>2D</code> qu'au bouton 2D, <code>all</code> dans les deux cas.
+        </p>
+
+        <h3>La fenêtre se ferme toute seule</h3>
+        <p>
+            C'est le comportement attendu après un lancement (évite deux instances). Rouvrez
+            l'application pour changer de configuration.
+        </p>
+
+        <h2>Divers</h2>
+
+        <h3>La version « Online » est vide</h3>
+        <p>
+            Pas d'accès au serveur de mise à jour de DCS au démarrage. Sans incidence sur le
+            reste&nbsp;; le bouton <strong>M.a.J</strong> reste inactif.
+        </p>
+
+        <h3>Où sont les journaux&nbsp;?</h3>
+        <p>
+            Dans la fenêtre ouverte par l'icône « bug » de la barre d'outils. Consultez-la en
+            priorité pour toute action qui échoue silencieusement.
+        </p>
+
+        <h3>Puis-je gérer Stable et Open&nbsp;Beta en parallèle&nbsp;?</h3>
+        <p>
+            Oui&nbsp;: créez un <code>config-ecrans.xml</code> par installation (chacun avec ses
+            <code>dcspath</code> / <code>dcssavepath</code>) et un raccourci Windows par
+            installation, en passant le fichier voulu en argument.
+        </p>
+
+        <div class="pager">
+            <a class="prev" href="reference-xml.html"><span>Précédent</span>← Fichier config-ecrans.xml</a>
+            <a class="next" href="index.html"><span>Retour</span>Accueil →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gestion des écrans — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.0 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html" class="active">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Fonctions › Gestion des écrans</div>
+        <h1>Gestion des écrans</h1>
+
+        <p>
+            C'est le point qui distingue les deux éditions. Il faut d'abord bien séparer
+            <strong>deux niveaux</strong> de configuration d'affichage&nbsp;:
+        </p>
+
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Niveau</th><th>De quoi il s'agit</th><th>Qui le gère</th></tr></thead>
+            <tbody>
+                <tr>
+                    <td><strong>Configuration moniteur de DCS</strong></td>
+                    <td>Le fichier <em>MonitorSetup</em> de DCS qui répartit l'image (cockpit, MFCD, visée…) sur la surface d'affichage, à l'intérieur du jeu.</td>
+                    <td><span class="badge lite">LITE</span> et <span class="badge pro">PRO</span> — copié pour chaque configuration.</td>
+                </tr>
+                <tr class="pro-row">
+                    <td><strong>Disposition des écrans Windows</strong></td>
+                    <td>La position de chaque moniteur sur le bureau, l'écran principal, l'orientation — au niveau du système d'exploitation, avant même de lancer DCS.</td>
+                    <td><span class="badge pro">PRO</span> uniquement.</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>L'onglet « Écrans » de l'éditeur</h2>
+        <p>
+            Présent dans les deux éditions. Il contient une grille avec une ligne par écran&nbsp;:
+        </p>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
+            <tbody>
+                <tr><td><strong>index</strong></td><td>Numéro d'ordre de l'écran.</td></tr>
+                <tr><td><strong>deviceName</strong></td><td>Nom Windows de l'affichage (ex. <code>\\.\DISPLAY1</code>). Rempli par l'import.</td></tr>
+                <tr><td><strong>HwId</strong></td><td>Identifiant matériel stable du moniteur. <strong>Non fourni par l'import</strong> — à saisir manuellement. <span class="badge pro">PRO</span> s'en sert pour retrouver le bon écran même après renumérotation par Windows.</td></tr>
+                <tr><td><strong>primary</strong></td><td>Indique l'écran principal.</td></tr>
+                <tr><td><strong>orientation</strong></td><td><code>Default</code>, <code>90</code>, <code>180</code> ou <code>270</code> degrés.</td></tr>
+                <tr><td><strong>width</strong> / <strong>height</strong></td><td>Résolution de l'écran, en pixels.</td></tr>
+                <tr><td><strong>pos_X</strong> / <strong>pos_Y</strong></td><td>Position du coin haut-gauche de l'écran sur le bureau virtuel.</td></tr>
+                <tr><td><strong>oldPos_X</strong> / <strong>oldPos_Y</strong></td><td>Position d'origine mémorisée, pour restauration. <span class="badge pro">PRO</span></td></tr>
+                <tr><td><strong>tag</strong></td><td>Étiquette libre (ex. <code>centre</code>, <code>gauche</code>, <code>MFCD</code>).</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Bouton « Import moniteurs »</h3>
+        <p>
+            Lit les affichages actuellement connectés à Windows et remplit la grille&nbsp;:
+        </p>
+        <ul>
+            <li>pour un écran déjà présent (même <em>deviceName</em>)&nbsp;: met à jour largeur, hauteur, position et l'indicateur d'écran principal&nbsp;;</li>
+            <li>pour un nouvel écran&nbsp;: ajoute une ligne complète, en laissant <strong>HwId vide</strong> (à compléter à la main)&nbsp;;</li>
+            <li>un message indique combien d'écrans ont été ajoutés et mis à jour.</li>
+        </ul>
+
+        <h2><span class="badge lite">LITE</span> Comportement de l'édition LITE</h2>
+        <ul>
+            <li>Vous pouvez saisir et importer la liste d'écrans&nbsp;; elle est enregistrée dans <code>config-ecrans.xml</code>.</li>
+            <li>Cette liste sert de <strong>documentation</strong> et de base de préparation. Elle <strong>n'est pas appliquée</strong> au bureau Windows.</li>
+            <li>Pour que DCS répartisse correctement l'image, l'essentiel en LITE est le <strong>fichier de configuration moniteur</strong> de la configuration (copié à chaque lancement) et le fait que vos écrans Windows soient déjà dans la bonne disposition.</li>
+            <li>Si vous changez souvent de disposition physique (par ex. éteindre deux écrans latéraux pour jouer au casque), faites-le via les réglages d'affichage de Windows ou un utilitaire tiers avant de lancer la configuration.</li>
+        </ul>
+
+        <div class="callout note">
+            <span class="callout-title">Astuce LITE</span>
+            <p>
+                Créez une configuration par disposition d'écrans que vous utilisez réellement,
+                avec le bon <em>MonitorSetup</em> pour chacune, et un lancement compagnon
+                (<code>runtimeTag = all</code>) qui appelle votre propre script de bascule
+                d'affichage si vous en avez un.
+            </p>
+        </div>
+
+        <h2><span class="badge pro">PRO</span> Ce que l'édition PRO apporte</h2>
+        <ul>
+            <li>
+                <strong>Application de la disposition</strong>&nbsp;: quand vous sélectionnez la
+                configuration (ou au lancement), PRO applique à Windows, pour chaque écran
+                déclaré&nbsp;: la position (<code>pos_X</code>/<code>pos_Y</code>), l'écran
+                principal (<code>primary</code>) et l'orientation (<code>orientation</code>).
+            </li>
+            <li>
+                <strong>Résolution du bon moniteur</strong> via <code>HwId</code>, indépendamment
+                du numéro d'affichage attribué par Windows.
+            </li>
+            <li>
+                <strong>Mémorisation</strong> de la disposition présente avant application
+                (<code>oldPos_X</code>/<code>oldPos_Y</code>) et
+                <strong>restauration automatique</strong> possible en fin de session.
+            </li>
+            <li>
+                <strong>Enchaînement fluide</strong>&nbsp;: bureau réorganisé, configuration
+                moniteur DCS copiée et jeu lancé, sans passer par les réglages d'affichage de
+                Windows.
+            </li>
+        </ul>
+
+        <h3>Préparer une configuration multi-écran en PRO</h3>
+        <ol class="steps">
+            <li>Placez physiquement vos moniteurs dans la disposition voulue via Windows.</li>
+            <li>Dans l'éditeur, onglet <em>Écrans</em>, cliquez <strong>Import moniteurs</strong>.</li>
+            <li>Renseignez <code>HwId</code> pour chaque écran et, si besoin, les <em>tags</em>.</li>
+            <li>Vérifiez l'écran <code>primary</code> et l'<code>orientation</code>.</li>
+            <li>Associez le bon fichier de configuration moniteur DCS à la configuration.</li>
+            <li><strong>Valider</strong> puis <strong>Save</strong>.</li>
+        </ol>
+
+        <div class="callout warn">
+            <span class="callout-title">Limitation matérielle</span>
+            <p>
+                Le repositionnement dépend de ce que les pilotes graphiques et Windows
+                acceptent. Un écran physiquement éteint ou débranché ne peut pas être
+                repositionné&nbsp;; activez-le d'abord.
+            </p>
+        </div>
+
+        <div class="pager">
+            <a class="prev" href="parametrage.html"><span>Précédent</span>← L'éditeur de configuration</a>
+            <a class="next" href="mods.html"><span>Suite</span>Gestion des mods →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.0.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>
