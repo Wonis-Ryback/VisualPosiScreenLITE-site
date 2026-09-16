@@ -189,6 +189,23 @@ pre {
 
 pre code { background: none; border: none; padding: 0; color: inherit; font-size: inherit; }
 
+/* ---------- Bouton de téléchargement ---------- */
+.btn-download {
+    display: inline-flex;
+    align-items: baseline;
+    gap: .5em;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: .7em 1.2em;
+    border-radius: var(--radius);
+    margin: .6em 0 1.2em;
+}
+
+.btn-download:hover { background: var(--accent-strong); }
+.btn-download .btn-sub { font-weight: 400; font-size: .82em; opacity: .85; }
+
 kbd {
     font-family: var(--font);
     font-size: .8em;

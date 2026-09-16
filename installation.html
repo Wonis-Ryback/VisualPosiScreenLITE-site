@@ -43,7 +43,7 @@
             <thead><tr><th>Élément</th><th>Détail</th></tr></thead>
             <tbody>
                 <tr><td>Système</td><td>Windows&nbsp;10 ou Windows&nbsp;11, 64&nbsp;bits.</td></tr>
-                <tr><td>Environnement d'exécution</td><td>.NET&nbsp;Desktop Runtime correspondant à la version livrée (famille .NET&nbsp;10). Si un message signale un composant manquant au démarrage, installez le <em>.NET Desktop Runtime</em> proposé par Microsoft.</td></tr>
+                <tr><td>Environnement d'exécution</td><td>Aucun&nbsp;: la version téléchargeable est autonome (le runtime .NET est inclus dans l'archive).</td></tr>
                 <tr><td>DCS&nbsp;World</td><td>Une installation fonctionnelle (Stable ou Open&nbsp;Beta). L'application a besoin du dossier d'installation et du dossier <em>Saved&nbsp;Games</em> de DCS.</td></tr>
                 <tr><td>Droits</td><td>Un compte pouvant écrire dans le dossier <em>Saved&nbsp;Games</em> de DCS et dans le dossier de configurations que vous choisirez. Certains lancements compagnons peuvent demander les droits administrateur (paramétrable).</td></tr>
                 <tr><td>Accès réseau</td><td>Facultatif&nbsp;: utilisé uniquement pour comparer la version installée de DCS à la version publiée en ligne et pour vérifier le pilote graphique.</td></tr>
@@ -52,8 +52,14 @@
         </div>
 
         <h2>Mise en place</h2>
+
+        <a class="btn-download" href="https://github.com/Wonis-Ryback/VisualPosiScreenLITE-site/releases/latest/download/VisualPosiScreenLITE-3.0.0.1-win-x64.zip">
+            ⬇ Télécharger la dernière version
+            <span class="btn-sub">Windows 10/11 x64 · version autonome, sans prérequis</span>
+        </a>
+
         <ol class="steps">
-            <li>Décompressez l'archive de VisualPosiScreen&nbsp;LITE dans un dossier où vous avez les droits d'écriture (par exemple <code>C:\Outils\VisualPosiScreenLITE\</code>). Évitez <code>C:\Program&nbsp;Files\</code>.</li>
+            <li>Décompressez l'archive téléchargée dans un dossier où vous avez les droits d'écriture (par exemple <code>C:\Outils\VisualPosiScreenLITE\</code>). Évitez <code>C:\Program&nbsp;Files\</code>.</li>
             <li>Repérez le dossier <strong>d'installation</strong> de DCS (il contient <code>bin\dcs.exe</code> et <code>bin\DCS_updater.exe</code>).</li>
             <li>Repérez le dossier <strong>Saved&nbsp;Games</strong> de DCS (souvent <code>C:\Users\&lt;vous&gt;\Saved&nbsp;Games\DCS</code> ou <code>…\DCS.openbeta</code>). Il contient un sous-dossier <code>Config</code>.</li>
             <li>Choisissez (ou créez) un <strong>dossier de configurations</strong> qui contiendra les profils et le fichier <code>config-ecrans.xml</code>. Exemple&nbsp;: <code>C:\Users\&lt;vous&gt;\Saved&nbsp;Games\Posiscreen\</code>.</li>
