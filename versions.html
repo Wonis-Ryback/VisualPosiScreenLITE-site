@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-3-0-1"><strong>3.3.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>18&nbsp;septembre&nbsp;2026</td><td>Vérification automatique des mises à jour, indicateur de version, numéro de version corrigé.</td></tr>
+                <tr><td><a href="#v3-3-1-1"><strong>3.3.1.1</strong></a> <span class="badge lite">Dernière</span></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif du lancement&nbsp;: fichiers copiés en VR, ordre des étapes, <code>runtimeTag</code> respecté.</td></tr>
+                <tr><td><a href="#v3-3-0-1"><strong>3.3.0.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Vérification automatique des mises à jour, indicateur de version, numéro de version corrigé.</td></tr>
                 <tr><td><a href="#v3-2-0-1"><strong>3.2.0.1</strong></a></td><td>17&nbsp;septembre&nbsp;2026</td><td>Catalogue d'applications tierces pour les lancements, correction de la sélection de configuration.</td></tr>
                 <tr><td><a href="#v3-1-0-1"><strong>3.1.0.1</strong></a></td><td>17&nbsp;septembre&nbsp;2026</td><td>Création de mods, éditeur des exclusions Trk⇒miz, détection automatique de la configuration moniteur.</td></tr>
                 <tr><td><a href="#v3-0-0-1"><strong>3.0.0.1</strong></a></td><td>16&nbsp;septembre&nbsp;2026</td><td>Première version publiée (build autonome Windows&nbsp;10/11 x64).</td></tr>
@@ -63,7 +64,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.3.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.3.1.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -98,7 +99,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.1.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -147,7 +148,18 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-3-0-1">Version 3.3.0.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-3-1-1">Version 3.3.1.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 18&nbsp;septembre&nbsp;2026</p>
+        <p>Version corrective du lancement de DCS. <strong>Mise à jour recommandée</strong>, en particulier pour les utilisateurs de la VR.</p>
+        <ul>
+            <li><strong>Correction</strong>&nbsp;: en <strong>VR</strong>, le fichier <code>options.lua</code>, la configuration moniteur et le script d'export de la configuration n'étaient jamais copiés avant le démarrage de DCS. Ils le sont désormais, comme en 2D.</li>
+            <li><strong>Correction</strong>&nbsp;: en <strong>2D</strong>, DCS démarrait avant la copie des fichiers de configuration, et les fichiers DCS ainsi que les programmes compagnons étaient exécutés deux fois. Toute la préparation se fait maintenant <em>avant</em> le démarrage de DCS, et une seule fois.</li>
+            <li><strong>Correction</strong>&nbsp;: l'attribut <code>runtimeTag</code> des lancements est enfin pris en compte (<code>all</code>, <code>2D</code> ou <code>VR</code>)&nbsp;: un programme marqué <code>VR</code> ne démarre plus en 2D, et inversement.</li>
+            <li><strong>Correction</strong>&nbsp;: sans configuration sélectionnée, un message s'affiche au lieu d'une erreur.</li>
+            <li><strong>Modification</strong>&nbsp;: si la préparation signale une erreur (fichier introuvable, programme qui ne démarre pas…), une boîte de dialogue propose de continuer ou d'abandonner le démarrage de DCS. Voir <a href="lancement.html">Lancer DCS World</a>.</li>
+        </ul>
+
+        <h3 id="v3-3-0-1">Version 3.3.0.1</h3>
         <p class="tag-legend">Publiée le 18&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Nouveau</strong>&nbsp;: vérification automatique des mises à jour au démarrage, à partir des releases GitHub. Une boîte de dialogue propose de télécharger et d'installer la nouvelle version (contrôle d'intégrité SHA-256, remplacement des fichiers puis redémarrage automatique).</li>

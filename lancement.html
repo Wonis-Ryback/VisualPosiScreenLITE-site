@@ -55,29 +55,29 @@
                 progression).
             </li>
             <li>
-                <strong>Exécution des « Fichiers DCS » (Mainfiles)</strong> de la configuration&nbsp;:
-                chaque fichier source (sous <code>ConfigRep\&lt;Clé&gt;</code>) est copié vers sa
-                destination dans l'installation de DCS, selon ses options <em>force</em> et
-                <em>backup</em>.
-            </li>
-            <li>
-                <strong>Exécution des « Lancements » (LaunchCommands)</strong> dont le
-                <code>runtimeTag</code> correspond au mode (<code>all</code>, ou <code>2D</code>&nbsp;/&nbsp;<code>VR</code>
-                selon le bouton)&nbsp;: chaque programme est démarré avec son répertoire de
-                travail, ses paramètres et, si demandé, l'élévation de privilèges.
-            </li>
-            <li>
                 <strong>Copie des fichiers de configuration</strong>&nbsp;:
                 <ul>
                     <li><code>ConfigRep\&lt;Clé&gt;\&lt;fichier options&gt;</code> → <code>DcsSavePath\Config\options.lua</code></li>
                     <li><code>ConfigRep\&lt;Clé&gt;\&lt;config moniteur&gt;</code> → <code>DcsSavePath\Config\&lt;config moniteur&gt;</code></li>
+                    <li>
+                        <strong>« Fichiers DCS » (Mainfiles)</strong>&nbsp;: chaque fichier source
+                        (sous <code>ConfigRep\&lt;Clé&gt;</code>) est copié vers sa destination dans
+                        l'installation de DCS, selon ses options <em>force</em> et <em>backup</em>.
+                    </li>
                     <li>si un <strong>script d'export</strong> est défini&nbsp;: sauvegarde horodatée de l'<code>Export.lua</code> en place, puis copie du nouveau dans <code>DcsSavePath\Scripts\Export.lua</code>.</li>
                 </ul>
             </li>
             <li>
                 <span class="badge pro">PRO</span> <strong>Application de la disposition d'écrans</strong>
                 de la configuration (position, écran principal, orientation), après mémorisation
-                de la disposition courante.
+                de la disposition courante. Elle précède les lancements ci-dessous pour que les
+                programmes compagnons s'ouvrent sur le bon écran.
+            </li>
+            <li>
+                <strong>Exécution des « Lancements » (LaunchCommands)</strong> dont le
+                <code>runtimeTag</code> correspond au mode (<code>all</code>, ou <code>2D</code>&nbsp;/&nbsp;<code>VR</code>
+                selon le bouton)&nbsp;: chaque programme est démarré une seule fois, avec son répertoire de
+                travail, ses paramètres et, si demandé, l'élévation de privilèges.
             </li>
             <li>
                 <strong>Démarrage de DCS</strong> avec le profil correspondant&nbsp;:
@@ -94,6 +94,16 @@
                 <strong>Fermeture de VisualPosiScreen&nbsp;LITE.</strong>
             </li>
         </ol>
+
+        <div class="callout note">
+            <span class="callout-title">En cas d'erreur pendant la préparation</span>
+            <p>
+                Si une étape échoue (fichier source introuvable, programme compagnon qui ne démarre
+                pas…), les étapes suivantes sont tout de même exécutées puis une boîte de dialogue
+                vous propose de <strong>continuer</strong> ou d'<strong>abandonner</strong> le
+                démarrage de DCS. Le détail figure dans le journal.
+            </p>
+        </div>
 
         <div class="callout note">
             <span class="callout-title">Les profils 2D / VR</span>
