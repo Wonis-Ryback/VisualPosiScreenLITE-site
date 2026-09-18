@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suivi des versions — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.3 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les configurations</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+            <a href="versions.html" class="active">Suivi des versions</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Référence › Suivi des versions</div>
+        <h1>Suivi des versions</h1>
+
+        <p>
+            Cette page présente <strong>l'historique des versions</strong> publiées de
+            VisualPosiScreen&nbsp;LITE et explique comment l'application vous prévient
+            lorsqu'une nouvelle version est disponible. Les versions sont publiées sur la
+            page <a href="https://github.com/Wonis-Ryback/VisualPosiScreenLITE-site/releases">Releases
+            du dépôt GitHub</a>.
+        </p>
+
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
+            <tbody>
+                <tr><td><a href="#v3-3-0-1"><strong>3.3.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>18&nbsp;septembre&nbsp;2026</td><td>Vérification automatique des mises à jour, indicateur de version, numéro de version corrigé.</td></tr>
+                <tr><td><a href="#v3-2-0-1"><strong>3.2.0.1</strong></a></td><td>17&nbsp;septembre&nbsp;2026</td><td>Catalogue d'applications tierces pour les lancements, correction de la sélection de configuration.</td></tr>
+                <tr><td><a href="#v3-1-0-1"><strong>3.1.0.1</strong></a></td><td>17&nbsp;septembre&nbsp;2026</td><td>Création de mods, éditeur des exclusions Trk⇒miz, détection automatique de la configuration moniteur.</td></tr>
+                <tr><td><a href="#v3-0-0-1"><strong>3.0.0.1</strong></a></td><td>16&nbsp;septembre&nbsp;2026</td><td>Première version publiée (build autonome Windows&nbsp;10/11 x64).</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>Connaître la version installée</h2>
+        <p>
+            Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
+            barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
+            <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
+            <code>3.3.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            récente.
+        </p>
+
+        <h2>Mises à jour automatiques</h2>
+
+        <div class="callout note">
+            <span class="callout-title">À partir de quelle version&nbsp;?</span>
+            <p>
+                La vérification automatique est intégrée à partir de la <strong>3.3.0.1</strong>.
+                Si vous utilisez la 3.2.0.1 ou une version antérieure, téléchargez une première
+                fois la dernière version depuis la page
+                <a href="installation.html">Installation</a>&nbsp;: les suivantes seront ensuite
+                proposées directement par l'application.
+            </p>
+        </div>
+
+        <h3>Au lancement</h3>
+        <p>
+            Chaque démarrage, l'application interroge en arrière-plan la page des versions de
+            GitHub. Cette vérification ne bloque pas l'ouverture de la fenêtre et échoue
+            silencieusement si vous n'avez pas de connexion (l'application reste pleinement
+            utilisable). Si une version plus récente existe, une <strong>boîte de dialogue</strong>
+            s'ouvre et affiche le numéro de la nouvelle version, sa date et ses nouveautés.
+        </p>
+
+        <h3>L'indicateur de la barre d'outils</h3>
+        <p>
+            À gauche du bouton <strong>À&nbsp;Propos…</strong>, un petit indicateur affiche en
+            permanence l'état de votre installation&nbsp;:
+        </p>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
+            <tbody>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
+                <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>
+            Si vous choisissez <strong>Plus tard</strong> dans la boîte de dialogue, l'indicateur
+            reste sur «&nbsp;Mettre à jour&nbsp;» jusqu'à ce que vous installiez la version. La
+            boîte de dialogue est de nouveau proposée au prochain lancement.
+        </p>
+
+        <h3>Télécharger et installer</h3>
+        <p>Le bouton <strong>Télécharger et installer</strong> enchaîne les étapes suivantes&nbsp;:</p>
+        <ol class="steps">
+            <li><strong>Téléchargement</strong> de l'archive de la version depuis la page GitHub officielle, avec une barre de progression (le bouton <em>Annuler</em> interrompt l'opération).</li>
+            <li><strong>Vérification d'intégrité</strong>&nbsp;: l'empreinte SHA-256 du fichier téléchargé est comparée à celle publiée par GitHub. Si elle diffère, le fichier est rejeté et rien n'est installé.</li>
+            <li><strong>Décompression</strong> dans un dossier temporaire.</li>
+            <li><strong>Fermeture de l'application</strong>, remplacement des fichiers de son dossier par ceux de la nouvelle version, puis <strong>redémarrage automatique</strong> avec les mêmes arguments (par exemple le fichier <code>config-ecrans.xml</code> passé en ligne de commande).</li>
+        </ol>
+
+        <div class="callout tip">
+            <span class="callout-title">Vos données sont conservées</span>
+            <p>
+                Seuls les fichiers de l'application sont remplacés. Votre
+                <code>config-ecrans.xml</code>, vos configurations, vos mods et vos fichiers
+                DCS ne sont ni modifiés ni supprimés. Le déroulement est consigné dans le
+                fichier <code>update.log</code> du dossier temporaire
+                <code>%TEMP%\VisualPosiScreenLITE-update</code>.
+            </p>
+        </div>
+
+        <h3>Quand l'installation automatique n'est pas possible</h3>
+        <ul>
+            <li>
+                <strong>Le dossier de l'application n'est pas modifiable</strong> (par exemple sous
+                <code>C:\Program&nbsp;Files\</code>)&nbsp;: l'application ouvre la page de
+                téléchargement dans votre navigateur. Décompressez alors l'archive dans un
+                dossier où vous avez les droits d'écriture (voir <a href="installation.html">Installation</a>).
+            </li>
+            <li>
+                <strong>Échec du téléchargement, de la vérification ou de la copie</strong>&nbsp;:
+                un message le signale et propose d'ouvrir la page de téléchargement pour une
+                installation manuelle. L'ancienne version reste en place et fonctionnelle.
+            </li>
+        </ul>
+
+        <h2>Historique détaillé</h2>
+
+        <h3 id="v3-3-0-1">Version 3.3.0.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 18&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Nouveau</strong>&nbsp;: vérification automatique des mises à jour au démarrage, à partir des releases GitHub. Une boîte de dialogue propose de télécharger et d'installer la nouvelle version (contrôle d'intégrité SHA-256, remplacement des fichiers puis redémarrage automatique).</li>
+            <li><strong>Nouveau</strong>&nbsp;: indicateur <em>✔&nbsp;À&nbsp;jour</em> / <em>⬆&nbsp;Mettre&nbsp;à&nbsp;jour</em> dans la barre d'outils de la fenêtre principale. Voir <a href="interface.html">La fenêtre principale</a>.</li>
+            <li><strong>Nouveau</strong>&nbsp;: cette page de suivi des versions.</li>
+            <li><strong>Correction</strong>&nbsp;: le numéro de version de l'application est désormais correct (il apparaissait sous la forme <code>0.0.0.x</code> dans les versions précédentes).</li>
+        </ul>
+
+        <h3 id="v3-2-0-1">Version 3.2.0.1</h3>
+        <p class="tag-legend">Publiée le 17&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Nouveau</strong>&nbsp;: catalogue d'applications tierces courantes pour DCS (TeamSpeak&nbsp;3, DCS-SRS, SimApp&nbsp;Pro, VoiceAttack, TrackIR, opentrack, OpenKneeboard). Un bouton <em>Catalogue…</em> dans l'édition d'une configuration pré-remplit un lancement à partir de ces applications, avec détection automatique «&nbsp;au mieux&nbsp;» (chemins d'installation connus et registre Windows). Voir <a href="parametrage.html">L'éditeur de configuration</a>.</li>
+            <li><strong>Correction</strong>&nbsp;: la sélection de la configuration se place désormais sur la première configuration disponible lorsqu'il n'y a pas eu de lancement précédent, ou lorsque la dernière configuration utilisée n'existe plus.</li>
+        </ul>
+
+        <h3 id="v3-1-0-1">Version 3.1.0.1</h3>
+        <p class="tag-legend">Publiée le 17&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Correction</strong>&nbsp;: le répertoire des mods est désormais créé à l'installation (il était absent sur une installation vierge).</li>
+            <li><strong>Nouveau</strong>&nbsp;: écran d'ajout de mod, avec choix des dossiers <em>Root</em> et <em>Saved&nbsp;Games</em>, y compris directement à l'intérieur d'une archive ZIP. Voir <a href="mods.html">Gestion des mods</a>.</li>
+            <li><strong>Nouveau</strong>&nbsp;: écran d'édition des exclusions Trk⇒miz. Voir <a href="outils.html">Outils intégrés</a>.</li>
+            <li><strong>Nouveau</strong>&nbsp;: le fichier de configuration moniteur d'une nouvelle configuration est détecté automatiquement depuis <code>Options.lua</code> (paramètre <code>multiMonitorSetup</code>) et copié depuis <em>Saved&nbsp;Games</em> ou depuis l'installation de DCS.</li>
+            <li><strong>Modification</strong>&nbsp;: le dossier <code>Scripts</code> est retiré des exclusions Trk⇒miz par défaut.</li>
+        </ul>
+
+        <h3 id="v3-0-0-1">Version 3.0.0.1</h3>
+        <p class="tag-legend">Publiée le 16&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li>Première version publiée&nbsp;: build autonome pour Windows&nbsp;10/11 x64, sans aucun prérequis à installer.</li>
+            <li>Guide utilisateur complet (cette documentation).</li>
+        </ul>
+
+        <div class="pager">
+            <a class="prev" href="faq.html"><span>Précédent</span>← FAQ &amp; dépannage</a>
+            <a class="next" href="index.html"><span>Retour</span>Accueil →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.3. DCS World est une marque d'Eagle Dynamics SA.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>
