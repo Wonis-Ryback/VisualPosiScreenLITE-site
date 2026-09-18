@@ -182,7 +182,7 @@
             <tbody>
                 <tr><td><code>@key</code></td><td>requis</td><td>Nom de la configuration = nom du sous-dossier.</td></tr>
                 <tr><td><code>&lt;dcsOptionsSetupFile&gt;</code></td><td>0..1</td><td>Nom du <code>options.lua</code> à copier dans <code>Config\options.lua</code>.</td></tr>
-                <tr><td><code>&lt;dcsMonitorConfig&gt;</code></td><td>0..1</td><td>Nom du fichier de configuration moniteur à copier dans <code>Config\</code>.</td></tr>
+                <tr><td><code>&lt;dcsMonitorConfig&gt;</code></td><td>0..1</td><td>Nom, <strong>avec extension</strong> (<code>.lua</code>), du fichier de configuration moniteur situé dans le dossier de la configuration ; il est copié dans <code>Config\MonitorSetup\</code> au lancement.</td></tr>
                 <tr><td><code>&lt;dcsCustomExportScript&gt;</code></td><td>0..1</td><td>Fichier <code>Export.lua</code> à installer dans <code>Scripts\</code> (l'existant est sauvegardé, horodaté).</td></tr>
                 <tr><td><code>&lt;dcsMainFile&gt;</code></td><td>0..n</td><td>Copie de fichier&nbsp;: <code>@source</code>, <code>@destination</code> (requis), <code>@force</code>, <code>@backup</code>.</td></tr>
                 <tr><td><code>&lt;launchCommand&gt;</code></td><td>0..n</td><td>Programme compagnon (texte = chemin)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@workingdir</code>, <code>@needAdminRights</code>, <code>@param1</code>…<code>@param9</code>.</td></tr>

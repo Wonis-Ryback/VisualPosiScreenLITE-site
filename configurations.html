@@ -51,7 +51,7 @@
             <tbody>
                 <tr><td><strong>Clé</strong> (nom)</td><td>Identifiant affiché dans la liste déroulante. Sert aussi de nom de sous-dossier dans le répertoire de configurations.</td><td>Oui</td></tr>
                 <tr><td><strong>Fichier options</strong></td><td>Nom du fichier <code>options.lua</code> propre à cette configuration, copié dans <code>Saved&nbsp;Games\Config\options.lua</code> au lancement.</td><td>Recommandé</td></tr>
-                <tr><td><strong>Configuration moniteur</strong></td><td>Nom du fichier de configuration moniteur de DCS, copié dans <code>Saved&nbsp;Games\Config\</code> au lancement.</td><td>Recommandé</td></tr>
+                <tr><td><strong>Configuration moniteur</strong></td><td>Nom du fichier de configuration moniteur de DCS, avec son extension <code>.lua</code>, copié dans <code>Saved&nbsp;Games\Config\MonitorSetup\</code> au lancement.</td><td>Recommandé</td></tr>
                 <tr><td><strong>Script d'export</strong></td><td>Fichier <code>Export.lua</code> à installer dans <code>Saved&nbsp;Games\Scripts\</code> (l'ancien est sauvegardé avec un horodatage).</td><td>Non</td></tr>
                 <tr><td><strong>Fichiers DCS</strong> (Mainfiles)</td><td>Liste de fichiers à copier depuis le sous-dossier de la configuration vers l'installation de DCS, avec options « forcer » et « sauvegarde ».</td><td>Non</td></tr>
                 <tr><td><strong>Lancements</strong> (LaunchCommands)</td><td>Programmes/scripts compagnons à démarrer, filtrables par mode (<code>all</code>, <code>2D</code>, <code>VR</code>).</td><td>Non</td></tr>
@@ -101,7 +101,7 @@
         <h2>Cycle de vie</h2>
         <ol class="steps">
             <li><strong>Création</strong>&nbsp;: dans l'éditeur, bouton <em>Nouvelle configuration</em>, vous saisissez la clé.</li>
-            <li><strong>Initialisation des dossiers</strong>&nbsp;: à l'enregistrement, si le sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> n'existe pas, il est créé et l'application y copie l'<code>Options.lua</code> et le fichier de configuration moniteur actuellement en place dans DCS, renommés d'après la configuration. Les configurations déjà installées (dossier présent) ne sont pas modifiées.</li>
+            <li><strong>Initialisation des dossiers</strong>&nbsp;: à l'enregistrement, si le sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> n'existe pas, il est créé et l'application y copie l'<code>Options.lua</code> et le fichier de configuration moniteur actuellement en place dans DCS, renommés d'après la configuration. Le nom du fichier moniteur est déduit du paramètre <code>multiMonitorSetup</code> de l'<code>Options.lua</code> (DCS l'écrit sans extension&nbsp;: l'éditeur ajoute <code>.lua</code>). Les configurations déjà installées (dossier présent) ne sont pas modifiées, hormis le fichier moniteur s'il manque dans leur dossier&nbsp;: à l'enregistrement, l'éditeur le complète sans jamais rien écraser.</li>
             <li><strong>Personnalisation</strong>&nbsp;: vous ajustez le contenu du sous-dossier (préparez chaque <code>options.lua</code> avec les réglages DCS voulus) et complétez l'éditeur (Mainfiles, lancements, mods, Helios, écrans).</li>
             <li><strong>Utilisation</strong>&nbsp;: vous sélectionnez la configuration dans la fenêtre principale et vous lancez en 2D ou VR.</li>
             <li><strong>Renommage / suppression</strong>&nbsp;: possibles dans l'éditeur. Le renommage ne déplace pas le sous-dossier existant&nbsp;; adaptez-le si besoin.</li>
