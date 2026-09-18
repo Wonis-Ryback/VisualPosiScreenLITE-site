@@ -159,8 +159,17 @@
         <ul>
             <li>Vérifiez <code>&lt;command&gt;</code> des <code>&lt;build&gt;</code> dans <code>config-ecrans.xml</code> (chemin de <code>dcs.exe</code>).</li>
             <li>Il faut un <code>&lt;build&gt;</code> avec <code>tag="2D"</code> et un avec <code>tag="VR"</code>, tous deux <code>threading="MT"</code>.</li>
+            <li>Si DCS a été déplacé ou réinstallé, un message « DCS introuvable » s'affiche et rien n'est lancé&nbsp;: corrigez le répertoire DCS via <strong>Configurer</strong>.</li>
             <li>Consultez le journal.</li>
         </ul>
+
+        <h3>Helios ne se lance pas</h3>
+        <p>
+            Vérifiez, dans l'onglet <em>Helios</em> de la configuration, que la case «&nbsp;actif&nbsp;» est
+            cochée, que <strong>Control&nbsp;Center</strong> pointe vers <code>Control Center.exe</code>, que le
+            profil existe, et que le <code>runtimeTag</code> correspond au bouton utilisé (<code>2D</code>,
+            <code>VR</code> ou <code>all</code>). La cause exacte figure dans le journal.
+        </p>
 
         <h3>Un logiciel compagnon ne se lance pas</h3>
         <p>

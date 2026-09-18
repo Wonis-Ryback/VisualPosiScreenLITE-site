@@ -96,7 +96,7 @@
 
     &lt;Helios runtimeTag="2D"
             profiledir="C:\Users\vous\Documents\Helios"
-            controlcenter="C:\Program Files\Helios\ControlCenter.exe"&gt;MonProfil.hpf&lt;/Helios&gt;
+            controlcenter="C:\Program Files\Helios Virtual Cockpit\Helios\Control Center.exe"&gt;MonProfil.hpf&lt;/Helios&gt;
 
     &lt;ecran index="1" deviceName="\\.\DISPLAY1" HwId="MONITOR\ABC1234" primary="true" orientation="Default"&gt;
       &lt;width&gt;2560&lt;/width&gt;
@@ -186,7 +186,7 @@
                 <tr><td><code>&lt;dcsCustomExportScript&gt;</code></td><td>0..1</td><td>Fichier <code>Export.lua</code> à installer dans <code>Scripts\</code> (l'existant est sauvegardé, horodaté).</td></tr>
                 <tr><td><code>&lt;dcsMainFile&gt;</code></td><td>0..n</td><td>Copie de fichier&nbsp;: <code>@source</code>, <code>@destination</code> (requis), <code>@force</code>, <code>@backup</code>.</td></tr>
                 <tr><td><code>&lt;launchCommand&gt;</code></td><td>0..n</td><td>Programme compagnon (texte = chemin)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@workingdir</code>, <code>@needAdminRights</code>, <code>@param1</code>…<code>@param9</code>.</td></tr>
-                <tr><td><code>&lt;Helios&gt;</code></td><td>0..1</td><td>texte = fichier de profil&nbsp;: <code>@runtimeTag</code>, <code>@profiledir</code>, <code>@controlcenter</code>.</td></tr>
+                <tr><td><code>&lt;Helios&gt;</code></td><td>0..1</td><td>texte = fichier de profil (relatif à <code>@profiledir</code>, ou chemin complet)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@profiledir</code>, <code>@controlcenter</code> (<code>Control Center.exe</code>). Lancé au démarrage de la session.</td></tr>
                 <tr class="pro-row"><td><code>&lt;ecran&gt;</code></td><td>0..n</td><td>Écran (voir <a href="ecrans.html">Gestion des écrans</a>)&nbsp;: <code>@index</code>, <code>@deviceName</code>, <code>@HwId</code> (requis), <code>@primary</code>, <code>@orientation</code>, enfants <code>width</code>, <code>height</code>, <code>pos_X</code>, <code>pos_Y</code>, <code>oldPos_X</code>, <code>oldPos_Y</code>. <span class="badge pro">PRO</span> appliqué&nbsp;; <span class="badge lite">LITE</span> documentaire.</td></tr>
                 <tr><td><code>&lt;mods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods à activer automatiquement pour cette configuration.</td></tr>
             </tbody>

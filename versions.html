@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-3-1-1"><strong>3.3.1.1</strong></a> <span class="badge lite">Dernière</span></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif du lancement&nbsp;: fichiers copiés en VR, ordre des étapes, <code>runtimeTag</code> respecté.</td></tr>
+                <tr><td><a href="#v3-3-2-1"><strong>3.3.2.1</strong></a> <span class="badge lite">Dernière</span></td><td>18&nbsp;septembre&nbsp;2026</td><td>Helios Control Center lancé avec la configuration, démarrage de DCS sécurisé.</td></tr>
+                <tr><td><a href="#v3-3-1-1"><strong>3.3.1.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif du lancement&nbsp;: fichiers copiés en VR, ordre des étapes, <code>runtimeTag</code> respecté.</td></tr>
                 <tr><td><a href="#v3-3-0-1"><strong>3.3.0.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Vérification automatique des mises à jour, indicateur de version, numéro de version corrigé.</td></tr>
                 <tr><td><a href="#v3-2-0-1"><strong>3.2.0.1</strong></a></td><td>17&nbsp;septembre&nbsp;2026</td><td>Catalogue d'applications tierces pour les lancements, correction de la sélection de configuration.</td></tr>
                 <tr><td><a href="#v3-1-0-1"><strong>3.1.0.1</strong></a></td><td>17&nbsp;septembre&nbsp;2026</td><td>Création de mods, éditeur des exclusions Trk⇒miz, détection automatique de la configuration moniteur.</td></tr>
@@ -64,7 +65,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.3.1.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.3.2.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -99,7 +100,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.1.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.2.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -148,7 +149,17 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-3-1-1">Version 3.3.1.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-3-2-1">Version 3.3.2.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 18&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Correction</strong>&nbsp;: <strong>Helios</strong> n'était jamais lancé. Si la configuration a un bloc Helios actif dont le <code>runtimeTag</code> correspond au mode (<code>all</code>, <code>2D</code> ou <code>VR</code>), <em>Control&nbsp;Center</em> est désormais démarré avec le profil indiqué, au clic sur VR ou 2D. Voir <a href="lancement.html">Lancer DCS World</a>.</li>
+            <li><strong>Correction</strong>&nbsp;: le démarrage de <strong>DCS</strong> est sécurisé. Le chemin de <code>dcs.exe</code> est vérifié <em>avant</em> toute action (si DCS a été déplacé, un message l'indique et rien n'est modifié), l'absence de profil 2D/VR, un <code>&lt;params&gt;</code> manquant et un refus des droits administrateur sont gérés, et l'application reste ouverte en cas d'échec pour permettre de corriger et de réessayer.</li>
+            <li><strong>Correction</strong>&nbsp;: dans l'éditeur, le profil Helios choisi avec «&nbsp;Parcourir&nbsp;» est enregistré relativement au dossier de profils, comme l'attend le fichier de configuration.</li>
+            <li><strong>Nouveau</strong>&nbsp;: à l'enregistrement, l'éditeur prévient si Control&nbsp;Center ou le profil Helios est introuvable. Voir <a href="parametrage.html">L'éditeur de configuration</a>.</li>
+            <li><strong>Documentation</strong>&nbsp;: l'exécutable de Helios s'appelle <code>Control Center.exe</code> (et non <code>ControlCenter.exe</code>).</li>
+        </ul>
+
+        <h3 id="v3-3-1-1">Version 3.3.1.1</h3>
         <p class="tag-legend">Publiée le 18&nbsp;septembre&nbsp;2026</p>
         <p>Version corrective du lancement de DCS. <strong>Mise à jour recommandée</strong>, en particulier pour les utilisateurs de la VR.</p>
         <ul>

@@ -80,7 +80,15 @@
                 travail, ses paramètres et, si demandé, l'élévation de privilèges.
             </li>
             <li>
-                <strong>Démarrage de DCS</strong> avec le profil correspondant&nbsp;:
+                <strong>Démarrage de Helios</strong>, si la configuration a un bloc Helios actif dont le
+                <code>runtimeTag</code> correspond au mode&nbsp;: Helios <em>Control&nbsp;Center</em> est lancé avec le
+                profil indiqué. Control&nbsp;Center n'accepte qu'une instance&nbsp;: s'il tourne déjà, il reçoit
+                simplement le profil à charger.
+            </li>
+            <li>
+                <strong>Démarrage de DCS</strong> avec le profil correspondant (le chemin de <code>dcs.exe</code> est
+                vérifié <em>avant</em> toute action&nbsp;: si DCS a été déplacé, un message l'indique et rien n'est
+                modifié)&nbsp;:
                 <ul>
                     <li><strong>VR</strong>&nbsp;: profil multi-thread <em>VR</em> (paramètres type <code>--force_enable_VR --force_OpenXR</code>).</li>
                     <li><strong>2D&nbsp;Screen</strong>&nbsp;: profil multi-thread <em>2D</em> (paramètre type <code>--force_no_VR</code>).</li>
@@ -98,10 +106,12 @@
         <div class="callout note">
             <span class="callout-title">En cas d'erreur pendant la préparation</span>
             <p>
-                Si une étape échoue (fichier source introuvable, programme compagnon qui ne démarre
-                pas…), les étapes suivantes sont tout de même exécutées puis une boîte de dialogue
+                Si une étape échoue (fichier source introuvable, programme compagnon ou Helios qui ne
+                démarre pas…), les étapes suivantes sont tout de même exécutées puis une boîte de dialogue
                 vous propose de <strong>continuer</strong> ou d'<strong>abandonner</strong> le
-                démarrage de DCS. Le détail figure dans le journal.
+                démarrage de DCS. Le détail figure dans le journal. Si DCS lui-même ne peut pas démarrer
+                (chemin introuvable, droits administrateur refusés), un message explique pourquoi et
+                l'application <strong>reste ouverte</strong> pour que vous puissiez corriger et réessayer.
             </p>
         </div>
 
@@ -136,7 +146,8 @@
             <p>
                 Vérifiez le chemin de l'exécutable, le répertoire de travail et le
                 <code>runtimeTag</code> (un programme en <code>VR</code> ne se lance pas au
-                démarrage 2D). Les erreurs sont consignées dans le journal.
+                démarrage 2D). Les erreurs sont consignées dans le journal. Pour <strong>Helios</strong>,
+                vérifiez aussi que <em>Control&nbsp;Center</em> et le fichier de profil existent.
             </p>
         </div>
 

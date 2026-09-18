@@ -127,11 +127,20 @@
         <h3>Onglet « Helios »</h3>
         <ul>
             <li><strong>Case « actif »</strong>&nbsp;: si décochée, aucun bloc Helios n'est enregistré pour la configuration.</li>
-            <li><strong>runtimeTag</strong>&nbsp;: mode dans lequel Helios est concerné.</li>
+            <li><strong>runtimeTag</strong>&nbsp;: mode dans lequel Helios est lancé&nbsp;: <code>all</code> (ou vide)
+                dans les deux cas, <code>2D</code> ou <code>VR</code> selon le bouton.</li>
             <li><strong>Dossier de profils</strong>&nbsp;: répertoire des profils Helios (bouton <em>Parcourir</em>).</li>
-            <li><strong>Control&nbsp;Center</strong>&nbsp;: exécutable de Helios Control Center.</li>
-            <li><strong>Fichier de profil</strong>&nbsp;: profil <code>.hpf</code> à utiliser.</li>
+            <li><strong>Control&nbsp;Center</strong>&nbsp;: exécutable de Helios Control Center, nommé
+                <code>Control Center.exe</code> dans le dossier d'installation de Helios.</li>
+            <li><strong>Fichier de profil</strong>&nbsp;: profil <code>.hpf</code> à ouvrir. Il est enregistré
+                <em>relativement</em> au dossier de profils (un chemin complet reste accepté). Sans profil,
+                Control&nbsp;Center est lancé seul.</li>
         </ul>
+        <p>
+            Au clic sur <strong>VR</strong> ou <strong>2D</strong>, Control&nbsp;Center est démarré avec ce
+            profil si la case «&nbsp;actif&nbsp;» est cochée. À l'enregistrement, l'éditeur vous prévient si
+            Control&nbsp;Center ou le profil est introuvable.
+        </p>
 
         <h3>Onglet « Mods associés »</h3>
         <p>
