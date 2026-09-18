@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-3-3-1"><strong>3.3.3.1</strong></a> <span class="badge lite">Dernière</span></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif de la configuration moniteur&nbsp;: extension <code>.lua</code> et emplacement de copie.</td></tr>
+                <tr><td><a href="#v3-3-4-1"><strong>3.3.4.1</strong></a> <span class="badge lite">Dernière</span></td><td>19&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre « Écrans » (bureau Windows et configuration côte à côte), import des moniteurs plus complet.</td></tr>
+                <tr><td><a href="#v3-3-3-1"><strong>3.3.3.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif de la configuration moniteur&nbsp;: extension <code>.lua</code> et emplacement de copie.</td></tr>
                 <tr><td><a href="#v3-3-2-1"><strong>3.3.2.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Helios Control Center lancé avec la configuration, démarrage de DCS sécurisé.</td></tr>
                 <tr><td><a href="#v3-3-1-1"><strong>3.3.1.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif du lancement&nbsp;: fichiers copiés en VR, ordre des étapes, <code>runtimeTag</code> respecté.</td></tr>
                 <tr><td><a href="#v3-3-0-1"><strong>3.3.0.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Vérification automatique des mises à jour, indicateur de version, numéro de version corrigé.</td></tr>
@@ -66,7 +67,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.3.3.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.3.4.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -101,7 +102,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.3.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.4.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -150,7 +151,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-3-3-1">Version 3.3.3.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-3-4-1">Version 3.3.4.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 19&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Nouveau</strong>&nbsp;: bouton <strong>Écrans…</strong> dans la barre d'outils. La fenêtre affiche, à l'échelle et côte à côte, la disposition actuelle des écrans Windows et celle déclarée dans la configuration choisie, avec un code de couleurs (conforme, différent, affichage non déclaré, écran introuvable), l'écran principal et l'orientation. « Actualiser » relit le bureau et « Identifier les écrans » affiche le numéro de chaque écran sur cet écran. Voir <a href="ecrans.html#fenetre-ecrans">Gestion des écrans</a>.</li>
+            <li><strong>Amélioration</strong>&nbsp;: le bouton « Import moniteurs » de l'éditeur renseigne désormais aussi l'identifiant <code>HwId</code> de chaque écran (sans écraser un <code>HwId</code> saisi à la main), son orientation et l'écran principal. Il n'est plus nécessaire de saisir le <code>HwId</code> manuellement.</li>
+            <li><strong>Documentation</strong>&nbsp;: la page « Gestion des écrans » décrit la nouvelle fenêtre et présente le fonctionnement de l'application de la disposition d'écrans de l'édition PRO.</li>
+        </ul>
+
+        <h3 id="v3-3-3-1">Version 3.3.3.1</h3>
         <p class="tag-legend">Publiée le 18&nbsp;septembre&nbsp;2026</p>
         <p>Correctif de la configuration moniteur de DCS. <strong>Mise à jour recommandée</strong> si vous avez créé des configurations avec une version 3.1 à 3.3.2.</p>
         <ul>
