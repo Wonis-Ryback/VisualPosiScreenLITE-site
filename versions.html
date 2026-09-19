@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-3-5-1"><strong>3.3.5.1</strong></a> <span class="badge lite">Dernière</span></td><td>19&nbsp;septembre&nbsp;2026</td><td>Vérification automatique du pilote AMD (comme pour NVIDIA)&nbsp;; correction de l'affichage de la version de pilote AMD/Intel.</td></tr>
+                <tr><td><a href="#v3-4-0-1"><strong>3.4.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>19&nbsp;septembre&nbsp;2026</td><td>Remplacement des fichiers d'un mod (mise à jour)&nbsp;; demande de support avec aperçu du message et du journal.</td></tr>
+                <tr><td><a href="#v3-3-5-1"><strong>3.3.5.1</strong></a></td><td>19&nbsp;septembre&nbsp;2026</td><td>Vérification automatique du pilote AMD (comme pour NVIDIA)&nbsp;; correction de l'affichage de la version de pilote AMD/Intel.</td></tr>
                 <tr><td><a href="#v3-3-4-1"><strong>3.3.4.1</strong></a></td><td>19&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre « Écrans » (bureau Windows et configuration côte à côte), import des moniteurs plus complet.</td></tr>
                 <tr><td><a href="#v3-3-3-1"><strong>3.3.3.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Correctif de la configuration moniteur&nbsp;: extension <code>.lua</code> et emplacement de copie.</td></tr>
                 <tr><td><a href="#v3-3-2-1"><strong>3.3.2.1</strong></a></td><td>18&nbsp;septembre&nbsp;2026</td><td>Helios Control Center lancé avec la configuration, démarrage de DCS sécurisé.</td></tr>
@@ -68,7 +69,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.3.5.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.4.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -103,7 +104,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.3.5.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.4.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -152,7 +153,16 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-3-5-1">Version 3.3.5.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-4-0-1">Version 3.4.0.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 19&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Nouveau</strong>&nbsp;: <strong>remplacer les fichiers d'un mod</strong> (mise à jour). Le bouton « Remplacer les fichiers du mod… » de l'éditeur de mod efface le contenu du dossier Root et/ou Saved Games du mod et le remplace par un nouveau dossier ou un dossier d'une archive ZIP. Un aperçu liste les fichiers ajoutés, modifiés et supprimés avant toute modification&nbsp;; l'ancienne version n'est supprimée qu'après réussite et remise en place en cas d'échec. Un mod activé est retiré de DCS, remplacé, puis redéployé (DCS doit être fermé). Voir <a href="mods.html#remplacer-fichiers">Les mods</a>.</li>
+            <li><strong>Nouveau</strong>&nbsp;: <strong>demande de support</strong> depuis l'application (bouton « Support… » de la barre d'outils ou de la fenêtre de journal). Vous décrivez ce que vous essayiez de faire, choisissez les informations système et le journal (niveau <code>DEBUG</code> à <code>ERROR</code>, nombre de lignes) et voyez <strong>exactement</strong> le message avant tout envoi. Votre nom d'utilisateur Windows et le nom du PC sont masqués. Rien n'est envoyé par l'application&nbsp;: le message s'ouvre dans votre messagerie, le rapport complet est enregistré dans un fichier à joindre. Voir <a href="outils.html#support">Outils</a>.</li>
+            <li><strong>Sécurité</strong>&nbsp;: l'ajout ou la mise à jour d'un mod depuis une archive ZIP refuse désormais les entrées dont le chemin sortirait du dossier de destination.</li>
+            <li><strong>Correction</strong>&nbsp;: le fichier <code>manifest.xml</code> d'un mod n'est plus laissé verrouillé après l'enregistrement de son état (activation/désactivation), ce qui pouvait empêcher une sauvegarde suivante.</li>
+        </ul>
+
+        <h3 id="v3-3-5-1">Version 3.3.5.1</h3>
         <p class="tag-legend">Publiée le 19&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Nouveau</strong>&nbsp;: vérification automatique du pilote <strong>AMD</strong>, comme pour NVIDIA. L'application lit les notes de version d'AMD Software&nbsp;: Adrenalin Edition, retrouve la dernière version qui correspond à la branche de votre pilote et affiche « à jour » ou « nouveau pilote disponible » avec le lien de la version (une version « facultative » est signalée comme telle). Le résultat est conservé 12&nbsp;heures pour ne pas solliciter le site d'AMD à chaque démarrage&nbsp;; si la vérification est impossible, le lien vers la page pilote d'AMD est proposé comme avant. Voir <a href="outils.html">Outils</a>.</li>

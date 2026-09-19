@@ -126,6 +126,32 @@
         </ul>
         <p>À la validation, le <code>manifest.xml</code> du mod et le fichier <code>config-ecrans.xml</code> sont réécrits.</p>
 
+        <h2 id="remplacer-fichiers">Remplacer les fichiers d'un mod (mise à jour)</h2>
+        <p>
+            Quand un mod sort en nouvelle version, le bouton <strong>Remplacer les fichiers du mod…</strong> de
+            l'éditeur de mod efface le contenu actuel de son dossier <code>root</code> et/ou <code>saveGames</code>
+            et le remplace par de nouveaux fichiers.
+        </p>
+        <ol class="steps">
+            <li>Pour <strong>Root</strong> et/ou <strong>Saved&nbsp;Games</strong>, choisissez la nouvelle source&nbsp;: un <strong>dossier</strong>, ou un <strong>dossier à l'intérieur d'une archive ZIP</strong> (comme à la création d'un mod). Une ligne laissée vide n'est pas touchée. Vous pouvez aussi saisir la nouvelle <strong>version</strong> du mod.</li>
+            <li><strong>Préparer l'aperçu</strong>&nbsp;: la nouvelle version est préparée dans un dossier temporaire puis comparée à l'existante. L'aperçu liste les fichiers <strong>ajoutés</strong> (+), <strong>modifiés</strong> (~) et <strong>supprimés</strong> (−, absents de la nouvelle version). Rien n'est encore modifié.</li>
+            <li><strong>Remplacer les fichiers</strong> puis confirmation&nbsp;: les dossiers sont échangés. L'ancienne version n'est supprimée qu'une fois le remplacement réussi&nbsp;; en cas d'échec, elle est remise en place.</li>
+        </ol>
+        <div class="callout warn">
+            <span class="callout-title">Mod activé&nbsp;?</span>
+            <p>
+                Il est d'abord retiré de DCS et de <em>Saved&nbsp;Games</em> (avec restauration des
+                fichiers d'origine si la sauvegarde est cochée), ses fichiers sont remplacés, puis il est <strong>redéployé</strong>.
+                Ainsi, les fichiers absents de la nouvelle version ne restent pas dans DCS. <strong>DCS doit être fermé</strong>&nbsp;;
+                l'application le vérifie.
+            </p>
+        </div>
+        <ul>
+            <li>Seuls les dossiers <code>root</code> et <code>saveGames</code> du mod sont concernés&nbsp;: le <code>manifest.xml</code> et les dossiers de sauvegarde <code>.BAK</code> ne sont pas touchés.</li>
+            <li>Une source qui ne contient aucun fichier est refusée, ainsi qu'une archive contenant des chemins qui sortiraient du dossier du mod.</li>
+            <li>L'opération est immédiate&nbsp;: le bouton <em>Annuler</em> de l'éditeur ne la défait pas.</li>
+        </ul>
+
         <h2>Incompatibilités</h2>
         <p>
             Lorsque vous activez un mod déclaré incompatible avec un mod déjà actif,
