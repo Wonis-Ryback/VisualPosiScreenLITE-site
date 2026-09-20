@@ -102,10 +102,12 @@
             <li>Rappel&nbsp;: la copie a lieu au clic sur <strong>2D</strong>/<strong>VR</strong>, pas à la sélection de la configuration.</li>
         </ul>
 
-        <h3>Le renommage d'une configuration a « perdu » ses fichiers</h3>
+        <h3>Un profil renommé (ou supprimé) a « perdu » ses fichiers</h3>
         <p>
-            Le renommage ne déplace pas le sous-dossier sur le disque. Renommez manuellement
-            <code>ConfigRep\&lt;ancienne clé&gt;</code> en <code>ConfigRep\&lt;nouvelle clé&gt;</code>.
+            Depuis la version 3.5.1.1, le renommage d'un profil renomme aussi son sous-dossier à l'enregistrement. Si vous avez renommé un profil
+            avec une version antérieure, son ancien dossier <code>ConfigRep\&lt;ancienne clé&gt;</code> est resté sur le disque et l'application
+            en a créé un neuf, à partir de DCS, sous le nouveau nom&nbsp;: supprimez le dossier neuf, puis renommez l'ancien
+            en <code>ConfigRep\&lt;nouvelle clé&gt;</code>. La suppression d'un profil ne supprime jamais son dossier.
         </p>
 
         <h2>Écrans</h2>

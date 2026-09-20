@@ -61,7 +61,7 @@
         <h2>Liste des configurations</h2>
         <ul>
             <li><strong>Nouvelle configuration</strong>&nbsp;: demande un nom (clé unique) et crée une configuration vide.</li>
-            <li><strong>Renommer</strong>&nbsp;: change la clé (le sous-dossier existant n'est pas déplacé).</li>
+            <li><strong>Renommer</strong>&nbsp;: change la clé. À l'<strong>enregistrement</strong>, le sous-dossier <code>ConfigRep\&lt;ancien nom&gt;</code> est <strong>renommé</strong> avec ses fichiers (le dernier profil lancé suit aussi). Si un dossier du nouveau nom existe déjà, l'enregistrement est refusé et rien n'est modifié&nbsp;; si le fichier de configuration ne peut pas être écrit, les dossiers reprennent leur ancien nom. Le nom sert aussi de nom de dossier&nbsp;: les caractères <code>\ / : * ? " &lt; &gt; |</code> sont refusés.</li>
             <li><strong>Supprimer</strong>&nbsp;: retire la configuration du modèle après confirmation (ne supprime pas le sous-dossier sur le disque).</li>
             <li>Le passage d'une configuration à l'autre enregistre automatiquement les modifications en cours sur le profil que vous quittez.</li>
         </ul>
