@@ -81,13 +81,13 @@
             <li><strong>Clic droit</strong> sur un mod&nbsp;:
                 <ul>
                     <li><em>Enable</em> / <em>Disable</em>&nbsp;: déploie ou retire le mod <strong>immédiatement</strong> (barre de progression).</li>
-                    <li><em>Ajouter/Supprimer de la liste des mods à activer</em> ou <em>à désactiver</em>&nbsp;: modifie les <strong>actions planifiées</strong> pour la configuration courante (appliquées au lancement).</li>
+                    <li><em>Ajouter/Supprimer de la liste des mods à activer</em> ou <em>à désactiver</em>&nbsp;: modifie les <strong>actions planifiées</strong> pour le profil courant (appliquées au lancement). Ajouter un mod à activer planifie aussi la désactivation des mods actifs qui lui sont incompatibles.</li>
                 </ul>
             </li>
-            <li><strong>Double-clic</strong> sur un mod&nbsp;: le retire (désactive) immédiatement.</li>
+            <li><strong>Double-clic</strong> sur un mod&nbsp;: <strong>bascule</strong> son état immédiatement (déployé&nbsp;→ retiré, retiré&nbsp;→ déployé), avec la gestion des incompatibilités ci-dessous.</li>
             <li><strong>Modifier</strong>&nbsp;: ouvre l'éditeur de mod.</li>
             <li><strong>Supprimer</strong>&nbsp;: désactive le mod, retire ses sauvegardes, l'enlève de la liste et enregistre. <span class="badge pro">—</span> <strong>irréversible</strong>, une confirmation est demandée.</li>
-            <li>La zone de texte de droite récapitule les actions planifiées&nbsp;: « Activer&nbsp;: X » (vert), « Désactiver&nbsp;: Y » (rouge).</li>
+            <li>La zone de texte de droite récapitule les actions planifiées&nbsp;: « Activer&nbsp;: X » (vert), « Désactiver&nbsp;: Y » (rouge), et, en orange, les lignes « Attention&nbsp;: » qui expliquent une désactivation ou un mod écarté à cause d'une incompatibilité.</li>
         </ul>
 
         <div class="callout warn">
@@ -154,13 +154,13 @@
 
         <h2>Incompatibilités</h2>
         <p>
-            Lorsque vous activez un mod déclaré incompatible avec un mod déjà actif,
-            l'application le signale et propose de <strong>désactiver</strong> les mods en
-            conflit avant de poursuivre. Le calcul des actions planifiées d'une configuration
-            tient aussi compte des incompatibilités&nbsp;: si un mod à activer est en conflit
-            avec un mod actif ou avec un autre candidat, la désactivation de ce dernier est
-            planifiée.
+            Deux mods sont incompatibles dès que l'un des deux le déclare (dans l'éditeur de mod).
         </p>
+        <ul>
+            <li><strong>Activation immédiate</strong> (<em>Enable</em>, double-clic)&nbsp;: si le mod est incompatible avec des mods actifs, l'application le signale et propose de les <strong>désactiver</strong> d'abord. Le mod n'est activé que si ces désactivations ont réussi&nbsp;; les pastilles de <strong>tous</strong> les mods sont remises à jour.</li>
+            <li><strong>Actions planifiées</strong>&nbsp;: si un mod à activer (associé au profil, ou ajouté par le menu) est incompatible avec un mod actif, la désactivation de ce dernier est planifiée. Si deux mods à activer sont incompatibles entre eux, un seul est retenu&nbsp;: le dernier que vous avez ajouté à la main, sinon le premier de la liste du profil.</li>
+            <li>Au lancement, avant chaque activation, les mods actifs incompatibles sont désactivés, quoi qu'ait prévu la liste.</li>
+        </ul>
 
         <h2>Mise à jour de DCS et mods</h2>
         <p>

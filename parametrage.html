@@ -75,19 +75,31 @@
         </ul>
 
         <h3>Grille « Fichiers DCS » (Mainfiles)</h3>
-        <p>Fichiers à copier depuis <code>ConfigRep\&lt;Clé&gt;</code> vers l'installation de DCS.</p>
+        <p>Fichiers à copier depuis <code>ConfigRep\&lt;Clé&gt;</code> (le dossier du profil) vers l'installation de DCS.</p>
         <div class="table-wrap">
         <table>
             <thead><tr><th>Colonne</th><th>Signification</th></tr></thead>
             <tbody>
-                <tr><td><strong>Source</strong></td><td>Fichier relatif au sous-dossier de la configuration. Bouton <em>…</em> pour parcourir.</td></tr>
-                <tr><td><strong>Destination</strong></td><td>Chemin (relatif au répertoire DCS) où copier le fichier. Bouton <em>…</em> pour parcourir.</td></tr>
-                <tr><td><strong>Force</strong></td><td>Écrase le fichier de destination s'il existe.</td></tr>
-                <tr><td><strong>Backup</strong></td><td>Fait une copie horodatée avant d'écraser.</td></tr>
+                <tr><td><strong>Source</strong></td><td>Nom d'un fichier du dossier du profil, <strong>ou chemin complet d'un fichier à copier</strong>. Bouton <em>…</em> pour parcourir.</td></tr>
+                <tr><td><strong>Destination</strong></td><td>Chemin (relatif au répertoire DCS) où copier le fichier, <strong>avec son vrai nom</strong>. Bouton <em>…</em> pour parcourir.</td></tr>
+                <tr><td><strong>Force</strong></td><td>Écrase le fichier de destination s'il existe. Sans <em>Force</em>, un fichier déjà présent est conservé.</td></tr>
+                <tr><td><strong>Backup</strong></td><td>Fait une copie horodatée (<code>&lt;nom&gt;_&lt;date&gt;.bak</code>, à côté du fichier) avant d'écraser.</td></tr>
             </tbody>
         </table>
         </div>
         <p>Boutons <em>Ajouter&nbsp;/&nbsp;Supprimer&nbsp;/&nbsp;Monter&nbsp;/&nbsp;Descendre</em> pour gérer l'ordre.</p>
+        <div class="callout note">
+            <span class="callout-title">Un même nom de fichier à plusieurs endroits de DCS</span>
+            <p>
+                Un fichier comme <code>ControlsIndicator_page.lua</code> existe dans le dossier de chaque module de DCS. Quand vous
+                choisissez un fichier par son <strong>chemin complet</strong>, l'enregistrement du profil le <strong>copie dans le
+                dossier du profil sous un nom unique</strong> (<code>ControlsIndicator_page.&lt;empreinte&gt;.lua</code>, calculée à partir de la
+                destination) et remplace la <em>Source</em> par ce nom. Plusieurs fichiers de même nom, destinés à des modules
+                différents, coexistent ainsi dans le profil&nbsp;; au lancement, chacun est copié dans DCS sous son vrai nom, à l'emplacement
+                indiqué par sa <em>Destination</em>. Si la copie échoue (fichier introuvable), rien n'est enregistré et le message
+                indique le fichier en cause.
+            </p>
+        </div>
 
         <h3>Grille « Lancements » (LaunchCommands)</h3>
         <p>Programmes ou scripts à démarrer avec DCS.</p>

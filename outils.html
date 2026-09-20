@@ -62,15 +62,19 @@
             Bouton <strong>Comparer</strong> de la barre d'outils. Compare&nbsp;:
         </p>
         <ul>
-            <li><strong>à gauche</strong>&nbsp;: <code>ConfigRep\&lt;dernière config&gt;\Options.lua</code>&nbsp;;</li>
+            <li><strong>à gauche</strong>&nbsp;: l'<code>Options.lua</code> du <strong>profil actif</strong> (sélectionné dans la liste), dans le dossier du profil&nbsp;: <code>ConfigRep\&lt;profil&gt;\Options.lua</code> (ou le fichier indiqué par le profil)&nbsp;;</li>
             <li><strong>à droite</strong>&nbsp;: <code>DcsSavePath\Config\Options.lua</code> (celui utilisé par DCS).</li>
         </ul>
+        <p>
+            À l'ouverture de l'application et à chaque changement de profil, cette comparaison est faite <strong>en arrière-plan</strong>&nbsp;:
+            si les deux fichiers diffèrent (réglages modifiés dans DCS), le bouton <strong>Comparer</strong> passe en <strong>rouge</strong>. Aucune fenêtre ne s'ouvre&nbsp;; c'est vous qui décidez de comparer.
+        </p>
         <p>
             La comparaison est <strong>structurée</strong> (analyse de la table Lua, pas une
             simple différence de texte)&nbsp;: elle liste les clés absentes d'un côté ou de
             l'autre, les types différents et les valeurs différentes. Si les deux fichiers sont
             équivalents, un message le confirme. Sinon, une fenêtre affiche les écarts et permet
-            de <strong>reporter</strong> le fichier de DCS vers celui de la configuration.
+            de <strong>reporter</strong> le fichier de DCS vers celui du profil.
         </p>
         <div class="callout tip">
             <span class="callout-title">Usage typique</span>
@@ -114,6 +118,16 @@
             </tbody>
         </table>
         </div>
+
+        <h3>Mission déjà présente</h3>
+        <p>
+            Avant d'écrire une mission, l'outil vérifie si elle existe déjà dans le dossier cible. Si c'est le cas, une fenêtre affiche la
+            <strong>date, l'heure et la taille</strong> de la mission présente et du track à convertir, et demande&nbsp;:
+            <em>Remplacer</em>, <em>Ignorer</em> (la mission présente est conservée) ou <em>Annuler</em>. Avec plusieurs tracks dans la file
+            d'attente, <em>Remplacer tout</em> et <em>Ignorer tout</em> évitent de répondre à chaque fois. Un track ignoré n'est pas
+            supprimé, même si l'option de suppression est cochée. La conversion se fait dans un fichier temporaire&nbsp;: en cas d'échec,
+            la mission existante reste intacte.
+        </p>
 
         <h3>Éléments exclus</h3>
         <p>
