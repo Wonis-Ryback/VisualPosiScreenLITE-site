@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-7-0-1"><strong>3.7.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre <em>Documentation</em> (les PDF de DCS avec recherche, favoris et choix de la langue), et fenêtre principale plus large dont la barre d'outils n'est plus tronquée.</td></tr>
+                <tr><td><a href="#v3-8-0-1"><strong>3.8.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre principale qui s'adapte à sa taille (cartes DCS, Carte graphique, Mods, Fichiers DCS, Programmes et résumé du lancement), et fin du gel au démarrage quand DCS ne répond pas.</td></tr>
+                <tr><td><a href="#v3-7-0-1"><strong>3.7.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre <em>Documentation</em> (les PDF de DCS avec recherche, favoris et choix de la langue), et fenêtre principale plus large dont la barre d'outils n'est plus tronquée.</td></tr>
                 <tr><td><a href="#v3-6-0-1"><strong>3.6.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouveau bouton «&nbsp;Réparer&nbsp;» (<code>DCS_updater.exe repair</code>), et M.a.J qui retire les mods actifs avant la mise à jour puis propose de les réactiver.</td></tr>
                 <tr><td><a href="#v3-5-1-1"><strong>3.5.1.1</strong></a></td><td>20&nbsp;septembre&nbsp;2026</td><td>Installation d'un mod avec progression (plus de gel), renommage d'un profil qui renomme aussi son dossier, version dans la barre de titre.</td></tr>
                 <tr><td><a href="#v3-5-0-1"><strong>3.5.0.1</strong></a></td><td>20&nbsp;septembre&nbsp;2026</td><td>Retours d'utilisateurs&nbsp;: incompatibilités de mods, fichiers DCS uniques par profil, mission Trk⇒miz déjà présente, comparaison des <code>Options.lua</code> au démarrage&nbsp;; « configuration » devient « profil ».</td></tr>
@@ -74,7 +75,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.7.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.8.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -109,7 +110,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.7.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.8.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -158,7 +159,14 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-7-0-1">Version 3.7.0.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-8-0-1">Version 3.8.0.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Amélioration</strong>&nbsp;: la <strong>fenêtre principale est refaite</strong> et <strong>s'adapte à sa taille</strong>, en largeur comme en hauteur (elle peut aussi être mise en plein écran&nbsp;; taille minimale 900&nbsp;×&nbsp;640). Deux cartes d'information en haut, <em>DCS</em> et <em>Carte graphique</em>&nbsp;; trois listes qui se partagent la place, <em>Mods</em>, <em>Fichiers DCS</em> (anciennement Mainfiles) et <em>Programmes</em> (anciennement LaunchFiles)&nbsp;; en bas, un <strong>résumé du profil</strong> («&nbsp;2 fichiers DCS, 3 programmes, 2 actions sur les mods&nbsp;») et les boutons <em>VR</em> et <em>2D Screen</em>. Les colonnes des listes se répartissent la largeur, et la barre d'outils garde tous ses boutons visibles. Voir <a href="interface.html">La fenêtre principale</a>.</li>
+            <li><strong>Correction</strong>&nbsp;: <strong>plus de gel au démarrage sans connexion</strong>. L'application attendait, sans rien afficher, la version de DCS publiée en ligne, jusqu'à 100&nbsp;secondes environ quand le site ne répondait pas. La version installée s'affiche maintenant tout de suite&nbsp;; la version en ligne est demandée en arrière-plan («&nbsp;vérification…&nbsp;»), abandonnée au bout de 8&nbsp;secondes au plus, et la ligne <em>Online</em> indique alors «&nbsp;indisponible&nbsp;».</li>
+        </ul>
+
+        <h3 id="v3-7-0-1">Version 3.7.0.1</h3>
         <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Nouveauté</strong>&nbsp;: le bouton <strong>Documentation</strong> de la barre d'outils ouvre une fenêtre qui rassemble les <strong>PDF de DCS</strong> (manuel et cartes, modules, campagnes, technologies, et les modules installés dans Saved&nbsp;Games), pour les ouvrir sans les chercher dans le dossier de DCS. Recherche instantanée (sans tenir compte des accents), <strong>favoris</strong> enregistrés à côté de la configuration, et <strong>choix de la langue</strong>&nbsp;: une seule version de chaque guide est affichée, dans la langue de l'application à défaut en anglais, les autres traductions restant accessibles par le clic droit. La fenêtre est non modale&nbsp;: on peut la garder ouverte à côté de l'application. Voir <a href="outils.html#documentation">Documentation DCS</a>.</li>

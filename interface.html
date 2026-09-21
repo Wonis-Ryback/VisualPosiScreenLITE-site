@@ -39,11 +39,16 @@
         <h1>La fenêtre principale</h1>
 
         <p>
-            La fenêtre principale s'organise verticalement&nbsp;: une barre d'outils en haut,
-            puis des cadres d'information et de gestion, et enfin les deux grands boutons de
-            lancement <strong>VR</strong> et <strong>2D&nbsp;Screen</strong> en bas. On peut
-            l'élargir&nbsp;: les tableaux (mods, Mainfiles, LaunchFiles) suivent la largeur de la
-            fenêtre, et une largeur minimale garantit que tous les boutons de la barre d'outils restent visibles.
+            La fenêtre principale s'organise en quatre bandes&nbsp;: une barre d'outils en haut&nbsp;;
+            deux cartes d'information, <strong>DCS</strong> et <strong>Carte graphique</strong>&nbsp;; trois listes
+            qui se partagent toute la place restante, <strong>Mods</strong>, <strong>Fichiers DCS</strong> et
+            <strong>Programmes</strong>&nbsp;; enfin une barre de lancement, avec le résumé du profil et les deux
+            grands boutons <strong>VR</strong> et <strong>2D&nbsp;Screen</strong>.
+        </p>
+        <p>
+            La fenêtre s'adapte à sa taille, en largeur comme en hauteur&nbsp;: on peut l'agrandir ou la mettre en plein
+            écran, les listes prennent la place gagnée. Sa taille minimale (900&nbsp;×&nbsp;640) garantit que tous les
+            boutons de la barre d'outils et de lancement restent visibles.
         </p>
 
         <h2>1. Barre d'outils</h2>
@@ -53,7 +58,7 @@
             <tbody>
                 <tr><td>Icône « bug »</td><td>Ouvre la fenêtre de <strong>journal</strong> (voir <a href="outils.html">Outils intégrés</a>).</td></tr>
                 <tr><td><strong>Support…</strong></td><td>Prépare une <a href="outils.html#support">demande de support</a> avec le journal&nbsp;: le message vous est montré en entier avant tout envoi.</td></tr>
-                <tr><td>Liste déroulante des configurations</td><td>Sélectionne la <strong>configuration active</strong>. Le changement recharge aussitôt les cadres Mainfiles, LaunchFiles et les actions de mods planifiées.</td></tr>
+                <tr><td>Liste déroulante des configurations</td><td>Sélectionne la <strong>configuration active</strong>. Le changement recharge aussitôt les listes Fichiers DCS et Programmes, et les actions de mods planifiées.</td></tr>
                 <tr><td><strong>Configurer</strong></td><td>Ouvre <a href="parametrage.html">l'éditeur de configuration</a>. À la fermeture par <em>Save</em>, la liste des configurations est rafraîchie.</td></tr>
                 <tr><td><strong>Comparer</strong></td><td>Compare l'<code>Options.lua</code> du profil actif avec celui utilisé par DCS. Le bouton devient <strong>rouge</strong> à l'ouverture, ou au changement de profil, si les deux fichiers diffèrent.</td></tr>
                 <tr><td><strong>Trk⇒miz</strong></td><td>Ouvre l'outil de conversion de <em>tracks</em> en missions.</td></tr>
@@ -65,10 +70,10 @@
         </table>
         </div>
 
-        <h2>2. Cadre « Version DCS »</h2>
+        <h2>2. Cadre « DCS »</h2>
         <ul>
             <li><strong>Version installée</strong>&nbsp;: lue dans <code>bin\dcs.exe</code> du répertoire DCS.</li>
-            <li><strong>Ligne « Online »</strong>&nbsp;: version publiée récupérée sur le site de mise à jour de DCS. Affiche « À&nbsp;jour » si elle correspond, sinon le numéro disponible en rouge.</li>
+            <li><strong>Ligne « Online »</strong>&nbsp;: version publiée récupérée sur le site de mise à jour de DCS, sans bloquer la fenêtre (« vérification… » pendant la requête). Affiche « À&nbsp;jour » si elle correspond, sinon le numéro disponible en rouge, ou « indisponible » si le site ne répond pas.</li>
             <li><strong>M.a.J</strong>&nbsp;: actif uniquement si une version plus récente est disponible. Lance le programme de mise à jour de DCS (<code>DCS_updater.exe</code>), avec élévation de privilèges. Les mods actifs sont retirés avant, puis l'application propose de tous les réactiver. Voir <a href="outils.html#maj-dcs">Mettre à jour DCS</a>.</li>
             <li><strong>Réparer</strong>&nbsp;: lance <code>DCS_updater.exe repair</code> pour vérifier et réparer les fichiers de DCS. Les mods actifs sont retirés avant, puis l'application propose de tous les réactiver. Voir <a href="outils.html#reparer-dcs">Réparer DCS</a>.</li>
             <li><strong>Notes de version</strong>&nbsp;: ouvre le journal des modifications de DCS dans le navigateur.</li>
@@ -78,13 +83,14 @@
         <div class="callout note">
             <span class="callout-title">Pas de connexion&nbsp;?</span>
             <p>
-                Si la version en ligne ne peut pas être récupérée, l'application continue de
+                Si la version en ligne ne peut pas être récupérée, la ligne <em>Online</em> affiche
+                «&nbsp;indisponible&nbsp;» au bout de quelques secondes (8&nbsp;s au plus) et l'application continue de
                 fonctionner normalement&nbsp;; seul le bouton <strong>M.a.J</strong> reste
                 inactif.
             </p>
         </div>
 
-        <h2>3. Cadre « Video Card »</h2>
+        <h2>3. Cadre « Carte graphique »</h2>
         <ul>
             <li>Icône du fabricant (NVIDIA, AMD, Intel ou générique) détecté automatiquement.</li>
             <li>Modèle, quantité de VRAM et version du pilote installé.</li>
@@ -107,10 +113,10 @@
             <li><strong>Clic droit</strong> sur un mod&nbsp;: menu <em>Enable / Disable</em> et ajout/retrait aux listes d'actions planifiées pour la configuration.</li>
             <li><strong>Double-clic</strong> sur un mod&nbsp;: retire (désactive) le mod.</li>
             <li>Boutons <strong>Ajouter / Modifier / Supprimer</strong> un mod (voir <a href="mods.html#ajouter-mod">Gestion des mods</a>&nbsp;; la copie d'un mod se fait en tâche de fond, avec une fenêtre de progression).</li>
-            <li>La zone de texte à droite récapitule les actions <strong>planifiées</strong> pour la configuration sélectionnée&nbsp;: « Activer&nbsp;: … » en vert, « Désactiver&nbsp;: … » en rouge. Ces actions sont appliquées au moment du lancement.</li>
+            <li>La zone de texte sous la liste récapitule les actions <strong>planifiées</strong> pour la configuration sélectionnée&nbsp;: « Activer&nbsp;: … » en vert, « Désactiver&nbsp;: … » en rouge. Ces actions sont appliquées au moment du lancement.</li>
         </ul>
 
-        <h2>5. Cadre « Mainfiles »</h2>
+        <h2>5. Cadre « Fichiers DCS »</h2>
         <p>
             Liste des fichiers déclarés dans la configuration à copier vers l'installation de
             DCS (colonne <em>Nom</em>, <em>Source</em>, <em>Destination</em>).
@@ -118,19 +124,24 @@
             lancer DCS. Pratique pour tester une entrée.
         </p>
 
-        <h2>6. Cadre « LaunchFiles »</h2>
+        <h2>6. Cadre « Programmes »</h2>
         <p>
             Liste des programmes/scripts compagnons de la configuration (colonnes <em>Nom</em>,
             <em>Chemin</em>, <em>Paramètres</em>, <em>tag</em>).
             <strong>Double-cliquer</strong> une ligne lance ce programme immédiatement.
         </p>
 
-        <h2>7. Boutons de lancement</h2>
+        <h2>7. Barre de lancement</h2>
+        <p>
+            À gauche, un résumé de ce qui va se passer au lancement, pour le profil choisi&nbsp;:
+            <em>Profil «&nbsp;Default&nbsp;»&nbsp;: 2 fichiers DCS, 3 programmes, 2 actions sur les mods</em>. Il se met à jour
+            quand on change de profil ou d'actions de mods. À droite, les boutons&nbsp;:
+        </p>
         <div class="table-wrap">
         <table>
             <thead><tr><th>Bouton</th><th>Effet</th></tr></thead>
             <tbody>
-                <tr><td><strong>VR</strong></td><td>Applique les actions de mods planifiées, exécute les Mainfiles et LaunchFiles de la configuration, démarre DCS dans le profil <em>VR</em> multi-thread, enregistre le dernier lancement, puis ferme VisualPosiScreen LITE.</td></tr>
+                <tr><td><strong>VR</strong></td><td>Applique les actions de mods planifiées, copie les fichiers DCS et lance les programmes de la configuration, démarre DCS dans le profil <em>VR</em> multi-thread, enregistre le dernier lancement, puis ferme VisualPosiScreen LITE.</td></tr>
                 <tr><td><strong>2D&nbsp;Screen</strong></td><td>Identique, mais démarre DCS dans le profil <em>2D</em> multi-thread.</td></tr>
             </tbody>
         </table>
