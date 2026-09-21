@@ -190,6 +190,29 @@
             </p>
         </div>
 
+        <h2 id="documentation">Documentation DCS</h2>
+        <p>
+            Le bouton <strong>Documentation</strong> de la barre d'outils ouvre une fenêtre qui rassemble les PDF
+            fournis avec DCS, pour les ouvrir sans les chercher dans son dossier d'installation. Elle reste
+            ouverte à côté de l'application (fenêtre non modale) et se ferme avec <strong>Fermer</strong> ou
+            <kbd>Échap</kbd>.
+        </p>
+        <ul>
+            <li><strong>Ce qui est listé</strong>&nbsp;: le manuel et les cartes du dossier <code>Doc</code> de DCS, les documents des modules, campagnes, terrains et technologies (<code>Mods</code>), et les modules installés à la main dans le dossier <em>Saved&nbsp;Games</em> avec leur documentation. Rien n'est copié ni modifié.</li>
+            <li><strong>Catégories</strong> (à gauche, avec le nombre de documents)&nbsp;: Favoris, Tous, Général, Modules, Campagnes, Technologies, et Terrains ou Autres quand il y en a. Les documents sont regroupés par module ou par campagne&nbsp;; les longues listes (les campagnes) s'ouvrent groupes repliés.</li>
+            <li><strong>Recherche</strong>&nbsp;: elle filtre la liste à chaque frappe, sans tenir compte des accents ni des majuscules. Plusieurs mots sont possibles (<em>f-16c guide</em>), dans le titre ou le nom du module ou de la campagne. <kbd>Ctrl</kbd>+<kbd>F</kbd> place le curseur dans la zone de recherche.</li>
+            <li><strong>Langue</strong>&nbsp;: beaucoup de guides existent en plusieurs langues. Par défaut, «&nbsp;Ma langue&nbsp;» n'affiche qu'une version de chaque document, dans la langue de l'application, à défaut en anglais&nbsp;; <em>FR (+5)</em> indique cinq autres traductions, accessibles par le clic droit («&nbsp;Ouvrir dans une autre langue&nbsp;»). On peut aussi afficher toutes les langues, ou une seule. Les documents dont le nom n'indique aucune langue restent toujours affichés.</li>
+            <li><strong>Favoris</strong>&nbsp;: bouton <em>Ajouter aux favoris</em>, clic droit ou barre d'espace. La catégorie <strong>Favoris</strong> montre exactement les fichiers choisis (une étoile ★ les repère aussi dans les autres listes) et la fenêtre s'ouvre dessus dès qu'il y en a. Ils sont enregistrés dans <code>docs-favoris.xml</code>, à côté de <code>config-ecrans.xml</code>, avec un chemin relatif au dossier DCS&nbsp;: ils restent valables si DCS change de dossier.</li>
+            <li><strong>Ouvrir</strong>&nbsp;: double-clic ou <kbd>Entrée</kbd> ouvre le PDF dans le lecteur PDF de Windows&nbsp;; <em>Afficher dans le dossier</em> ouvre l'Explorateur sur le fichier, et <em>Actualiser</em> (<kbd>F5</kbd>) relit les dossiers de DCS (après une mise à jour, par exemple).</li>
+        </ul>
+        <div class="callout note">
+            <span class="callout-title">Aucun document&nbsp;?</span>
+            <p>
+                Vérifiez le répertoire DCS dans <a href="parametrage.html">l'éditeur de configuration</a>&nbsp;: la fenêtre
+                l'indique quand il est introuvable.
+            </p>
+        </div>
+
         <h2>Journal d'activité</h2>
         <p>
             L'icône « bug » de la barre d'outils ouvre la fenêtre de journal. Elle recense les
