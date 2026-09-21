@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -47,8 +47,7 @@
         <h2>Où sont rangés les mods</h2>
         <p>
             Le dossier des mods est déclaré une fois dans le bloc <code>&lt;dcs&gt;</code>
-            (élément <code>&lt;mod Folder="Mods"/&gt;</code>), relatif au répertoire de
-            configurations. Chaque mod est un sous-dossier contenant un fichier
+            (élément <code>&lt;mod Folder="Mods"/&gt;</code>), relatif au dossier de configuration. Chaque mod est un sous-dossier contenant un fichier
             <code>manifest.xml</code>&nbsp;:
         </p>
         <pre><code>ConfigRep\Mods\
@@ -136,7 +135,7 @@
             <li>Cases <strong>sauvegarde</strong> pour Root et pour SaveGames.</li>
             <li><strong>Description</strong> et <strong>Version</strong>.</li>
             <li><strong>Incompatibilités</strong>&nbsp;: liste à cocher des autres mods incompatibles.</li>
-            <li><strong>Associer ce mod aux configurations</strong>&nbsp;: cocher les configurations pour lesquelles ce mod doit être actif (met à jour la liste « Mods associés » de chaque configuration).</li>
+            <li><strong>Associer ce mod aux profils</strong>&nbsp;: cocher les profils pour lesquels ce mod doit être actif (met à jour la liste « Mods associés » de chaque profil).</li>
         </ul>
         <p>À la validation, le <code>manifest.xml</code> du mod et le fichier <code>config-ecrans.xml</code> sont réécrits.</p>
 
@@ -180,7 +179,7 @@
         <p>
             Avant une mise à jour de DCS, il est recommandé de <strong>désactiver les mods</strong>
             qui touchent l'installation, pour éviter que le programme de mise à jour ne détecte
-            des fichiers modifiés. Réactivez-les ensuite via la configuration.
+            des fichiers modifiés. Réactivez-les ensuite via le profil.
         </p>
 
         <div class="pager">

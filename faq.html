@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -42,11 +42,11 @@
 
         <h3>Quelle est la différence entre LITE et PRO&nbsp;?</h3>
         <p>
-            Fonctionnellement, une seule&nbsp;: <strong>PRO gère le multi-écran au niveau de la
-            configuration</strong> et repositionne les moniteurs Windows (position, écran
-            principal, orientation) au changement de configuration, avec restauration en fin de
+            Fonctionnellement, une seule&nbsp;: <strong>PRO gère le multi-écran au niveau du
+            profil</strong> et repositionne les moniteurs Windows (position, écran
+            principal, orientation) au changement de profil, avec restauration en fin de
             session. LITE enregistre la liste d'écrans à titre documentaire mais ne touche pas
-            au bureau. Tout le reste (configurations multiples, mods, lancements, Helios,
+            au bureau. Tout le reste (profils multiples, mods, lancements, Helios,
             Trk⇒miz, suivi de version, comparaison d'<code>options.lua</code>, copie du fichier
             de configuration moniteur DCS) est identique. Voir <a href="ecrans.html">Gestion des
             écrans</a>.
@@ -55,7 +55,7 @@
         <h3>Puis-je passer de LITE à PRO sans refaire ma configuration&nbsp;?</h3>
         <p>
             Oui. Le fichier <code>config-ecrans.xml</code> est commun. En PRO, complétez l'onglet
-            <em>Écrans</em> de vos configurations (notamment <code>HwId</code>) pour activer le
+            <em>Écrans</em> de vos profils (notamment <code>HwId</code>) pour activer le
             repositionnement.
         </p>
 
@@ -80,8 +80,7 @@
         <h3>« Impossible de charger la config XML »</h3>
         <p>
             Le fichier est absent ou corrompu. Restaurez la dernière sauvegarde
-            <code>config-ecrans.xml.AAAAMMJJ_HHMMSS.bak</code> présente dans le répertoire de
-            configurations.
+            <code>config-ecrans.xml.AAAAMMJJ_HHMMSS.bak</code> présente dans le dossier de configuration.
         </p>
 
         <h2>Configuration</h2>
@@ -97,9 +96,9 @@
 
         <h3>Mon <code>options.lua</code> n'est pas pris en compte en jeu</h3>
         <ul>
-            <li>Vérifiez que le <em>Fichier options</em> de la configuration pointe bien sur le fichier présent dans <code>ConfigRep\&lt;Clé&gt;</code>.</li>
+            <li>Vérifiez que le <em>Fichier options</em> du profil pointe bien sur le fichier présent dans <code>ConfigRep\&lt;Clé&gt;</code>.</li>
             <li>Utilisez <strong>Comparer</strong> après le lancement pour voir si le fichier de DCS correspond.</li>
-            <li>Rappel&nbsp;: la copie a lieu au clic sur <strong>2D</strong>/<strong>VR</strong>, pas à la sélection de la configuration.</li>
+            <li>Rappel&nbsp;: la copie a lieu au clic sur <strong>2D</strong>/<strong>VR</strong>, pas à la sélection du profil.</li>
         </ul>
 
         <h3>Un profil renommé (ou supprimé) a « perdu » ses fichiers</h3>
@@ -144,7 +143,7 @@
         <h3>Conflit de mods au lancement</h3>
         <p>
             Un mod à activer est déclaré incompatible avec un mod actif. Acceptez la
-            désactivation proposée, ou revoyez les <em>Mods associés</em> de la configuration et
+            désactivation proposée, ou revoyez les <em>Mods associés</em> du profil et
             les <em>incompatibilités</em> dans l'éditeur de mod.
         </p>
 
@@ -175,7 +174,7 @@
 
         <h3>Helios ne se lance pas</h3>
         <p>
-            Vérifiez, dans l'onglet <em>Helios</em> de la configuration, que la case «&nbsp;actif&nbsp;» est
+            Vérifiez, dans l'onglet <em>Helios</em> du profil, que la case «&nbsp;actif&nbsp;» est
             cochée, que <strong>Control&nbsp;Center</strong> pointe vers <code>Control Center.exe</code>, que le
             profil existe, et que le <code>runtimeTag</code> correspond au bouton utilisé (<code>2D</code>,
             <code>VR</code> ou <code>all</code>). La cause exacte figure dans le journal.
@@ -191,7 +190,7 @@
         <h3>La fenêtre se ferme toute seule</h3>
         <p>
             C'est le comportement attendu après un lancement (évite deux instances). Rouvrez
-            l'application pour changer de configuration.
+            l'application pour changer de profil.
         </p>
 
         <h2>Divers</h2>

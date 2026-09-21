@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Les configurations — VisualPosiScreen LITE</title>
+<title>Les profils — VisualPosiScreen LITE</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html" class="active">Les configurations</a>
+            <a href="configurations.html" class="active">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -35,41 +35,43 @@
 
     <main class="content">
     <div class="inner">
-        <div class="breadcrumb">Prise en main › Les configurations</div>
-        <h1>Les configurations</h1>
+        <div class="breadcrumb">Prise en main › Les profils</div>
+        <h1>Les profils</h1>
 
         <p>
-            Une <strong>configuration</strong> (élément <code>&lt;config&gt;</code> du fichier
-            <code>config-ecrans.xml</code>) est un profil complet de préparation d'une session
-            DCS. Vous en créez autant que de contextes de jeu.
+            Un <strong>profil</strong> (élément <code>&lt;config&gt;</code> du fichier
+            <code>config-ecrans.xml</code>) est un jeu complet de réglages qui prépare une session
+            DCS. Vous en créez autant que de contextes de jeu. L'ensemble des profils, avec les réglages communs
+            (chemins de DCS, mods, démarrages de DCS…), forme la <strong>configuration</strong> de l'application,
+            enregistrée dans <code>config-ecrans.xml</code>.
         </p>
 
-        <h2>Ce que contient une configuration</h2>
+        <h2>Ce que contient un profil</h2>
         <div class="table-wrap">
         <table>
             <thead><tr><th>Élément</th><th>Description</th><th>Obligatoire</th></tr></thead>
             <tbody>
-                <tr><td><strong>Clé</strong> (nom)</td><td>Identifiant affiché dans la liste déroulante. Sert aussi de nom de sous-dossier dans le répertoire de configurations.</td><td>Oui</td></tr>
-                <tr><td><strong>Fichier options</strong></td><td>Nom du fichier <code>options.lua</code> propre à cette configuration, copié dans <code>Saved&nbsp;Games\Config\options.lua</code> au lancement.</td><td>Recommandé</td></tr>
+                <tr><td><strong>Clé</strong> (nom)</td><td>Identifiant affiché dans la liste déroulante. Sert aussi de nom de sous-dossier dans le dossier de configuration.</td><td>Oui</td></tr>
+                <tr><td><strong>Fichier options</strong></td><td>Nom du fichier <code>options.lua</code> propre à ce profil, copié dans <code>Saved&nbsp;Games\Config\options.lua</code> au lancement.</td><td>Recommandé</td></tr>
                 <tr><td><strong>Configuration moniteur</strong></td><td>Nom du fichier de configuration moniteur de DCS, avec son extension <code>.lua</code>, copié dans <code>Saved&nbsp;Games\Config\MonitorSetup\</code> au lancement.</td><td>Recommandé</td></tr>
                 <tr><td><strong>Script d'export</strong></td><td>Fichier <code>Export.lua</code> à installer dans <code>Saved&nbsp;Games\Scripts\</code> (l'ancien est sauvegardé avec un horodatage).</td><td>Non</td></tr>
-                <tr><td><strong>Fichiers DCS</strong> (Mainfiles)</td><td>Liste de fichiers à copier depuis le sous-dossier de la configuration vers l'installation de DCS, avec options « forcer » et « sauvegarde ».</td><td>Non</td></tr>
+                <tr><td><strong>Fichiers DCS</strong> (Mainfiles)</td><td>Liste de fichiers à copier depuis le sous-dossier du profil vers l'installation de DCS, avec options « forcer » et « sauvegarde ».</td><td>Non</td></tr>
                 <tr><td><strong>Lancements</strong> (LaunchCommands)</td><td>Programmes/scripts compagnons à démarrer, filtrables par mode (<code>all</code>, <code>2D</code>, <code>VR</code>).</td><td>Non</td></tr>
                 <tr><td><strong>Helios</strong></td><td>Bloc optionnel&nbsp;: dossier de profils, Control&nbsp;Center, fichier de profil.</td><td>Non</td></tr>
                 <tr><td><strong>Écrans</strong></td><td>Liste d'écrans (géométrie, écran principal, orientation). <span class="badge lite">LITE</span> saisie documentaire&nbsp;; <span class="badge pro">PRO</span> appliquée au bureau Windows.</td><td>Non</td></tr>
-                <tr><td><strong>Mods associés</strong></td><td>Noms des mods à activer automatiquement quand la configuration est sélectionnée (les autres mods actifs non listés sont planifiés pour désactivation).</td><td>Non</td></tr>
+                <tr><td><strong>Mods associés</strong></td><td>Noms des mods à activer automatiquement quand le profil est sélectionné (les autres mods actifs non listés sont planifiés pour désactivation).</td><td>Non</td></tr>
             </tbody>
         </table>
         </div>
 
         <h2>Arborescence des dossiers</h2>
         <p>Une organisation typique ressemble à ceci&nbsp;:</p>
-        <pre><code>C:\Users\vous\Saved Games\Posiscreen\        &lt;-- Répertoire de configurations (ConfigRep)
+        <pre><code>C:\Users\vous\Saved Games\Posiscreen\        &lt;-- Dossier de configuration (ConfigRep)
 │
-├─ config-ecrans.xml                         &lt;-- fichier maître (toutes les configurations)
+├─ config-ecrans.xml                         &lt;-- fichier maître (tous les profils)
 ├─ last_run.xml                              &lt;-- mémoire du dernier lancement
 │
-├─ Solo VR\                                  &lt;-- sous-dossier = clé de la configuration
+├─ Solo VR\                                  &lt;-- sous-dossier = clé du profil
 │   ├─ options.lua
 │   ├─ MonitorSetup-1cam.lua
 │   └─ Export.lua
@@ -91,39 +93,39 @@
         <div class="callout note">
             <span class="callout-title">Chemins relatifs</span>
             <p>
-                Dans l'éditeur, les noms de fichiers d'une configuration (options, moniteur,
+                Dans l'éditeur, les noms de fichiers d'un profil (options, moniteur,
                 export, sources des Mainfiles) sont enregistrés <strong>relativement</strong> au
                 sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> quand le fichier choisi s'y trouve.
-                Gardez donc les fichiers d'une configuration dans son propre sous-dossier.
+                Gardez donc les fichiers d'un profil dans son propre sous-dossier.
             </p>
         </div>
 
         <h2>Cycle de vie</h2>
         <ol class="steps">
-            <li><strong>Création</strong>&nbsp;: dans l'éditeur, bouton <em>Nouvelle configuration</em>, vous saisissez la clé.</li>
-            <li><strong>Initialisation des dossiers</strong>&nbsp;: à l'enregistrement, si le sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> n'existe pas, il est créé et l'application y copie l'<code>Options.lua</code> et le fichier de configuration moniteur actuellement en place dans DCS, renommés d'après la configuration. Le nom du fichier moniteur est déduit du paramètre <code>multiMonitorSetup</code> de l'<code>Options.lua</code> (DCS l'écrit sans extension&nbsp;: l'éditeur ajoute <code>.lua</code>). Les configurations déjà installées (dossier présent) ne sont pas modifiées, hormis le fichier moniteur s'il manque dans leur dossier&nbsp;: à l'enregistrement, l'éditeur le complète sans jamais rien écraser.</li>
+            <li><strong>Création</strong>&nbsp;: dans l'éditeur, bouton <em>Nouveau</em> du groupe <em>Profils</em>, vous saisissez la clé.</li>
+            <li><strong>Initialisation des dossiers</strong>&nbsp;: à l'enregistrement, si le sous-dossier <code>ConfigRep\&lt;Clé&gt;</code> n'existe pas, il est créé et l'application y copie l'<code>Options.lua</code> et le fichier de configuration moniteur actuellement en place dans DCS, renommés d'après le profil. Le nom du fichier moniteur est déduit du paramètre <code>multiMonitorSetup</code> de l'<code>Options.lua</code> (DCS l'écrit sans extension&nbsp;: l'éditeur ajoute <code>.lua</code>). Les profils déjà installés (dossier présent) ne sont pas modifiés, hormis le fichier moniteur s'il manque dans leur dossier&nbsp;: à l'enregistrement, l'éditeur le complète sans jamais rien écraser.</li>
             <li><strong>Personnalisation</strong>&nbsp;: vous ajustez le contenu du sous-dossier (préparez chaque <code>options.lua</code> avec les réglages DCS voulus) et complétez l'éditeur (Mainfiles, lancements, mods, Helios, écrans).</li>
-            <li><strong>Utilisation</strong>&nbsp;: vous sélectionnez la configuration dans la fenêtre principale et vous lancez en 2D ou VR.</li>
+            <li><strong>Utilisation</strong>&nbsp;: vous sélectionnez le profil dans la fenêtre principale et vous lancez en 2D ou VR.</li>
             <li><strong>Renommage / suppression</strong>&nbsp;: possibles dans l'éditeur. À l'enregistrement, le renommage d'un profil <strong>renomme aussi son sous-dossier</strong> (avec ses fichiers)&nbsp;; la suppression, elle, ne supprime pas le sous-dossier.</li>
         </ol>
 
         <h2>Le fichier <code>last_run.xml</code></h2>
         <p>
             À chaque lancement, l'application écrit dans <code>ConfigRep\last_run.xml</code>&nbsp;:
-            la dernière configuration utilisée, la version de DCS au moment du lancement et la
-            date du fichier <code>Options.lua</code> de la configuration. Au démarrage suivant,
-            la dernière configuration est resélectionnée automatiquement.
+            le dernier profil utilisé, la version de DCS au moment du lancement et la
+            date du fichier <code>Options.lua</code> du profil. Au démarrage suivant,
+            le dernier profil est resélectionné automatiquement.
         </p>
 
-        <h2>Réglages globaux (communs à toutes les configurations)</h2>
+        <h2>Réglages globaux (communs à tous les profils)</h2>
         <div class="table-wrap">
         <table>
             <thead><tr><th>Réglage</th><th>Rôle</th></tr></thead>
             <tbody>
-                <tr><td><strong>ConfigRep</strong></td><td>Dossier contenant <code>config-ecrans.xml</code>, les sous-dossiers de configurations et le dossier des mods.</td></tr>
+                <tr><td><strong>ConfigRep</strong></td><td>Dossier contenant <code>config-ecrans.xml</code>, les sous-dossiers des profils et le dossier des mods.</td></tr>
                 <tr><td><strong>DcsPath</strong></td><td>Dossier d'installation de DCS (contient <code>bin\dcs.exe</code>).</td></tr>
                 <tr><td><strong>DcsSavePath</strong></td><td>Dossier <em>Saved&nbsp;Games</em> de DCS (contient <code>Config\</code>, <code>Scripts\</code>, <code>Missions\</code>, <code>Tracks\</code>).</td></tr>
-                <tr><td><strong>Bloc <code>&lt;dcs&gt;</code></strong></td><td>Profils de démarrage (2D / VR), entrée de mise à jour, réglages Trk⇒miz, dossier des mods. Généré au premier enregistrement, modifiable dans le XML.</td></tr>
+                <tr><td><strong>Bloc <code>&lt;dcs&gt;</code></strong></td><td>Démarrages DCS (2D / VR), entrée de mise à jour, réglages Trk⇒miz, dossier des mods. Généré au premier enregistrement, modifiable dans le XML.</td></tr>
             </tbody>
         </table>
         </div>

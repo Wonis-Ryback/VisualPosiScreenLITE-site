@@ -19,7 +19,7 @@
             <a href="installation.html" class="active">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -46,7 +46,7 @@
                 <tr><td>Système</td><td>Windows&nbsp;10 ou Windows&nbsp;11, 64&nbsp;bits.</td></tr>
                 <tr><td>Environnement d'exécution</td><td>Aucun&nbsp;: la version téléchargeable est autonome (le runtime .NET est inclus dans l'archive).</td></tr>
                 <tr><td>DCS&nbsp;World</td><td>Une installation fonctionnelle (Stable ou Open&nbsp;Beta). L'application a besoin du dossier d'installation et du dossier <em>Saved&nbsp;Games</em> de DCS.</td></tr>
-                <tr><td>Droits</td><td>Un compte pouvant écrire dans le dossier <em>Saved&nbsp;Games</em> de DCS et dans le dossier de configurations que vous choisirez. Certains lancements compagnons peuvent demander les droits administrateur (paramétrable).</td></tr>
+                <tr><td>Droits</td><td>Un compte pouvant écrire dans le dossier <em>Saved&nbsp;Games</em> de DCS et dans le dossier de configuration que vous choisirez. Certains lancements compagnons peuvent demander les droits administrateur (paramétrable).</td></tr>
                 <tr><td>Accès réseau</td><td>Facultatif&nbsp;: utilisé uniquement pour comparer la version installée de DCS à la version publiée en ligne, vérifier le pilote graphique et rechercher une nouvelle version de VisualPosiScreen&nbsp;LITE sur GitHub.</td></tr>
             </tbody>
         </table>
@@ -54,7 +54,7 @@
 
         <h2>Mise en place</h2>
 
-        <a class="btn-download" href="https://github.com/Wonis-Ryback/VisualPosiScreenLITE-site/releases/latest/download/VisualPosiScreenLITE-3.8.0.1-win-x64.zip">
+        <a class="btn-download" href="https://github.com/Wonis-Ryback/VisualPosiScreenLITE-site/releases/latest/download/VisualPosiScreenLITE-3.9.0.1-win-x64.zip">
             ⬇ Télécharger la dernière version
             <span class="btn-sub">Windows 10/11 x64 · version autonome, sans prérequis</span>
         </a>
@@ -63,7 +63,7 @@
             <li>Décompressez l'archive téléchargée dans un dossier où vous avez les droits d'écriture (par exemple <code>C:\Outils\VisualPosiScreenLITE\</code>). Évitez <code>C:\Program&nbsp;Files\</code>.</li>
             <li>Repérez le dossier <strong>d'installation</strong> de DCS (il contient <code>bin\dcs.exe</code> et <code>bin\DCS_updater.exe</code>).</li>
             <li>Repérez le dossier <strong>Saved&nbsp;Games</strong> de DCS (souvent <code>C:\Users\&lt;vous&gt;\Saved&nbsp;Games\DCS</code> ou <code>…\DCS.openbeta</code>). Il contient un sous-dossier <code>Config</code>.</li>
-            <li>Choisissez (ou créez) un <strong>dossier de configurations</strong> qui contiendra les profils et le fichier <code>config-ecrans.xml</code>. Exemple&nbsp;: <code>C:\Users\&lt;vous&gt;\Saved&nbsp;Games\Posiscreen\</code>.</li>
+            <li>Choisissez (ou créez) un <strong>dossier de configuration</strong> qui contiendra les profils et le fichier <code>config-ecrans.xml</code>. Exemple&nbsp;: <code>C:\Users\&lt;vous&gt;\Saved&nbsp;Games\Posiscreen\</code>.</li>
             <li>Lancez <code>VisualPosiScreenLITE.exe</code>.</li>
         </ol>
 
@@ -99,7 +99,7 @@
         </p>
         <ol class="steps">
             <li>
-                <strong>Répertoire de configurations</strong> (<em>ConfigRep</em>)&nbsp;: le dossier
+                <strong>Dossier de configuration</strong> (<em>ConfigRep</em>)&nbsp;: le dossier
                 choisi à l'étape&nbsp;4 ci-dessus. C'est là que le fichier <code>config-ecrans.xml</code>
                 sera enregistré.
             </li>
@@ -112,7 +112,7 @@
                 <em>Saved&nbsp;Games</em> de DCS. Double-cliquez sur le champ pour parcourir.
             </li>
             <li>
-                Vérifiez la configuration <em>Default</em> proposée dans la liste de gauche
+                Vérifiez le profil <em>Default</em> proposé dans la liste de gauche
                 (nom des fichiers <code>options.lua</code> et configuration moniteur).
             </li>
             <li>
@@ -130,19 +130,17 @@
                 manquent, elle demande confirmation avant de continuer&nbsp;;
             </li>
             <li>
-                <strong>génère le bloc technique</strong> <code>&lt;dcs&gt;</code>&nbsp;: deux
-                profils de démarrage multi-thread (<em>VR</em> et <em>2D</em>) pointant vers
+                <strong>génère le bloc technique</strong> <code>&lt;dcs&gt;</code>&nbsp;: deux démarrages DCS multi-thread (<em>VR</em> et <em>2D</em>) pointant vers
                 <code>dcs.exe</code>, une entrée de mise à jour vers <code>DCS_updater.exe</code>,
                 les exclusions Trk⇒miz de base et le dossier de mods <code>Mods</code>&nbsp;;
             </li>
             <li>
-                <strong>crée un sous-dossier</strong> par configuration dans le répertoire de
-                configurations et y dépose une copie des <code>Options.lua</code> et fichier de
+                <strong>crée un sous-dossier</strong> par profil dans le dossier de
+                configuration et y dépose une copie des <code>Options.lua</code> et fichier de
                 configuration moniteur actuellement utilisés par DCS (quand ils existent)&nbsp;;
             </li>
             <li>
-                <strong>écrit</strong> <code>config-ecrans.xml</code> dans le répertoire de
-                configurations. Une copie <code>.bak</code> horodatée de l'ancien fichier est
+                <strong>écrit</strong> <code>config-ecrans.xml</code> dans le dossier de configuration. Une copie <code>.bak</code> horodatée de l'ancien fichier est
                 faite si un fichier existait déjà.
             </li>
         </ul>
@@ -150,8 +148,7 @@
         <div class="callout tip">
             <span class="callout-title">Bon à savoir</span>
             <p>
-                Après l'enregistrement, la fenêtre principale s'ouvre sur la configuration
-                enregistrée. Vous pourrez revenir à tout moment dans l'éditeur via le lien
+                Après l'enregistrement, la fenêtre principale s'ouvre sur le profil enregistré. Vous pourrez revenir à tout moment dans l'éditeur via le lien
                 <strong>Configurer</strong> de la barre d'outils.
             </p>
         </div>
@@ -159,8 +156,8 @@
         <h2>Désinstallation</h2>
         <p>
             L'application ne s'inscrit pas dans le système. Pour la retirer, supprimez son
-            dossier. Vos configurations (dossier <em>ConfigRep</em> et
-            <code>config-ecrans.xml</code>) restent en place tant que vous ne les supprimez pas
+            dossier. Votre configuration (dossier <em>ConfigRep</em> et
+            <code>config-ecrans.xml</code>) reste en place tant que vous ne la supprimez pas
             vous-même&nbsp;; les fichiers déjà copiés dans DCS ne sont pas retirés.
         </p>
 

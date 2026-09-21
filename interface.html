@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html" class="active">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -58,12 +58,12 @@
             <tbody>
                 <tr><td>Icône « bug »</td><td>Ouvre la fenêtre de <strong>journal</strong> (voir <a href="outils.html">Outils intégrés</a>).</td></tr>
                 <tr><td><strong>Support…</strong></td><td>Prépare une <a href="outils.html#support">demande de support</a> avec le journal&nbsp;: le message vous est montré en entier avant tout envoi.</td></tr>
-                <tr><td>Liste déroulante des configurations</td><td>Sélectionne la <strong>configuration active</strong>. Le changement recharge aussitôt les listes Fichiers DCS et Programmes, et les actions de mods planifiées.</td></tr>
-                <tr><td><strong>Configurer</strong></td><td>Ouvre <a href="parametrage.html">l'éditeur de configuration</a>. À la fermeture par <em>Save</em>, la liste des configurations est rafraîchie.</td></tr>
+                <tr><td>Liste déroulante des profils</td><td>Sélectionne le <strong>profil actif</strong>. Le changement recharge aussitôt les listes Fichiers DCS et Programmes, et les actions de mods planifiées.</td></tr>
+                <tr><td><strong>Configurer</strong></td><td>Ouvre <a href="parametrage.html">l'éditeur de configuration</a>. À la fermeture par <em>Save</em>, la liste des profils est rafraîchie.</td></tr>
                 <tr><td><strong>Comparer</strong></td><td>Compare l'<code>Options.lua</code> du profil actif avec celui utilisé par DCS. Le bouton devient <strong>rouge</strong> à l'ouverture, ou au changement de profil, si les deux fichiers diffèrent.</td></tr>
                 <tr><td><strong>Trk⇒miz</strong></td><td>Ouvre l'outil de conversion de <em>tracks</em> en missions.</td></tr>
                 <tr><td><strong>Documentation</strong></td><td>Ouvre la fenêtre <a href="outils.html#documentation">Documentation DCS</a>&nbsp;: les PDF des modules, des campagnes et le manuel de DCS, avec recherche et favoris.</td></tr>
-                <tr><td><strong>Écrans…</strong></td><td>Ouvre la fenêtre <a href="ecrans.html#fenetre-ecrans">Écrans</a>&nbsp;: la disposition des écrans Windows actuelle et celle de la configuration, dessinées à l'échelle et comparées.</td></tr>
+                <tr><td><strong>Écrans…</strong></td><td>Ouvre la fenêtre <a href="ecrans.html#fenetre-ecrans">Écrans</a>&nbsp;: la disposition des écrans Windows actuelle et celle du profil, dessinées à l'échelle et comparées.</td></tr>
                 <tr><td>Indicateur de version (à gauche de <em>À&nbsp;Propos…</em>)</td><td>Affiche <strong style="color: var(--lite);">✔&nbsp;À&nbsp;jour</strong> ou <strong style="color: var(--warn);">⬆&nbsp;Mettre&nbsp;à&nbsp;jour</strong> selon la dernière version publiée sur GitHub. Un clic ouvre la proposition de mise à jour, ou relance la vérification. Voir <a href="versions.html">Suivi des versions</a>.</td></tr>
                 <tr><td><strong>À&nbsp;Propos…</strong></td><td>Affiche l'éditeur, la version du produit et les mentions.</td></tr>
             </tbody>
@@ -110,15 +110,15 @@
             <strong>rouge</strong> = non déployé.
         </p>
         <ul>
-            <li><strong>Clic droit</strong> sur un mod&nbsp;: menu <em>Enable / Disable</em> et ajout/retrait aux listes d'actions planifiées pour la configuration.</li>
+            <li><strong>Clic droit</strong> sur un mod&nbsp;: menu <em>Enable / Disable</em> et ajout/retrait aux listes d'actions planifiées pour le profil.</li>
             <li><strong>Double-clic</strong> sur un mod&nbsp;: retire (désactive) le mod.</li>
             <li>Boutons <strong>Ajouter / Modifier / Supprimer</strong> un mod (voir <a href="mods.html#ajouter-mod">Gestion des mods</a>&nbsp;; la copie d'un mod se fait en tâche de fond, avec une fenêtre de progression).</li>
-            <li>La zone de texte sous la liste récapitule les actions <strong>planifiées</strong> pour la configuration sélectionnée&nbsp;: « Activer&nbsp;: … » en vert, « Désactiver&nbsp;: … » en rouge. Ces actions sont appliquées au moment du lancement.</li>
+            <li>La zone de texte sous la liste récapitule les actions <strong>planifiées</strong> pour le profil sélectionné&nbsp;: « Activer&nbsp;: … » en vert, « Désactiver&nbsp;: … » en rouge. Ces actions sont appliquées au moment du lancement.</li>
         </ul>
 
         <h2>5. Cadre « Fichiers DCS »</h2>
         <p>
-            Liste des fichiers déclarés dans la configuration à copier vers l'installation de
+            Liste des fichiers déclarés dans le profil à copier vers l'installation de
             DCS (colonne <em>Nom</em>, <em>Source</em>, <em>Destination</em>).
             <strong>Double-cliquer</strong> une ligne exécute immédiatement cette copie, sans
             lancer DCS. Pratique pour tester une entrée.
@@ -126,7 +126,7 @@
 
         <h2>6. Cadre « Programmes »</h2>
         <p>
-            Liste des programmes/scripts compagnons de la configuration (colonnes <em>Nom</em>,
+            Liste des programmes/scripts compagnons du profil (colonnes <em>Nom</em>,
             <em>Chemin</em>, <em>Paramètres</em>, <em>tag</em>).
             <strong>Double-cliquer</strong> une ligne lance ce programme immédiatement.
         </p>
@@ -141,8 +141,8 @@
         <table>
             <thead><tr><th>Bouton</th><th>Effet</th></tr></thead>
             <tbody>
-                <tr><td><strong>VR</strong></td><td>Applique les actions de mods planifiées, copie les fichiers DCS et lance les programmes de la configuration, démarre DCS dans le profil <em>VR</em> multi-thread, enregistre le dernier lancement, puis ferme VisualPosiScreen LITE.</td></tr>
-                <tr><td><strong>2D&nbsp;Screen</strong></td><td>Identique, mais démarre DCS dans le profil <em>2D</em> multi-thread.</td></tr>
+                <tr><td><strong>VR</strong></td><td>Applique les actions de mods planifiées, copie les fichiers DCS et lance les programmes du profil, démarre DCS avec le démarrage <em>VR</em> multi-thread, enregistre le dernier lancement, puis ferme VisualPosiScreen LITE.</td></tr>
+                <tr><td><strong>2D&nbsp;Screen</strong></td><td>Identique, mais démarre DCS avec le démarrage <em>2D</em> multi-thread.</td></tr>
             </tbody>
         </table>
         </div>
@@ -153,13 +153,13 @@
             <p>
                 C'est volontaire&nbsp;: cela évite de garder deux instances ouvertes et libère
                 les ressources pendant que DCS tourne. Relancez VisualPosiScreen LITE après la
-                session si vous voulez changer de configuration.
+                session si vous voulez changer de profil.
             </p>
         </div>
 
         <div class="pager">
             <a class="prev" href="installation.html"><span>Précédent</span>← Installation</a>
-            <a class="next" href="configurations.html"><span>Suite</span>Les configurations →</a>
+            <a class="next" href="configurations.html"><span>Suite</span>Les profils →</a>
         </div>
 
         <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.3.</footer>

@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -119,23 +119,23 @@
         <table>
             <thead><tr><th>Attribut / enfant</th><th>Type</th><th>Rôle</th></tr></thead>
             <tbody>
-                <tr><td><code>@configRep</code></td><td>texte, requis</td><td>Dossier de configurations (contient ce fichier, les sous-dossiers de configurations et le dossier des mods).</td></tr>
+                <tr><td><code>@configRep</code></td><td>texte, requis</td><td>Dossier de configuration (contient ce fichier, les sous-dossiers des profils et le dossier des mods).</td></tr>
                 <tr><td><code>&lt;dcs&gt;</code></td><td>bloc</td><td>Réglages techniques communs (voir ci-dessous).</td></tr>
                 <tr><td><code>&lt;dcssavepath&gt;</code></td><td>texte</td><td>Dossier <em>Saved&nbsp;Games</em> de DCS.</td></tr>
                 <tr><td><code>&lt;dcspath&gt;</code></td><td>texte</td><td>Dossier d'installation de DCS.</td></tr>
-                <tr><td><code>&lt;config&gt;</code></td><td>1..n</td><td>Une configuration (profil). Au moins une requise.</td></tr>
+                <tr><td><code>&lt;config&gt;</code></td><td>1..n</td><td>Un profil. Au moins un requis.</td></tr>
             </tbody>
         </table>
         </div>
 
         <h2>Bloc <code>&lt;dcs&gt;</code></h2>
 
-        <h3><code>&lt;build&gt;</code> — profil de démarrage (0..n)</h3>
+        <h3><code>&lt;build&gt;</code> — démarrage DCS (0..n)</h3>
         <div class="table-wrap">
         <table>
             <thead><tr><th>Attribut / enfant</th><th>Rôle</th></tr></thead>
             <tbody>
-                <tr><td><code>@num</code> (requis)</td><td>Identifiant du profil.</td></tr>
+                <tr><td><code>@num</code> (requis)</td><td>Identifiant du démarrage.</td></tr>
                 <tr><td><code>@tag</code> (requis)</td><td><code>2D</code> ou <code>VR</code> — sélectionné par le bouton de lancement correspondant.</td></tr>
                 <tr><td><code>@threading</code></td><td><code>MT</code> pour le moteur multi-thread de DCS.</td></tr>
                 <tr><td><code>@wait</code>, <code>@needAdminRights</code></td><td>Booléens optionnels.</td></tr>
@@ -173,22 +173,22 @@
         </div>
 
         <h3><code>&lt;mod Folder="…"/&gt;</code></h3>
-        <p>Dossier racine des mods, relatif au répertoire de configurations (souvent <code>Mods</code>).</p>
+        <p>Dossier racine des mods, relatif au dossier de configuration (souvent <code>Mods</code>).</p>
 
         <h2>Élément <code>&lt;config&gt;</code></h2>
         <div class="table-wrap">
         <table>
             <thead><tr><th>Attribut / enfant</th><th>Cardinalité</th><th>Rôle</th></tr></thead>
             <tbody>
-                <tr><td><code>@key</code></td><td>requis</td><td>Nom de la configuration = nom du sous-dossier.</td></tr>
+                <tr><td><code>@key</code></td><td>requis</td><td>Nom du profil = nom du sous-dossier.</td></tr>
                 <tr><td><code>&lt;dcsOptionsSetupFile&gt;</code></td><td>0..1</td><td>Nom du <code>options.lua</code> à copier dans <code>Config\options.lua</code>.</td></tr>
-                <tr><td><code>&lt;dcsMonitorConfig&gt;</code></td><td>0..1</td><td>Nom, <strong>avec extension</strong> (<code>.lua</code>), du fichier de configuration moniteur situé dans le dossier de la configuration ; il est copié dans <code>Config\MonitorSetup\</code> au lancement.</td></tr>
+                <tr><td><code>&lt;dcsMonitorConfig&gt;</code></td><td>0..1</td><td>Nom, <strong>avec extension</strong> (<code>.lua</code>), du fichier de configuration moniteur situé dans le dossier du profil ; il est copié dans <code>Config\MonitorSetup\</code> au lancement.</td></tr>
                 <tr><td><code>&lt;dcsCustomExportScript&gt;</code></td><td>0..1</td><td>Fichier <code>Export.lua</code> à installer dans <code>Scripts\</code> (l'existant est sauvegardé, horodaté). L'ancien nom <code>&lt;dcsExportFile&gt;</code>, écrit par les versions historiques de posiscreen, est lu comme équivalent&nbsp;; le fichier est réécrit au nom actuel à l'enregistrement.</td></tr>
                 <tr><td><code>&lt;dcsMainFile&gt;</code></td><td>0..n</td><td>Copie de fichier&nbsp;: <code>@source</code> (nom d'un fichier du dossier du profil ; l'éditeur remplace un chemin complet par un nom unique en copiant le fichier dans le dossier du profil), <code>@destination</code> (requis, chemin relatif à DCS avec le vrai nom du fichier), <code>@force</code>, <code>@backup</code>.</td></tr>
                 <tr><td><code>&lt;launchCommand&gt;</code></td><td>0..n</td><td>Programme compagnon (texte = chemin)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@workingdir</code>, <code>@needAdminRights</code>, <code>@param1</code>…<code>@param9</code>.</td></tr>
                 <tr><td><code>&lt;Helios&gt;</code></td><td>0..1</td><td>texte = fichier de profil (relatif à <code>@profiledir</code>, ou chemin complet)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@profiledir</code>, <code>@controlcenter</code> (<code>Control Center.exe</code>). Lancé au démarrage de la session.</td></tr>
                 <tr class="pro-row"><td><code>&lt;ecran&gt;</code></td><td>0..n</td><td>Écran (voir <a href="ecrans.html">Gestion des écrans</a>)&nbsp;: <code>@index</code>, <code>@deviceName</code>, <code>@HwId</code> (requis), <code>@primary</code>, <code>@orientation</code>, enfants <code>width</code>, <code>height</code>, <code>pos_X</code>, <code>pos_Y</code>, <code>oldPos_X</code>, <code>oldPos_Y</code>. <span class="badge pro">PRO</span> appliqué&nbsp;; <span class="badge lite">LITE</span> documentaire.</td></tr>
-                <tr><td><code>&lt;mods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods à activer automatiquement pour cette configuration.</td></tr>
+                <tr><td><code>&lt;mods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods à activer automatiquement pour ce profil.</td></tr>
             </tbody>
         </table>
         </div>
@@ -215,7 +215,7 @@
   &lt;LastVersion&gt;2.9.x.xxxxx&lt;/LastVersion&gt;
   &lt;LastOptionConfigDate&gt;03/09/2026 21:14:07&lt;/LastOptionConfigDate&gt;
 &lt;/LastRun&gt;</code></pre>
-        <p>Écrit à chaque lancement dans <code>ConfigRep\last_run.xml</code>. Sert à resélectionner la dernière configuration au démarrage.</p>
+        <p>Écrit à chaque lancement dans <code>ConfigRep\last_run.xml</code>. Sert à resélectionner le dernier profil au démarrage.</p>
 
         <div class="pager">
             <a class="prev" href="outils.html"><span>Précédent</span>← Outils intégrés</a>

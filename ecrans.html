@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html" class="active">Gestion des écrans</a>
@@ -50,7 +50,7 @@
                 <tr>
                     <td><strong>Configuration moniteur de DCS</strong></td>
                     <td>Le fichier <em>MonitorSetup</em> de DCS qui répartit l'image (cockpit, MFCD, visée…) sur la surface d'affichage, à l'intérieur du jeu.</td>
-                    <td><span class="badge lite">LITE</span> et <span class="badge pro">PRO</span> — copié pour chaque configuration.</td>
+                    <td><span class="badge lite">LITE</span> et <span class="badge pro">PRO</span> — copié pour chaque profil.</td>
                 </tr>
                 <tr class="pro-row">
                     <td><strong>Disposition des écrans Windows</strong></td>
@@ -68,10 +68,10 @@
         </p>
         <ul>
             <li>à gauche, la <strong>disposition actuelle du bureau Windows</strong>&nbsp;;</li>
-            <li>à droite, la disposition <strong>déclarée dans la configuration</strong> choisie dans la liste en haut de la fenêtre (par défaut celle de la fenêtre principale).</li>
+            <li>à droite, la disposition <strong>déclarée dans le profil</strong> choisi dans la liste en haut de la fenêtre (par défaut celle de la fenêtre principale).</li>
         </ul>
         <p>
-            Chaque écran est dessiné avec son numéro (ou son <em>tag</em> côté configuration), sa résolution, un
+            Chaque écran est dessiné avec son numéro (ou son <em>tag</em> côté profil), sa résolution, un
             petit triangle qui marque le « haut » de l'image (utile pour une orientation portrait) et une
             étoile avec un contour épais pour l'écran principal. La couleur indique l'état&nbsp;:
         </p>
@@ -81,8 +81,8 @@
             <tbody>
                 <tr><td><strong style="color: #3a8f3a;">Vert</strong></td><td>Conforme&nbsp;: l'écran est retrouvé de l'autre côté, avec la même position, taille et orientation.</td></tr>
                 <tr><td><strong style="color: #8a52a8;">Violet</strong></td><td>Différent&nbsp;: retrouvé, mais position, taille, orientation ou statut d'écran principal diffèrent.</td></tr>
-                <tr><td><strong style="color: #a08a00;">Jaune</strong></td><td>Affichage présent dans Windows mais non déclaré dans la configuration.</td></tr>
-                <tr><td><strong style="color: #b5473a;">Rouge</strong></td><td>Écran déclaré dans la configuration mais introuvable sur le bureau (moniteur éteint ou débranché).</td></tr>
+                <tr><td><strong style="color: #a08a00;">Jaune</strong></td><td>Affichage présent dans Windows mais non déclaré dans le profil.</td></tr>
+                <tr><td><strong style="color: #b5473a;">Rouge</strong></td><td>Écran déclaré dans le profil mais introuvable sur le bureau (moniteur éteint ou débranché).</td></tr>
             </tbody>
         </table>
         </div>
@@ -96,7 +96,7 @@
             <li><strong>Actualiser</strong>&nbsp;: relit le bureau Windows (après avoir changé les réglages d'affichage, par exemple).</li>
             <li><strong>Identifier les écrans</strong>&nbsp;: affiche quelques secondes le numéro de chaque écran, sur cet écran, pour le reconnaître physiquement.</li>
             <li><span class="badge pro">PRO</span> <strong>Resynchroniser…</strong>&nbsp;: associe les écrans déclarés aux écrans réels et mémorise leurs identifiants (voir <a href="#resynchronisation">ci-dessous</a>). Un bandeau orange l'annonce quand c'est utile.</li>
-            <li><span class="badge pro">PRO</span> <strong>Positionner les écrans</strong>&nbsp;: applique tout de suite la disposition de la configuration. La fenêtre affiche d'abord la liste des changements et demande confirmation&nbsp;; la disposition est ensuite relue et le dessin actualisé.</li>
+            <li><span class="badge pro">PRO</span> <strong>Positionner les écrans</strong>&nbsp;: applique tout de suite la disposition du profil. La fenêtre affiche d'abord la liste des changements et demande confirmation&nbsp;; la disposition est ensuite relue et le dessin actualisé.</li>
             <li><span class="badge pro">PRO</span> <strong>Rétablir la disposition d'origine à la fin de DCS</strong> (option)&nbsp;: un petit processus sans fenêtre attend la fin de DCS puis remét les écrans comme avant.</li>
             <li><span class="badge pro">PRO</span> <strong>Simulation</strong> (option)&nbsp;: calcule et consigne dans le journal ce qui serait fait, sans rien modifier à l'affichage. Utile pour un premier essai.</li>
         </ul>
@@ -112,7 +112,7 @@
             La resynchronisation ré-associe chaque écran déclaré à l'écran réel qui lui correspond.
         </p>
         <ol class="steps">
-            <li>Ouvrez la fenêtre <strong>Écrans…</strong>, choisissez la configuration, cliquez sur <strong>Resynchroniser…</strong>.</li>
+            <li>Ouvrez la fenêtre <strong>Écrans…</strong>, choisissez le profil, cliquez sur <strong>Resynchroniser…</strong>.</li>
             <li>Chaque écran déclaré propose l'affichage retrouvé automatiquement (et l'état&nbsp;: <em>par son identifiant</em>, <em>par sa position seulement</em> ou <em>non associé</em>). Corrigez au besoin avec la liste.</li>
             <li><strong>Identifier les écrans</strong> affiche le numéro de chaque écran sur cet écran&nbsp;; <strong>Désigner…</strong> affiche sur chaque écran physique un bouton «&nbsp;C'est cet écran&nbsp;»&nbsp;: cliquez sur le bon.</li>
             <li><strong>Enregistrer dans la configuration</strong>&nbsp;: <code>config-ecrans.xml</code> est validé puis écrit, l'ancien fichier étant conservé en copie <code>.bak</code> horodatée.</li>
@@ -168,14 +168,14 @@
         <ul>
             <li>Vous pouvez saisir et importer la liste d'écrans&nbsp;; elle est enregistrée dans <code>config-ecrans.xml</code>.</li>
             <li>Cette liste sert de <strong>documentation</strong> et de base de préparation. Elle <strong>n'est pas appliquée</strong> au bureau Windows.</li>
-            <li>Pour que DCS répartisse correctement l'image, l'essentiel en LITE est le <strong>fichier de configuration moniteur</strong> de la configuration (copié à chaque lancement) et le fait que vos écrans Windows soient déjà dans la bonne disposition.</li>
-            <li>Si vous changez souvent de disposition physique (par ex. éteindre deux écrans latéraux pour jouer au casque), faites-le via les réglages d'affichage de Windows ou un utilitaire tiers avant de lancer la configuration.</li>
+            <li>Pour que DCS répartisse correctement l'image, l'essentiel en LITE est le <strong>fichier de configuration moniteur</strong> du profil (copié à chaque lancement) et le fait que vos écrans Windows soient déjà dans la bonne disposition.</li>
+            <li>Si vous changez souvent de disposition physique (par ex. éteindre deux écrans latéraux pour jouer au casque), faites-le via les réglages d'affichage de Windows ou un utilitaire tiers avant de lancer le profil.</li>
         </ul>
 
         <div class="callout note">
             <span class="callout-title">Astuce LITE</span>
             <p>
-                Créez une configuration par disposition d'écrans que vous utilisez réellement,
+                Créez un profil par disposition d'écrans que vous utilisez réellement,
                 avec le bon <em>MonitorSetup</em> pour chacune, et un lancement compagnon
                 (<code>runtimeTag = all</code>) qui appelle votre propre script de bascule
                 d'affichage si vous en avez un.
@@ -185,8 +185,8 @@
         <h2><span class="badge pro">PRO</span> Ce que l'édition PRO apporte</h2>
         <ul>
             <li>
-                <strong>Application de la disposition</strong>&nbsp;: quand vous sélectionnez la
-                configuration (ou au lancement), PRO applique à Windows, pour chaque écran
+                <strong>Application de la disposition</strong>&nbsp;: quand vous sélectionnez le
+                profil (ou au lancement), PRO applique à Windows, pour chaque écran
                 déclaré&nbsp;: la position (<code>pos_X</code>/<code>pos_Y</code>), l'écran
                 principal (<code>primary</code>) et l'orientation (<code>orientation</code>).
             </li>
@@ -204,15 +204,19 @@
                 moniteur DCS copiée et jeu lancé, sans passer par les réglages d'affichage de
                 Windows.
             </li>
+            <li>
+                <strong>Captures d'écran découpées par écran</strong>&nbsp;: voir
+                <a href="#captures-ecrans">Captures d'écran multi-écrans</a>.
+            </li>
         </ul>
 
-        <h3>Préparer une configuration multi-écran en PRO</h3>
+        <h3>Préparer un profil multi-écran en PRO</h3>
         <ol class="steps">
             <li>Placez physiquement vos moniteurs dans la disposition voulue via Windows.</li>
             <li>Dans l'éditeur, onglet <em>Écrans</em>, cliquez <strong>Import moniteurs</strong>.</li>
             <li>Complétez si besoin les <em>tags</em> (le <code>HwId</code> est déjà rempli par l'import).</li>
             <li>Vérifiez l'écran <code>primary</code> et l'<code>orientation</code>.</li>
-            <li>Associez le bon fichier de configuration moniteur DCS à la configuration.</li>
+            <li>Associez le bon fichier de configuration moniteur DCS au profil.</li>
             <li><strong>Valider</strong> puis <strong>Save</strong>.</li>
         </ol>
 
@@ -246,6 +250,23 @@
                 <strong>Simulation</strong>&nbsp;: case à cocher de la même fenêtre (réglage <code>dryRun</code>). PRO
                 calcule et consigne dans le journal ce qu'il ferait, sans rien modifier à l'affichage.
             </li>
+        </ul>
+
+        <h3 id="captures-ecrans"><span class="badge pro">PRO</span> Captures d'écran multi-écrans</h3>
+        <p>
+            La touche de capture de DCS enregistre le bureau entier, écrans supplémentaires compris. Le bouton
+            <strong>Captures…</strong> de la barre d'outils découpe ces captures pour que chaque écran du profil ait son image, en s'appuyant sur les <em>tags</em> et les positions des écrans déclarés.
+        </p>
+        <ol class="steps">
+            <li>Choisissez le <strong>profil</strong> (celui dont les écrans ont servi à la capture) : ses écrans, avec leur tag et leur taille, apparaissent à droite. Un écran sans tag s'appelle «&nbsp;Écran N&nbsp;».</li>
+            <li>Choisissez une ou plusieurs <strong>captures</strong> dans la liste (dossier <code>ScreenShots</code> de <em>Saved&nbsp;Games</em>, les plus récentes d'abord). Une coche ✔ indique celles qui ont la taille des écrans du profil, et une case permet de ne montrer qu'elles.</li>
+            <li>Cochez les <strong>écrans</strong> voulus, dans la liste ou en cliquant leur zone sur l'aperçu de la capture, où chaque écran est dessiné à sa place.</li>
+            <li>Cliquez <strong>Découper</strong>&nbsp;: chaque zone est enregistrée dans le même dossier, sous le nom <code>&lt;capture&gt;_&lt;tag&gt;.jpg</code> (ou <code>.png</code>, comme la capture). La capture d'origine n'est jamais modifiée&nbsp;; une case permet de la mettre à la corbeille une fois tous ses écrans découpés.</li>
+        </ol>
+        <ul>
+            <li>La zone d'un écran se déduit de sa position dans le profil&nbsp;: le coin haut gauche de la capture est le coin haut gauche du rectangle qui contient tous les écrans du profil (un écran à gauche de l'écran principal est donc bien géré).</li>
+            <li>Une capture dont les proportions ne correspondent pas à celles des écrans du profil n'est pas découpée&nbsp;: l'aperçu et le compte rendu indiquent les deux tailles. Une capture à une autre échelle (même proportions) est découpée proportionnellement.</li>
+            <li>Les fichiers découpés ne figurent pas dans la liste des captures (leur nom se termine par le tag d'un écran).</li>
         </ul>
 
         <div class="callout warn">

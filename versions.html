@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-8-0-1"><strong>3.8.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre principale qui s'adapte à sa taille (cartes DCS, Carte graphique, Mods, Fichiers DCS, Programmes et résumé du lancement), et fin du gel au démarrage quand DCS ne répond pas.</td></tr>
+                <tr><td><a href="#v3-9-0-1"><strong>3.9.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Captures d'écran multi-écrans&nbsp;: une capture de DCS découpée par écran du profil. Pour LITE&nbsp;: vocabulaire du guide unifié («&nbsp;profil&nbsp;» au lieu de «&nbsp;configuration&nbsp;» pour un jeu de réglages nommé) et fenêtre Documentation qui ne s'élargit plus avec un chemin très long.</td></tr>
+                <tr><td><a href="#v3-8-0-1"><strong>3.8.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre principale qui s'adapte à sa taille (cartes DCS, Carte graphique, Mods, Fichiers DCS, Programmes et résumé du lancement), et fin du gel au démarrage quand DCS ne répond pas.</td></tr>
                 <tr><td><a href="#v3-7-0-1"><strong>3.7.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre <em>Documentation</em> (les PDF de DCS avec recherche, favoris et choix de la langue), et fenêtre principale plus large dont la barre d'outils n'est plus tronquée.</td></tr>
                 <tr><td><a href="#v3-6-0-1"><strong>3.6.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouveau bouton «&nbsp;Réparer&nbsp;» (<code>DCS_updater.exe repair</code>), et M.a.J qui retire les mods actifs avant la mise à jour puis propose de les réactiver.</td></tr>
                 <tr><td><a href="#v3-5-1-1"><strong>3.5.1.1</strong></a></td><td>20&nbsp;septembre&nbsp;2026</td><td>Installation d'un mod avec progression (plus de gel), renommage d'un profil qui renomme aussi son dossier, version dans la barre de titre.</td></tr>
@@ -75,7 +76,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.8.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.9.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -110,7 +111,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.8.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.9.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -159,7 +160,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-8-0-1">Version 3.8.0.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-9-0-1">Version 3.9.0.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>captures d'écran multi-écrans</strong>. La capture de DCS enregistre le bureau entier&nbsp;; le bouton <em>Captures…</em> la découpe pour que chaque écran du profil ait son image (<code>&lt;capture&gt;_&lt;tag&gt;.jpg</code>), avec un aperçu où l'on choisit les écrans d'un clic, le traitement de plusieurs captures à la fois et une mise à la corbeille facultative des originaux. Voir <a href="ecrans.html#captures-ecrans">Captures d'écran multi-écrans</a>. Cette fonction n'existe pas dans l'édition LITE.</li>
+            <li><strong>Amélioration</strong>&nbsp;: <strong>vocabulaire unifié</strong>. Un <strong>profil</strong> est un jeu de réglages nommé, celui qu'on choisit dans la liste de la barre d'outils et qu'on lance&nbsp;; la <strong>configuration</strong> est l'ensemble (le fichier <code>config-ecrans.xml</code>, l'<em>éditeur de configuration</em>)&nbsp;; les lancements 2D et VR sont des <strong>démarrages DCS</strong>&nbsp;; <code>ConfigRep</code> est le <strong>dossier de configuration</strong>. Tout le guide suit ce vocabulaire (la page «&nbsp;Les configurations&nbsp;» devient <a href="configurations.html">Les profils</a>, sans changer d'adresse), ainsi que quelques messages de l'édition PRO et du journal.</li>
+            <li><strong>Correction</strong>&nbsp;: dans la fenêtre <em>Documentation</em>, une ligne d'état contenant un chemin très long n'élargit plus la fenêtre&nbsp;: le texte est coupé par des points de suspension.</li>
+        </ul>
+
+        <h3 id="v3-8-0-1">Version 3.8.0.1</h3>
         <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Amélioration</strong>&nbsp;: la <strong>fenêtre principale est refaite</strong> et <strong>s'adapte à sa taille</strong>, en largeur comme en hauteur (elle peut aussi être mise en plein écran&nbsp;; taille minimale 900&nbsp;×&nbsp;640). Deux cartes d'information en haut, <em>DCS</em> et <em>Carte graphique</em>&nbsp;; trois listes qui se partagent la place, <em>Mods</em>, <em>Fichiers DCS</em> (anciennement Mainfiles) et <em>Programmes</em> (anciennement LaunchFiles)&nbsp;; en bas, un <strong>résumé du profil</strong> («&nbsp;2 fichiers DCS, 3 programmes, 2 actions sur les mods&nbsp;») et les boutons <em>VR</em> et <em>2D Screen</em>. Les colonnes des listes se répartissent la largeur, et la barre d'outils garde tous ses boutons visibles. Voir <a href="interface.html">La fenêtre principale</a>.</li>
@@ -241,7 +250,7 @@
         <ul>
             <li><strong>Correction</strong>&nbsp;: à la création d'une configuration, le nom du fichier moniteur lu dans <code>Options.lua</code> (<code>multiMonitorSetup</code>, que DCS écrit <em>sans extension</em>) est désormais complété par <code>.lua</code>. Auparavant la zone de texte restait sans extension et le fichier n'était jamais copié dans le dossier de la configuration.</li>
             <li><strong>Correction</strong>&nbsp;: au lancement, le fichier moniteur est copié dans <code>Config\MonitorSetup\&lt;nom&gt;.lua</code> (le nom référencé par l'<code>Options.lua</code> de la configuration), là où DCS le lit. Il était copié dans <code>Config\</code>, sans effet.</li>
-            <li><strong>Configurations existantes</strong>&nbsp;: le nom est affiché avec son extension ; à l'enregistrement dans l'éditeur, le fichier moniteur manquant dans le dossier d'une configuration est complété (sans jamais rien écraser), et le lancement accepte l'ancien nom sans extension. Voir <a href="configurations.html">Les configurations</a>.</li>
+            <li><strong>Configurations existantes</strong>&nbsp;: le nom est affiché avec son extension ; à l'enregistrement dans l'éditeur, le fichier moniteur manquant dans le dossier d'une configuration est complété (sans jamais rien écraser), et le lancement accepte l'ancien nom sans extension. Voir <a href="configurations.html">Les profils</a>.</li>
         </ul>
 
         <h3 id="v3-3-2-1">Version 3.3.2.1</h3>

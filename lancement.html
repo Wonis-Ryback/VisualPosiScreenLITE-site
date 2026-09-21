@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -41,7 +41,7 @@
         <h2>Procédure normale</h2>
         <ol class="steps">
             <li>Ouvrez VisualPosiScreen&nbsp;LITE.</li>
-            <li>Choisissez la <strong>configuration</strong> dans la liste déroulante de la barre d'outils (la dernière utilisée est resélectionnée automatiquement).</li>
+            <li>Choisissez le <strong>profil</strong> dans la liste déroulante de la barre d'outils (la dernière utilisée est resélectionnée automatiquement).</li>
             <li>Vérifiez dans le cadre <em>Mods</em> les actions planifiées (« Activer&nbsp;/&nbsp;Désactiver »). Ajustez au besoin par clic droit.</li>
             <li>Cliquez sur <strong>VR</strong> ou sur <strong>2D&nbsp;Screen</strong>.</li>
         </ol>
@@ -50,15 +50,15 @@
         <p>Au clic sur <strong>VR</strong> ou <strong>2D</strong>, dans l'ordre&nbsp;:</p>
         <ol class="steps">
             <li>
-                <strong>Application des actions de mods planifiées</strong> pour la configuration&nbsp;:
+                <strong>Application des actions de mods planifiées</strong> pour le profil&nbsp;:
                 d'abord les <em>désactivations</em>, puis les <em>activations</em> (avec barre de
                 progression).
             </li>
             <li>
-                <strong>Copie des fichiers de configuration</strong>&nbsp;:
+                <strong>Copie des fichiers du profil</strong>&nbsp;:
                 <ul>
                     <li><code>ConfigRep\&lt;Clé&gt;\&lt;fichier options&gt;</code> → <code>DcsSavePath\Config\options.lua</code></li>
-                    <li><code>ConfigRep\&lt;Clé&gt;\&lt;config moniteur&gt;</code> → <code>DcsSavePath\Config\MonitorSetup\&lt;nom&gt;.lua</code>, où <code>&lt;nom&gt;</code> est le nom (sans extension) référencé par <code>multiMonitorSetup</code> dans l'<code>options.lua</code> de la configuration&nbsp;: c'est le fichier que DCS charge.</li>
+                    <li><code>ConfigRep\&lt;Clé&gt;\&lt;config moniteur&gt;</code> → <code>DcsSavePath\Config\MonitorSetup\&lt;nom&gt;.lua</code>, où <code>&lt;nom&gt;</code> est le nom (sans extension) référencé par <code>multiMonitorSetup</code> dans l'<code>options.lua</code> du profil&nbsp;: c'est le fichier que DCS charge.</li>
                     <li>
                         <strong>« Fichiers DCS » (Mainfiles)</strong>&nbsp;: chaque fichier source
                         (sous <code>ConfigRep\&lt;Clé&gt;</code>) est copié vers sa destination dans
@@ -68,8 +68,7 @@
                 </ul>
             </li>
             <li>
-                <span class="badge pro">PRO</span> <strong>Application de la disposition d'écrans</strong>
-                de la configuration (position, écran principal, orientation), après mémorisation
+                <span class="badge pro">PRO</span> <strong>Application de la disposition d'écrans</strong> du profil (position, écran principal, orientation), après mémorisation
                 de la disposition courante. Elle précède les lancements ci-dessous pour que les
                 programmes compagnons s'ouvrent sur le bon écran.
             </li>
@@ -80,23 +79,23 @@
                 travail, ses paramètres et, si demandé, l'élévation de privilèges.
             </li>
             <li>
-                <strong>Démarrage de Helios</strong>, si la configuration a un bloc Helios actif dont le
+                <strong>Démarrage de Helios</strong>, si le profil a un bloc Helios actif dont le
                 <code>runtimeTag</code> correspond au mode&nbsp;: Helios <em>Control&nbsp;Center</em> est lancé avec le
                 profil indiqué. Control&nbsp;Center n'accepte qu'une instance&nbsp;: s'il tourne déjà, il reçoit
                 simplement le profil à charger.
             </li>
             <li>
-                <strong>Démarrage de DCS</strong> avec le profil correspondant (le chemin de <code>dcs.exe</code> est
+                <strong>Démarrage de DCS</strong> avec le démarrage DCS correspondant (le chemin de <code>dcs.exe</code> est
                 vérifié <em>avant</em> toute action&nbsp;: si DCS a été déplacé, un message l'indique et rien n'est
                 modifié)&nbsp;:
                 <ul>
-                    <li><strong>VR</strong>&nbsp;: profil multi-thread <em>VR</em> (paramètres type <code>--force_enable_VR --force_OpenXR</code>).</li>
-                    <li><strong>2D&nbsp;Screen</strong>&nbsp;: profil multi-thread <em>2D</em> (paramètre type <code>--force_no_VR</code>).</li>
+                    <li><strong>VR</strong>&nbsp;: démarrage multi-thread <em>VR</em> (paramètres type <code>--force_enable_VR --force_OpenXR</code>).</li>
+                    <li><strong>2D&nbsp;Screen</strong>&nbsp;: démarrage multi-thread <em>2D</em> (paramètre type <code>--force_no_VR</code>).</li>
                 </ul>
             </li>
             <li>
-                <strong>Écriture de <code>last_run.xml</code></strong>&nbsp;: configuration, version
-                de DCS et date du fichier <code>Options.lua</code> de la configuration.
+                <strong>Écriture de <code>last_run.xml</code></strong>&nbsp;: profil, version
+                de DCS et date du fichier <code>Options.lua</code> du profil.
             </li>
             <li>
                 <strong>Fermeture de VisualPosiScreen&nbsp;LITE.</strong>
@@ -116,7 +115,7 @@
         </div>
 
         <div class="callout note">
-            <span class="callout-title">Les profils 2D / VR</span>
+            <span class="callout-title">Les démarrages 2D / VR</span>
             <p>
                 Ils proviennent du bloc <code>&lt;dcs&gt;</code> (éléments <code>&lt;build&gt;</code>
                 avec <code>tag="2D"</code> / <code>tag="VR"</code> et <code>threading="MT"</code>).
@@ -130,13 +129,13 @@
         <ul>
             <li><strong>Double-clic</strong> sur une ligne de la liste <em>Fichiers DCS</em>&nbsp;: exécute uniquement cette copie.</li>
             <li><strong>Double-clic</strong> sur une ligne de la liste <em>Programmes</em>&nbsp;: lance uniquement ce programme.</li>
-            <li>Bouton <strong>Comparer</strong>&nbsp;: vérifie que l'<code>options.lua</code> de la configuration et celui de DCS sont cohérents avant de jouer (voir <a href="outils.html">Outils intégrés</a>).</li>
+            <li>Bouton <strong>Comparer</strong>&nbsp;: vérifie que l'<code>options.lua</code> du profil et celui de DCS sont cohérents avant de jouer (voir <a href="outils.html">Outils intégrés</a>).</li>
         </ul>
 
         <h2>Après la session</h2>
         <ul>
-            <li>Relancez VisualPosiScreen&nbsp;LITE si vous voulez changer de configuration ou d'état de mods.</li>
-            <li>Utilisez <strong>Comparer</strong> pour reporter dans la configuration les réglages modifiés en jeu (si vous avez ajusté des options depuis DCS).</li>
+            <li>Relancez VisualPosiScreen&nbsp;LITE si vous voulez changer de profil ou d'état de mods.</li>
+            <li>Utilisez <strong>Comparer</strong> pour reporter dans le profil les réglages modifiés en jeu (si vous avez ajusté des options depuis DCS).</li>
             <li>Après une mise à jour de DCS ou du pilote graphique, pensez à <strong>Effacer FXO</strong>.</li>
             <li><span class="badge pro">PRO</span> la disposition d'écrans d'origine peut être restaurée automatiquement.</li>
         </ul>

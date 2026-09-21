@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -47,17 +47,17 @@
             script d'export, mods actifs) et le démarrage manuel de plusieurs programmes.
         </p>
         <p>
-            VisualPosiScreen&nbsp;LITE regroupe ces réglages dans des <strong>configurations</strong>
-            nommées. Vous préparez une configuration une fois&nbsp;; ensuite, avant chaque
-            session, vous la sélectionnez et l'application&nbsp;:
+            VisualPosiScreen&nbsp;LITE regroupe ces réglages dans des <strong>profils</strong>
+            nommés. Vous préparez un profil une fois&nbsp;; ensuite, avant chaque
+            session, vous le sélectionnez et l'application&nbsp;:
         </p>
         <ul>
             <li>copie le bon <code>options.lua</code> et le bon fichier de configuration moniteur dans le dossier <em>Saved&nbsp;Games</em> de DCS&nbsp;;</li>
             <li>copie les éventuels fichiers supplémentaires (script d'export, fichiers à déposer dans l'installation de DCS)&nbsp;;</li>
-            <li>active ou désactive les mods associés à la configuration&nbsp;;</li>
+            <li>active ou désactive les mods associés au profil&nbsp;;</li>
             <li>lance les logiciels compagnons déclarés (SRS, SimApp&nbsp;Pro, Helios&nbsp;Control&nbsp;Center, VoiceAttack, scripts…)&nbsp;;</li>
             <li>démarre DCS&nbsp;World dans le mode choisi (<strong>2D</strong> ou <strong>VR</strong>)&nbsp;;</li>
-            <li><span class="badge pro">PRO</span> repositionne les écrans Windows selon la configuration.</li>
+            <li><span class="badge pro">PRO</span> repositionne les écrans Windows selon le profil.</li>
         </ul>
 
         <h2>Fonctions principales</h2>
@@ -65,17 +65,17 @@
         <table>
             <thead><tr><th>Fonction</th><th>Description</th></tr></thead>
             <tbody>
-                <tr><td>Configurations multiples</td><td>Autant de profils que nécessaire (ex.&nbsp;: <em>Solo&nbsp;VR</em>, <em>Multi&nbsp;2D</em>, <em>Cockpit&nbsp;Helios</em>), sélectionnables dans une liste déroulante.</td></tr>
+                <tr><td>Profils multiples</td><td>Autant de profils que nécessaire (ex.&nbsp;: <em>Solo&nbsp;VR</em>, <em>Multi&nbsp;2D</em>, <em>Cockpit&nbsp;Helios</em>), sélectionnables dans une liste déroulante.</td></tr>
                 <tr><td>Copie de fichiers DCS</td><td><code>options.lua</code>, configuration moniteur, <code>Export.lua</code> (avec sauvegarde horodatée), plus une liste libre de fichiers à copier vers l'installation de DCS.</td></tr>
                 <tr><td>Lancements associés</td><td>Programmes et scripts à démarrer avec DCS, avec répertoire de travail, paramètres, droits administrateur et filtrage par mode (<code>all</code>, <code>2D</code>, <code>VR</code>).</td></tr>
-                <tr><td>Gestion des mods</td><td>Détection des mods d'un dossier dédié, déploiement/retrait avec sauvegarde, incompatibilités, association automatique à une configuration.</td></tr>
-                <tr><td>Helios</td><td>Bloc optionnel par configuration&nbsp;: dossier de profils, Control&nbsp;Center, fichier de profil.</td></tr>
+                <tr><td>Gestion des mods</td><td>Détection des mods d'un dossier dédié, déploiement/retrait avec sauvegarde, incompatibilités, association automatique à un profil.</td></tr>
+                <tr><td>Helios</td><td>Bloc optionnel par profil&nbsp;: dossier de profils, Control&nbsp;Center, fichier de profil.</td></tr>
                 <tr><td>Suivi de version DCS</td><td>Lecture de la version installée, comparaison avec la version en ligne, bouton de mise à jour, purge du cache de shaders (FXO / metashaders2).</td></tr>
-                <tr><td>Comparaison d'<code>options.lua</code></td><td>Compare le fichier de la configuration avec celui actuellement utilisé par DCS et propose de reporter les écarts.</td></tr>
+                <tr><td>Comparaison d'<code>options.lua</code></td><td>Compare le fichier du profil avec celui actuellement utilisé par DCS et propose de reporter les écarts.</td></tr>
                 <tr><td>Trk⇒miz</td><td>Convertit des fichiers <em>track</em> <code>.trk</code> (<em>replay</em>) en missions <code>.miz</code> jouables, en excluant les éléments de <em>replay</em>.</td></tr>
                 <tr><td>Informations carte graphique</td><td>Modèle, VRAM, version de pilote&nbsp;; vérification automatique du pilote NVIDIA et AMD, lien vers la page pilote Intel.</td></tr>
                 <tr><td>Journal d'activité</td><td>Fenêtre de journal consultable à tout moment.</td></tr>
-                <tr class="pro-row"><td>Positionnement des écrans <span class="badge pro">PRO</span></td><td>Application de la disposition d'écrans (position, écran principal, orientation) déclarée dans la configuration, et restauration en fin de session.</td></tr>
+                <tr class="pro-row"><td>Positionnement des écrans <span class="badge pro">PRO</span></td><td>Application de la disposition d'écrans (position, écran principal, orientation) déclarée dans le profil, et restauration en fin de session.</td></tr>
             </tbody>
         </table>
         </div>
@@ -83,8 +83,8 @@
         <h2>Édition LITE et édition PRO</h2>
         <p>
             Les deux éditions sont issues du même produit et se ressemblent à l'écran. Elles
-            gèrent toutes les deux <strong>plusieurs configurations</strong> et toutes les deux
-            copient, pour chaque configuration, le <strong>fichier de configuration moniteur</strong>
+            gèrent toutes les deux <strong>plusieurs profils</strong> et toutes les deux
+            copient, pour chaque profil, le <strong>fichier de configuration moniteur</strong>
             de DCS (celui qui décrit la répartition du cockpit sur les écrans <em>à l'intérieur</em>
             de DCS).
         </p>
@@ -96,16 +96,16 @@
 
         <h3><span class="badge lite">LITE</span> Ce que fait l'édition LITE</h3>
         <ul>
-            <li>Gère un nombre illimité de configurations.</li>
-            <li>Pour chaque configuration, copie <code>options.lua</code> et le fichier de configuration moniteur de DCS.</li>
-            <li>Permet de <em>saisir</em> une liste d'écrans dans une configuration (onglet <em>Écrans</em> de l'éditeur) et d'importer la géométrie des moniteurs depuis Windows, à titre de documentation.</li>
-            <li>N'agit pas sur la disposition des écrans de Windows&nbsp;: c'est à vous de régler vos moniteurs (ou d'utiliser un autre utilitaire) avant de lancer une configuration.</li>
+            <li>Gère un nombre illimité de profils.</li>
+            <li>Pour chaque profil, copie <code>options.lua</code> et le fichier de configuration moniteur de DCS.</li>
+            <li>Permet de <em>saisir</em> une liste d'écrans dans un profil (onglet <em>Écrans</em> de l'éditeur) et d'importer la géométrie des moniteurs depuis Windows, à titre de documentation.</li>
+            <li>N'agit pas sur la disposition des écrans de Windows&nbsp;: c'est à vous de régler vos moniteurs (ou d'utiliser un autre utilitaire) avant de lancer un profil.</li>
         </ul>
 
         <h3><span class="badge pro">PRO</span> Ce que l'édition PRO ajoute</h3>
         <ul>
-            <li><strong>Multi-écran piloté par la configuration</strong>&nbsp;: la liste d'écrans d'une configuration devient active.</li>
-            <li><strong>Repositionnement automatique</strong>&nbsp;: au changement de configuration ou au lancement, PRO applique à Windows la position (<code>pos_X</code>/<code>pos_Y</code>), l'écran principal (<code>primary</code>) et l'orientation (<code>orientation</code>) de chaque écran déclaré.</li>
+            <li><strong>Multi-écran piloté par le profil</strong>&nbsp;: la liste d'écrans d'un profil devient active.</li>
+            <li><strong>Repositionnement automatique</strong>&nbsp;: au changement de profil ou au lancement, PRO applique à Windows la position (<code>pos_X</code>/<code>pos_Y</code>), l'écran principal (<code>primary</code>) et l'orientation (<code>orientation</code>) de chaque écran déclaré.</li>
             <li><strong>Mémorisation et restauration</strong>&nbsp;: la disposition d'origine est mémorisée (<code>oldPos_X</code>/<code>oldPos_Y</code>) et peut être rétablie automatiquement en fin de session.</li>
             <li><strong>Identification matérielle</strong> des écrans (<code>HwId</code>) pour retrouver le bon moniteur même si Windows renumérote les affichages.</li>
         </ul>

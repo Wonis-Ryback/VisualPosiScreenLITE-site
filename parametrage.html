@@ -19,7 +19,7 @@
             <a href="installation.html">Installation &amp; premier lancement</a>
             <div class="group">Prise en main</div>
             <a href="interface.html">La fenêtre principale</a>
-            <a href="configurations.html">Les configurations</a>
+            <a href="configurations.html">Les profils</a>
             <a href="parametrage.html" class="active">L'éditeur de configuration</a>
             <div class="group">Fonctions</div>
             <a href="ecrans.html">Gestion des écrans</a>
@@ -43,7 +43,7 @@
             automatiquement au premier lancement). L'éditeur travaille sur une
             <strong>copie</strong> du modèle&nbsp;: rien n'est écrit tant que vous ne cliquez pas
             sur <strong>Save</strong>. La fenêtre est organisée en <em>maître&nbsp;/&nbsp;détail</em>&nbsp;:
-            la liste des configurations à gauche, le panneau d'édition à droite.
+            la liste des profils à gauche, le panneau d'édition à droite.
         </p>
 
         <h2>Réglages globaux</h2>
@@ -51,22 +51,22 @@
         <table>
             <thead><tr><th>Champ</th><th>Comment le renseigner</th></tr></thead>
             <tbody>
-                <tr><td><strong>Répertoire de configurations</strong></td><td>Dossier qui recevra <code>config-ecrans.xml</code>. En premier lancement, il est pré-rempli avec le dossier de l'exécutable ou vos <em>Documents</em>.</td></tr>
+                <tr><td><strong>Dossier de configuration</strong></td><td>Dossier qui recevra <code>config-ecrans.xml</code>. En premier lancement, il est pré-rempli avec le dossier de l'exécutable ou vos <em>Documents</em>.</td></tr>
                 <tr><td><strong>Répertoire DCS</strong></td><td><strong>Double-cliquez</strong> le champ pour ouvrir un sélecteur de dossier. Pointez le dossier d'installation de DCS.</td></tr>
                 <tr><td><strong>Répertoire DCS&nbsp;Save</strong></td><td><strong>Double-cliquez</strong> le champ pour parcourir. Pointez le dossier <em>Saved&nbsp;Games</em> de DCS.</td></tr>
             </tbody>
         </table>
         </div>
 
-        <h2>Liste des configurations</h2>
+        <h2>Liste des profils</h2>
         <ul>
-            <li><strong>Nouvelle configuration</strong>&nbsp;: demande un nom (clé unique) et crée une configuration vide.</li>
+            <li><strong>Nouveau</strong>&nbsp;: demande un nom (clé unique) et crée un profil vide.</li>
             <li><strong>Renommer</strong>&nbsp;: change la clé. À l'<strong>enregistrement</strong>, le sous-dossier <code>ConfigRep\&lt;ancien nom&gt;</code> est <strong>renommé</strong> avec ses fichiers (le dernier profil lancé suit aussi). Si un dossier du nouveau nom existe déjà, l'enregistrement est refusé et rien n'est modifié&nbsp;; si le fichier de configuration ne peut pas être écrit, les dossiers reprennent leur ancien nom. Le nom sert aussi de nom de dossier&nbsp;: les caractères <code>\ / : * ? " &lt; &gt; |</code> sont refusés.</li>
-            <li><strong>Supprimer</strong>&nbsp;: retire la configuration du modèle après confirmation (ne supprime pas le sous-dossier sur le disque).</li>
-            <li>Le passage d'une configuration à l'autre enregistre automatiquement les modifications en cours sur le profil que vous quittez.</li>
+            <li><strong>Supprimer</strong>&nbsp;: retire le profil du modèle après confirmation (ne supprime pas le sous-dossier sur le disque).</li>
+            <li>Le passage d'un profil à l'autre enregistre automatiquement les modifications en cours sur le profil que vous quittez.</li>
         </ul>
 
-        <h2>Panneau d'édition d'une configuration</h2>
+        <h2>Panneau d'édition d'un profil</h2>
 
         <h3>Général</h3>
         <ul>
@@ -138,7 +138,7 @@
 
         <h3>Onglet « Helios »</h3>
         <ul>
-            <li><strong>Case « actif »</strong>&nbsp;: si décochée, aucun bloc Helios n'est enregistré pour la configuration.</li>
+            <li><strong>Case « actif »</strong>&nbsp;: si décochée, aucun bloc Helios n'est enregistré pour le profil.</li>
             <li><strong>runtimeTag</strong>&nbsp;: mode dans lequel Helios est lancé&nbsp;: <code>all</code> (ou vide)
                 dans les deux cas, <code>2D</code> ou <code>VR</code> selon le bouton.</li>
             <li><strong>Dossier de profils</strong>&nbsp;: répertoire des profils Helios (bouton <em>Parcourir</em>).</li>
@@ -157,8 +157,8 @@
         <h3>Onglet « Mods associés »</h3>
         <p>
             Liste à cases à cocher des mods détectés dans le dossier de mods. Cochez ceux qui
-            doivent être <strong>actifs</strong> pour cette configuration. À la sélection de la
-            configuration dans la fenêtre principale, l'application planifie l'activation des
+            doivent être <strong>actifs</strong> pour ce profil. À la sélection du
+            profil dans la fenêtre principale, l'application planifie l'activation des
             mods cochés manquants et la désactivation des mods actifs non cochés (en tenant
             compte des incompatibilités déclarées). Voir <a href="mods.html">Gestion des mods</a>.
         </p>
@@ -169,7 +169,7 @@
             <thead><tr><th>Bouton</th><th>Action</th></tr></thead>
             <tbody>
                 <tr><td><strong>Valider</strong></td><td>Applique le panneau courant, supprime les lignes vides et contrôle le modèle par rapport au schéma <code>config-ecrans.xsd</code>. N'écrit rien. Affiche la liste des erreurs le cas échéant.</td></tr>
-                <tr><td><strong>Save</strong></td><td>Valide puis écrit <code>config-ecrans.xml</code> (copie <code>.bak</code> horodatée de l'ancien), crée et initialise les sous-dossiers des nouvelles configurations. Au premier lancement, génère aussi le bloc <code>&lt;dcs&gt;</code> et vérifie les exécutables DCS.</td></tr>
+                <tr><td><strong>Save</strong></td><td>Valide puis écrit <code>config-ecrans.xml</code> (copie <code>.bak</code> horodatée de l'ancien), crée et initialise les sous-dossiers des nouveaux profils. Au premier lancement, génère aussi le bloc <code>&lt;dcs&gt;</code> et vérifie les exécutables DCS.</td></tr>
                 <tr><td><strong>Fermer</strong></td><td>Abandonne les modifications. Si des changements sont en attente, une confirmation est demandée.</td></tr>
             </tbody>
         </table>
@@ -186,7 +186,7 @@
         </div>
 
         <div class="pager">
-            <a class="prev" href="configurations.html"><span>Précédent</span>← Les configurations</a>
+            <a class="prev" href="configurations.html"><span>Précédent</span>← Les profils</a>
             <a class="next" href="ecrans.html"><span>Suite</span>Gestion des écrans →</a>
         </div>
 
