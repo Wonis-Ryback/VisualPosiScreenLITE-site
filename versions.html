@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-9-0-1"><strong>3.9.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Captures d'écran multi-écrans&nbsp;: une capture de DCS découpée par écran du profil. Pour LITE&nbsp;: vocabulaire du guide unifié («&nbsp;profil&nbsp;» au lieu de «&nbsp;configuration&nbsp;» pour un jeu de réglages nommé) et fenêtre Documentation qui ne s'élargit plus avec un chemin très long.</td></tr>
+                <tr><td><a href="#v3-10-0-1"><strong>3.10.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td>Boîte «&nbsp;À propos&nbsp;» refaite dans le style des autres fenêtres (informations utiles au support, liens, composants libres utilisés) et archive allégée de composants inutilisés.</td></tr>
+                <tr><td><a href="#v3-9-0-1"><strong>3.9.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Captures d'écran multi-écrans&nbsp;: une capture de DCS découpée par écran du profil. Pour LITE&nbsp;: vocabulaire du guide unifié («&nbsp;profil&nbsp;» au lieu de «&nbsp;configuration&nbsp;» pour un jeu de réglages nommé) et fenêtre Documentation qui ne s'élargit plus avec un chemin très long.</td></tr>
                 <tr><td><a href="#v3-8-0-1"><strong>3.8.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre principale qui s'adapte à sa taille (cartes DCS, Carte graphique, Mods, Fichiers DCS, Programmes et résumé du lancement), et fin du gel au démarrage quand DCS ne répond pas.</td></tr>
                 <tr><td><a href="#v3-7-0-1"><strong>3.7.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouvelle fenêtre <em>Documentation</em> (les PDF de DCS avec recherche, favoris et choix de la langue), et fenêtre principale plus large dont la barre d'outils n'est plus tronquée.</td></tr>
                 <tr><td><a href="#v3-6-0-1"><strong>3.6.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouveau bouton «&nbsp;Réparer&nbsp;» (<code>DCS_updater.exe repair</code>), et M.a.J qui retire les mods actifs avant la mise à jour puis propose de les réactiver.</td></tr>
@@ -76,7 +77,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.9.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.10.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -111,7 +112,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.9.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.10.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -160,7 +161,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-9-0-1">Version 3.9.0.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-10-0-1">Version 3.10.0.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Amélioration</strong>&nbsp;: la <strong>boîte «&nbsp;À propos&nbsp;» est refaite</strong> dans le style des autres fenêtres. Elle affiche le nom, l'<strong>édition</strong> et la <strong>version</strong>, les informations utiles au support (éditeur, copyright, version de Windows et de .NET, dossier de configuration) et propose des boutons pour ouvrir le guide, les notes de version, le support, ou <strong>copier les informations</strong> à coller dans un message. Voir <a href="interface.html#a-propos">La boîte «&nbsp;À propos&nbsp;»</a>.</li>
+            <li><strong>Nouveauté</strong>&nbsp;: le lien <strong>Composants libres utilisés…</strong> ouvre la liste des composants tiers livrés avec l'application (tous sous licence MIT), avec leurs auteurs et un lien vers la page de chaque projet.</li>
+            <li><strong>Amélioration</strong>&nbsp;: l'archive est <strong>plus légère</strong>. Deux bibliothèques (NLua et KeraLua, un interpréteur Lua) n'étaient plus utilisées par l'application&nbsp;; elles ne sont plus livrées. Aucun changement de fonctionnement.</li>
+        </ul>
+
+        <h3 id="v3-9-0-1">Version 3.9.0.1</h3>
         <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>captures d'écran multi-écrans</strong>. La capture de DCS enregistre le bureau entier&nbsp;; le bouton <em>Captures…</em> la découpe pour que chaque écran du profil ait son image (<code>&lt;capture&gt;_&lt;tag&gt;.jpg</code>), avec un aperçu où l'on choisit les écrans d'un clic, le traitement de plusieurs captures à la fois et une mise à la corbeille facultative des originaux. Voir <a href="ecrans.html#captures-ecrans">Captures d'écran multi-écrans</a>. Cette fonction n'existe pas dans l'édition LITE.</li>
