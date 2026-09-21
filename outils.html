@@ -43,10 +43,55 @@
         <ul>
             <li><strong>Version installée</strong>&nbsp;: lue dans <code>bin\dcs.exe</code>.</li>
             <li><strong>Version en ligne</strong>&nbsp;: récupérée sur le serveur de mise à jour de DCS. « À&nbsp;jour » si elle correspond, sinon le numéro disponible s'affiche en rouge et le bouton <strong>M.a.J</strong> devient actif.</li>
-            <li><strong>M.a.J</strong>&nbsp;: lance <code>DCS_updater.exe</code> (avec élévation). Désactivez d'abord les mods qui touchent l'installation.</li>
+            <li><strong>M.a.J</strong>&nbsp;: lance <code>DCS_updater.exe</code> (avec élévation). Les mods actifs sont retirés avant, puis l'application propose de les réactiver. Voir <a href="#maj-dcs">Mettre à jour DCS</a>.</li>
+            <li><strong>Réparer</strong>&nbsp;: lance <code>DCS_updater.exe repair</code>, qui vérifie les fichiers de DCS et retélécharge ceux qui sont abîmés ou manquants. Les mods actifs sont retirés avant, puis l'application propose de les réactiver. Voir <a href="#reparer-dcs">Réparer DCS</a>.</li>
             <li><strong>Notes de version</strong>&nbsp;: ouvre le <em>changelog</em> officiel dans le navigateur.</li>
             <li><strong>Effacer FXO</strong>&nbsp;: vide <code>Saved&nbsp;Games\fxo</code> et <code>Saved&nbsp;Games\metashaders2</code> (cache de shaders). À faire après une mise à jour de DCS ou de pilote graphique si vous constatez des artefacts.</li>
         </ul>
+
+        <h2 id="maj-dcs">Mettre à jour DCS</h2>
+        <p>
+            Le bouton <strong>M.a.J</strong> n'est actif que si la version en ligne diffère de la version
+            installée. Il suit exactement le même parcours que <a href="#reparer-dcs">Réparer</a>&nbsp;:
+            confirmation avec la liste des mods actifs, retrait de ces mods, lancement de
+            <code>DCS_updater.exe</code> avec élévation (l'application attend qu'il ait terminé), puis un seul
+            « oui » pour réactiver l'ensemble des mods retirés. Elle refuse de démarrer si
+            <code>DCS.exe</code> ou <code>DCS_updater.exe</code> tourne déjà.
+        </p>
+        <p>
+            Quand <code>DCS_updater.exe</code> se termine, l'application relit la version installée et la compare de
+            nouveau à la version en ligne&nbsp;: si DCS est à jour, la ligne <em>Online</em> affiche « À&nbsp;jour »
+            et <strong>M.a.J</strong> s'éteint. Comme il est lancé sans argument, <code>DCS_updater.exe</code> ouvre sa
+            propre fenêtre&nbsp;: c'est là que vous suivez le téléchargement.
+        </p>
+
+        <h2 id="reparer-dcs">Réparer DCS</h2>
+        <p>
+            Le bouton <strong>Réparer</strong> du cadre <em>Version DCS</em> lance
+            <code>DCS_updater.exe repair</code>&nbsp;: DCS compare ses fichiers à ceux de la version
+            officielle et retélécharge ceux qui sont modifiés, abîmés ou manquants. Cela peut être
+            long. À utiliser quand DCS ne démarre plus ou plante après une mise à jour ratée, une
+            coupure pendant un téléchargement ou l'installation d'un mod.
+        </p>
+        <ol>
+            <li>L'application demande confirmation. Si des mods sont actifs, elle en affiche la liste&nbsp;: ils vont être <strong>retirés de DCS</strong> avant la réparation (sinon leurs fichiers seraient pris pour des fichiers abîmés et écrasés ou signalés).</li>
+            <li>Elle refuse de continuer si <code>DCS.exe</code> ou <code>DCS_updater.exe</code> tourne déjà&nbsp;: fermez-les d'abord.</li>
+            <li><code>DCS_updater.exe</code> est lancé avec élévation de privilèges (une demande Windows apparaît). Il ouvre sa propre fenêtre&nbsp;; l'application attend qu'il ait terminé et affiche une petite fenêtre d'attente.</li>
+            <li>À la fin, l'application demande <strong>un seul « oui »</strong> pour <strong>réactiver l'ensemble des mods</strong> qui étaient actifs. Répondre « non » les laisse désactivés&nbsp;; vous pourrez les réactiver depuis la liste des mods.</li>
+        </ol>
+        <p>
+            Si vous refusez l'élévation ou si la réparation ne peut pas démarrer, DCS n'est pas
+            modifié, et la réactivation des mods est quand même proposée.
+        </p>
+        <div class="callout note">
+            <span class="callout-title">Helios et shaders (mise à jour comme réparation)</span>
+            <p>
+                Après une mise à jour comme après une réparation, si un profil utilise <strong>Helios</strong>,
+                l'application rappelle qu'il faut ré-appliquer les patchs avec <em>Helios Profile Editor</em> (elle
+                propose de l'ouvrir). Si la configuration demande d'effacer les shaders
+                (attribut <code>removeshadder</code> de <code>&lt;update&gt;</code>), ils sont aussi effacés.
+            </p>
+        </div>
 
         <h2>Informations carte graphique</h2>
         <ul>

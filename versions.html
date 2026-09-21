@@ -50,7 +50,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-5-1-1"><strong>3.5.1.1</strong></a> <span class="badge lite">Dernière</span></td><td>20&nbsp;septembre&nbsp;2026</td><td>Installation d'un mod avec progression (plus de gel), renommage d'un profil qui renomme aussi son dossier, version dans la barre de titre.</td></tr>
+                <tr><td><a href="#v3-6-0-1"><strong>3.6.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>21&nbsp;septembre&nbsp;2026</td><td>Nouveau bouton «&nbsp;Réparer&nbsp;» (<code>DCS_updater.exe repair</code>), et M.a.J qui retire les mods actifs avant la mise à jour puis propose de les réactiver.</td></tr>
+                <tr><td><a href="#v3-5-1-1"><strong>3.5.1.1</strong></a></td><td>20&nbsp;septembre&nbsp;2026</td><td>Installation d'un mod avec progression (plus de gel), renommage d'un profil qui renomme aussi son dossier, version dans la barre de titre.</td></tr>
                 <tr><td><a href="#v3-5-0-1"><strong>3.5.0.1</strong></a></td><td>20&nbsp;septembre&nbsp;2026</td><td>Retours d'utilisateurs&nbsp;: incompatibilités de mods, fichiers DCS uniques par profil, mission Trk⇒miz déjà présente, comparaison des <code>Options.lua</code> au démarrage&nbsp;; « configuration » devient « profil ».</td></tr>
                 <tr><td><a href="#v3-4-1-1"><strong>3.4.1.1</strong></a></td><td>20&nbsp;septembre&nbsp;2026</td><td>Correctif&nbsp;: un fichier <code>config-ecrans.xml</code> de l'ancienne version de posiscreen (élément <code>dcsExportFile</code>) se charge à nouveau.</td></tr>
                 <tr><td><a href="#v3-4-0-1"><strong>3.4.0.1</strong></a></td><td>19&nbsp;septembre&nbsp;2026</td><td>Remplacement des fichiers d'un mod (mise à jour)&nbsp;; demande de support avec aperçu du message et du journal.</td></tr>
@@ -72,7 +73,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.5.1.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.6.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -107,7 +108,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.5.1.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.6.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -156,7 +157,14 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-5-1-1">Version 3.5.1.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-6-0-1">Version 3.6.0.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 21&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Nouveauté</strong>&nbsp;: le bouton <strong>Réparer</strong> du cadre <em>Version DCS</em> lance <code>DCS_updater.exe repair</code>, qui vérifie les fichiers de DCS et retélécharge ceux qui sont abîmés ou manquants. Les mods actifs sont retirés avant, puis l'application propose, d'un seul «&nbsp;oui&nbsp;», de tous les réactiver. Elle refuse de démarrer si DCS ou son programme de mise à jour tourne déjà, et rappelle de ré-appliquer les patchs Helios. Voir <a href="outils.html#reparer-dcs">Réparer DCS</a>.</li>
+            <li><strong>Amélioration</strong>&nbsp;: le bouton <strong>M.a.J</strong> suit le même parcours. Avant, il ne retirait aucun mod, ne détectait pas la fin de <code>DCS_updater.exe</code> et effaçait les shaders dès son lancement. Maintenant les mods actifs sont retirés puis réactivés sur demande, l'application attend la fin de la mise à jour, relit la version installée et la compare de nouveau à la version en ligne (le bouton s'éteint si DCS est à jour), puis efface les shaders si la configuration le demande. Voir <a href="outils.html#maj-dcs">Mettre à jour DCS</a>.</li>
+        </ul>
+
+        <h3 id="v3-5-1-1">Version 3.5.1.1</h3>
         <p class="tag-legend">Publiée le 20&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Correction</strong>&nbsp;: <strong>installer un mod ne fige plus l'application</strong>. La copie des fichiers (plusieurs centaines de Mo possibles) se fait en tâche de fond, sous une fenêtre de progression qui montre le fichier en cours, les octets copiés sur le total, le pourcentage, la durée et la vitesse. Le bouton « Annuler » interrompt l'installation, même au milieu d'un gros fichier, et supprime ce qui avait été copié&nbsp;; une notification indique la fin. Le déploiement et le retrait d'un mod, ainsi que la préparation d'un remplacement de fichiers, affichent la même fenêtre. Voir <a href="mods.html#ajouter-mod">Les mods</a>.</li>
