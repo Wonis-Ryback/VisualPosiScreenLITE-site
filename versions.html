@@ -51,6 +51,7 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
+                <tr><td><a href="#v3-13-0-1"><strong>3.13.0.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Image du périphérique&nbsp;: toutes les cases détectées d'un coup, puis association guidée en appuyant sur les commandes&nbsp;; export et import d'un agencement. Clé de licence&nbsp;: 3&nbsp;PC par clé. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-12-1-1"><strong>3.12.1.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Première version PRO distribuée par la mise à jour automatique. Pas de nouveauté. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-12-0-1"><strong>3.12.0.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Mises à jour automatiques de l'édition PRO, avec une clé de licence. Pas de nouvelle version LITE&nbsp;: la dernière reste la 3.11.1.1.</td></tr>
                 <tr><td><a href="#v3-11-1-1"><strong>3.11.1.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>26&nbsp;septembre&nbsp;2026</td><td>La demande de support part directement depuis l'application (relais sécurisé), sans logiciel de messagerie&nbsp;; adresse e-mail facultative pour recevoir la réponse, référence de la demande.</td></tr>
@@ -172,6 +173,7 @@
             La clé vous est remise avec VisualPosiScreen&nbsp;PRO&nbsp;; elle a la forme
             <code>VPSPRO-XXXXX-XXXXX-XXXXX-XXXXX</code>. Elle ne sert qu'aux mises à jour&nbsp;:
             sans clé, l'application fonctionne normalement, mais ne peut pas recevoir les nouvelles versions.
+            Une clé sert sur <strong>3&nbsp;PC</strong> au plus.
         </p>
 
         <div class="callout note">
@@ -196,9 +198,27 @@
             compte ni un autre PC. Après une réinstallation de Windows ou sur un nouveau PC, saisissez-la de nouveau.
         </p>
 
+        <h3 id="pro-pc">Trois PC par clé</h3>
+        <p>
+            Chaque PC qui utilise la clé est enregistré par le serveur à sa première recherche de mise à jour, dans la
+            limite de <strong>3&nbsp;PC</strong>. Ces PC peuvent être utilisés en même temps, à la même adresse ou non.
+            Un quatrième PC est refusé&nbsp;: l'application y fonctionne normalement, mais n'y reçoit pas les mises à jour.
+        </p>
+        <p>
+            Pour reconnaître le PC, l'application envoie avec la clé une <strong>empreinte anonyme</strong>&nbsp;: un code
+            calculé à partir de l'identifiant que Windows donne au PC et de la clé. Il ne révèle rien du PC (ni son nom,
+            ni votre nom d'utilisateur, ni son matériel), change d'une clé à l'autre et ne peut pas servir ailleurs. Il
+            ne change pas quand vous mettez à jour l'application, mais une réinstallation de Windows donne un nouveau
+            PC. Le serveur ne garde que cette empreinte et les dates de première et de dernière utilisation.
+        </p>
+        <p>
+            Vous avez changé de PC, ou réinstallé Windows, et la limite est atteinte&nbsp;? <strong>Contactez le
+            support</strong> (bouton <em>Support…</em>)&nbsp;: l'ancien PC sera libéré.
+        </p>
+
         <h3>Ce qui change par rapport à l'édition LITE</h3>
         <ul>
-            <li><strong>Vérification</strong>&nbsp;: au lancement et par l'indicateur, comme en LITE, mais auprès du serveur PRO. La clé est envoyée au serveur pour chaque vérification et chaque téléchargement&nbsp;; aucune autre information vous concernant n'est transmise.</li>
+            <li><strong>Vérification</strong>&nbsp;: au lancement et par l'indicateur, comme en LITE, mais auprès du serveur PRO. La clé et l'empreinte anonyme du PC (voir <a href="#pro-pc">Trois PC par clé</a>) sont envoyées au serveur pour chaque vérification et chaque téléchargement&nbsp;; aucune autre information vous concernant n'est transmise.</li>
             <li><strong>Fiche de version signée</strong>&nbsp;: la description de la nouvelle version (numéro, archive, empreinte SHA-256, nouveautés) est signée par l'éditeur. L'application refuse une fiche dont la signature n'est pas valide (message «&nbsp;Mise à jour PRO rejetée&nbsp;») et n'installe rien.</li>
             <li><strong>Téléchargement et installation</strong>&nbsp;: identiques à LITE (vérification de l'empreinte, remplacement des fichiers, redémarrage). Le journal est dans <code>%TEMP%\VisualPosiScreenPRO-update\update.log</code>.</li>
             <li><strong>Pas de page de téléchargement publique</strong>&nbsp;: quand l'installation automatique n'est pas possible, l'application vous invite à contacter le support (bouton <em>Support…</em>, voir <a href="outils.html#support">Contacter le support</a>) pour recevoir l'archive.</li>
@@ -209,7 +229,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: #c85a00;">🔑 Clé de licence PRO…</strong></td><td>Aucune clé n'est enregistrée, ou le serveur l'a refusée. L'info-bulle en donne la raison.</td><td>ouvre la fenêtre <em>Clé de licence PRO</em>&nbsp;; la vérification est relancée après l'enregistrement.</td></tr>
+                <tr><td><strong style="color: #c85a00;">🔑 Clé de licence PRO…</strong></td><td>Aucune clé n'est enregistrée, ou le serveur l'a refusée (clé inconnue, désactivée, ou limite de 3&nbsp;PC atteinte). L'info-bulle en donne la raison.</td><td>ouvre la fenêtre <em>Clé de licence PRO</em>&nbsp;; la vérification est relancée après l'enregistrement.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Serveur PRO injoignable (réseau coupé, pare-feu), trop de vérifications en peu de temps, ou fiche de version rejetée. Le détail figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
         </table>
@@ -223,12 +243,22 @@
                 <tr><td>Aucune clé de licence PRO n'est enregistrée</td><td>Saisissez votre clé (voir ci-dessus).</td></tr>
                 <tr><td>La clé de licence PRO a été refusée par le serveur</td><td>Vérifiez la clé (copiez-la plutôt que de la retaper). Si elle est correcte, contactez le support.</td></tr>
                 <tr><td>Cette clé de licence PRO a été désactivée</td><td>La clé a été révoquée par l'éditeur&nbsp;: contactez le support. L'application installée continue de fonctionner.</td></tr>
+                <tr><td>Cette clé de licence PRO est déjà utilisée sur 3&nbsp;PC, le maximum</td><td>Ce PC n'est pas enregistré et la limite est atteinte. Contactez le support pour libérer un PC que vous n'utilisez plus (voir <a href="#pro-pc">Trois PC par clé</a>).</td></tr>
                 <tr><td>Trop de vérifications en peu de temps</td><td>Attendez une minute avant de réessayer.</td></tr>
             </tbody>
         </table>
         </div>
 
         <h2>Historique détaillé</h2>
+
+        <h3 id="v3-13-0-1">Version 3.13.0.1 <span class="badge pro">PRO uniquement</span></h3>
+        <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>Détecter les cases</strong> (onglet <em>Image</em> de la fenêtre <em>Commandes</em>). Toutes les cases vides de l'image du périphérique sont trouvées d'un coup&nbsp;; elles s'allument l'une après l'autre et il suffit d'appuyer sur la commande correspondante (<kbd>Tab</kbd>&nbsp;: passer, <kbd>Suppr</kbd>&nbsp;: retirer une case qui n'est pas une commande). Voir <a href="commandes.html#image">L'image du périphérique</a>.</li>
+            <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>Exporter… / Importer…</strong> un agencement (image et zones, fichier <code>.vpszones</code>), pour le sauvegarder, le reprendre sur un autre PC ou le partager. Voir <a href="commandes.html#partager">Sauvegarder ou partager un agencement</a>.</li>
+            <li><span class="badge pro">PRO</span> <strong>Clé de licence</strong>&nbsp;: une clé sert sur <strong>3&nbsp;PC</strong>. Une empreinte anonyme du PC est envoyée avec la clé lors de la recherche de mise à jour. Au-delà de 3&nbsp;PC, l'application fonctionne mais ne reçoit pas les mises à jour&nbsp;; le support peut libérer un PC. Voir <a href="#pro-pc">Trois PC par clé</a>.</li>
+            <li>Pas de version LITE 3.13.0.1.</li>
+        </ul>
 
         <h3 id="v3-12-1-1">Version 3.12.1.1 <span class="badge pro">PRO uniquement</span></h3>
         <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>

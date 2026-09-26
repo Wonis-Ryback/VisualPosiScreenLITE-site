@@ -156,13 +156,44 @@
         <ol class="steps">
             <li>Choisissez le périphérique (dans la liste, ou en appuyant sur un de ses boutons), puis cliquez
                 <strong>Image…</strong> et choisissez un fichier PNG ou JPG (BMP accepté).</li>
-            <li>Cliquez <strong>Placer les zones</strong>. Cliquez dans une <strong>case vide</strong> de l'image&nbsp;: la case
-                est délimitée automatiquement (sur une image sans cases, tracez un rectangle à la souris).</li>
-            <li><strong>Appuyez sur le bouton</strong> du périphérique qui correspond à cette case (ou bougez l'axe, le chapeau).
-                La zone lui est associée. Passez à la case suivante.</li>
-            <li>Glisser une zone la déplace, son coin bas droit la redimensionne, <kbd>Suppr</kbd> l'efface.
-                <kbd>Échap</kbd> ou un nouveau clic sur <strong>Placer les zones</strong> termine le placement.</li>
+            <li>Cliquez <strong>Détecter les cases</strong>&nbsp;: toutes les cases vides de l'image sont trouvées d'un coup,
+                et la première s'allume en orange.</li>
+            <li><strong>Appuyez sur la commande</strong> du périphérique qui correspond à la case allumée (bouton, chapeau, ou
+                bougez l'axe)&nbsp;: la case lui est associée et la <strong>suivante s'allume</strong>. Continuez ainsi jusqu'à la
+                dernière.
+                <ul>
+                    <li><kbd>Tab</kbd>&nbsp;: passer cette case (elle sera proposée de nouveau à la fin du tour)&nbsp;;</li>
+                    <li><kbd>Suppr</kbd>&nbsp;: retirer une case qui n'est pas une commande (légende «&nbsp;OFF&nbsp;», couleurs des
+                        voyants…)&nbsp;;</li>
+                    <li><kbd>Échap</kbd>&nbsp;: terminer. Les cases restées sans commande sont retirées.</li>
+                </ul>
+            </li>
+            <li>Pour ajouter une case à la main&nbsp;: <strong>Placer les zones</strong>, puis un clic dans une case vide (elle
+                est délimitée automatiquement) ou un rectangle tracé à la souris sur une image sans cases, puis l'appui sur la
+                commande. Glisser une zone la déplace, son coin bas droit la redimensionne, <kbd>Suppr</kbd> l'efface.</li>
         </ol>
+        <div class="callout tip">
+            <span class="callout-title">Pourquoi appuyer plutôt que lire les numéros de l'image&nbsp;?</span>
+            <p>
+                Les numéros imprimés sur les images de Virpil ne correspondent pas toujours aux boutons que votre périphérique
+                envoie (inverseurs montés dans l'autre sens, encodeurs, profil VPC modifié). L'appui sur la commande donne
+                toujours la bonne association, pour votre matériel et votre profil.
+            </p>
+        </div>
+
+        <h3 id="partager">Sauvegarder ou partager un agencement</h3>
+        <p>
+            <strong>Exporter…</strong> enregistre l'image et ses zones dans un fichier <code>.vpszones</code>&nbsp;: une sauvegarde
+            de votre travail, à reprendre sur un autre PC, ou à partager avec un autre utilisateur du même périphérique.
+            <strong>Importer…</strong> charge un tel fichier pour le périphérique affiché (l'image et les zones actuelles sont
+            remplacées, après confirmation&nbsp;; un avertissement s'affiche si le fichier a été fait pour un autre modèle).
+        </p>
+        <p>
+            Les zones d'un périphérique Virpil sont associées aux <strong>boutons physiques</strong>&nbsp;: chez quelqu'un d'autre,
+            elles restent justes tant que son périphérique envoie les mêmes boutons (même modèle, profil VPC comparable).
+            Sinon, il suffit de refaire l'association des cases concernées. L'image reste celle de son auteur&nbsp;: ne partagez
+            que des images que vous avez le droit de diffuser.
+        </p>
         <ul>
             <li>Pour un périphérique Virpil, une zone est associée au <strong>bouton physique</strong>&nbsp;: elle montre les
                 commandes de <strong>toutes ses couches de shift</strong> et de tous les modificateurs DCS, une ligne chacune
