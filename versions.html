@@ -163,6 +163,69 @@
             </li>
         </ul>
 
+        <h2 id="pro">Édition PRO&nbsp;: clé de licence et mises à jour <span class="badge pro">PRO</span></h2>
+        <p>
+            L'édition PRO n'est pas publiée sur GitHub&nbsp;: ses mises à jour viennent d'un
+            <strong>serveur privé</strong>, réservé aux détenteurs d'une <strong>clé de licence</strong>.
+            La clé vous est remise avec VisualPosiScreen&nbsp;PRO&nbsp;; elle a la forme
+            <code>VPSPRO-XXXXX-XXXXX-XXXXX-XXXXX</code>. Elle ne sert qu'aux mises à jour&nbsp;:
+            sans clé, l'application fonctionne normalement, mais ne peut pas recevoir les nouvelles versions.
+        </p>
+
+        <div class="callout note">
+            <span class="callout-title">Versions PRO jusqu'à la 3.11.1.1</span>
+            <p>
+                Ces versions ne savent pas encore se mettre à jour seules. La première version PRO
+                qui le fait vous est envoyée directement, avec votre clé de licence&nbsp;; les suivantes
+                sont ensuite proposées par l'application.
+            </p>
+        </div>
+
+        <h3>Saisir la clé</h3>
+        <ol class="steps">
+            <li>Ouvrez la fenêtre <strong>Clé de licence PRO</strong>&nbsp;: bouton <em>Clé de licence PRO…</em> de la fenêtre <strong>À&nbsp;Propos…</strong>, ou clic sur l'indicateur <strong style="color: #c85a00;">🔑 Clé de licence PRO…</strong> de la barre d'outils.</li>
+            <li>Collez ou tapez la clé (majuscules et espaces sont corrigés automatiquement), puis cliquez sur <strong>Enregistrer</strong>.</li>
+            <li>La clé est vérifiée auprès du serveur&nbsp;: «&nbsp;Clé valide et enregistrée&nbsp;» en vert. Sans réseau, elle est enregistrée quand même et sera vérifiée à la prochaine recherche de mise à jour. Une clé refusée n'est pas enregistrée.</li>
+        </ol>
+        <p>
+            La fenêtre affiche ensuite la clé enregistrée sous forme masquée. <strong>Supprimer la clé</strong>
+            la retire de ce PC (les mises à jour PRO ne sont alors plus reçues). La clé est conservée
+            <strong>chiffrée pour votre compte Windows</strong>&nbsp;: elle n'est pas lisible depuis un autre
+            compte ni un autre PC. Après une réinstallation de Windows ou sur un nouveau PC, saisissez-la de nouveau.
+        </p>
+
+        <h3>Ce qui change par rapport à l'édition LITE</h3>
+        <ul>
+            <li><strong>Vérification</strong>&nbsp;: au lancement et par l'indicateur, comme en LITE, mais auprès du serveur PRO. La clé est envoyée au serveur pour chaque vérification et chaque téléchargement&nbsp;; aucune autre information vous concernant n'est transmise.</li>
+            <li><strong>Fiche de version signée</strong>&nbsp;: la description de la nouvelle version (numéro, archive, empreinte SHA-256, nouveautés) est signée par l'éditeur. L'application refuse une fiche dont la signature n'est pas valide (message «&nbsp;Mise à jour PRO rejetée&nbsp;») et n'installe rien.</li>
+            <li><strong>Téléchargement et installation</strong>&nbsp;: identiques à LITE (vérification de l'empreinte, remplacement des fichiers, redémarrage). Le journal est dans <code>%TEMP%\VisualPosiScreenPRO-update\update.log</code>.</li>
+            <li><strong>Pas de page de téléchargement publique</strong>&nbsp;: quand l'installation automatique n'est pas possible, l'application vous invite à contacter le support (bouton <em>Support…</em>, voir <a href="outils.html#support">Contacter le support</a>) pour recevoir l'archive.</li>
+        </ul>
+
+        <h3>L'indicateur en édition PRO</h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
+            <tbody>
+                <tr><td><strong style="color: #c85a00;">🔑 Clé de licence PRO…</strong></td><td>Aucune clé n'est enregistrée, ou le serveur l'a refusée. L'info-bulle en donne la raison.</td><td>ouvre la fenêtre <em>Clé de licence PRO</em>&nbsp;; la vérification est relancée après l'enregistrement.</td></tr>
+                <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Serveur PRO injoignable (réseau coupé, pare-feu), trop de vérifications en peu de temps, ou fiche de version rejetée. Le détail figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Messages liés à la clé</h3>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Message</th><th>Que faire</th></tr></thead>
+            <tbody>
+                <tr><td>Aucune clé de licence PRO n'est enregistrée</td><td>Saisissez votre clé (voir ci-dessus).</td></tr>
+                <tr><td>La clé de licence PRO a été refusée par le serveur</td><td>Vérifiez la clé (copiez-la plutôt que de la retaper). Si elle est correcte, contactez le support.</td></tr>
+                <tr><td>Cette clé de licence PRO a été désactivée</td><td>La clé a été révoquée par l'éditeur&nbsp;: contactez le support. L'application installée continue de fonctionner.</td></tr>
+                <tr><td>Trop de vérifications en peu de temps</td><td>Attendez une minute avant de réessayer.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
         <h2>Historique détaillé</h2>
 
         <h3 id="v3-11-1-1">Version 3.11.1.1 <span class="badge lite">Dernière</span></h3>
