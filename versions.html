@@ -51,7 +51,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-11-0-1"><strong>3.11.0.1</strong></a> <span class="badge lite">Dernière</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Nouvelle fenêtre <em>Commandes</em>&nbsp;: on appuie sur un bouton de joystick, la commande DCS du module choisi s'affiche&nbsp;; image du périphérique avec ses commandes (profils Virpil pris en compte), pages de kneeboard, reprise des réglages perdus après un changement d'identifiant. Pour LITE&nbsp;: pas de changement.</td></tr>
+                <tr><td><a href="#v3-11-1-1"><strong>3.11.1.1</strong></a> <span class="badge lite">Dernière</span></td><td>26&nbsp;septembre&nbsp;2026</td><td>La demande de support part directement depuis l'application (relais sécurisé), sans logiciel de messagerie&nbsp;; adresse e-mail facultative pour recevoir la réponse, référence de la demande.</td></tr>
+                <tr><td><a href="#v3-11-0-1"><strong>3.11.0.1</strong></a></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Nouvelle fenêtre <em>Commandes</em>&nbsp;: on appuie sur un bouton de joystick, la commande DCS du module choisi s'affiche&nbsp;; image du périphérique avec ses commandes (profils Virpil pris en compte), pages de kneeboard, reprise des réglages perdus après un changement d'identifiant. Pour LITE&nbsp;: pas de changement.</td></tr>
                 <tr><td><a href="#v3-10-1-1"><strong>3.10.1.1</strong></a></td><td>25&nbsp;septembre&nbsp;2026</td><td><strong>Correction</strong>&nbsp;: sur un poste avec deux cartes AMD (processeur avec circuit graphique intégré + carte dédiée), la version du pilote installé pouvait être mal identifiée et déclencher une fausse alerte de mise à jour.</td></tr>
                 <tr><td><a href="#v3-10-0-1"><strong>3.10.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Boîte «&nbsp;À propos&nbsp;» refaite dans le style des autres fenêtres (informations utiles au support, liens, composants libres utilisés) et archive allégée de composants inutilisés.</td></tr>
                 <tr><td><a href="#v3-9-0-1"><strong>3.9.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Captures d'écran multi-écrans&nbsp;: une capture de DCS découpée par écran du profil. Pour LITE&nbsp;: vocabulaire du guide unifié («&nbsp;profil&nbsp;» au lieu de «&nbsp;configuration&nbsp;» pour un jeu de réglages nommé) et fenêtre Documentation qui ne s'élargit plus avec un chemin très long.</td></tr>
@@ -80,7 +81,7 @@
             Le numéro de version s'affiche dans l'<strong>indicateur de mise à jour</strong> de la
             barre d'outils de la fenêtre principale, ainsi que dans la fenêtre
             <strong>À&nbsp;Propos…</strong>. Il comporte quatre nombres (par exemple
-            <code>3.11.0.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
+            <code>3.11.1.1</code>)&nbsp;: un numéro plus grand désigne toujours une version plus
             récente.
         </p>
 
@@ -115,7 +116,7 @@
         <table>
             <thead><tr><th>Affichage</th><th>Signification</th><th>Un clic…</th></tr></thead>
             <tbody>
-                <tr><td><strong style="color: var(--lite);">✔ À jour (3.11.0.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
+                <tr><td><strong style="color: var(--lite);">✔ À jour (3.11.1.1)</strong></td><td>Vous utilisez la dernière version publiée.</td><td>relance la vérification.</td></tr>
                 <tr><td><strong style="color: var(--warn);">⬆ Mettre à jour (3.4.0.1)</strong></td><td>Une version plus récente est disponible (ici, à titre d'exemple, la 3.4.0.1).</td><td>ouvre la boîte de dialogue de mise à jour.</td></tr>
                 <tr><td>Mise à jour&nbsp;: vérification impossible</td><td>Pas d'accès à GitHub (réseau coupé, pare-feu, limite d'appels atteinte). Le message d'erreur détaillé figure dans l'info-bulle.</td><td>réessaie la vérification.</td></tr>
             </tbody>
@@ -164,7 +165,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-11-0-1">Version 3.11.0.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-11-1-1">Version 3.11.1.1 <span class="badge lite">Dernière</span></h3>
+        <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Amélioration</strong>&nbsp;: la <strong>demande de support part directement depuis l'application</strong>. Plus besoin de logiciel de messagerie ni de joindre un fichier&nbsp;: après relecture, <em>Envoyer</em> transmet la demande par une connexion sécurisée à un relais du support, qui la fait suivre par e-mail. Une <strong>référence</strong> (par exemple <code>VPS-20260926-7K3F</code>) s'affiche une fois la demande partie. Rien ne part avant le clic sur <em>Envoyer</em>, et l'aperçu montre toujours exactement ce qui sera transmis, y compris les données brutes. Voir <a href="outils.html#support">Contacter le support</a>.</li>
+            <li><strong>Nouveauté</strong>&nbsp;: une <strong>adresse e-mail facultative</strong> dans la fenêtre de support, pour recevoir une réponse.</li>
+            <li><strong>Amélioration</strong>&nbsp;: si l'envoi échoue (pas de connexion, service indisponible), la demande n'est pas perdue&nbsp;: le rapport est enregistré et <em>Envoyer</em> permet de réessayer.</li>
+        </ul>
+
+        <h3 id="v3-11-0-1">Version 3.11.0.1</h3>
         <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: fenêtre <strong>Commandes des joysticks</strong> (bouton <em>Commandes…</em> de la barre d'outils). On choisit un module de DCS, on appuie sur un bouton (ou on pousse un chapeau, on bouge un axe) et la commande DCS correspondante s'affiche, avec ses variantes selon les modificateurs&nbsp;; un tableau liste toutes les commandes de chaque périphérique, avec recherche. Les commandes sont celles du profil par défaut du module modifié par vos réglages, comme dans DCS, et s'affichent dans la langue de DCS. Voir <a href="commandes.html">Commandes des joysticks</a>.</li>
