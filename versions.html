@@ -51,7 +51,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-11-1-1"><strong>3.11.1.1</strong></a> <span class="badge lite">Dernière</span></td><td>26&nbsp;septembre&nbsp;2026</td><td>La demande de support part directement depuis l'application (relais sécurisé), sans logiciel de messagerie&nbsp;; adresse e-mail facultative pour recevoir la réponse, référence de la demande.</td></tr>
+                <tr><td><a href="#v3-12-0-1"><strong>3.12.0.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Mises à jour automatiques de l'édition PRO, avec une clé de licence. Pas de nouvelle version LITE&nbsp;: la dernière reste la 3.11.1.1.</td></tr>
+                <tr><td><a href="#v3-11-1-1"><strong>3.11.1.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>26&nbsp;septembre&nbsp;2026</td><td>La demande de support part directement depuis l'application (relais sécurisé), sans logiciel de messagerie&nbsp;; adresse e-mail facultative pour recevoir la réponse, référence de la demande.</td></tr>
                 <tr><td><a href="#v3-11-0-1"><strong>3.11.0.1</strong></a></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Nouvelle fenêtre <em>Commandes</em>&nbsp;: on appuie sur un bouton de joystick, la commande DCS du module choisi s'affiche&nbsp;; image du périphérique avec ses commandes (profils Virpil pris en compte), pages de kneeboard, reprise des réglages perdus après un changement d'identifiant. Pour LITE&nbsp;: pas de changement.</td></tr>
                 <tr><td><a href="#v3-10-1-1"><strong>3.10.1.1</strong></a></td><td>25&nbsp;septembre&nbsp;2026</td><td><strong>Correction</strong>&nbsp;: sur un poste avec deux cartes AMD (processeur avec circuit graphique intégré + carte dédiée), la version du pilote installé pouvait être mal identifiée et déclencher une fausse alerte de mise à jour.</td></tr>
                 <tr><td><a href="#v3-10-0-1"><strong>3.10.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Boîte «&nbsp;À propos&nbsp;» refaite dans le style des autres fenêtres (informations utiles au support, liens, composants libres utilisés) et archive allégée de composants inutilisés.</td></tr>
@@ -228,7 +229,16 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-11-1-1">Version 3.11.1.1 <span class="badge lite">Dernière</span></h3>
+        <h3 id="v3-12-0-1">Version 3.12.0.1 <span class="badge pro">PRO uniquement</span></h3>
+        <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>
+        <ul>
+            <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>mises à jour automatiques de l'édition PRO</strong>, comme en LITE (proposition au lancement, indicateur de la barre d'outils, installation en un clic), depuis un serveur privé. La fiche de chaque version est signée par l'éditeur&nbsp;: une fiche mal signée est refusée et rien n'est installé. Voir <a href="#pro">Édition PRO&nbsp;: clé de licence et mises à jour</a>.</li>
+            <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>clé de licence PRO</strong>, nécessaire pour recevoir les mises à jour. Elle se saisit dans la fenêtre <em>Clé de licence PRO</em> (bouton de la fenêtre <em>À&nbsp;Propos…</em>, ou indicateur <strong>🔑&nbsp;Clé de licence PRO…</strong> de la barre d'outils) et reste chiffrée pour votre compte Windows.</li>
+            <li><span class="badge pro">PRO</span> Cette version est <strong>envoyée directement</strong> aux utilisateurs PRO, avec leur clé&nbsp;: les versions précédentes ne savent pas se mettre à jour seules. Les suivantes seront proposées par l'application.</li>
+            <li>Pas de version LITE 3.12.0.1&nbsp;: rien ne change pour l'édition LITE.</li>
+        </ul>
+
+        <h3 id="v3-11-1-1">Version 3.11.1.1 <span class="badge lite">Dernière LITE</span></h3>
         <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Amélioration</strong>&nbsp;: la <strong>demande de support part directement depuis l'application</strong>. Plus besoin de logiciel de messagerie ni de joindre un fichier&nbsp;: après relecture, <em>Envoyer</em> transmet la demande par une connexion sécurisée à un relais du support, qui la fait suivre par e-mail. Une <strong>référence</strong> (par exemple <code>VPS-20260926-7K3F</code>) s'affiche une fois la demande partie. Rien ne part avant le clic sur <em>Envoyer</em>, et l'aperçu montre toujours exactement ce qui sera transmis, y compris les données brutes. Voir <a href="outils.html#support">Contacter le support</a>.</li>
