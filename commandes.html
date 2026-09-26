@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Commandes des joysticks — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.3 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les profils</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="outils.html">Outils intégrés</a>
+            <a href="commandes.html" class="active">Commandes des joysticks</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+            <a href="versions.html">Suivi des versions</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Fonctions › Commandes des joysticks</div>
+        <h1><span class="badge pro">PRO</span> Commandes des joysticks</h1>
+
+        <p>
+            Le bouton <strong>Commandes…</strong> de la barre d'outils ouvre une fenêtre qui répond à une question
+            simple&nbsp;: <em>«&nbsp;ce bouton, il fait quoi dans ce module&nbsp;?&nbsp;»</em>. Vous choisissez un module de DCS,
+            vous appuyez sur un bouton de votre joystick, de votre manette des gaz ou d'un panneau (ou vous bougez un axe,
+            un chapeau), et la commande DCS correspondante s'affiche aussitôt. La fenêtre reste ouverte à côté de
+            l'application&nbsp;; on peut la garder sur un second écran.
+        </p>
+
+        <div class="callout note">
+            <span class="callout-title">Tout est lu, rien n'est modifié</span>
+            <p>
+                La fenêtre lit les fichiers de commandes de DCS, l'état des joysticks (comme DCS lui-même, par DirectInput)
+                et, pour les périphériques Virpil, les profils enregistrés par VPC Configurator. Elle n'écrit ni dans DCS
+                ni dans les périphériques, et n'interroge jamais leur firmware. Seules deux actions écrivent, et toujours
+                à votre demande&nbsp;: la <a href="#anciens-reglages">reprise d'anciens réglages</a> (avec sauvegarde) et
+                l'<a href="#kneeboard">export vers la kneeboard</a>.
+            </p>
+        </div>
+
+        <h2>Consulter les commandes d'un module</h2>
+        <ol class="steps">
+            <li>Choisissez le <strong>module</strong> dans la liste du haut (un module jamais configuré dans DCS est marqué
+                «&nbsp;non configuré&nbsp;»&nbsp;: ses commandes par défaut s'affichent quand même). Le dernier module choisi est
+                retenu pour la fois suivante.</li>
+            <li><strong>Appuyez sur un bouton</strong>, poussez un chapeau ou bougez franchement un axe&nbsp;: le panneau
+                <em>Dernière action</em> affiche le périphérique, l'entrée (<em>Bouton&nbsp;12</em>, <em>Chapeau&nbsp;1&nbsp;↑</em>,
+                <em>Axe&nbsp;RZ</em>…) et, en grand, la commande DCS.</li>
+            <li>Les autres commandes de la même entrée, avec des <strong>modificateurs</strong> DCS, sont listées dessous
+                («&nbsp;Avec RShift&nbsp;: …&nbsp;»). Si vous tenez un modificateur (touche du clavier ou bouton de joystick déclaré
+                comme modificateur dans DCS), c'est la commande correspondante qui s'affiche en grand.</li>
+        </ol>
+        <ul>
+            <li>La liste de gauche montre les <strong>périphériques branchés</strong> avec leur nombre de commandes&nbsp;;
+                choisir l'un d'eux limite le tableau à ses commandes. La case <strong>Périphériques débranchés</strong> ajoute
+                ceux qui ont des réglages dans le module sans être branchés.</li>
+            <li>La case <strong>Avec la couche UI</strong> ajoute les commandes de la couche commune de DCS (<em>UI Layer</em>),
+                actives dans tous les modules.</li>
+            <li>Le champ de <strong>recherche</strong> filtre le tableau sur le nom de la commande, sa catégorie ou l'entrée
+                («&nbsp;Master Arm&nbsp;», «&nbsp;Chapeau&nbsp;»…).</li>
+            <li>Quand on appuie sur un bouton en même temps qu'on bouge un axe (manette des gaz), le bouton reste affiché&nbsp;:
+                les mouvements d'axe sont ignorés pendant 1,5&nbsp;seconde après un appui.</li>
+        </ul>
+
+        <h3>D'où viennent les commandes</h3>
+        <p>
+            Comme DCS, l'application part du <strong>profil par défaut du module</strong> (dans le dossier d'installation de
+            DCS) puis applique <strong>vos modifications</strong> (fichiers <code>.diff.lua</code> de
+            <code>Saved&nbsp;Games\DCS\Config\Input</code>). Les noms s'affichent dans la langue de DCS. Dans le tableau&nbsp;:
+        </p>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Origine</th><th>Affichage</th><th>Signification</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Modifiée</strong></td><td>texte noir</td><td>Commande ajoutée ou changée par vous dans DCS.</td></tr>
+                <tr><td>Défaut</td><td>texte gris</td><td>Commande du profil par défaut du module, que vous n'avez pas changée.</td></tr>
+                <tr><td style="color: firebrick;">Conflit</td><td>texte rouge</td><td>DCS affiche cette commande en rouge&nbsp;: une de ses combinaisons par défaut est reprise par une autre commande dans vos réglages.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h3>Périphériques Virpil</h3>
+        <p>
+            Pour un périphérique Virpil, la colonne <strong>VPC</strong> et le panneau <em>Dernière action</em> indiquent ce que
+            VPC Configurator fait du bouton quand ce n'est pas un bouton ordinaire&nbsp;: le <strong>bouton physique</strong> qui
+            le produit, sa <strong>couche de shift</strong> («&nbsp;physique&nbsp;49 · Shift&nbsp;1&nbsp;»), un bouton produit par un
+            <strong>axe</strong> («&nbsp;axe rZ zone&nbsp;1&nbsp;»), un encodeur ou un mode <em>Click on Push</em>, ainsi que les
+            autres boutons logiques du même bouton physique (autres couches).
+        </p>
+        <ul>
+            <li>Ces informations viennent des profils que VPC Configurator enregistre dans
+                <code>%LOCALAPPDATA%\VIRPIL\PROFILES</code> (le plus récent de chaque périphérique). Le bouton
+                <strong>Dossier VPC…</strong> permet d'en choisir un autre.</li>
+            <li>Le profil lu est le dernier <em>enregistré</em> par VPC Configurator&nbsp;: si vous avez modifié le périphérique
+                sans enregistrer, les indications peuvent différer de ce qu'il fait réellement.</li>
+        </ul>
+
+        <h3 id="anciens-reglages">Réglages restés sous un ancien identifiant</h3>
+        <p>
+            DCS reconnaît un périphérique par son nom <em>et</em> par un identifiant attribué par Windows. Il arrive que Windows
+            en attribue un nouveau (changement de port USB, mise à jour du firmware, réinstallation)&nbsp;: DCS repart alors d'un
+            réglage vierge et vos anciens réglages restent de côté, sans être effacés. La fenêtre le signale par un
+            <strong>⚠</strong> devant le périphérique et une explication sous la liste.
+        </p>
+        <ol class="steps">
+            <li>Choisissez le périphérique marqué ⚠, puis cliquez <strong>Reprendre les anciens réglages…</strong>.</li>
+            <li>La liste montre, pour chaque module concerné, le nombre de commandes modifiées sous l'ancien identifiant et
+                sous l'identifiant actuel. Décochez les modules à laisser tels quels.</li>
+            <li>Cliquez <strong>Reprendre</strong> (DCS doit être fermé). Pour chaque module coché, l'ancien fichier de
+                réglages est recopié sous l'identifiant actuel (l'ancien fichier reste en place) et les modificateurs définis
+                sur ce périphérique sont mis à jour.</li>
+        </ol>
+        <div class="callout tip">
+            <span class="callout-title">Sauvegarde</span>
+            <p>
+                Avant toute modification, les fichiers remplacés sont copiés dans
+                <code>%LOCALAPPDATA%\VisualPosiScreenPRO\Sauvegardes\Commandes&nbsp;DCS\&lt;date&gt;</code>, avec un fichier
+                <code>LISEZMOI.txt</code> qui liste ce qui a été fait et explique comment revenir en arrière.
+            </p>
+        </div>
+
+        <h2 id="image">L'image du périphérique</h2>
+        <p>
+            L'onglet <strong>Image</strong> (à côté de l'onglet <strong>Tableau</strong>) montre le périphérique en image, avec
+            le texte des commandes dans des cases. On passe d'un onglet à l'autre à volonté. L'application ne fournit aucune
+            image&nbsp;: vous importez la vôtre, une fois par modèle de périphérique, et elle sert pour tous les modules.
+        </p>
+        <div class="callout note">
+            <span class="callout-title">Où trouver les images&nbsp;?</span>
+            <p>
+                Virpil publie pour la plupart de ses périphériques une image avec une case vide numérotée par bouton, dans la
+                rubrique <em>Button Mapping</em> de son site d'assistance. Pour les autres, des gabarits de la communauté
+                existent (à enregistrer en PNG ou JPG).
+            </p>
+        </div>
+        <ol class="steps">
+            <li>Choisissez le périphérique (dans la liste, ou en appuyant sur un de ses boutons), puis cliquez
+                <strong>Image…</strong> et choisissez un fichier PNG ou JPG (BMP accepté).</li>
+            <li>Cliquez <strong>Placer les zones</strong>. Cliquez dans une <strong>case vide</strong> de l'image&nbsp;: la case
+                est délimitée automatiquement (sur une image sans cases, tracez un rectangle à la souris).</li>
+            <li><strong>Appuyez sur le bouton</strong> du périphérique qui correspond à cette case (ou bougez l'axe, le chapeau).
+                La zone lui est associée. Passez à la case suivante.</li>
+            <li>Glisser une zone la déplace, son coin bas droit la redimensionne, <kbd>Suppr</kbd> l'efface.
+                <kbd>Échap</kbd> ou un nouveau clic sur <strong>Placer les zones</strong> termine le placement.</li>
+        </ol>
+        <ul>
+            <li>Pour un périphérique Virpil, une zone est associée au <strong>bouton physique</strong>&nbsp;: elle montre les
+                commandes de <strong>toutes ses couches de shift</strong> et de tous les modificateurs DCS, une ligne chacune
+                («&nbsp;S1 · RAlt&nbsp;: …&nbsp;»), la commande sans shift ni modificateur en premier et en gras.</li>
+            <li>Le texte s'adapte à la case. S'il y a trop de commandes, la dernière ligne se termine par «&nbsp;(+N)&nbsp;».
+                Le survol d'une case donne la liste complète, et un clic l'affiche dans le panneau <em>Dernière action</em>.</li>
+            <li>Quand vous appuyez sur un bouton, sa case s'allume en orange (et l'image de son périphérique s'affiche si
+                «&nbsp;Tous les périphériques&nbsp;» est choisi).</li>
+            <li>Agrandir la fenêtre agrandit l'image, et donc le texte des cases.</li>
+        </ul>
+
+        <h2 id="kneeboard">Export vers la kneeboard</h2>
+        <p>
+            Le bouton <strong>Exporter vers la kneeboard…</strong> prépare, pour le module choisi, des pages que DCS affiche
+            dans la kneeboard de l'appareil.
+        </p>
+        <ol class="steps">
+            <li>Le <strong>dossier</strong> proposé est <code>Saved&nbsp;Games\DCS\Kneeboard\&lt;type d'appareil&gt;</code>, le
+                type étant lu dans le module (par exemple <code>C-130J-30</code> pour le C-130J, <code>AH-64D_BLK_II</code>
+                pour le pilote comme pour le copilote de l'Apache). Un module à plusieurs variantes propose un dossier par
+                variante.</li>
+            <li>Cochez les <strong>périphériques</strong> à inclure et vérifiez les pages dans l'<strong>aperçu</strong>.</li>
+            <li>Cliquez <strong>Exporter</strong>. DCS lit les pages au lancement de la mission.</li>
+        </ol>
+        <ul>
+            <li><strong>Périphérique avec une image</strong>&nbsp;: une page portrait avec l'image en haut et les commandes dans
+                ses cases. Une case trop petite pour son texte reçoit un <strong>renvoi</strong> («&nbsp;→&nbsp;3&nbsp;», en bleu) et
+                le texte complet figure dans la rubrique <em>Renvois</em> sous l'image. Suivent les commandes qu'aucune case
+                ne montre (axes, chapeaux…).</li>
+            <li><strong>Périphériques sans image</strong>&nbsp;: des pages texte sur deux colonnes, un paragraphe par
+                périphérique. Ce qui ne tient pas sous une image passe aussi sur ces pages.</li>
+            <li>Les fichiers s'appellent <code>VPS-Commandes&nbsp;01&nbsp;-&nbsp;&lt;périphérique&gt;.png</code>… Un nouvel export
+                remplace ces fichiers-là et <strong>ne touche jamais à vos autres pages</strong> de kneeboard.</li>
+        </ul>
+
+        <div class="pager">
+            <a class="prev" href="outils.html"><span>Précédent</span>← Outils intégrés</a>
+            <a class="next" href="reference-xml.html"><span>Suite</span>Fichier config-ecrans.xml →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.3.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>
