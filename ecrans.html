@@ -105,6 +105,20 @@
             Ces deux options sont mémorisées pour la machine (fichier <code>%LOCALAPPDATA%\VisualPosiScreenPRO\settings.json</code>).
         </p>
 
+        <h3 id="helios"><span class="badge pro">PRO</span> Le profil Helios</h3>
+        <p>
+            Si le profil choisi lance <strong>Helios</strong> (onglet <em>Helios</em> de l'éditeur, avec un profil
+            <code>.hpf</code>), une <strong>troisième disposition</strong> s'affiche à droite&nbsp;: celle des écrans du
+            profil Helios, lue dans le fichier <code>.hpf</code> (sans le modifier). Helios place ses vues DCS (MFCD, CDU…)
+            pour une disposition précise&nbsp;: chaque écran indique le nombre de vues qu'il affiche.
+        </p>
+        <p>
+            Chaque écran Helios est <strong>vert</strong> s'il correspond exactement (position, taille, orientation) à un
+            écran déclaré du profil, c'est-à-dire à la disposition appliquée au lancement, et <strong>rouge</strong>
+            sinon. Si le profil ne déclare aucun écran, la comparaison se fait avec le bureau actuel. La ligne sous le
+            dessin donne la surface et le nombre d'écrans identiques, en vert si tous le sont.
+        </p>
+
         <h3 id="resynchronisation"><span class="badge pro">PRO</span> Resynchroniser les écrans</h3>
         <p>
             Windows peut <strong>renuméroter</strong> les affichages ou <strong>changer leur identifiant</strong> (pilote
