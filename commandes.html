@@ -138,6 +138,14 @@
                 <code>LISEZMOI.txt</code> qui liste ce qui a été fait et explique comment revenir en arrière.
             </p>
         </div>
+        <p id="annuler-reprise">
+            <strong>Annuler une reprise</strong>&nbsp;: choisissez le périphérique, puis <strong>Annuler une reprise…</strong>
+            (le bouton apparaît dès qu'une reprise de ce périphérique peut être annulée). Choisissez la reprise, la plus
+            récente en premier&nbsp;; la fenêtre liste les fichiers qui seront supprimés (créés par la reprise) ou rétablis
+            (remplacés ou modifiés par elle), et signale ceux que vous avez modifiés dans DCS depuis&nbsp;: ces changements
+            seraient annulés aussi. DCS doit être fermé. L'état d'avant l'annulation est d'abord sauvegardé dans un nouveau
+            dossier «&nbsp;… annulation de …&nbsp;»&nbsp;: l'annulation peut elle-même être défaite.
+        </p>
 
         <h2 id="image">L'image du périphérique</h2>
         <p>
@@ -171,11 +179,32 @@
                     <li><kbd>Échap</kbd>&nbsp;: terminer. Les cases restées sans commande sont retirées.</li>
                 </ul>
             </li>
-            <li>Pour ajouter une case à la main&nbsp;: <strong>Placer les zones</strong>, puis un clic dans une case vide (elle
-                est délimitée automatiquement) ou un rectangle tracé à la souris sur une image sans cases, puis l'appui sur la
-                commande. Glisser une zone la déplace, son coin bas droit la redimensionne, <kbd>Suppr</kbd> l'efface.</li>
+            <li id="gabarits">Pour poser des cases à la main, bouton <strong>Placer ▾</strong>, puis le type de commande&nbsp;:
+                <ul>
+                    <li><strong>Bouton simple</strong>&nbsp;: une case&nbsp;;</li>
+                    <li><strong>Bouton avec shift</strong>&nbsp;: une ligne sans shift plus une ligne par couche de shift, chacune
+                        dans la couleur de sa couche. Pour un Virpil dont le profil VPC est lu, l'appui sur la ligne «&nbsp;sans
+                        shift&nbsp;» remplit les autres lignes d'après VPC&nbsp;; sinon, appuyez sur le bouton avec chaque shift
+                        à son tour&nbsp;;</li>
+                    <li><strong>Encodeur</strong>&nbsp;: trois cases empilées ▲ / appui / ▼, comme sur les images Virpil&nbsp;;</li>
+                    <li><strong>Chapeau chinois 4, 5, 8 ou 9 positions</strong>&nbsp;: une croix (4 directions, plus l'appui
+                        central pour 5) ou un carré de 3×3 (8 directions, plus l'appui central pour 9).</li>
+                </ul>
+                Le gabarit apparaît en transparence et suit la souris&nbsp;: <strong>clic gauche</strong> pour le poser,
+                <strong>molette</strong> pour la taille des cases, <strong>clic droit</strong> pour choisir un autre type,
+                <kbd>Échap</kbd> pour arrêter de poser. Le gabarit reste actif après la pose&nbsp;: on peut en poser plusieurs
+                d'affilée. Ses cases s'allument ensuite l'une après l'autre avec la direction à presser («&nbsp;Haut&nbsp;»,
+                «&nbsp;Bas gauche&nbsp;», «&nbsp;Centre&nbsp;», «&nbsp;▲&nbsp;»…), comme après une détection.
+                <br>
+                <strong>Placer ▾ → Shifts&nbsp;: nombre et couleurs…</strong> règle le nombre de couches de shift du périphérique
+                (1 à 5, comme SHFT1 à SHFT5 dans VPC Configurator) et la couleur de chaque couche (commune à tous les
+                périphériques).</li>
+            <li><strong>Placer ▾ → Modifier les zones</strong>&nbsp;: un clic dans une case vide la délimite automatiquement,
+                un rectangle tracé à la souris crée une case sur une image sans cases&nbsp;; glisser une zone la déplace, son
+                coin bas droit la redimensionne, <kbd>Suppr</kbd> l'efface. <kbd>Échap</kbd> ou <strong>Placer ▾ → Terminer
+                le placement</strong> pour revenir à la consultation.</li>
             <li>Pour choisir la commande dans une liste plutôt qu'en appuyant (périphérique débranché, bouton difficile à
-                atteindre…)&nbsp;: en mode <strong>Placer les zones</strong>, <strong>clic droit</strong> sur la case.
+                atteindre…)&nbsp;: pendant le placement (sans gabarit qui suit la souris), <strong>clic droit</strong> sur la case.
                 <ul>
                     <li><strong>Axe</strong>&nbsp;: les axes que le périphérique déclare (X, Y, Z, RX, RY, RZ, curseurs)&nbsp;;</li>
                     <li><strong>Bouton</strong>&nbsp;: tous les boutons du périphérique, rangés par vingtaine («&nbsp;Boutons 1 à
