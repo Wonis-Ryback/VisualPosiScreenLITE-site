@@ -369,3 +369,16 @@ footer.site {
 .definition-list dd { margin: .2em 0 .2em 0; color: var(--text-soft); }
 
 .tag-legend { font-size: .82rem; color: var(--text-soft); }
+
+/* Captures d'écran */
+figure.shot { margin: 18px 0 22px; }
+figure.shot img {
+    display: block; max-width: 100%; height: auto;
+    border: 1px solid var(--border); border-radius: var(--radius);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+figure.shot a { display: inline-block; max-width: 100%; }
+figure.shot figcaption { margin-top: 6px; font-size: 0.88em; color: var(--text-soft); }
+.shots-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; align-items: start; }
+.shots-row figure.shot { margin: 8px 0; }
+h4 { margin: 26px 0 8px; font-size: 1.02em; }

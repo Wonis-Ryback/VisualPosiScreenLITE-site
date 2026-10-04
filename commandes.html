@@ -58,7 +58,7 @@
             </p>
         </div>
 
-        <h2>Consulter les commandes d'un module</h2>
+        <h2 id="consulter">Consulter les commandes d'un module</h2>
         <ol class="steps">
             <li>Choisissez le <strong>module</strong> dans la liste du haut (un module jamais configuré dans DCS est marqué
                 «&nbsp;non configuré&nbsp;»&nbsp;: ses commandes par défaut s'affichent quand même). Le dernier module choisi est
@@ -81,6 +81,11 @@
             <li>Quand on appuie sur un bouton en même temps qu'on bouge un axe (manette des gaz), le bouton reste affiché&nbsp;:
                 les mouvements d'axe sont ignorés pendant 1,5&nbsp;seconde après un appui.</li>
         </ul>
+
+        <figure class="shot wide">
+            <a href="images/commandes/tableau.png"><img src="images/commandes/tableau.png" alt="Fenêtre Commandes, onglet Tableau, après un appui sur un bouton" loading="lazy"></a>
+            <figcaption>L'onglet <strong>Tableau</strong>&nbsp;: un appui sur le bouton&nbsp;24 du collectif affiche sa commande en grand dans <em>Dernière action</em> et sélectionne sa ligne.</figcaption>
+        </figure>
 
         <h3>D'où viennent les commandes</h3>
         <p>
@@ -150,36 +155,77 @@
         <h2 id="image">L'image du périphérique</h2>
         <p>
             L'onglet <strong>Image</strong> (à côté de l'onglet <strong>Tableau</strong>) montre le périphérique en image, avec
-            le texte des commandes dans des cases. On passe d'un onglet à l'autre à volonté. L'application ne fournit aucune
-            image&nbsp;: vous importez la vôtre, une fois par modèle de périphérique, et elle sert pour tous les modules.
+            le texte des commandes dans des cases. L'application ne fournit aucune image&nbsp;: vous importez la vôtre, une fois
+            par modèle de périphérique, puis vous indiquez quelle case correspond à quelle commande. Ce travail sert ensuite pour
+            tous les modules&nbsp;: les cases affichent automatiquement les commandes du module choisi.
         </p>
         <div class="callout note">
             <span class="callout-title">Où trouver les images&nbsp;?</span>
             <p>
                 Virpil publie pour la plupart de ses périphériques une image avec une case vide numérotée par bouton, dans la
                 rubrique <em>Button Mapping</em> de son site d'assistance. Pour les autres, des gabarits de la communauté
-                existent (à enregistrer en PNG ou JPG).
+                existent (à enregistrer en PNG ou JPG). Une simple photo du périphérique convient aussi&nbsp;: les gabarits du
+                menu <strong>Placer</strong> dessinent alors leurs propres cases.
+            </p>
+        </div>
+
+        <h3 id="mise-en-place">Mettre en place l'image d'un périphérique</h3>
+        <p>La mise en place se fait en cinq étapes, dans cet ordre.</p>
+
+        <h4>Étape 1 — Importer l'image</h4>
+        <ol class="steps">
+            <li>Ouvrez l'onglet <strong>Image</strong> et choisissez le périphérique dans la liste de gauche (ou appuyez sur un
+                de ses boutons&nbsp;: son image s'affiche).</li>
+            <li>Cliquez <strong>Image…</strong> et choisissez le fichier PNG ou JPG (BMP accepté). L'image est copiée dans les
+                données de l'application&nbsp;; le fichier d'origine peut être déplacé ensuite.</li>
+        </ol>
+        <figure class="shot wide">
+            <a href="images/commandes/etape1-image.png"><img src="images/commandes/etape1-image.png" alt="Onglet Image avec l'image du périphérique importée" loading="lazy"></a>
+            <figcaption>L'image importée, encore sans case associée (« 0 zone(s) » à droite des boutons).</figcaption>
+        </figure>
+
+        <h4 id="shifts">Étape 2 — Choisir le nombre de shifts (avant de poser des cases)</h4>
+        <div class="callout warn">
+            <span class="callout-title">À faire avant d'insérer un binding</span>
+            <p>
+                Le nombre de couches de shift est lu <strong>au moment où un gabarit «&nbsp;Bouton avec shift&nbsp;» est
+                posé</strong>&nbsp;: il fixe le nombre de lignes de ce gabarit. Le changer ensuite ne modifie pas les gabarits
+                déjà posés (il faudrait les supprimer et les reposer). Réglez-le donc en premier, d'après la configuration de
+                votre périphérique dans VPC Configurator (couches SHFT1 à SHFT5).
             </p>
         </div>
         <ol class="steps">
-            <li>Choisissez le périphérique (dans la liste, ou en appuyant sur un de ses boutons), puis cliquez
-                <strong>Image…</strong> et choisissez un fichier PNG ou JPG (BMP accepté).</li>
-            <li>Cliquez <strong>Détecter les cases</strong>&nbsp;: toutes les cases vides de l'image sont trouvées d'un coup,
-                et la première s'allume en orange.</li>
-            <li><strong>Appuyez sur la commande</strong> du périphérique qui correspond à la case allumée (bouton, chapeau, ou
-                poussez franchement l'axe, sur au moins un tiers de sa course)&nbsp;: la case lui est associée et la
-                <strong>suivante s'allume</strong>, avec un «&nbsp;ding-dong&nbsp;» discret (case <strong>Son</strong> pour le
-                couper). L'application écoute 1,5&nbsp;seconde après la première commande reçue et retient la
-                <strong>dernière</strong>&nbsp;: un appui long ou un double appui configuré dans VPC Configurator, qui envoie
-                d'abord un autre bouton, est ainsi bien associé. Continuez ainsi jusqu'à la dernière case.
-                <ul>
-                    <li><kbd>Tab</kbd>&nbsp;: passer cette case (elle sera proposée de nouveau à la fin du tour)&nbsp;;</li>
-                    <li><kbd>Suppr</kbd>&nbsp;: retirer une case qui n'est pas une commande (légende «&nbsp;OFF&nbsp;», couleurs des
-                        voyants…)&nbsp;;</li>
-                    <li><kbd>Échap</kbd>&nbsp;: terminer. Les cases restées sans commande sont retirées.</li>
-                </ul>
-            </li>
-            <li id="gabarits">Pour poser des cases à la main, bouton <strong>Placer ▾</strong>, puis le type de commande&nbsp;:
+            <li>Cliquez <strong>Placer ▾</strong> puis <strong>Shifts&nbsp;: nombre et couleurs…</strong>.</li>
+            <li>Indiquez le nombre de <strong>couches de shift</strong> du périphérique (1 à 5). Il vaut pour ce périphérique
+                seulement.</li>
+            <li>Choisissez si vous le souhaitez la <strong>couleur</strong> de chaque couche (clic sur la couleur). Les couleurs
+                sont communes à tous les périphériques&nbsp;: la couche 1 a partout la même couleur.</li>
+        </ol>
+        <figure class="shot">
+            <a href="images/commandes/etape2-shifts.png"><img src="images/commandes/etape2-shifts.png" alt="Fenêtre Shifts : nombre et couleurs" loading="lazy"></a>
+            <figcaption>Deux couches de shift pour ce périphérique&nbsp;; seules les couleurs des couches utilisées sont modifiables.</figcaption>
+        </figure>
+
+        <h4>Étape 3 — Placer les cases</h4>
+        <p>Deux façons, que l'on peut combiner&nbsp;:</p>
+        <ul>
+            <li><strong>Détecter les cases</strong>, pour une image Virpil qui a déjà une case vide par bouton&nbsp;: toutes les
+                cases de l'image sont trouvées d'un coup et deviennent des cases en attente, la première allumée en orange.</li>
+            <li><strong>Placer ▾</strong>, pour poser des <a href="#gabarits">gabarits</a> (bouton, interrupteur, encodeur, axe,
+                chapeau chinois), sur une photo ou à côté des cases existantes.</li>
+        </ul>
+        <figure class="shot wide">
+            <a href="images/commandes/etape3-detection.png"><img src="images/commandes/etape3-detection.png" alt="Cases détectées en attente d'association" loading="lazy"></a>
+            <figcaption>Après <strong>Détecter les cases</strong>&nbsp;: les cases trouvées sont encadrées en pointillés orange, la première à associer est allumée.</figcaption>
+        </figure>
+        <figure class="shot wide">
+            <a href="images/commandes/etape3-menu-placer.png"><img src="images/commandes/etape3-menu-placer.png" alt="Menu Placer ouvert sur la famille Bouton" loading="lazy"></a>
+            <figcaption>Le menu <strong>Placer ▾</strong>, classé par familles&nbsp;: ici <em>Bouton</em> → <em>Appui court et appui long</em>.</figcaption>
+        </figure>
+
+        <h4 id="gabarits">Poser un gabarit</h4>
+        <ol class="steps">
+            <li>Dans <strong>Placer ▾</strong>, choisissez la famille puis le gabarit&nbsp;:
                 <ul>
                     <li><strong>Bouton</strong>&nbsp;:
                         <ul>
@@ -189,55 +235,110 @@
                                 d'appui court et, collée dessous, une ligne d'appui long (comme les cases d'appui long des images
                                 Virpil). Pour un Virpil dont le profil VPC est lu, l'appui court remplit l'appui long d'après
                                 VPC&nbsp;; sinon, faites un appui long sur la ligne suivante&nbsp;;</li>
-                            <li><strong>Avec shift</strong>&nbsp;: une ligne sans shift plus une ligne par couche de shift, chacune
-                                dans la couleur de sa couche (remplies d'après VPC, ou appui avec chaque shift à son tour)&nbsp;;</li>
+                            <li><strong>Avec shift</strong>&nbsp;: une ligne sans shift plus une ligne par couche de shift (voir
+                                l'<a href="#shifts">étape&nbsp;2</a>), chacune dans la couleur de sa couche&nbsp;; remplies d'après
+                                VPC, ou par un appui avec chaque shift à son tour&nbsp;;</li>
                         </ul></li>
                     <li><strong>Encodeur</strong>&nbsp;: <em>Gauche / Droite</em> (2 cases) ou <em>Gauche / Appui / Droite</em>
                         (3 cases)&nbsp;;</li>
                     <li><strong>Axe</strong>&nbsp;: <em>1 axe</em>, <em>2 axes</em> (haut-bas, gauche-droite), <em>1 axe avec
                         boutons en zone</em> (l'axe, puis les boutons à 0, 50 et 100&nbsp;% de sa course, comme les zones
                         «&nbsp;Axis to Button&nbsp;» de VPC Configurator) ou <em>2 axes avec boutons en butée</em> (les deux axes,
-                        puis les boutons en butée haut, droite, bas, gauche). Pour une case d'axe, poussez franchement
-                        l'axe&nbsp;;</li>
+                        puis les boutons en butée haut, droite, bas, gauche)&nbsp;;</li>
                     <li><strong>Chapeau chinois</strong>&nbsp;: 4 directions (croix) ou 8 directions (carré de 3×3), avec ou sans
                         bouton central.</li>
-                </ul>
-                Chaque case d'un gabarit montre seulement sa commande (une case détectée ou tracée à la main montre toujours
-                tout le bouton physique Virpil&nbsp;: couches de shift, appui long).
-                Le gabarit apparaît en transparence et suit la souris&nbsp;: <strong>clic gauche</strong> pour le poser,
-                <strong>molette</strong> pour la taille des cases, <strong>clic droit</strong> pour choisir un autre type,
-                <kbd>Échap</kbd> pour arrêter de poser. Pour le <strong>relier par un trait</strong> au bouton qu'il représente
-                (comme sur les images Virpil)&nbsp;: appuyez sur le bouton de la photo, gardez le clic enfoncé et glissez
-                jusqu'à l'endroit où poser le gabarit&nbsp;; le trait part du point de départ et suit le gabarit jusqu'au
-                relâchement (<kbd>Échap</kbd> pendant le glisser abandonne le trait). Le gabarit reste actif après la pose&nbsp;: on peut en poser plusieurs
-                d'affilée. Ses cases s'allument ensuite l'une après l'autre avec la direction à presser («&nbsp;Haut&nbsp;»,
-                «&nbsp;Bas gauche&nbsp;», «&nbsp;Centre&nbsp;», «&nbsp;▲&nbsp;»…), comme après une détection.
-                <br>
-                <strong>Placer ▾ → Shifts&nbsp;: nombre et couleurs…</strong> règle le nombre de couches de shift du périphérique
-                (1 à 5, comme SHFT1 à SHFT5 dans VPC Configurator) et la couleur de chaque couche (commune à tous les
-                périphériques).</li>
-            <li><strong>Placer ▾ → Modifier les zones</strong>&nbsp;: un clic dans une case vide la délimite automatiquement,
-                un rectangle tracé à la souris crée une case sur une image sans cases&nbsp;; glisser une zone la déplace, son
-                coin bas droit la redimensionne, <kbd>Suppr</kbd> l'efface. Glisser le point rouge d'un trait le déplace&nbsp;;
-                clic droit sur une case&nbsp;: <strong>Tracer un trait vers le bouton…</strong> (puis un clic sur le bouton de
-                la photo) ou <strong>Retirer le trait</strong>. Les traits et le cadre des cases posées par gabarit
-                apparaissent aussi sur le kneeboard. <kbd>Échap</kbd> ou <strong>Placer ▾ → Terminer
-                le placement</strong> pour revenir à la consultation.</li>
-            <li>Pour choisir la commande dans une liste plutôt qu'en appuyant (périphérique débranché, bouton difficile à
-                atteindre…)&nbsp;: pendant le placement (sans gabarit qui suit la souris), <strong>clic droit</strong> sur la case.
+                </ul></li>
+            <li>Le gabarit apparaît <strong>en transparence et suit la souris</strong>. La <strong>molette</strong> règle la
+                taille de ses cases (au départ, celle des cases de l'image).</li>
+            <li>Pour le poser&nbsp;:
                 <ul>
-                    <li><strong>Axe</strong>&nbsp;: les axes que le périphérique déclare (X, Y, Z, RX, RY, RZ, curseurs)&nbsp;;</li>
-                    <li><strong>Bouton</strong>&nbsp;: tous les boutons du périphérique, rangés par vingtaine («&nbsp;Boutons 1 à
-                        20&nbsp;», «&nbsp;21 à 40&nbsp;»… jusqu'à 256). Pour chacun, <strong>Appui court (Short Press)</strong>
-                        ou <strong>Appui long (Long Press)</strong>&nbsp;: une même case peut ainsi porter le bouton de l'appui
-                        court et celui de l'appui long, affiché «&nbsp;Long Press&nbsp;: …&nbsp;». Pour un périphérique Virpil,
-                        le mode lu dans VPC Configurator est indiqué à côté du bouton (par exemple «&nbsp;physique 43 · Long
-                        Press&nbsp;»)&nbsp;;</li>
-                    <li><strong>Chapeau</strong>&nbsp;: les huit directions de chaque chapeau, si le périphérique en a.</li>
-                </ul>
-                Une coche marque l'association actuelle de la case&nbsp;; «&nbsp;— autre case&nbsp;» signale une commande
-                déjà placée ailleurs sur l'image.</li>
+                    <li><strong>clic gauche</strong>&nbsp;: le gabarit est posé là, sans trait&nbsp;;</li>
+                    <li><strong>clic maintenu sur le bouton de la photo, puis glisser</strong> jusqu'à l'endroit voulu&nbsp;: un
+                        <strong>trait</strong> part du bouton et suit le gabarit&nbsp;; au relâchement, le gabarit est posé et
+                        relié à son bouton, comme les traits des images Virpil.</li>
+                </ul></li>
+            <li>Le gabarit <strong>reste actif</strong>&nbsp;: on peut en poser plusieurs d'affilée. <strong>Clic droit</strong>
+                pour choisir un autre gabarit, <kbd>Échap</kbd> pour arrêter de poser (pendant un glisser, <kbd>Échap</kbd>
+                abandonne seulement le trait).</li>
         </ol>
+        <div class="shots-row">
+        <figure class="shot">
+            <a href="images/commandes/gabarit-fantome.png"><img src="images/commandes/gabarit-fantome.png" alt="Gabarit transparent qui suit la souris" loading="lazy"></a>
+            <figcaption>Le gabarit <em>Chapeau chinois 4 directions + bouton central</em> suit la souris.</figcaption>
+        </figure>
+        <figure class="shot">
+            <a href="images/commandes/gabarit-trait.png"><img src="images/commandes/gabarit-trait.png" alt="Gabarit relié par un trait au bouton de la photo" loading="lazy"></a>
+            <figcaption>Glisser depuis le bouton de la photo&nbsp;: le trait suit le gabarit jusqu'au relâchement.</figcaption>
+        </figure>
+        </div>
+        <p>
+            Chaque case d'un gabarit montre seulement sa propre commande. Une case détectée ou tracée à la main montre, pour un
+            Virpil, tout le bouton physique&nbsp;: couches de shift et appui long.
+        </p>
+
+        <h4>Étape 4 — Associer chaque case à sa commande</h4>
+        <ol class="steps">
+            <li>La case en attente est <strong>allumée en orange</strong>&nbsp;; pour une case de gabarit, son rôle est
+                affiché au-dessus («&nbsp;appuyez&nbsp;: Haut&nbsp;», «&nbsp;Gauche (rotation)&nbsp;», «&nbsp;Shift 1&nbsp;»…) et
+                rappelé sous les boutons.</li>
+            <li><strong>Appuyez sur la commande</strong> correspondante du périphérique (bouton, chapeau&nbsp;; pour un axe,
+                poussez-le franchement, sur au moins un tiers de sa course). L'application écoute 1,5&nbsp;seconde après la
+                première commande reçue («&nbsp;Reçu&nbsp;: …&nbsp;» sous les boutons) et retient la <strong>dernière</strong>&nbsp;: un
+                appui long ou un double appui configuré dans VPC Configurator, qui envoie d'abord un autre bouton, est ainsi
+                bien associé.</li>
+            <li>Un «&nbsp;ding-dong&nbsp;» discret confirme l'association (case <strong>Son</strong> pour le couper) et la
+                <strong>case suivante s'allume</strong>. Continuez jusqu'à la dernière.
+                <ul>
+                    <li><kbd>Tab</kbd>&nbsp;: passer cette case (elle sera proposée de nouveau à la fin du tour)&nbsp;;</li>
+                    <li><kbd>Suppr</kbd>&nbsp;: retirer une case qui n'est pas une commande (légende «&nbsp;OFF&nbsp;», couleurs des
+                        voyants…)&nbsp;;</li>
+                    <li><kbd>Échap</kbd>&nbsp;: terminer. Les cases restées sans commande sont retirées.</li>
+                </ul></li>
+        </ol>
+        <figure class="shot wide">
+            <a href="images/commandes/etape4-association.png"><img src="images/commandes/etape4-association.png" alt="Association guidée des cases détectées" loading="lazy"></a>
+            <figcaption>Association guidée après une détection&nbsp;: cinq cases sont associées, la suivante est allumée et l'application vient de recevoir le bouton&nbsp;8.</figcaption>
+        </figure>
+        <figure class="shot">
+            <a href="images/commandes/gabarit-association.png"><img src="images/commandes/gabarit-association.png" alt="Association guidée d'un chapeau chinois" loading="lazy"></a>
+            <figcaption>Association guidée d'un gabarit&nbsp;: <em>Haut</em> et <em>Droite</em> sont faits, la case <em>Bas</em> attend son appui.</figcaption>
+        </figure>
+
+        <p id="liste">
+            <strong>Choisir la commande dans une liste</strong> plutôt qu'en appuyant (périphérique débranché, bouton difficile
+            à atteindre…)&nbsp;: pendant le placement, sans gabarit qui suit la souris, <strong>clic droit</strong> sur la case.
+        </p>
+        <ul>
+            <li><strong>Axe</strong>&nbsp;: les axes que le périphérique déclare (X, Y, Z, RX, RY, RZ, curseurs)&nbsp;;</li>
+            <li><strong>Bouton</strong>&nbsp;: tous les boutons du périphérique, rangés par vingtaine («&nbsp;Boutons 1 à
+                20&nbsp;», «&nbsp;21 à 40&nbsp;»… jusqu'à 256). Pour chacun, <strong>Appui court (Short Press)</strong>
+                ou <strong>Appui long (Long Press)</strong>&nbsp;: une même case peut porter le bouton de l'appui court et celui de
+                l'appui long, affiché «&nbsp;Long Press&nbsp;: …&nbsp;». Pour un Virpil, le mode lu dans VPC Configurator est
+                indiqué à côté du bouton (par exemple «&nbsp;physique 43 · Long Press&nbsp;»)&nbsp;;</li>
+            <li><strong>Chapeau</strong>&nbsp;: les huit directions de chaque chapeau, si le périphérique en a&nbsp;;</li>
+            <li><strong>Tracer un trait vers le bouton…</strong> (puis un clic sur le bouton de la photo), ou
+                <strong>Retirer le trait</strong>.</li>
+        </ul>
+        <p>Une coche marque l'association actuelle de la case&nbsp;; «&nbsp;— autre case&nbsp;» signale une commande déjà placée ailleurs sur l'image.</p>
+        <figure class="shot">
+            <a href="images/commandes/etape4-clic-droit.png"><img src="images/commandes/etape4-clic-droit.png" alt="Menu du clic droit sur une case" loading="lazy"></a>
+            <figcaption>Clic droit sur une case en attente&nbsp;: <em>Bouton</em> → <em>Boutons 1 à 20</em> → <em>Bouton 8</em> → appui court ou appui long.</figcaption>
+        </figure>
+
+        <h4>Étape 5 — Ajuster et terminer</h4>
+        <ul>
+            <li><strong>Placer ▾ → Modifier les zones</strong>&nbsp;: glisser une case la déplace, son coin bas droit (carré
+                bleu) la redimensionne, <kbd>Suppr</kbd> l'efface&nbsp;; glisser le <strong>point rouge</strong> d'un trait le
+                déplace. Un clic dans une case vide de l'image la délimite automatiquement&nbsp;; un rectangle tracé à la souris
+                crée une case sur une image sans cases.</li>
+            <li><kbd>Échap</kbd> ou <strong>Placer ▾ → Terminer le placement</strong> pour revenir à la consultation.</li>
+            <li>Pensez à <a href="#partager">exporter l'agencement</a> pour le sauvegarder.</li>
+        </ul>
+        <figure class="shot">
+            <a href="images/commandes/etape5-modifier.png"><img src="images/commandes/etape5-modifier.png" alt="Modification des zones d'un gabarit" loading="lazy"></a>
+            <figcaption><em>Modifier les zones</em>&nbsp;: la case sélectionnée a sa poignée de taille (carré bleu), le trait son point rouge déplaçable.</figcaption>
+        </figure>
+
         <div class="callout tip">
             <span class="callout-title">Pourquoi appuyer plutôt que lire les numéros de l'image&nbsp;?</span>
             <p>
@@ -246,6 +347,53 @@
                 toujours la bonne association, pour votre matériel et votre profil.
             </p>
         </div>
+
+        <h3 id="visualisations">Les différentes visualisations</h3>
+        <p>Une fois les cases associées, les commandes du module choisi s'affichent de plusieurs façons.</p>
+        <ul>
+            <li><strong>Tableau</strong>&nbsp;: toutes les commandes du périphérique, une ligne par entrée et par
+                modificateur, avec la colonne <em>VPC</em> et l'origine (modifiée, défaut, conflit). Voir la
+                <a href="#consulter">première capture</a>.</li>
+            <li><strong>Image en consultation</strong>&nbsp;: le texte des commandes dans les cases, la commande sans shift ni
+                modificateur en premier et en gras. Quand vous appuyez sur un bouton, sa case s'allume en orange (et l'image
+                de son périphérique s'affiche si «&nbsp;Tous les périphériques&nbsp;» est choisi). Le texte s'adapte à la case&nbsp;;
+                s'il y a trop de commandes, la dernière ligne se termine par «&nbsp;(+N)&nbsp;». Agrandir la fenêtre agrandit
+                l'image et le texte.</li>
+        </ul>
+        <figure class="shot wide">
+            <a href="images/commandes/image-consultation.png"><img src="images/commandes/image-consultation.png" alt="Image du périphérique avec les commandes dans les cases" loading="lazy"></a>
+            <figcaption>Image en consultation&nbsp;: un appui sur le bouton&nbsp;24 allume sa case (à droite, sur la poignée) et affiche la commande dans <em>Dernière action</em>.</figcaption>
+        </figure>
+
+        <ul>
+            <li><strong>Survol</strong> d'une case&nbsp;: une info-bulle donne la liste complète de ses commandes.</li>
+            <li><strong>Clic</strong> sur une case&nbsp;: son détail s'affiche dans le panneau <em>Dernière action</em>, avec
+                les boutons logiques du bouton physique (par exemple l'appui long que VPC lui associe).</li>
+        </ul>
+        <figure class="shot wide">
+            <a href="images/commandes/detail-case.png"><img src="images/commandes/detail-case.png" alt="Détail d'une case dans le panneau Dernière action" loading="lazy"></a>
+            <figcaption>Clic sur la case du bouton physique&nbsp;29&nbsp;: la commande de l'appui court en grand, celle de l'appui long (bouton&nbsp;45) dessous.</figcaption>
+        </figure>
+
+        <ul>
+            <li><strong>Cases de gabarit</strong>&nbsp;: elles ont leur propre cadre (utile sur une partie vide de l'image),
+                leur trait éventuel vers le bouton de la photo, et, pour un bouton avec shift, une ligne par couche dans la
+                couleur de la couche.</li>
+        </ul>
+        <div class="shots-row">
+        <figure class="shot">
+            <a href="images/commandes/gabarit-resultat.png"><img src="images/commandes/gabarit-resultat.png" alt="Gabarit de chapeau en consultation" loading="lazy"></a>
+            <figcaption>Un chapeau chinois posé par gabarit et relié à son bouton, en consultation.</figcaption>
+        </figure>
+        <figure class="shot">
+            <a href="images/commandes/gabarit-shift.png"><img src="images/commandes/gabarit-shift.png" alt="Bouton avec shift en consultation" loading="lazy"></a>
+            <figcaption>Un bouton avec deux couches de shift&nbsp;: sans shift, shift&nbsp;1, shift&nbsp;2.</figcaption>
+        </figure>
+        </div>
+        <ul>
+            <li><strong>Kneeboard</strong>&nbsp;: la même image sur une page de la kneeboard de DCS (voir
+                <a href="#kneeboard">Export vers la kneeboard</a>).</li>
+        </ul>
 
         <h3 id="partager">Sauvegarder ou partager un agencement</h3>
         <p>
@@ -260,16 +408,6 @@
             Sinon, il suffit de refaire l'association des cases concernées. L'image reste celle de son auteur&nbsp;: ne partagez
             que des images que vous avez le droit de diffuser.
         </p>
-        <ul>
-            <li>Pour un périphérique Virpil, une zone est associée au <strong>bouton physique</strong>&nbsp;: elle montre les
-                commandes de <strong>toutes ses couches de shift</strong> et de tous les modificateurs DCS, une ligne chacune
-                («&nbsp;S1 · RAlt&nbsp;: …&nbsp;»), la commande sans shift ni modificateur en premier et en gras.</li>
-            <li>Le texte s'adapte à la case. S'il y a trop de commandes, la dernière ligne se termine par «&nbsp;(+N)&nbsp;».
-                Le survol d'une case donne la liste complète, et un clic l'affiche dans le panneau <em>Dernière action</em>.</li>
-            <li>Quand vous appuyez sur un bouton, sa case s'allume en orange (et l'image de son périphérique s'affiche si
-                «&nbsp;Tous les périphériques&nbsp;» est choisi).</li>
-            <li>Agrandir la fenêtre agrandit l'image, et donc le texte des cases.</li>
-        </ul>
 
         <h2 id="kneeboard">Export vers la kneeboard</h2>
         <p>
@@ -294,6 +432,10 @@
             <li>Les fichiers s'appellent <code>VPS-Commandes&nbsp;01&nbsp;-&nbsp;&lt;périphérique&gt;.png</code>… Un nouvel export
                 remplace ces fichiers-là et <strong>ne touche jamais à vos autres pages</strong> de kneeboard.</li>
         </ul>
+        <figure class="shot">
+            <a href="images/commandes/kneeboard.png"><img src="images/commandes/kneeboard.png" alt="Page de kneeboard générée" loading="lazy"></a>
+            <figcaption>Page de kneeboard du collectif pour l'AH-64D&nbsp;: les cases trop petites reçoivent un renvoi («&nbsp;→&nbsp;3&nbsp;»), détaillé sous l'image&nbsp;; puis les autres commandes.</figcaption>
+        </figure>
 
         <div class="pager">
             <a class="prev" href="outils.html"><span>Précédent</span>← Outils intégrés</a>
