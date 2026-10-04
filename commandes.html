@@ -181,15 +181,29 @@
             </li>
             <li id="gabarits">Pour poser des cases à la main, bouton <strong>Placer ▾</strong>, puis le type de commande&nbsp;:
                 <ul>
-                    <li><strong>Bouton simple</strong>&nbsp;: une case&nbsp;;</li>
-                    <li><strong>Bouton avec shift</strong>&nbsp;: une ligne sans shift plus une ligne par couche de shift, chacune
-                        dans la couleur de sa couche. Pour un Virpil dont le profil VPC est lu, l'appui sur la ligne «&nbsp;sans
-                        shift&nbsp;» remplit les autres lignes d'après VPC&nbsp;; sinon, appuyez sur le bouton avec chaque shift
-                        à son tour&nbsp;;</li>
-                    <li><strong>Encodeur</strong>&nbsp;: trois cases empilées ▲ / appui / ▼, comme sur les images Virpil&nbsp;;</li>
-                    <li><strong>Chapeau chinois 4, 5, 8 ou 9 positions</strong>&nbsp;: une croix (4 directions, plus l'appui
-                        central pour 5) ou un carré de 3×3 (8 directions, plus l'appui central pour 9).</li>
+                    <li><strong>Bouton</strong>&nbsp;:
+                        <ul>
+                            <li><strong>Appui court</strong>&nbsp;: <em>ON/OFF</em> (1 case), <em>ON/OFF/ON</em> (2 cases, haut et
+                                bas) ou <em>ON/ON/ON</em> (3 cases, haut, milieu, bas)&nbsp;;</li>
+                            <li><strong>Appui court et appui long</strong>&nbsp;: les mêmes, avec pour chaque position une ligne
+                                d'appui court et, collée dessous, une ligne d'appui long (comme les cases d'appui long des images
+                                Virpil). Pour un Virpil dont le profil VPC est lu, l'appui court remplit l'appui long d'après
+                                VPC&nbsp;; sinon, faites un appui long sur la ligne suivante&nbsp;;</li>
+                            <li><strong>Avec shift</strong>&nbsp;: une ligne sans shift plus une ligne par couche de shift, chacune
+                                dans la couleur de sa couche (remplies d'après VPC, ou appui avec chaque shift à son tour)&nbsp;;</li>
+                        </ul></li>
+                    <li><strong>Encodeur</strong>&nbsp;: <em>Gauche / Droite</em> (2 cases) ou <em>Gauche / Appui / Droite</em>
+                        (3 cases)&nbsp;;</li>
+                    <li><strong>Axe</strong>&nbsp;: <em>1 axe</em>, <em>2 axes</em> (haut-bas, gauche-droite), <em>1 axe avec
+                        boutons en zone</em> (l'axe, puis les boutons à 0, 50 et 100&nbsp;% de sa course, comme les zones
+                        «&nbsp;Axis to Button&nbsp;» de VPC Configurator) ou <em>2 axes avec boutons en butée</em> (les deux axes,
+                        puis les boutons en butée haut, droite, bas, gauche). Pour une case d'axe, poussez franchement
+                        l'axe&nbsp;;</li>
+                    <li><strong>Chapeau chinois</strong>&nbsp;: 4 directions (croix) ou 8 directions (carré de 3×3), avec ou sans
+                        bouton central.</li>
                 </ul>
+                Chaque case d'un gabarit montre seulement sa commande (une case détectée ou tracée à la main montre toujours
+                tout le bouton physique Virpil&nbsp;: couches de shift, appui long).
                 Le gabarit apparaît en transparence et suit la souris&nbsp;: <strong>clic gauche</strong> pour le poser,
                 <strong>molette</strong> pour la taille des cases, <strong>clic droit</strong> pour choisir un autre type,
                 <kbd>Échap</kbd> pour arrêter de poser. Pour le <strong>relier par un trait</strong> au bouton qu'il représente
