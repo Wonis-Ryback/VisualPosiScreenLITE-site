@@ -51,6 +51,7 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
+                <tr><td><a href="#v3-14-0-1"><strong>3.14.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>5&nbsp;octobre&nbsp;2026</td><td><strong>Versions de mods</strong>&nbsp;: un mod peut garder plusieurs versions installées (par exemple 3 et 4)&nbsp;; la colonne <em>Version</em> de la liste des mods choisit celle à utiliser, avec redéploiement automatique si le mod est activé.</td></tr>
                 <tr><td><a href="#v3-13-6-1"><strong>3.13.6.1</strong></a> <span class="badge pro">PRO</span></td><td>4&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Menu «&nbsp;Placer&nbsp;» classé par familles (boutons avec appui court ou long, encodeurs, axes, chapeaux)&nbsp;; la mise à jour montre les notes de toutes les versions depuis la vôtre. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-13-5-1"><strong>3.13.5.1</strong></a> <span class="badge pro">PRO</span></td><td>4&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Gabarits reliés par un trait au bouton de la photo (glisser depuis le bouton)&nbsp;; cadre des cases posées par gabarit, aussi sur le kneeboard. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-13-4-1"><strong>3.13.4.1</strong></a> <span class="badge pro">PRO</span></td><td>4&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Menu «&nbsp;Placer&nbsp;» avec gabarits à la Virpil (bouton, shift, encodeur, chapeaux 4/5/8/9 positions)&nbsp;; annulation d'une reprise des anciens réglages. Pas de nouvelle version LITE.</td></tr>
@@ -60,7 +61,7 @@
                 <tr><td><a href="#v3-13-0-1"><strong>3.13.0.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Image du périphérique&nbsp;: toutes les cases détectées d'un coup, puis association guidée en appuyant sur les commandes&nbsp;; export et import d'un agencement. Clé de licence&nbsp;: 3&nbsp;PC par clé. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-12-1-1"><strong>3.12.1.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Première version PRO distribuée par la mise à jour automatique. Pas de nouveauté. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-12-0-1"><strong>3.12.0.1</strong></a> <span class="badge pro">PRO</span></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Mises à jour automatiques de l'édition PRO, avec une clé de licence. Pas de nouvelle version LITE&nbsp;: la dernière reste la 3.11.1.1.</td></tr>
-                <tr><td><a href="#v3-11-1-1"><strong>3.11.1.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>26&nbsp;septembre&nbsp;2026</td><td>La demande de support part directement depuis l'application (relais sécurisé), sans logiciel de messagerie&nbsp;; adresse e-mail facultative pour recevoir la réponse, référence de la demande.</td></tr>
+                <tr><td><a href="#v3-11-1-1"><strong>3.11.1.1</strong></a></td><td>26&nbsp;septembre&nbsp;2026</td><td>La demande de support part directement depuis l'application (relais sécurisé), sans logiciel de messagerie&nbsp;; adresse e-mail facultative pour recevoir la réponse, référence de la demande.</td></tr>
                 <tr><td><a href="#v3-11-0-1"><strong>3.11.0.1</strong></a></td><td>26&nbsp;septembre&nbsp;2026</td><td><span class="badge pro">PRO</span> Nouvelle fenêtre <em>Commandes</em>&nbsp;: on appuie sur un bouton de joystick, la commande DCS du module choisi s'affiche&nbsp;; image du périphérique avec ses commandes (profils Virpil pris en compte), pages de kneeboard, reprise des réglages perdus après un changement d'identifiant. Pour LITE&nbsp;: pas de changement.</td></tr>
                 <tr><td><a href="#v3-10-1-1"><strong>3.10.1.1</strong></a></td><td>25&nbsp;septembre&nbsp;2026</td><td><strong>Correction</strong>&nbsp;: sur un poste avec deux cartes AMD (processeur avec circuit graphique intégré + carte dédiée), la version du pilote installé pouvait être mal identifiée et déclencher une fausse alerte de mise à jour.</td></tr>
                 <tr><td><a href="#v3-10-0-1"><strong>3.10.0.1</strong></a></td><td>21&nbsp;septembre&nbsp;2026</td><td>Boîte «&nbsp;À propos&nbsp;» refaite dans le style des autres fenêtres (informations utiles au support, liens, composants libres utilisés) et archive allégée de composants inutilisés.</td></tr>
@@ -263,6 +264,14 @@
 
         <h2>Historique détaillé</h2>
 
+        <h3 id="v3-14-0-1">Version 3.14.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <p class="tag-legend">Publiée le 5&nbsp;octobre&nbsp;2026</p>
+        <ul>
+            <li><strong>Nouveauté</strong>&nbsp;: <strong>versions de mods</strong>. Un mod peut garder plusieurs versions installées côte à côte, chacune avec ses fichiers Root et Saved&nbsp;Games. Elles s'ajoutent depuis l'éditeur de mod (<strong>Versions du mod…</strong>), à partir d'un dossier ou d'une archive ZIP&nbsp;; une partie laissée vide reprend les fichiers de la version utilisée. Voir <a href="mods.html#versions">Versions d'un mod</a>.</li>
+            <li><strong>Nouveauté</strong>&nbsp;: colonne <strong>Version</strong> dans la liste des mods de la fenêtre principale. Un clic sur la cellule choisit la version à utiliser&nbsp;; si le mod est activé, l'ancienne version est retirée de DCS puis la nouvelle déployée.</li>
+            <li>Une version qui n'est pas utilisée peut être supprimée avec ses fichiers.</li>
+        </ul>
+
         <h3 id="v3-13-6-1">Version 3.13.6.1 <span class="badge pro">PRO uniquement</span></h3>
         <p class="tag-legend">Publiée le 4&nbsp;octobre&nbsp;2026</p>
         <ul>
@@ -340,7 +349,7 @@
             <li>Pas de version LITE 3.12.0.1&nbsp;: rien ne change pour l'édition LITE.</li>
         </ul>
 
-        <h3 id="v3-11-1-1">Version 3.11.1.1 <span class="badge lite">Dernière LITE</span></h3>
+        <h3 id="v3-11-1-1">Version 3.11.1.1</h3>
         <p class="tag-legend">Publiée le 26&nbsp;septembre&nbsp;2026</p>
         <ul>
             <li><strong>Amélioration</strong>&nbsp;: la <strong>demande de support part directement depuis l'application</strong>. Plus besoin de logiciel de messagerie ni de joindre un fichier&nbsp;: après relecture, <em>Envoyer</em> transmet la demande par une connexion sécurisée à un relais du support, qui la fait suivre par e-mail. Une <strong>référence</strong> (par exemple <code>VPS-20260926-7K3F</code>) s'affiche une fois la demande partie. Rien ne part avant le clic sur <em>Envoyer</em>, et l'aperçu montre toujours exactement ce qui sera transmis, y compris les données brutes. Voir <a href="outils.html#support">Contacter le support</a>.</li>

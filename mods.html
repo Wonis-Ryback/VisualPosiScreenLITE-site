@@ -65,19 +65,21 @@
             <thead><tr><th>Élément</th><th>Rôle</th></tr></thead>
             <tbody>
                 <tr><td><code>name</code></td><td>Nom du mod (doit correspondre au nom du dossier).</td></tr>
-                <tr><td><code>version</code></td><td>Version du mod, affichée dans l'éditeur de mod.</td></tr>
+                <tr><td><code>version</code></td><td>Version <strong>utilisée</strong> du mod, affichée dans la colonne <em>Version</em> de la liste des mods et dans l'éditeur de mod.</td></tr>
                 <tr><td><code>status/@enabled</code></td><td>État déployé (vrai) ou non (faux). Mis à jour par l'application.</td></tr>
                 <tr><td><code>description</code></td><td>Texte affiché dans la liste des mods.</td></tr>
                 <tr><td><code>root</code></td><td>Sous-dossier du mod à copier vers l'<strong>installation</strong> de DCS. Attribut <code>backup</code>&nbsp;: sauvegarder les fichiers écrasés.</td></tr>
                 <tr><td><code>saveGames</code></td><td>Sous-dossier du mod à copier vers <strong>Saved&nbsp;Games</strong>. Attribut <code>backup</code> également.</td></tr>
                 <tr><td><code>incompatibleMods</code></td><td>Liste de noms de mods incompatibles avec celui-ci.</td></tr>
+                <tr><td><code>versions</code></td><td>Versions installées du mod, chacune avec ses dossiers&nbsp;: <code>&lt;version num="4" root="versions\4\root" saveGames="versions\4\savegames"/&gt;</code>. Absent tant que le mod n'a qu'une version. Voir <a href="#versions">Versions d'un mod</a>.</td></tr>
             </tbody>
         </table>
         </div>
 
         <h2>Le cadre « Mods » de la fenêtre principale</h2>
         <ul>
-            <li>Chaque mod détecté apparaît avec sa <strong>description</strong> et une pastille&nbsp;: <strong>verte</strong> = déployé, <strong>rouge</strong> = non déployé.</li>
+            <li>Chaque mod détecté apparaît avec sa <strong>version</strong>, sa <strong>description</strong> et une pastille&nbsp;: <strong>verte</strong> = déployé, <strong>rouge</strong> = non déployé.</li>
+            <li><strong>Colonne Version</strong>&nbsp;: quand un mod a plusieurs versions installées (la cellule affiche par exemple <code>3 ▾</code>), un clic sur la cellule ouvre la liste de ses versions pour choisir celle à utiliser. Voir <a href="#versions">Versions d'un mod</a>.</li>
             <li><strong>Clic droit</strong> sur un mod&nbsp;:
                 <ul>
                     <li><em>Enable</em> / <em>Disable</em>&nbsp;: déploie ou retire le mod <strong>immédiatement</strong> (barre de progression).</li>
@@ -134,7 +136,8 @@
         <ul>
             <li><strong>Répertoire Root</strong> et <strong>Répertoire Partie enregistrée</strong> (SaveGames), avec sélecteur de dossier — les chemins sont mémorisés relativement au dossier du mod.</li>
             <li>Cases <strong>sauvegarde</strong> pour Root et pour SaveGames.</li>
-            <li><strong>Description</strong> et <strong>Version</strong>.</li>
+            <li><strong>Description</strong> et <strong>Version</strong> (numéro de la version utilisée&nbsp;; il ne peut pas reprendre celui d'une autre version du mod).</li>
+            <li>Le bouton <strong>Versions du mod…</strong>&nbsp;: ajout et suppression de versions (voir <a href="#versions">Versions d'un mod</a>).</li>
             <li><strong>Incompatibilités</strong>&nbsp;: liste à cocher des autres mods incompatibles.</li>
             <li><strong>Associer ce mod aux profils</strong>&nbsp;: cocher les profils pour lesquels ce mod doit être actif (met à jour la liste « Mods associés » de chaque profil).</li>
         </ul>
@@ -164,7 +167,53 @@
             <li>Seuls les dossiers <code>root</code> et <code>saveGames</code> du mod sont concernés&nbsp;: le <code>manifest.xml</code> et les dossiers de sauvegarde <code>.BAK</code> ne sont pas touchés.</li>
             <li>Une source qui ne contient aucun fichier est refusée, ainsi qu'une archive contenant des chemins qui sortiraient du dossier du mod.</li>
             <li>L'opération est immédiate&nbsp;: le bouton <em>Annuler</em> de l'éditeur ne la défait pas.</li>
+            <li>Si le mod a plusieurs versions, seuls les fichiers de la <strong>version utilisée</strong> sont remplacés. Pour garder l'ancienne version à côté de la nouvelle, ajoutez plutôt une version (ci-dessous).</li>
         </ul>
+
+        <h2 id="versions">Versions d'un mod</h2>
+        <p>
+            Un mod peut garder <strong>plusieurs versions installées</strong> côte à côte (par exemple <em>ESCA&nbsp;F18</em> en version&nbsp;3 et en version&nbsp;4),
+            et passer de l'une à l'autre sans réinstaller ses fichiers. Chaque version a ses propres fichiers Root et Saved&nbsp;Games.
+        </p>
+
+        <h3>Ajouter une version</h3>
+        <ol class="steps">
+            <li>Ouvrez l'éditeur du mod (<strong>Modifier</strong>), puis <strong>Versions du mod…</strong>. La fenêtre liste les versions installées, leur taille et celle qui est utilisée (en gras).</li>
+            <li><strong>Ajouter une version…</strong>&nbsp;: saisissez son <strong>numéro</strong> (par exemple <code>4</code>), puis la source de ses fichiers <strong>Root</strong> et/ou <strong>Saved&nbsp;Games</strong>&nbsp;: un dossier, ou un dossier à l'intérieur d'une archive ZIP. Une ligne laissée <strong>vide reprend les fichiers de la version utilisée</strong> actuellement (pratique quand une nouvelle version ne change que la partie Saved&nbsp;Games, par exemple).</li>
+            <li><strong>Ajouter la version</strong>&nbsp;: les fichiers sont copiés (fenêtre de progression, avec <em>Annuler</em>) dans <code>versions\&lt;numéro&gt;\</code> du dossier du mod. Les autres versions ne sont pas touchées, et la version utilisée ne change pas.</li>
+        </ol>
+        <pre><code>ConfigRep\Mods\ESCA_FA18\
+├─ manifest.xml
+├─ root\              ← version d'origine (3)
+├─ savegames\
+└─ versions\
+    └─ 4\
+        ├─ root\
+        └─ savegames\</code></pre>
+
+        <h3>Choisir la version à utiliser</h3>
+        <p>
+            Dans la fenêtre principale, cliquez sur la cellule de la colonne <strong>Version</strong> du mod et choisissez la version dans la liste.
+        </p>
+        <ul>
+            <li><strong>Mod désactivé</strong>&nbsp;: la version choisie est simplement mémorisée&nbsp;; c'est elle qui sera déployée à la prochaine activation (immédiate ou au lancement).</li>
+            <li><strong>Mod activé</strong>&nbsp;: après confirmation, l'ancienne version est <strong>retirée</strong> de DCS et de <em>Saved&nbsp;Games</em> (avec restauration des fichiers d'origine si la sauvegarde est cochée), puis la nouvelle est <strong>déployée</strong>. <strong>DCS doit être fermé</strong>&nbsp;; l'application le vérifie. Si le retrait échoue, la version ne change pas.</li>
+            <li>Le choix vaut pour <strong>tous les profils</strong>&nbsp;: les profils associent un mod, pas une version.</li>
+        </ul>
+
+        <h3>Supprimer une version</h3>
+        <p>
+            Dans <strong>Versions du mod…</strong>, sélectionnez la version puis <strong>Supprimer la version…</strong>&nbsp;: ses fichiers sont
+            <strong>supprimés définitivement</strong> après confirmation. La version utilisée ne peut pas être supprimée&nbsp;: choisissez d'abord une autre version.
+        </p>
+        <div class="callout warn">
+            <span class="callout-title">Plusieurs installations sur le même dossier de mods</span>
+            <p>
+                Une ancienne version de l'application ne connaît pas les versions de mods&nbsp;: si elle réenregistre le
+                <code>manifest.xml</code> d'un mod, la liste <code>versions</code> est perdue (les dossiers restent sur le disque).
+                Mettez à jour toutes les installations qui partagent le même dossier de mods.
+            </p>
+        </div>
 
         <h2>Incompatibilités</h2>
         <p>
