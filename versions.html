@@ -51,7 +51,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-15-0-1"><strong>3.15.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>6&nbsp;octobre&nbsp;2026</td><td><strong>Mods non gérés par un profil</strong>&nbsp;: dans la liste des mods d'un profil, une case grisée laisse le mod tel quel au lancement (ni activé ni désactivé).</td></tr>
+                <tr><td><a href="#v3-15-1-1"><strong>3.15.1.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>7&nbsp;octobre&nbsp;2026</td><td><strong>Correction</strong>&nbsp;: un mod supprimé réapparaissait au démarrage suivant&nbsp;; son dossier est maintenant effacé.</td></tr>
+                <tr><td><a href="#v3-15-0-1"><strong>3.15.0.1</strong></a></td><td>6&nbsp;octobre&nbsp;2026</td><td><strong>Mods non gérés par un profil</strong>&nbsp;: dans la liste des mods d'un profil, une case grisée laisse le mod tel quel au lancement (ni activé ni désactivé).</td></tr>
                 <tr><td><a href="#v3-14-0-1"><strong>3.14.0.1</strong></a></td><td>5&nbsp;octobre&nbsp;2026</td><td><strong>Versions de mods</strong>&nbsp;: un mod peut garder plusieurs versions installées (par exemple 3 et 4)&nbsp;; la colonne <em>Version</em> de la liste des mods choisit celle à utiliser, avec redéploiement automatique si le mod est activé.</td></tr>
                 <tr><td><a href="#v3-13-6-1"><strong>3.13.6.1</strong></a> <span class="badge pro">PRO</span></td><td>4&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Menu «&nbsp;Placer&nbsp;» classé par familles (boutons avec appui court ou long, encodeurs, axes, chapeaux)&nbsp;; la mise à jour montre les notes de toutes les versions depuis la vôtre. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-13-5-1"><strong>3.13.5.1</strong></a> <span class="badge pro">PRO</span></td><td>4&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Gabarits reliés par un trait au bouton de la photo (glisser depuis le bouton)&nbsp;; cadre des cases posées par gabarit, aussi sur le kneeboard. Pas de nouvelle version LITE.</td></tr>
@@ -265,7 +266,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-15-0-1">Version 3.15.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <h3 id="v3-15-1-1">Version 3.15.1.1 <span class="badge lite">Dernière LITE</span></h3>
+        <p class="tag-legend">Publiée le 7&nbsp;octobre&nbsp;2026</p>
+        <ul>
+            <li><strong>Correction</strong>&nbsp;: un mod supprimé disparaissait de la liste mais <strong>réapparaissait au démarrage suivant</strong>, car son dossier restait dans le dossier des mods. <strong>Supprimer</strong> efface maintenant ce dossier (fichiers de toutes les versions, sauvegardes), après avoir retiré le mod de DCS s'il était activé. Voir <a href="mods.html">Gestion des mods</a>.</li>
+            <li>La suppression est refusée, sans rien toucher, si DCS est en cours d'exécution (mod activé) ou si un fichier du mod est ouvert dans un autre programme.</li>
+            <li>Un mod supprimé avec une version antérieure est encore sur le disque&nbsp;: supprimez-le à nouveau.</li>
+        </ul>
+
+        <h3 id="v3-15-0-1">Version 3.15.0.1</h3>
         <p class="tag-legend">Publiée le 6&nbsp;octobre&nbsp;2026</p>
         <ul>
             <li><strong>Nouveauté</strong>&nbsp;: un profil peut <strong>ne pas gérer un mod</strong>. Dans l'onglet <em>Mods associés</em> de la configuration du profil, chaque case a trois états (un clic passe de l'un à l'autre)&nbsp;: <strong>cochée</strong> = mod activé au lancement, <strong>vide</strong> = désactivé, <strong>grisée</strong> = non géré, laissé tel quel. Voir <a href="parametrage.html#mods-associes">Onglet « Mods associés »</a>.</li>
