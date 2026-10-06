@@ -155,13 +155,19 @@
             Control&nbsp;Center ou le profil est introuvable.
         </p>
 
-        <h3>Onglet « Mods associés »</h3>
+        <h3 id="mods-associes">Onglet « Mods associés »</h3>
         <p>
-            Liste à cases à cocher des mods détectés dans le dossier de mods. Cochez ceux qui
-            doivent être <strong>actifs</strong> pour ce profil. À la sélection du
-            profil dans la fenêtre principale, l'application planifie l'activation des
-            mods cochés manquants et la désactivation des mods actifs non cochés (en tenant
-            compte des incompatibilités déclarées). Voir <a href="mods.html">Gestion des mods</a>.
+            Liste des mods détectés dans le dossier de mods. Chaque case a <strong>trois états</strong>&nbsp;;
+            un clic passe de l'un à l'autre (vide&nbsp;→ cochée&nbsp;→ grisée&nbsp;→ vide)&nbsp;:
+        </p>
+        <ul>
+            <li><strong>Cochée</strong>&nbsp;: le mod doit être <strong>actif</strong> pour ce profil&nbsp;; son activation est planifiée s'il ne l'est pas.</li>
+            <li><strong>Vide</strong>&nbsp;: le mod ne doit pas être actif&nbsp;; sa désactivation est planifiée s'il l'est.</li>
+            <li><strong>Grisée</strong>&nbsp;: le profil <strong>ne gère pas</strong> ce mod. Il est laissé tel quel au lancement, activé ou non.</li>
+        </ul>
+        <p>
+            Les actions planifiées tiennent compte des incompatibilités déclarées. Un mod non géré mais actif est quand même
+            désactivé s'il est incompatible avec un mod à activer. Voir <a href="mods.html">Gestion des mods</a>.
         </p>
 
         <h2>Valider et enregistrer</h2>

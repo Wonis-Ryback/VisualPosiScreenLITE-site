@@ -111,6 +111,9 @@
     &lt;mods&gt;
       &lt;mod&gt;ESCA_FA18&lt;/mod&gt;
     &lt;/mods&gt;
+    &lt;ignoredMods&gt;
+      &lt;mod&gt;CustomCockpit&lt;/mod&gt;
+    &lt;/ignoredMods&gt;
   &lt;/config&gt;
 
 &lt;/posiscreen&gt;</code></pre>
@@ -190,6 +193,7 @@
                 <tr><td><code>&lt;Helios&gt;</code></td><td>0..1</td><td>texte = fichier de profil (relatif à <code>@profiledir</code>, ou chemin complet)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@profiledir</code>, <code>@controlcenter</code> (<code>Control Center.exe</code>). Lancé au démarrage de la session.</td></tr>
                 <tr class="pro-row"><td><code>&lt;ecran&gt;</code></td><td>0..n</td><td>Écran (voir <a href="ecrans.html">Gestion des écrans</a>)&nbsp;: <code>@index</code>, <code>@deviceName</code>, <code>@HwId</code> (requis), <code>@primary</code>, <code>@orientation</code>, enfants <code>width</code>, <code>height</code>, <code>pos_X</code>, <code>pos_Y</code>, <code>oldPos_X</code>, <code>oldPos_Y</code>. <span class="badge pro">PRO</span> appliqué&nbsp;; <span class="badge lite">LITE</span> documentaire.</td></tr>
                 <tr><td><code>&lt;mods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods à activer automatiquement pour ce profil.</td></tr>
+                <tr><td><code>&lt;ignoredMods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods que ce profil ne gère pas&nbsp;: ni activés ni désactivés au lancement. Après <code>&lt;mods&gt;</code>. Les autres mods actifs non listés dans <code>&lt;mods&gt;</code> sont désactivés.</td></tr>
             </tbody>
         </table>
         </div>
