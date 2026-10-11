@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.3 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.16 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -198,6 +198,27 @@
             </p>
         </div>
 
+        <h2 id="fusion-missions"><span class="badge pro">PRO</span> Fusion de missions</h2>
+        <p>
+            Le bouton <strong>Missions…</strong> de la barre d'outils reprend des vols d'une mission dans une autre, avec leurs
+            points de passage, leur emport et leur livrée&nbsp;: par exemple pour ajouter à la mission du soir le vol préparé de
+            son côté par un équipier. Les deux missions choisies ne sont jamais modifiées&nbsp;: le résultat est enregistré dans un
+            troisième fichier.
+        </p>
+        <ol class="steps">
+            <li>Choisissez la <strong>mission de référence</strong> (celle qui est complétée) et la <strong>mission source</strong> (celle dont on reprend des vols), avec <em>Parcourir…</em> ou en déposant un fichier <code>.miz</code> sur une liste. Chaque mission affiche sa carte, sa date, son titre, le nombre de ses groupes, ses pilotes et ses mods requis. <em>Inverser les deux missions</em> échange les rôles.</li>
+            <li>Cochez dans la source les <strong>vols à reprendre</strong>. La colonne <em>Action</em> annonce ce qui sera fait&nbsp;: un vol du même nom dans la référence est <strong>remplacé</strong> (il garde ses numéros de groupe et d'unités, les déclencheurs qui le visent restent valables), les autres sont <strong>ajoutés</strong>.</li>
+            <li>Pour qu'un vol prenne la place d'un vol qui porte un autre nom, sélectionnez l'un dans chaque liste puis cliquez <em>Mettre à la place du vol sélectionné de la référence</em>. <em>Ajouter comme nouveau vol</em> annule ce choix.</li>
+            <li>Lisez les <strong>contrôles avant fusion</strong>&nbsp;: différences entre les deux missions et points à vérifier ensuite dans l'éditeur de mission (place de parking déjà prise, nom d'unité déjà utilisé, seconde unité «&nbsp;Player&nbsp;» passée en «&nbsp;Client&nbsp;», tâche qui vise un groupe de la mission source…).</li>
+            <li>Cliquez <strong>Fusionner</strong> et choisissez le fichier à produire (proposé&nbsp;: <code>&lt;référence&gt;_fuz.miz</code>).</li>
+        </ol>
+        <ul>
+            <li>Le plan sous les listes dessine les trajets des vols, nord en haut&nbsp;: ceux de la référence, ceux de la source, en couleur vive ceux qui sont repris et en pointillés rouges ceux qui sont remplacés. Il est posé sur la vue d'ensemble de la carte, lue dans votre installation de DCS (sans fond si ce terrain n'est pas installé). La molette zoome, un glisser déplace la vue, un double-clic revient à la vue d'ensemble&nbsp;; le fond reste une image peu détaillée, faite pour situer les vols plutôt que pour lire un aérodrome. Les <strong>noms des villes</strong> de la carte s'y ajoutent (case <em>Noms des villes</em>)&nbsp;: seuls ceux qui ne se chevauchent pas sont affichés, et d'autres apparaissent en zoomant.</li>
+            <li>Si les deux missions ne sont pas sur la <strong>même carte</strong>, la fusion est bloquée tant que la case <em>Fusionner même si les cartes sont différentes</em> n'est pas cochée&nbsp;: les points de passage des vols repris seraient à replacer un par un.</li>
+            <li>Une case affiche aussi les véhicules, navires et objets statiques, qui se reprennent de la même façon.</li>
+            <li>Les textes et les fichiers attachés (sons, images) utilisés par les vols repris sont recopiés, et les mods requis par la source sont ajoutés à ceux de la référence. Les déclencheurs, zones, dessins, la météo et les réglages de la mission source ne sont pas repris.</li>
+        </ul>
+
         <h2 id="documentation">Documentation DCS</h2>
         <p>
             Le bouton <strong>Documentation</strong> de la barre d'outils ouvre une fenêtre qui rassemble les PDF
@@ -266,7 +287,7 @@
             <a class="next" href="commandes.html"><span>Suite</span>Commandes des joysticks →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.3.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.15.</footer>
     </div>
     </main>
 </div>
