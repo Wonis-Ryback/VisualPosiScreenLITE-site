@@ -51,7 +51,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-16-1-1"><strong>3.16.1.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>11&nbsp;octobre&nbsp;2026</td><td><strong>Trk⇒miz</strong>&nbsp;: un clic droit sur l'arborescence des missions crée un nouveau dossier à l'emplacement choisi.</td></tr>
+                <tr><td><a href="#v3-16-2-1"><strong>3.16.2.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>11&nbsp;octobre&nbsp;2026</td><td><strong>Programmes</strong>&nbsp;: un programme déjà en cours d'exécution n'est plus relancé&nbsp;; <strong>Alt&nbsp;+&nbsp;clic</strong> sur VR ou 2D&nbsp;Screen lance DCS seul.</td></tr>
+                <tr><td><a href="#v3-16-1-1"><strong>3.16.1.1</strong></a></td><td>11&nbsp;octobre&nbsp;2026</td><td><strong>Trk⇒miz</strong>&nbsp;: un clic droit sur l'arborescence des missions crée un nouveau dossier à l'emplacement choisi.</td></tr>
                 <tr><td><a href="#v3-16-0-1"><strong>3.16.0.1</strong></a> <span class="badge pro">PRO</span></td><td>11&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Nouvelle fenêtre <em>Missions</em>&nbsp;: fusion de deux missions de DCS (reprise de vols d'une mission dans une autre, ajout ou remplacement), avec contrôles avant fusion et plan des trajets sur la carte. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-15-1-1"><strong>3.15.1.1</strong></a></td><td>7&nbsp;octobre&nbsp;2026</td><td><strong>Correction</strong>&nbsp;: un mod supprimé réapparaissait au démarrage suivant&nbsp;; son dossier est maintenant effacé.</td></tr>
                 <tr><td><a href="#v3-15-0-1"><strong>3.15.0.1</strong></a></td><td>6&nbsp;octobre&nbsp;2026</td><td><strong>Mods non gérés par un profil</strong>&nbsp;: dans la liste des mods d'un profil, une case grisée laisse le mod tel quel au lancement (ni activé ni désactivé).</td></tr>
@@ -268,7 +269,16 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-16-1-1">Version 3.16.1.1 <span class="badge lite">Dernière LITE</span></h3>
+        <h3 id="v3-16-2-1">Version 3.16.2.1 <span class="badge lite">Dernière LITE</span></h3>
+        <p class="tag-legend">Publiée le 11&nbsp;octobre&nbsp;2026</p>
+        <ul>
+            <li><strong>Correction</strong>&nbsp;: au lancement VR ou 2D, un programme du profil <strong>déjà en cours d'exécution</strong> (processus du même nom) n'est plus relancé. Voir <a href="lancement.html">Lancer DCS</a>.</li>
+            <li>Le <strong>double-clic</strong> sur une ligne de la liste <em>Programmes</em> suit la même règle et signale que le programme tourne déjà&nbsp;; <strong>Alt&nbsp;+&nbsp;double-clic</strong> le lance quand même.</li>
+            <li><strong>Nouveauté</strong>&nbsp;: <strong>Alt&nbsp;+&nbsp;clic</strong> sur <strong>VR</strong> ou <strong>2D&nbsp;Screen</strong> démarre uniquement DCS, sans mods, copie des fichiers du profil, disposition d'écrans, programmes ni Helios.</li>
+            <li><strong>Correction</strong>&nbsp;: les paramètres 4 à 9 d'un programme étaient ignorés&nbsp;; les neuf paramètres sont maintenant transmis.</li>
+        </ul>
+
+        <h3 id="v3-16-1-1">Version 3.16.1.1</h3>
         <p class="tag-legend">Publiée le 11&nbsp;octobre&nbsp;2026</p>
         <ul>
             <li><strong>Nouveauté</strong>&nbsp;: dans la fenêtre <strong>Trk⇒miz</strong>, un <strong>clic droit</strong> sur un dossier de l'arborescence des missions, puis <em>Nouveau dossier</em>, crée un sous-dossier à cet emplacement. Son nom se saisit sur place, comme dans l'Explorateur, et il devient le dossier cible de la conversion. Voir <a href="outils.html">Outils</a>.</li>

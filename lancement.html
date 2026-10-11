@@ -76,7 +76,7 @@
             <li>
                 <strong>Exécution des « Lancements » (LaunchCommands)</strong> dont le
                 <code>runtimeTag</code> correspond au mode (<code>all</code>, ou <code>2D</code>&nbsp;/&nbsp;<code>VR</code>
-                selon le bouton)&nbsp;: chaque programme est démarré une seule fois, avec son répertoire de
+                selon le bouton)&nbsp;: un programme <strong>déjà en cours d'exécution</strong> (processus du même nom) n'est pas relancé&nbsp;; les autres sont démarrés avec leur répertoire de
                 travail, ses paramètres et, si demandé, l'élévation de privilèges.
             </li>
             <li>
@@ -126,10 +126,21 @@
             </p>
         </div>
 
+        <div class="callout note">
+            <span class="callout-title">Lancer DCS seul&nbsp;: Alt&nbsp;+&nbsp;clic</span>
+            <p>
+                Un clic sur <strong>VR</strong> ou <strong>2D&nbsp;Screen</strong> en maintenant la touche
+                <strong>Alt</strong> démarre <strong>uniquement DCS</strong>&nbsp;: aucune des étapes de préparation
+                ci-dessus n'est exécutée (mods, copie des fichiers du profil, disposition d'écrans, programmes,
+                Helios) et <code>last_run.xml</code> n'est pas modifié. DCS démarre donc avec les fichiers et les
+                mods déjà en place.
+            </p>
+        </div>
+
         <h2>Tester sans lancer DCS</h2>
         <ul>
             <li><strong>Double-clic</strong> sur une ligne de la liste <em>Fichiers DCS</em>&nbsp;: exécute uniquement cette copie.</li>
-            <li><strong>Double-clic</strong> sur une ligne de la liste <em>Programmes</em>&nbsp;: lance uniquement ce programme.</li>
+            <li><strong>Double-clic</strong> sur une ligne de la liste <em>Programmes</em>&nbsp;: lance uniquement ce programme. S'il tourne déjà, un message l'indique et il n'est pas relancé&nbsp;; <strong>Alt&nbsp;+&nbsp;double-clic</strong> le lance quand même.</li>
             <li>Bouton <strong>Comparer</strong>&nbsp;: vérifie que l'<code>options.lua</code> du profil et celui de DCS sont cohérents avant de jouer (voir <a href="outils.html">Outils intégrés</a>).</li>
         </ul>
 
