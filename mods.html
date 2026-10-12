@@ -225,22 +225,37 @@
             <li>Au lancement, avant chaque activation, les mods actifs incompatibles sont désactivés, quoi qu'ait prévu la liste.</li>
         </ul>
 
-        <h2 id="esca">Mods de l'association ESCA</h2>
+        <h2 id="abonnements">Mods en abonnement</h2>
         <p>
-            Le bouton <strong>ESCA…</strong>, sous la liste des mods, ouvre la liste des mods proposés par le serveur de
-            l'association ESCA (le même que celui de l'application <em>GestionESCAMod</em>). Chaque mod téléchargé est rangé
-            dans le dossier des mods&nbsp;: il s'active, se désactive, s'associe à un profil et se supprime ensuite comme
-            n'importe quel autre mod.
+            Une association ou un groupe peut distribuer ses <strong>mods privés</strong> par abonnement&nbsp;: il vous remet une
+            <strong>clé d'abonnement</strong>, et l'application télécharge ces mods puis vous prévient de leurs nouvelles versions.
+            Sans clé, rien de tout cela n'apparaît et aucun serveur n'est interrogé.
+        </p>
+        <h3>S'abonner&nbsp;: saisir la clé</h3>
+        <ol>
+            <li>Ouvrez <strong>Configurer</strong>, puis le bouton <strong>Abonnements de mods…</strong> en bas de l'éditeur.</li>
+            <li>Saisissez la clé dans <strong>Nouvelle clé</strong>, puis <strong>Ajouter</strong>. Elle est vérifiée auprès du serveur&nbsp;; le <strong>domaine d'abonnement</strong> auquel elle donne accès s'ajoute à la liste.</li>
+            <li>Fermez l'éditeur&nbsp;: le bouton <strong>Mods abonnés…</strong> apparaît sous la liste des mods de la fenêtre principale.</li>
+        </ol>
+        <p>
+            La clé est conservée chiffrée pour votre compte Windows, à part de <code>config-ecrans.xml</code>&nbsp;: elle prend effet
+            sans «&nbsp;Enregistrer&nbsp;». Une empreinte anonyme du PC est envoyée avec elle, rien d'autre&nbsp;; une clé sert sur un
+            nombre limité de PC. <strong>Retirer l'abonnement</strong> efface la clé de ce PC.
+        </p>
+        <h3>Installer et mettre à jour</h3>
+        <p>
+            Le bouton <strong>Mods abonnés…</strong> ouvre la liste des mods suivis, avec la version installée sur ce PC. Chaque mod
+            téléchargé est rangé dans le dossier des mods&nbsp;: il s'active, se désactive, s'associe à un profil et se supprime
+            ensuite comme n'importe quel autre mod.
         </p>
         <ul>
-            <li><strong>Mod public</strong>&nbsp;: proposé à tous, sans clé. <strong>Mod privé</strong>&nbsp;: affiché et installable seulement avec une <strong>clé GestionESCAMod</strong> valide, à saisir par le bouton <strong>Clé…</strong> de cette fenêtre. La clé est commune avec GestionESCAMod&nbsp;: saisie dans l'une des deux applications, elle sert aux deux, et le PC n'est compté qu'une fois.</li>
-            <li><strong>Release</strong>&nbsp;: la version de tous. Une nouvelle Release d'un mod installé est <strong>annoncée au démarrage</strong>, et le bouton devient <strong>ESCA&nbsp;⬆</strong>&nbsp;; elle s'installe par <strong>Mettre à jour vers la version…</strong>. Si le mod est activé, l'ancienne version est retirée de DCS puis la nouvelle déployée (DCS doit être fermé).</li>
+            <li><strong>Mods suivis</strong>&nbsp;: les mods <strong>privés</strong> du domaine, et ses mods <strong>publics</strong> seulement s'ils sont déjà dans le dossier des mods (installés par l'application de gestion des mods du domaine). L'application n'installe pas elle-même un mod public.</li>
+            <li><strong>Release</strong>&nbsp;: la version de tous les abonnés. Une nouvelle Release d'un mod installé est <strong>annoncée au démarrage</strong>, et le bouton devient <strong>Mods abonnés&nbsp;⬆</strong>&nbsp;; elle s'installe par <strong>Mettre à jour vers la version…</strong>. Si le mod est activé, l'ancienne version est retirée de DCS puis la nouvelle déployée (DCS doit être fermé).</li>
             <li><strong>Bêta</strong>&nbsp;: une version à l'essai, jamais annoncée ni installée d'office&nbsp;: bouton <strong>Installer la Bêta…</strong>, après confirmation. Le bouton voisin permet de revenir à la Release.</li>
-            <li><strong>Clé révoquée ou supprimée</strong>&nbsp;: les mods privés déjà installés restent utilisables pendant le délai annoncé (30&nbsp;jours en général), sans mise à jour&nbsp;; passé ce délai, ils sont retirés de DCS et du dossier des mods, sauf nouvelle clé.</li>
+            <li><strong>Clé révoquée ou retirée</strong>&nbsp;: les mods privés déjà installés restent utilisables pendant le délai annoncé (30&nbsp;jours en général), sans mise à jour&nbsp;; passé ce délai, ils sont retirés de DCS et du dossier des mods, sauf nouvelle clé.</li>
         </ul>
         <p>
-            Le serveur n'est interrogé au démarrage que si cette fenêtre a déjà été ouverte ou si une clé est enregistrée. Ajouter un
-            mod au serveur ou y publier une version ne se fait pas ici, mais dans GestionESCAMod, par un administrateur.
+            Ajouter un mod à un domaine ou y publier une version ne se fait pas ici&nbsp;: c'est le rôle des administrateurs du domaine.
         </p>
 
         <h2>Mise à jour de DCS et mods</h2>
