@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Préparer le PC — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.21 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les profils</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="pc.html" class="active">Préparer le PC</a>
+            <a href="outils.html">Outils intégrés</a>
+            <a href="commandes.html">Commandes des joysticks</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+            <a href="versions.html">Suivi des versions</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Fonctions › Préparer le PC</div>
+        <h1>Préparer le PC pour DCS</h1>
+
+        <p>
+            Le bouton <strong>PC…</strong> de la barre d'outils ouvre la fenêtre <em>Préparer le PC pour DCS</em>.
+            Elle passe en revue ce qui peut freiner DCS sur votre ordinateur&nbsp;: réglages de Windows, antivirus,
+            programmes ouverts, mémoire de la carte graphique. Lancez-la juste avant de voler, avec vos programmes
+            habituels ouverts.
+        </p>
+
+        <div class="callout note">
+            <span class="callout-title">Rien n'est modifié sans votre accord</span>
+            <p>
+                L'analyse ne fait que lire. Chaque bouton d'action demande confirmation avant de changer quoi que ce
+                soit, et <code>config-ecrans.xml</code> est toujours sauvegardé (copie <code>.bak</code>) avant d'être modifié.
+            </p>
+        </div>
+
+        <h2>Lire la liste</h2>
+        <p>Chaque ligne a trois colonnes&nbsp;:</p>
+        <ul>
+            <li><strong>État</strong>&nbsp;: <em>OK</em> (vert, rien à faire), <em>À voir</em> (orange, une amélioration est possible) ou <em>Info</em> (à savoir, sans urgence).</li>
+            <li><strong>Réglage</strong>&nbsp;: le nom commence par <strong>l'endroit où se trouve ce réglage</strong>, pour savoir où aller le changer&nbsp;:
+                <ul>
+                    <li><strong>Windows&nbsp;:</strong> un réglage de Windows lui-même (application <em>Paramètres</em> ou <em>Sécurité Windows</em>)&nbsp;;</li>
+                    <li><strong>Antivirus&nbsp;:</strong> un réglage à faire dans votre antivirus (Bitdefender, Norton…)&nbsp;;</li>
+                    <li><strong>Logiciel Process Lasso</strong>, <strong>Programmes ouverts&nbsp;:</strong>, <strong>Carte graphique&nbsp;:</strong>&nbsp;: un programme installé ou en cours d'exécution&nbsp;;</li>
+                    <li><strong>VisualPosiScreen&nbsp;:</strong> une option de VisualPosiScreen.</li>
+                </ul>
+            </li>
+            <li><strong>Constat</strong>&nbsp;: ce qui a été trouvé, par exemple «&nbsp;Mode Jeu de Windows activé&nbsp;».</li>
+        </ul>
+        <p>Cliquez sur une ligne&nbsp;: le conseil détaillé s'affiche en dessous, avec les boutons utiles pour ce point.</p>
+
+        <div class="callout warn">
+            <span class="callout-title">Deux «&nbsp;modes jeu&nbsp;» différents</span>
+            <p>
+                <strong>Windows&nbsp;: Mode Jeu</strong> est le réglage de Windows (<em>Paramètres &gt; Jeux &gt; Mode Jeu</em>).
+                Le <strong>mode jeu de l'antivirus</strong> (par exemple le <em>profil Jeu</em> de Bitdefender) est un
+                autre réglage, dans l'antivirus lui-même. Les deux sont utiles et indépendants&nbsp;: l'un ne remplace pas l'autre.
+            </p>
+        </div>
+
+        <h2>Les points vérifiés</h2>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Réglage</th><th>Pourquoi</th></tr></thead>
+            <tbody>
+                <tr><td><strong>Windows&nbsp;: isolation du noyau (sécurité)</strong></td><td>Protection de Windows qui coûte souvent 5 à 10&nbsp;% quand le processeur limite DCS. Voir <a href="#hyperv">Hyper-V</a> pour la couper seulement pendant le vol.</td></tr>
+                <tr><td><strong>Windows&nbsp;: plan d'alimentation</strong></td><td>Pendant le vol, un plan «&nbsp;Performances élevées&nbsp;» évite que le processeur ralentisse.</td></tr>
+                <tr><td><strong>Logiciel Process Lasso</strong></td><td>Facultatif. S'il est installé, les règles conseillées pour DCS qui manquent sont listées.</td></tr>
+                <tr><td><strong>Antivirus&nbsp;: …</strong></td><td>L'antivirus actif et comment exclure DCS de son analyse. Voir <a href="#antivirus">ci-dessous</a>.</td></tr>
+                <tr><td><strong>Windows&nbsp;: Mode Jeu</strong></td><td>Limite Windows Update et les tâches de fond pendant le jeu. À laisser activé.</td></tr>
+                <tr><td><strong>Windows&nbsp;: captures vidéo (Xbox Game Bar)</strong></td><td>L'enregistrement continu en arrière-plan coûte de la carte graphique et du disque.</td></tr>
+                <tr><td><strong>Windows&nbsp;: planification GPU matérielle</strong></td><td>Pas de bon réglage universel&nbsp;: à comparer avec et sans, surtout en VR.</td></tr>
+                <tr><td><strong>Windows&nbsp;: fichier d'échange (mémoire virtuelle)</strong></td><td>DCS en a besoin, même avec beaucoup de mémoire&nbsp;: ne pas le supprimer.</td></tr>
+                <tr><td><strong>Carte graphique&nbsp;: mémoire vidéo</strong></td><td>La mémoire de la carte graphique déjà prise par d'autres programmes avant de lancer DCS.</td></tr>
+                <tr><td><strong>Programmes ouverts&nbsp;: …</strong></td><td>Machines virtuelles, navigateurs internet, synchronisation de fichiers, Discord, «&nbsp;optimiseurs&nbsp;» système. Les programmes lancés par votre profil (SRS, TeamSpeak…) ne sont pas remis en cause.</td></tr>
+                <tr><td><strong>Windows&nbsp;: programmes lancés au démarrage</strong></td><td>Chacun reste en mémoire et peut se réveiller pendant le vol.</td></tr>
+                <tr><td><span class="badge pro">PRO</span> <strong>VisualPosiScreen&nbsp;: profil de session DCS</strong></td><td>Voir <a href="#session">Profil de session</a>.</td></tr>
+            </tbody>
+        </table>
+        </div>
+
+        <h2>Les boutons</h2>
+        <ul>
+            <li><strong>Ouvrir les paramètres Windows</strong>&nbsp;: ouvre directement la bonne page de Windows pour le point choisi. Pour l'antivirus, le bouton devient <strong>Ouvrir Bitdefender</strong> (ou le nom de votre antivirus).</li>
+            <li><strong>Activer l'option Hyper-V</strong>&nbsp;: voir <a href="#hyperv">Hyper-V</a>.</li>
+            <li><span class="badge pro">PRO</span> <strong>Ajouter au profil de session</strong>&nbsp;: les programmes trouvés seront fermés avant DCS et relancés après le vol.</li>
+            <li><span class="badge pro">PRO</span> <strong>Appliquer à Process Lasso</strong>&nbsp;: ajoute les règles conseillées (vos règles actuelles ne changent pas&nbsp;; droits administrateur demandés).</li>
+            <li><span class="badge pro">PRO</span> <strong>Ajouter les exclusions Defender</strong>&nbsp;: voir <a href="#antivirus">Antivirus</a>.</li>
+            <li><strong>Copier le rapport</strong>&nbsp;: copie toute l'analyse, à coller dans une demande d'aide.</li>
+        </ul>
+
+        <h2 id="antivirus">Antivirus</h2>
+        <p>
+            L'analyse en temps réel de l'antivirus contrôle chaque fichier que DCS ouvre&nbsp;: les missions mettent plus
+            longtemps à charger et des saccades peuvent apparaître. Une analyse ou une mise à jour lancée en plein vol
+            coûte aussi du disque et du processeur. Deux réglages règlent ça, dans l'antivirus&nbsp;:
+        </p>
+        <ol>
+            <li><strong>Des exceptions</strong>&nbsp;: le dossier d'installation de DCS et son dossier <code>Saved&nbsp;Games\DCS</code> ne sont plus analysés à chaque ouverture. La fenêtre affiche les chemins exacts de votre PC.</li>
+            <li><strong>Le mode jeu de l'antivirus</strong>&nbsp;: il reporte analyses, mises à jour et notifications à la fin du vol. Il ne supprime pas les mises à jour&nbsp;: ne les coupez jamais, un antivirus qui n'est plus à jour ne protège plus.</li>
+        </ol>
+        <p>
+            La fenêtre détecte l'antivirus actif et donne la marche à suivre pour Bitdefender, Norton, Kaspersky,
+            Avast/AVG, ESET et McAfee (les menus peuvent varier un peu selon la version de l'antivirus).
+        </p>
+
+        <h3>Exemple&nbsp;: Bitdefender</h3>
+        <ol>
+            <li><em>Protection &gt; Antivirus &gt; Paramètres &gt; Gérer les exceptions &gt; Ajouter une exception</em>&nbsp;: ajouter les deux dossiers, en cochant l'antivirus et <em>Advanced Threat Defense</em>.</li>
+            <li><em>Utilitaires &gt; Profils &gt; Profil Jeu &gt; Configurer</em>&nbsp;: ajouter <code>DCS.exe</code> à la liste des jeux. Le profil s'active alors tout seul au lancement de DCS.</li>
+        </ol>
+
+        <div class="callout note">
+            <span class="callout-title">Pourquoi VisualPosiScreen ne le fait pas lui-même</span>
+            <p>
+                Les antivirus du commerce n'offrent aucun moyen à un autre programme de changer leurs réglages, et leur
+                autoprotection l'empêche. L'élément reste donc en <em>Info&nbsp;: réglage à faire dans l'antivirus</em>,
+                même une fois le réglage fait.
+            </p>
+        </div>
+
+        <h3>Microsoft Defender</h3>
+        <p>
+            Avec l'antivirus de Windows, la fenêtre vérifie les exclusions déjà en place. Windows les cache aux comptes
+            sans droits administrateur&nbsp;: dans ce cas, le constat l'indique.
+            <span class="badge pro">PRO</span> le bouton <strong>Ajouter les exclusions Defender</strong> les ajoute pour
+            vous (droits administrateur demandés, vos exclusions actuelles restent). Sinon&nbsp;:
+            <em>Sécurité Windows &gt; Protection contre les virus et menaces &gt; Gérer les paramètres &gt; Exclusions</em>.
+            N'installez dans ces dossiers que des mods de source sûre.
+        </p>
+
+        <h2 id="hyperv">Hyper-V pendant le vol</h2>
+        <p>
+            Hyper-V (utilisé par WSL, Docker, les machines virtuelles et l'isolation du noyau) coûte des performances
+            à DCS. L'option Hyper-V de VisualPosiScreen le coupe <strong>seulement le temps du vol</strong>&nbsp;:
+        </p>
+        <ol>
+            <li>Au lancement de DCS, si Hyper-V tourne, l'application propose de le couper (droits administrateur), puis il faut <strong>redémarrer le PC</strong> et relancer DCS.</li>
+            <li>À la fin du vol, Hyper-V est réactivé pour le démarrage suivant, et un son le signale.</li>
+        </ol>
+        <p>
+            Activez-la avec le bouton <strong>Activer l'option Hyper-V</strong> de la fenêtre PC…, ou dans
+            <code>config-ecrans.xml</code> (voir <a href="reference-xml.html#hyperv">la référence</a>).
+            Si l'<em>intégrité de la mémoire</em> est active dans Windows, elle relance Hyper-V à chaque démarrage&nbsp;:
+            il faut alors la désactiver (<em>Sécurité Windows &gt; Sécurité de l'appareil &gt; Isolation du noyau</em>).
+        </p>
+
+        <h2 id="session"><span class="badge pro">PRO</span> Profil de session DCS</h2>
+        <p>
+            Le profil de session prépare le PC à chaque lancement de DCS, puis remet tout en place à la fin du vol&nbsp;:
+        </p>
+        <ul>
+            <li>avant DCS&nbsp;: fermer les programmes choisis (navigateurs, OneDrive, Docker…), lancer des commandes (par exemple <code>wsl --shutdown</code>), passer sur un plan d'alimentation de performance, arrêter des services Windows, placer DCS sur les cœurs performants du processeur&nbsp;;</li>
+            <li>à la fin de DCS&nbsp;: relancer les programmes avec leurs arguments d'origine, redémarrer les services, rétablir le plan d'alimentation.</li>
+        </ul>
+        <p>
+            Le plus simple est de le remplir depuis la fenêtre PC…&nbsp;: sélectionnez un point <em>À voir</em> puis
+            <strong>Ajouter au profil de session</strong>. Windows, DCS, la VR, SRS, TrackIR, Stream Deck, TeamSpeak,
+            Mumble et les programmes lancés par votre profil ne sont jamais fermés.
+        </p>
+        <p>
+            Si le PC redémarre juste après le vol, le plan d'alimentation et Hyper-V sont remis avant l'arrêt&nbsp;; une
+            session interrompue est rattrapée au démarrage suivant de VisualPosiScreen. Détail des balises&nbsp;:
+            <a href="reference-xml.html#session">référence <code>&lt;session&gt;</code></a>.
+        </p>
+
+        <div class="pager">
+            <a class="prev" href="lancement.html"><span>Précédent</span>← Lancer DCS World</a>
+            <a class="next" href="outils.html"><span>Suite</span>Outils intégrés →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.21.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

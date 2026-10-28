@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.20 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.21 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -25,6 +25,7 @@
             <a href="ecrans.html">Gestion des écrans</a>
             <a href="mods.html">Gestion des mods</a>
             <a href="lancement.html">Lancer DCS World</a>
+            <a href="pc.html">Préparer le PC</a>
             <a href="outils.html">Outils intégrés</a>
             <a href="commandes.html">Commandes des joysticks</a>
             <div class="group">Référence</div>
@@ -179,6 +180,43 @@
         <h3><code>&lt;mod Folder="…"/&gt;</code></h3>
         <p>Dossier racine des mods, relatif au dossier de configuration (souvent <code>Mods</code>).</p>
 
+        <h3 id="hyperv"><code>&lt;hyperv&gt;</code> — Hyper-V pendant le vol (0..1)</h3>
+        <pre><code>&lt;hyperv disableForDcs="true" reenableAfterDcs="true" sound="Sons\hyperv.wav" /&gt;</code></pre>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>disableForDcs</code></td><td>Au lancement de DCS, si Hyper-V tourne&nbsp;: proposer de le couper (droits administrateur), puis redémarrer le PC.</td></tr>
+                <tr><td><code>reenableAfterDcs</code></td><td>À la fin de DCS&nbsp;: réactiver Hyper-V (seulement si l'application l'avait coupé)&nbsp;; effet au démarrage suivant.</td></tr>
+                <tr><td><code>sound</code></td><td>Son joué après la réactivation&nbsp;: fichier <code>.wav</code> ou <code>.mp3</code> (chemin absolu ou relatif au dossier de <code>config-ecrans.xml</code>), vide = son intégré, <code>none</code> = aucun son.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>Voir <a href="pc.html#hyperv">Préparer le PC</a>.</p>
+
+        <h3 id="session"><span class="badge pro">PRO</span> <code>&lt;session&gt;</code> — profil de session DCS (0..1)</h3>
+        <pre><code>&lt;session enabled="true" powerPlan="Bitsum Highest Performance" cpuCores="performance"&gt;
+  &lt;process name="opera" /&gt;
+  &lt;process name="OneDrive" closeArgs="/shutdown" /&gt;
+  &lt;process name="Docker Desktop" force="true" /&gt;
+  &lt;service name="WSearch" /&gt;
+  &lt;command when="before" path="wsl.exe" args="--shutdown" /&gt;
+&lt;/session&gt;</code></pre>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Élément / attribut</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>enabled</code></td><td>Active le profil (vrai par défaut).</td></tr>
+                <tr><td><code>powerPlan</code></td><td>Plan d'alimentation pendant le vol (GUID ou nom, partiel accepté), rétabli à la fin. Ignoré si Process Lasso change déjà le plan pour <code>dcs.exe</code>.</td></tr>
+                <tr><td><code>cpuCores="performance"</code></td><td>Place DCS sur les cœurs performants des processeurs hybrides (Intel 12<sup>e</sup> génération et suivants). Ignoré si Process Lasso impose déjà les cœurs de <code>dcs.exe</code>.</td></tr>
+                <tr><td><code>&lt;process&gt;</code></td><td>Programme fermé avant DCS&nbsp;: <code>name</code> (nom du processus sans <code>.exe</code>), <code>restart</code> (relancé à la fin, vrai par défaut), <code>force</code> (arrêt forcé s'il ne se ferme pas), <code>timeout</code> (secondes, 10 par défaut), <code>closeArgs</code> (fermeture par une commande du programme), <code>restartArgs</code> (arguments de relance).</td></tr>
+                <tr><td><code>&lt;service&gt;</code></td><td>Service Windows arrêté avant DCS (<code>name</code>&nbsp;: nom court), redémarré à la fin s'il tournait (<code>restart</code>).</td></tr>
+                <tr><td><code>&lt;command&gt;</code></td><td>Commande lancée avant DCS (<code>when="before"</code>) ou à la fin (<code>when="after"</code>)&nbsp;: <code>path</code>, <code>args</code>, <code>wait</code> (attendre sa fin, 60&nbsp;s au plus).</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>Voir <a href="pc.html#session">Profil de session DCS</a>. En LITE, la balise est ignorée.</p>
+
         <h2>Élément <code>&lt;config&gt;</code></h2>
         <div class="table-wrap">
         <table>
@@ -227,7 +265,7 @@
             <a class="next" href="faq.html"><span>Suite</span>FAQ &amp; dépannage →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.20.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.21.</footer>
     </div>
     </main>
 </div>
