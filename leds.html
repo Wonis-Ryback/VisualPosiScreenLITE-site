@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LED Virpil — VisualPosiScreen LITE</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+
+    <aside class="sidebar">
+        <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
+        <div class="ver">Version&nbsp;3.22 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <nav>
+            <div class="group">Présentation</div>
+            <a href="index.html">Accueil</a>
+            <a href="presentation.html">Description &amp; éditions</a>
+            <a href="installation.html">Installation &amp; premier lancement</a>
+            <div class="group">Prise en main</div>
+            <a href="interface.html">La fenêtre principale</a>
+            <a href="configurations.html">Les profils</a>
+            <a href="parametrage.html">L'éditeur de configuration</a>
+            <div class="group">Fonctions</div>
+            <a href="ecrans.html">Gestion des écrans</a>
+            <a href="mods.html">Gestion des mods</a>
+            <a href="lancement.html">Lancer DCS World</a>
+            <a href="pc.html">Préparer le PC</a>
+            <a href="outils.html">Outils intégrés</a>
+            <a href="commandes.html">Commandes des joysticks</a>
+            <a href="leds.html" class="active">LED Virpil</a>
+            <div class="group">Référence</div>
+            <a href="reference-xml.html">Fichier config-ecrans.xml</a>
+            <a href="faq.html">FAQ &amp; dépannage</a>
+            <a href="versions.html">Suivi des versions</a>
+        </nav>
+    </aside>
+
+    <main class="content">
+    <div class="inner">
+        <div class="breadcrumb">Fonctions › LED Virpil</div>
+        <h1><span class="badge pro">PRO</span> LED Virpil selon l'avion</h1>
+
+        <p>
+            <strong>VirpilLeds</strong> est livré avec VisualPosiScreen&nbsp;PRO, dans le même dossier
+            (<code>VirpilLeds.exe</code>). Il règle les LED de vos périphériques Virpil (joysticks, panneaux) selon
+            l'avion que vous pilotez dans DCS, et peut les faire réagir à ce qui se passe dans le cockpit&nbsp;: par
+            exemple, faire clignoter une LED en jaune quand le Master Caution s'allume.
+        </p>
+
+        <div class="callout note">
+            <span class="callout-title">Ce qu'il faut</span>
+            <p>
+                <strong>DCS-BIOS</strong> installé dans DCS (dossier <code>Scripts\DCS-BIOS</code> de vos Parties
+                enregistrées)&nbsp;: c'est lui qui indique l'avion et l'état du cockpit. Prenez une version récente pour
+                les modules récents (le C-130J demande DCS-BIOS&nbsp;0.11.7 ou plus).
+            </p>
+            <p>
+                VirpilLeds ne modifie ni le firmware ni vos profils VPC Configurator. Une LED sans règle garde le
+                réglage de VPC Configurator, et tout revient à ce réglage quand DCS est fermé.
+            </p>
+        </div>
+
+        <h2 id="fenetre">La fenêtre VirpilLeds</h2>
+        <p>
+            Ouvrez <code>VirpilLeds.exe</code> dans le dossier de VisualPosiScreen&nbsp;PRO, ou double-cliquez sur son
+            icône dans la zone de notification quand le suivi DCS tourne. La fenêtre a trois parties&nbsp;:
+        </p>
+        <ul>
+            <li><strong>à gauche</strong>&nbsp;: vos périphériques Virpil (avec le nombre de LED placées, ou ce qu'il
+                reste à faire), puis <em>Quand</em>&nbsp;: les situations pour lesquelles vous réglez les LED&nbsp;;</li>
+            <li><strong>au centre</strong>&nbsp;: l'image du périphérique, avec une pastille par LED&nbsp;;</li>
+            <li><strong>à droite</strong>&nbsp;: le réglage de la LED choisie.</li>
+        </ul>
+        <p>
+            Tant que la case <strong>Voir sur le Virpil pendant le réglage</strong> est cochée, chaque réglage
+            s'affiche aussitôt sur le périphérique. En fermant la fenêtre, les LED essayées reviennent au réglage
+            de VPC Configurator.
+        </p>
+
+        <h2 id="premier">Première fois&nbsp;: relever et placer les LED</h2>
+        <p>
+            Les LED ne sont pas les mêmes d'un modèle de Virpil à l'autre, et toutes ne répondent pas. Il faut donc,
+            une fois par périphérique&nbsp;:
+        </p>
+        <ol class="steps">
+            <li><strong>Relever les LED</strong>&nbsp;: <strong>Avancé…</strong>, choisissez le périphérique et une carte,
+                puis <strong>Balayer la carte</strong>. Chaque LED s'allume en blanc à son tour&nbsp;; répondez
+                <em>Elle s'allume</em>, <em>Rien</em> ou <em>Autre chose</em>. Seules les LED qui s'allument seront
+                proposées ensuite.</li>
+            <li><strong>Placer les LED sur l'image</strong>&nbsp;: dans la fenêtre principale, <strong>Placer les
+                LED…</strong>. Chaque LED relevée s'allume&nbsp;; cliquez sur l'image à l'endroit où vous la voyez.
+                Pour une zone éclairée (marquages d'un manche, couronne), tracez un rectangle. Donnez-lui un nom
+                (<em>RST</em>, <em>Train</em>…)&nbsp;: c'est ce nom qui apparaît ensuite.</li>
+        </ol>
+        <div class="callout tip">
+            <span class="callout-title">L'image du périphérique</span>
+            <p>
+                Si vous avez déjà mis une image pour ce périphérique dans <a href="commandes.html">Commandes des
+                joysticks</a>, VirpilLeds la reprend. Sinon, <strong>Choisir une autre image…</strong> pendant le
+                placement accepte n'importe quelle image (PNG, JPG).
+            </p>
+        </div>
+
+        <h2 id="niveaux">Quand&nbsp;: les situations</h2>
+        <ul>
+            <li><strong>Hors vol</strong>&nbsp;: DCS est ouvert, mais vous n'êtes pas dans un avion. Ce réglage est à
+                part&nbsp;: il ne reprend rien des autres.</li>
+            <li><strong>Par défaut</strong>&nbsp;: tous les avions.</li>
+            <li><strong>Avion à réaction</strong>, <strong>Avion à hélice</strong>, <strong>Hélicoptère</strong>,
+                <strong>Non classé</strong>&nbsp;: une catégorie reprend le réglage <em>Par défaut</em>, sauf pour les LED
+                que vous y réglez.</li>
+            <li><strong>Un avion</strong> (<em>AH-64D_BLK_II</em>, <em>F-16C_50</em>…)&nbsp;: reprend sa catégorie, sauf
+                pour les LED que vous y réglez. <strong>Ajouter un avion…</strong> propose les avions connus de
+                DCS-BIOS avec leur catégorie&nbsp;; les avions pilotés pendant le suivi s'ajoutent tout seuls. Clic droit
+                sur un avion&nbsp;: <em>Déplacer vers</em> une autre catégorie, ou <em>Retirer de la liste</em>.</li>
+        </ul>
+        <p>
+            Sur l'image, une pastille pleine est réglée à ce niveau, un anneau reprend le niveau du dessus, un anneau
+            en pointillé est laissé à VPC Configurator. Ctrl+clic choisit plusieurs LED à la fois&nbsp;: le réglage
+            s'applique à toutes.
+        </p>
+
+        <h2 id="regler">Régler une LED</h2>
+        <p><strong>Normalement</strong>&nbsp;: ce que fait la LED dans cette situation.</p>
+        <ul>
+            <li><em>Comme «&nbsp;…&nbsp;»</em>&nbsp;: reprend le niveau du dessus (pour <em>Par défaut</em> et <em>Hors
+                vol</em>&nbsp;: pas de règle, réglage de VPC Configurator)&nbsp;;</li>
+            <li><em>Laisser à VPC</em>&nbsp;: réglage de VPC Configurator, même si le niveau du dessus a une couleur&nbsp;;</li>
+            <li><em>Couleur</em>&nbsp;: une des 64 couleurs des LED Virpil, fixe ou clignotante (lent, normal, rapide).
+                En clignotement, la LED alterne entre la couleur&nbsp;1 et la couleur&nbsp;2 (éteinte par défaut).</li>
+        </ul>
+
+        <h2 id="exceptions">Sauf si&nbsp;: réagir au cockpit</h2>
+        <p>
+            Une <strong>exception</strong> change la LED quand une condition du cockpit est vraie&nbsp;: <em>si le
+            Master Caution est allumé, la LED clignote en jaune</em>. <strong>Ajouter une exception…</strong> ouvre une
+            fenêtre avec, à droite, la liste des voyants et commandes de l'avion fournis par DCS-BIOS (recherche par
+            nom)&nbsp;: un clic remplit la condition. Pour un voyant, la valeur est <em>allumé</em> ou <em>éteint</em>&nbsp;;
+            pour un interrupteur, sa position.
+        </p>
+        <ul>
+            <li>Les conditions d'une exception sont reliées par <strong>et</strong>. Pour un <em>ou</em>, ajoutez une
+                deuxième exception.</li>
+            <li>Les exceptions sont lues dans l'ordre&nbsp;: <strong>la première vraie l'emporte</strong>. Si aucune
+                n'est vraie, c'est le réglage <em>Normalement</em> qui s'applique.</li>
+            <li>Clic sur une exception&nbsp;: la modifier. Clic droit&nbsp;: la monter, la descendre ou la supprimer.</li>
+            <li>Au niveau d'une catégorie ou de <em>Par défaut</em>, seules les données communes à tous les avions sont
+                proposées. Les voyants propres à un avion se règlent au niveau de cet avion.</li>
+            <li>Si DCS tourne pendant le réglage, la fenêtre montre la valeur actuelle de chaque condition, et une
+                exception vraie est marquée <em>vraie en ce moment</em>.</li>
+        </ul>
+
+        <h2 id="suivi">Suivre DCS pendant le vol</h2>
+        <p>
+            Le <strong>suivi DCS</strong> fait le travail pendant le vol&nbsp;: il reconnaît l'avion, applique vos
+            réglages et suit les exceptions. Il tourne en arrière-plan, avec une icône dans la zone de notification
+            (état, ouverture de la fenêtre, pause, journal, quitter). Pour le lancer avec DCS, ajoutez-le à votre
+            profil&nbsp;:
+        </p>
+        <ol class="steps">
+            <li>Dans l'<a href="parametrage.html">éditeur de configuration</a>, onglet <strong>Lancements</strong>,
+                cliquez sur <strong>Catalogue…</strong>.</li>
+            <li>Choisissez <strong>VirpilLeds (LED Virpil selon l'avion)</strong>&nbsp;: la commande et le paramètre
+                <code>--run</code> sont remplis.</li>
+        </ol>
+        <p>
+            Un second lancement ne fait rien&nbsp;: le suivi tourne une seule fois. Vous pouvez aussi le lancer depuis la
+            fenêtre (<strong>Démarrer le suivi DCS</strong>) ou à chaque ouverture de session (<strong>Options…</strong>).
+            Pendant que la fenêtre VirpilLeds est ouverte, le suivi attend et reprend à sa fermeture. DCS fermé ou hors
+            mission&nbsp;: toutes les LED reviennent au réglage de VPC Configurator.
+        </p>
+
+        <h2 id="options">Options</h2>
+        <ul>
+            <li><strong>Éteindre les LED quand Windows s'arrête, redémarre ou ferme la session</strong>&nbsp;: installe un
+                petit service Windows (une confirmation Windows est demandée). Les LED reprennent le réglage de VPC
+                Configurator au démarrage suivant.</li>
+            <li><strong>Démarrer le suivi DCS à l'ouverture de session</strong>&nbsp;: inutile si votre profil le lance
+                déjà.</li>
+        </ul>
+        <p>
+            Lors d'une mise à jour de VisualPosiScreen&nbsp;PRO, VirpilLeds est fermé le temps de remplacer ses fichiers,
+            puis le suivi est relancé s'il tournait. Journal du suivi&nbsp;:
+            <code>%LOCALAPPDATA%\VirpilLeds\suivi-dcs.txt</code>.
+        </p>
+
+        <div class="pager">
+            <a class="prev" href="commandes.html"><span>Précédent</span>← Commandes des joysticks</a>
+            <a class="next" href="reference-xml.html"><span>Suite</span>Fichier config-ecrans.xml →</a>
+        </div>
+
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.22.</footer>
+    </div>
+    </main>
+</div>
+</body>
+</html>

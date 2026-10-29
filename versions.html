@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.21 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.22 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -28,6 +28,7 @@
             <a href="pc.html">Préparer le PC</a>
             <a href="outils.html">Outils intégrés</a>
             <a href="commandes.html">Commandes des joysticks</a>
+            <a href="leds.html">LED Virpil</a>
             <div class="group">Référence</div>
             <a href="reference-xml.html">Fichier config-ecrans.xml</a>
             <a href="faq.html">FAQ &amp; dépannage</a>
@@ -52,6 +53,7 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
+                <tr><td><a href="#v3-22-0-1"><strong>3.22.0.1</strong></a> <span class="badge pro">PRO</span></td><td>29&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> <strong>LED Virpil</strong>&nbsp;: les LED des périphériques Virpil changent selon l'avion piloté et réagissent au cockpit par DCS-BIOS (outil VirpilLeds livré avec PRO). Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-21-1-1"><strong>3.21.1.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>28&nbsp;octobre&nbsp;2026</td><td><strong>Préparer le PC</strong>&nbsp;: nouvelle fenêtre <strong>PC…</strong> qui vérifie ce qui peut freiner DCS (réglages de Windows, antivirus, programmes ouverts, mémoire vidéo), option Hyper-V coupé pendant le vol&nbsp;; correction de la désactivation des mods.</td></tr>
                 <tr><td><a href="#v3-21-0-1"><strong>3.21.0.1</strong></a> <span class="badge pro">PRO</span></td><td>27&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> Première diffusion de la fenêtre <strong>PC…</strong> et du profil de session DCS, pour test. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-20-0-1"><strong>3.20.0.1</strong></a></td><td>14&nbsp;octobre&nbsp;2026</td><td><strong>Mods en abonnement</strong>&nbsp;: mods réservés à un groupe de membres&nbsp;; un groupe retiré à la clé laisse ses mods 30&nbsp;jours, puis ils sont retirés.</td></tr>
@@ -278,6 +280,16 @@
 
         <h2>Historique détaillé</h2>
 
+        <h3 id="v3-22-0-1">Version 3.22.0.1 <span class="badge pro">PRO uniquement</span></h3>
+        <p class="tag-legend">Publiée le 29&nbsp;octobre&nbsp;2026</p>
+        <ul>
+            <li><span class="badge pro">PRO</span> <strong>Nouveauté</strong>&nbsp;: <strong>VirpilLeds</strong>, livré dans le dossier de VisualPosiScreen&nbsp;PRO, règle les LED de vos périphériques Virpil selon l'avion piloté dans DCS&nbsp;: un réglage hors vol, par défaut, par catégorie (réaction, hélice, hélicoptère) et par avion, chaque niveau reprenant celui du dessus. 64 couleurs, fixes ou clignotantes (lent, normal, rapide). Voir <a href="leds.html">LED Virpil</a>.</li>
+            <li><span class="badge pro">PRO</span> <strong>Exceptions</strong>&nbsp;: une LED peut réagir au cockpit grâce à DCS-BIOS, par exemple clignoter en jaune quand le Master Caution est allumé. Les voyants et interrupteurs de chaque avion sont proposés dans une liste, avec leur valeur en direct quand DCS tourne.</li>
+            <li><span class="badge pro">PRO</span> Les LED se placent une fois pour toutes sur l'image du périphérique (celle des <a href="commandes.html">Commandes des joysticks</a> est reprise)&nbsp;: chaque LED s'allume, on clique où on la voit.</li>
+            <li><span class="badge pro">PRO</span> Le <strong>suivi DCS</strong> s'ajoute à un profil depuis le <strong>Catalogue…</strong> de l'onglet <em>Lancements</em>. DCS fermé&nbsp;: les LED reviennent au réglage de VPC Configurator. Option pour éteindre les LED à l'arrêt de Windows.</li>
+            <li>Mise à jour automatique&nbsp;: VirpilLeds est fermé le temps de remplacer ses fichiers, puis relancé s'il tournait.</li>
+            <li>Pas de version LITE 3.22.0.1.</li>
+        </ul>
         <h3 id="v3-21-1-1">Version 3.21.1.1 <span class="badge lite">Dernière LITE</span></h3>
         <p class="tag-legend">Publiée le 28&nbsp;octobre&nbsp;2026</p>
         <ul>
