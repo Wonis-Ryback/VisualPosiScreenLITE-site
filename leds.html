@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.22 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.23 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -42,14 +42,15 @@
         <h1 style="display:flex;align-items:center;gap:14px;"><img src="images/cll-icone.png" alt="" width="64" height="64" style="border-radius:14px;flex:none;"> <span><span class="badge pro">PRO</span> Cockpit Leds Link</span></h1>
 
         <p>
-            <strong>Cockpit Leds Link</strong> (CLL) pilote les LED de vos périphériques Virpil selon l'avion que vous
-            pilotez dans DCS World et selon ce qui se passe à bord. Dans un vrai cockpit, les voyants s'allument selon
+            <strong>Cockpit Leds Link</strong> (CLL) pilote les LED de vos périphériques Virpil et les voyants et afficheurs
+            de vos panneaux Saitek Pro Flight selon l'avion que vous pilotez dans DCS World et selon ce qui se passe à bord. Dans un vrai cockpit, les voyants s'allument selon
             l'état de l'appareil&nbsp;: vos joysticks et panneaux font désormais de même, pour une immersion bien plus
             grande. Un outil tout-en-un, livré avec VisualPosiScreen&nbsp;PRO dans le même dossier
             (<code>CockpitLedsLink.exe</code>).
         </p>
 <pre>DCS World ──► DCS-BIOS ──► Cockpit Leds Link ──► LED Virpil
-                                              └──► LED et afficheurs Saitek (bientôt)</pre>
+                                              └──► voyants et afficheurs Saitek
+Panneaux Saitek ──► Cockpit Leds Link ──► vJoy ──► DCS World (boutons de joystick)</pre>
         <ul>
             <li><strong>Des réglages par avion, sans tout refaire</strong>&nbsp;: un réglage <em>Par défaut</em>, affiné
                 par catégorie (réaction, hélice, hélicoptère), puis par avion. Le niveau le plus précis l'emporte.</li>
@@ -58,6 +59,8 @@
             <li><strong>64 couleurs</strong> par LED, fixes ou clignotantes, ou le réglage de VPC Configurator.</li>
             <li><strong>Suivi automatique</strong> pendant le vol, lancé avec votre profil VisualPosiScreen&nbsp;PRO.</li>
             <li><strong>LED éteintes à l'arrêt du PC</strong>, au lieu de rester allumées toute la nuit.</li>
+            <li><strong>Panneaux Saitek</strong> (Radio, Multi, Switch)&nbsp;: vus comme un joystick dans DCS, voyants et
+                afficheurs qui suivent l'avion. Voir <a href="#saitek">plus bas</a>.</li>
         </ul>
 
         <div class="callout tip">
@@ -73,7 +76,11 @@
             <span class="callout-title">Ce qu'il faut</span>
             <p>
                 Windows&nbsp;10 ou 11 (64&nbsp;bits), <strong>DCS World</strong>, des périphériques <strong>Virpil</strong>
-                avec LED et <strong>VisualPosiScreen&nbsp;PRO</strong>.
+                avec LED et/ou des panneaux <strong>Saitek Pro Flight</strong>, et <strong>VisualPosiScreen&nbsp;PRO</strong>.
+            </p>
+            <p>
+                Pour que DCS voie les panneaux Saitek comme un joystick&nbsp;: <strong>vJoy</strong>, installé par vos
+                soins (Cockpit Leds Link ne l'installe jamais). Les voyants et afficheurs Saitek, eux, n'ont pas besoin de vJoy.
             </p>
             <p>
                 <strong>DCS-BIOS</strong> installé dans DCS (dossier <code>Scripts\DCS-BIOS</code> de vos Parties
@@ -93,14 +100,17 @@
         </p>
         <ul>
             <li><strong>à gauche</strong>&nbsp;: vos périphériques Virpil (avec le nombre de LED placées, ou ce qu'il
-                reste à faire), puis <em>Quand</em>&nbsp;: les situations pour lesquelles vous réglez les LED&nbsp;;</li>
-            <li><strong>au centre</strong>&nbsp;: l'image du périphérique, avec une pastille par LED&nbsp;;</li>
-            <li><strong>à droite</strong>&nbsp;: le réglage de la LED choisie.</li>
+                reste à faire) et vos panneaux Saitek branchés, puis <em>Quand</em>&nbsp;: les situations pour lesquelles
+                vous réglez les LED&nbsp;;</li>
+            <li><strong>au centre</strong>&nbsp;: l'image du périphérique (un schéma pour les panneaux Saitek), avec une
+                pastille par LED ou voyant&nbsp;;</li>
+            <li><strong>à droite</strong>&nbsp;: le réglage de la LED choisie (et, pour un panneau Saitek, les formules de
+                ses afficheurs).</li>
         </ul>
         <p>
-            Tant que la case <strong>Voir sur le Virpil pendant le réglage</strong> est cochée, chaque réglage
+            Tant que la case <strong>Voir sur le matériel pendant le réglage</strong> est cochée, chaque réglage
             s'affiche aussitôt sur le périphérique. En fermant la fenêtre, les LED essayées reviennent au réglage
-            de VPC Configurator.
+            de VPC Configurator (les voyants Saitek s'éteignent).
         </p>
 
         <h2 id="premier">Première fois&nbsp;: relever et placer les LED</h2>
@@ -152,9 +162,15 @@
             <li><em>Comme «&nbsp;…&nbsp;»</em>&nbsp;: reprend le niveau du dessus (pour <em>Par défaut</em> et <em>Hors
                 vol</em>&nbsp;: pas de règle, réglage de VPC Configurator)&nbsp;;</li>
             <li><em>Laisser à VPC</em>&nbsp;: réglage de VPC Configurator, même si le niveau du dessus a une couleur&nbsp;;</li>
-            <li><em>Couleur</em>&nbsp;: une des 64 couleurs des LED Virpil, fixe ou clignotante (lent, normal, rapide).
+            <li><em>Couleur</em>&nbsp;: une couleur des LED Virpil, fixe ou clignotante (lent, normal, rapide).
                 En clignotement, la LED alterne entre la couleur&nbsp;1 et la couleur&nbsp;2 (éteinte par défaut).</li>
         </ul>
+        <p>
+            La palette est rangée comme celle de VPC Configurator&nbsp;: noir, blanc, rouge, vert, bleu, jaune, cyan et
+            magenta, en 30&nbsp;%, 60&nbsp;% et 100&nbsp;%. <strong>Plus de couleurs</strong> ouvre les 42 mélanges que le
+            matériel accepte aussi (orange, rose, violet…), que VPC Configurator ne propose que par son bouton
+            <em>custom</em>&nbsp;: 64 couleurs en tout.
+        </p>
 
         <h2 id="exceptions">Sauf si&nbsp;: réagir au cockpit</h2>
         <p>
@@ -169,7 +185,13 @@
                 deuxième exception.</li>
             <li>Les exceptions sont lues dans l'ordre&nbsp;: <strong>la première vraie l'emporte</strong>. Si aucune
                 n'est vraie, c'est le réglage <em>Normalement</em> qui s'applique.</li>
-            <li>Clic sur une exception&nbsp;: la modifier. Clic droit&nbsp;: la monter, la descendre ou la supprimer.</li>
+            <li>Clic sur une exception&nbsp;: la modifier. Clic droit&nbsp;: l'essayer, la copier, la monter, la descendre ou
+                la supprimer.</li>
+            <li><strong>▶ Essayer</strong>&nbsp;: pendant 5&nbsp;secondes, la LED montre le résultat de l'exception comme si
+                elle était vraie, sur l'image et sur le matériel, sans lancer DCS.</li>
+            <li><strong>Copier</strong> / <strong>Coller</strong>&nbsp;: reprend les exceptions d'une LED sur d'autres, même
+                d'un autre périphérique ou d'un autre avion (à la suite des exceptions existantes, ou à leur place). Les
+                contrôles qui n'existent pas pour l'avion de destination sont signalés.</li>
             <li>Au niveau d'une catégorie ou de <em>Par défaut</em>, seules les données communes à tous les avions sont
                 proposées. Les voyants propres à un avion se règlent au niveau de cet avion.</li>
             <li>Si DCS tourne pendant le réglage, la fenêtre montre la valeur actuelle de chaque condition, et une
@@ -203,6 +225,8 @@
                 Configurator au démarrage suivant.</li>
             <li><strong>Démarrer le suivi DCS à l'ouverture de session</strong>&nbsp;: inutile si votre profil le lance
                 déjà.</li>
+            <li><strong>Panneaux Saitek</strong>&nbsp;: envoi vers vJoy (numéro du périphérique, durée d'un cran) et nom du
+                joystick vJoy dans les jeux (voir <a href="#vjoy">plus bas</a>).</li>
         </ul>
         <p>
             Lors d'une mise à jour de VisualPosiScreen&nbsp;PRO, Cockpit Leds Link est fermé le temps de remplacer ses fichiers,
@@ -210,21 +234,86 @@
             <code>%LOCALAPPDATA%\CockpitLedsLink\suivi-dcs.txt</code>.
         </p>
 
-        <h2 id="bientot">Bientôt&nbsp;: les panneaux Saitek Pro Flight</h2>
-        <div class="callout warn">
-            <span class="callout-title">En cours de développement</span>
-            <p>Ces fonctions ne sont pas encore disponibles. Elles sont présentées ici pour information.</p>
+        <h2 id="saitek">Les panneaux Saitek Pro Flight</h2>
+        <p>
+            Cockpit Leds Link gère le <strong>Radio Panel</strong>, le <strong>Multi Panel</strong> et le <strong>Switch
+            Panel</strong> (branchés en USB, un de chaque). DCS ne les voit pas d'origine&nbsp;: Cockpit Leds Link les lit, les
+            transmet à DCS comme un joystick, et pilote leurs voyants et leurs afficheurs.
+        </p>
+
+        <h3 id="vjoy">Les panneaux vus comme un joystick (vJoy)</h3>
+        <ol class="steps">
+            <li>Installez <strong>vJoy</strong> vous-même. Si Windows refuse son installation, coupez
+                <em>l'intégrité de la mémoire</em> (Sécurité Windows, Isolation du noyau) le temps de l'installer, puis
+                remettez-la&nbsp;: vJoy fonctionne ensuite avec elle.</li>
+            <li>Avec l'outil <em>Configure vJoy</em>, donnez au périphérique n°&nbsp;1 au moins <strong>104 boutons</strong>
+                (128 conseillés).</li>
+            <li>Le <strong>suivi DCS</strong> de Cockpit Leds Link envoie alors chaque bouton, interrupteur, sélecteur et
+                molette des panneaux vers vJoy&nbsp;: dans DCS, <em>Options → Commandes</em>, assignez-les comme ceux d'un
+                joystick, pour tous les modules.</li>
+        </ol>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Panneau</th><th>Boutons vJoy</th><th>À savoir</th></tr></thead>
+            <tbody>
+                <tr><td>Radio Panel</td><td>1 à 32</td><td>Sélecteurs du haut et du bas, ACT/STBY, chaque bague des molettes (un appui par cran).</td></tr>
+                <tr><td>Multi Panel</td><td>33 à 64</td><td>Sélecteur, molette et trim (un appui par cran), boutons AP, volets&nbsp;; <em>auto-manette ARM</em> (53) et <em>volets au milieu</em> (54) sont fabriqués par l'outil.</td></tr>
+                <tr><td>Switch Panel</td><td>65 à 104</td><td>Interrupteurs en position ON, magnétos, train&nbsp;; la position <em>OFF</em> de chaque interrupteur est fabriquée par l'outil (85 à 97).</td></tr>
+            </tbody>
+        </table>
         </div>
         <ul>
-            <li><strong>Radio Panel, Multi Panel, Switch Panel</strong>&nbsp;: leurs voyants (pilote automatique, train
-                d'atterrissage) et leurs afficheurs (fréquences, altitude, cap, vitesse…) suivront l'avion, avec les
-                mêmes réglages par niveau et les mêmes exceptions que les LED Virpil.</li>
-            <li><strong>Les panneaux vus comme un joystick dans DCS</strong>&nbsp;: grâce à <strong>vJoy</strong>
-                (joystick virtuel, à installer vous-même), chaque bouton, interrupteur, sélecteur et molette deviendra
-                un bouton de joystick à assigner directement dans DCS, pour tous les modules. Cockpit Leds Link
-                n'installe jamais vJoy.</li>
-            <li><strong>Flight Instrument Panel</strong> (petit écran couleur)&nbsp;: plus tard.</li>
+            <li><strong>Nom du joystick</strong>&nbsp;: <strong>Options…</strong> → <em>Panneaux Saitek</em> → <em>Renommer</em>
+                (par exemple <em>Saitek Panels (CLL)</em> au lieu de <em>vJoy Device</em>). Faites-le <strong>avant</strong>
+                d'assigner des commandes dans DCS, qui range ses assignations par nom de joystick, puis redémarrez DCS.</li>
+            <li>Les mêmes options règlent le numéro du périphérique vJoy et la durée d'un cran de molette (si DCS en
+                manque quand vous tournez vite).</li>
+            <li><strong>Remise en phase au début du vol</strong>&nbsp;: clic droit sur un avion dans <em>Quand</em> →
+                <em>Remettre les interrupteurs Saitek en phase au début du vol</em>. Cinq secondes après l'arrivée de
+                l'avion, les interrupteurs sont renvoyés à DCS dans leur position réelle&nbsp;: le cockpit prend la position du
+                panneau. Le démarreur des magnétos et le levier de train ne sont jamais renvoyés.</li>
         </ul>
+
+        <h3 id="voyants-saitek">Voyants</h3>
+        <p>
+            Le Multi Panel (voyants AP, HDG, NAV, IAS, ALT, VS, APR, REV) et le Switch Panel (trois voyants de train) se
+            règlent comme des LED Virpil&nbsp;: <em>Normalement</em>, exceptions, clignotement. La palette se limite à ce que le
+            panneau sait afficher&nbsp;: éteint ou allumé pour le Multi (AP en blanc, les autres en jaune)&nbsp;; éteint, vert,
+            rouge ou jaune pour le train. Exemple&nbsp;: <em>Normalement éteint, sauf si le train avant est sorti et verrouillé
+            → vert, sauf si l'alarme de train est active → rouge</em>.
+        </p>
+
+        <h3 id="afficheurs">Afficheurs et formules</h3>
+        <p>
+            Chaque afficheur montre le résultat d'une <strong>formule</strong>, choisie pour chaque position du sélecteur et
+            réglée par niveau comme les LED (<em>Par défaut</em>, catégorie, avion)&nbsp;:
+        </p>
+        <ul>
+            <li><strong>Multi Panel</strong>&nbsp;: ALT et VS (afficheurs du haut et du bas), IAS, HDG, CRS. Fournies pour
+                tous les avions&nbsp;: altitude, vitesse verticale (calculée par l'outil, <code>VS_FT_MIN</code>), vitesse
+                indiquée, cap magnétique.</li>
+            <li><strong>Radio Panel</strong>&nbsp;: pour COM1, COM2, NAV1, NAV2, ADF, DME, XPDR, un afficheur <em>actif</em> et
+                un <em>attente</em>, communs aux sélecteurs du haut et du bas. Réglages de départ fournis (fréquences et canaux)
+                pour l'A-10C et l'A-10C&nbsp;II, le F/A-18C, le F-16C, le F-14, le Ka-50, le Mi-8, le Mi-24P, l'OH-58D et le C-130J.</li>
+        </ul>
+        <p>
+            Une formule utilise les contrôles DCS-BIOS de l'avion. Le bouton <strong>…</strong> à côté de chaque formule ouvre
+            leur liste (recherche, type, valeur en direct quand DCS tourne). Un contrôle de type <em>texte</em> seul
+            (<code>UHF_FREQUENCY</code>) s'affiche tel quel&nbsp;; sinon, un calcul&nbsp;: <code>+ - * /</code>, parenthèses et les
+            fonctions <code>ifless</code>, <code>ifmore</code>, <code>ifequal</code>, <code>if</code>, <code>min</code>,
+            <code>max</code>, <code>abs</code>, <code>round</code>, <code>floor</code>, <code>ceiling</code> (même écriture que
+            DCSFlightpanels&nbsp;: virgule ou point décimal accepté). Vide&nbsp;: afficheur éteint.
+        </p>
+
+        <h3 id="extinction-saitek">Extinction</h3>
+        <ul>
+            <li>DCS fermé, hors mission, pendant que la fenêtre est ouverte ou quand le suivi s'arrête&nbsp;: voyants éteints,
+                afficheurs vides.</li>
+            <li>Avec l'option d'extinction à l'arrêt du PC, les panneaux Saitek s'éteignent aussi.</li>
+            <li>Sans le suivi&nbsp;: la fenêtre <a href="pc.html">PC…</a> propose d'ajouter à votre profil de session la commande
+                <code>CockpitLedsLinkOff.exe --saitek</code>, qui les éteint à chaque fin de DCS.</li>
+        </ul>
+        <p>Le <strong>Flight Instrument Panel</strong> (petit écran couleur) viendra plus tard.</p>
 
         <p style="font-size:.88em;color:var(--text-soft);">
             DCS World est une marque d'Eagle Dynamics. DCS-BIOS est un projet libre, indépendant, à installer à part.
@@ -236,7 +325,7 @@
             <a class="next" href="reference-xml.html"><span>Suite</span>Fichier config-ecrans.xml →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.22.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.23.</footer>
     </div>
     </main>
 </div>

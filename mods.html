@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.22 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.23 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -122,6 +122,7 @@
         <ol class="steps">
             <li>Le sous-dossier <code>root</code> du mod est copié vers le répertoire d'installation de DCS. Si <code>backup</code> est actif, chaque fichier écrasé est d'abord copié dans un dossier <code>&lt;root&gt;.BAK</code> du mod.</li>
             <li>Le sous-dossier <code>saveGames</code> du mod est copié vers <em>Saved&nbsp;Games</em>, avec la même logique de sauvegarde vers <code>&lt;saveGames&gt;.BAK</code>.</li>
+            <li>Si le mod déclare des lignes pour <code>Export.lua</code>, elles sont ajoutées (voir <a href="#export-lua">ci-dessous</a>).</li>
             <li>L'état <code>enabled</code> du mod est inversé et le <code>manifest.xml</code> est réécrit.</li>
         </ol>
 
@@ -130,8 +131,28 @@
             <li>Les fichiers du mod présents aux emplacements de destination sont supprimés.</li>
             <li>Si une sauvegarde <code>.BAK</code> existe, les fichiers d'origine sont restaurés.</li>
             <li>Les dossiers devenus vides sont supprimés.</li>
+            <li>Les lignes que le mod avait ajoutées à <code>Export.lua</code> sont retirées.</li>
             <li>L'état <code>enabled</code> repasse à « non » et le <code>manifest.xml</code> est réécrit.</li>
         </ol>
+
+        <h3 id="export-lua">Lignes ajoutées à <code>Export.lua</code></h3>
+        <p>
+            Certains mods ont besoin d'une ligne dans <code>Saved&nbsp;Games\DCS\Scripts\Export.lua</code>, par exemple pour charger
+            une extension DCS-BIOS qu'ils livrent. Le mod les déclare dans un fichier <code>_export-lua.txt</code> placé à la racine
+            de sa partie <em>Saved&nbsp;Games</em>&nbsp;: une ligne Lua par ligne&nbsp;; les lignes vides et celles qui commencent
+            par <code>#</code> sont ignorées. Ce fichier n'est jamais copié dans DCS.
+        </p>
+        <ul>
+            <li>À l'activation, chaque ligne absente est ajoutée <strong>à la fin</strong> d'<code>Export.lua</code> (donc après celle de DCS-BIOS), suivie de la marque <code>-- mod : &lt;nom du mod&gt;</code>. Le fichier est créé s'il n'existe pas.</li>
+            <li>À la désactivation, ou en passant à une version qui ne les déclare pas, seules les lignes marquées de ce mod sont retirées&nbsp;: le reste du fichier (DCS-BIOS, SRS, Tacview…) n'est pas touché, octet pour octet.</li>
+            <li>Seul <code>Export.lua</code> peut être modifié ainsi. Le fichier voyage avec les fichiers du mod&nbsp;: un mod en abonnement en profite sans rien de plus.</li>
+        </ul>
+        <div class="callout note">
+            <span class="callout-title">Exemple de <code>_export-lua.txt</code></span>
+            <pre><code># Extension DCS-BIOS livrée par ce mod
+pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonMod\extension.lua]]) end)</code></pre>
+            Enveloppez la ligne dans <code>pcall(...)</code>&nbsp;: une erreur dans votre script n'empêchera pas les autres lignes d'<code>Export.lua</code> de s'exécuter.
+        </div>
 
         <h2>Éditeur de mod</h2>
         <p>Ouvert par <strong>Modifier</strong> ou par le menu, il permet de régler&nbsp;:</p>
@@ -280,7 +301,7 @@
             <a class="next" href="lancement.html"><span>Suite</span>Lancer DCS World →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.22.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.23.</footer>
     </div>
     </main>
 </div>
