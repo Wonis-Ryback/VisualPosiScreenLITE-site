@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LED Virpil — VisualPosiScreen LITE</title>
+<title>Cockpit Leds Link — VisualPosiScreen LITE</title>
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -28,7 +28,7 @@
             <a href="pc.html">Préparer le PC</a>
             <a href="outils.html">Outils intégrés</a>
             <a href="commandes.html">Commandes des joysticks</a>
-            <a href="leds.html" class="active">LED Virpil</a>
+            <a href="leds.html" class="active">Cockpit Leds Link</a>
             <div class="group">Référence</div>
             <a href="reference-xml.html">Fichier config-ecrans.xml</a>
             <a href="faq.html">FAQ &amp; dépannage</a>
@@ -38,32 +38,57 @@
 
     <main class="content">
     <div class="inner">
-        <div class="breadcrumb">Fonctions › LED Virpil</div>
-        <h1><span class="badge pro">PRO</span> LED Virpil selon l'avion</h1>
+        <div class="breadcrumb">Fonctions › Cockpit Leds Link</div>
+        <h1 style="display:flex;align-items:center;gap:14px;"><img src="images/cll-icone.png" alt="" width="64" height="64" style="border-radius:14px;flex:none;"> <span><span class="badge pro">PRO</span> Cockpit Leds Link</span></h1>
 
         <p>
-            <strong>VirpilLeds</strong> est livré avec VisualPosiScreen&nbsp;PRO, dans le même dossier
-            (<code>VirpilLeds.exe</code>). Il règle les LED de vos périphériques Virpil (joysticks, panneaux) selon
-            l'avion que vous pilotez dans DCS, et peut les faire réagir à ce qui se passe dans le cockpit&nbsp;: par
-            exemple, faire clignoter une LED en jaune quand le Master Caution s'allume.
+            <strong>Cockpit Leds Link</strong> (CLL) pilote les LED de vos périphériques Virpil selon l'avion que vous
+            pilotez dans DCS World et selon ce qui se passe à bord. Dans un vrai cockpit, les voyants s'allument selon
+            l'état de l'appareil&nbsp;: vos joysticks et panneaux font désormais de même, pour une immersion bien plus
+            grande. Un outil tout-en-un, livré avec VisualPosiScreen&nbsp;PRO dans le même dossier
+            (<code>CockpitLedsLink.exe</code>).
         </p>
+<pre>DCS World ──► DCS-BIOS ──► Cockpit Leds Link ──► LED Virpil
+                                              └──► LED et afficheurs Saitek (bientôt)</pre>
+        <ul>
+            <li><strong>Des réglages par avion, sans tout refaire</strong>&nbsp;: un réglage <em>Par défaut</em>, affiné
+                par catégorie (réaction, hélice, hélicoptère), puis par avion. Le niveau le plus précis l'emporte.</li>
+            <li><strong>Des exceptions qui suivent le cockpit</strong>&nbsp;: <em>sauf si le Master Caution est allumé →
+                rouge clignotant</em>, <em>sauf si le train est sorti → vert</em>.</li>
+            <li><strong>64 couleurs</strong> par LED, fixes ou clignotantes, ou le réglage de VPC Configurator.</li>
+            <li><strong>Suivi automatique</strong> pendant le vol, lancé avec votre profil VisualPosiScreen&nbsp;PRO.</li>
+            <li><strong>LED éteintes à l'arrêt du PC</strong>, au lieu de rester allumées toute la nuit.</li>
+        </ul>
+
+        <div class="callout tip">
+            <span class="callout-title">Anciennement VirpilLeds</span>
+            <p>
+                Jusqu'à VisualPosiScreen&nbsp;PRO&nbsp;3.22, l'outil s'appelait <strong>VirpilLeds</strong>
+                (<code>VirpilLeds.exe</code>, dossier <code>%LOCALAPPDATA%\VirpilLeds</code>). Le fonctionnement décrit
+                ici est le même&nbsp;; vos réglages sont repris lors de la mise à jour.
+            </p>
+        </div>
 
         <div class="callout note">
             <span class="callout-title">Ce qu'il faut</span>
+            <p>
+                Windows&nbsp;10 ou 11 (64&nbsp;bits), <strong>DCS World</strong>, des périphériques <strong>Virpil</strong>
+                avec LED et <strong>VisualPosiScreen&nbsp;PRO</strong>.
+            </p>
             <p>
                 <strong>DCS-BIOS</strong> installé dans DCS (dossier <code>Scripts\DCS-BIOS</code> de vos Parties
                 enregistrées)&nbsp;: c'est lui qui indique l'avion et l'état du cockpit. Prenez une version récente pour
                 les modules récents (le C-130J demande DCS-BIOS&nbsp;0.11.7 ou plus).
             </p>
             <p>
-                VirpilLeds ne modifie ni le firmware ni vos profils VPC Configurator. Une LED sans règle garde le
+                Cockpit Leds Link ne modifie ni le firmware ni vos profils VPC Configurator. Une LED sans règle garde le
                 réglage de VPC Configurator, et tout revient à ce réglage quand DCS est fermé.
             </p>
         </div>
 
-        <h2 id="fenetre">La fenêtre VirpilLeds</h2>
+        <h2 id="fenetre">La fenêtre Cockpit Leds Link</h2>
         <p>
-            Ouvrez <code>VirpilLeds.exe</code> dans le dossier de VisualPosiScreen&nbsp;PRO, ou double-cliquez sur son
+            Ouvrez <code>CockpitLedsLink.exe</code> dans le dossier de VisualPosiScreen&nbsp;PRO, ou double-cliquez sur son
             icône dans la zone de notification quand le suivi DCS tourne. La fenêtre a trois parties&nbsp;:
         </p>
         <ul>
@@ -97,7 +122,7 @@
             <span class="callout-title">L'image du périphérique</span>
             <p>
                 Si vous avez déjà mis une image pour ce périphérique dans <a href="commandes.html">Commandes des
-                joysticks</a>, VirpilLeds la reprend. Sinon, <strong>Choisir une autre image…</strong> pendant le
+                joysticks</a>, Cockpit Leds Link la reprend. Sinon, <strong>Choisir une autre image…</strong> pendant le
                 placement accepte n'importe quelle image (PNG, JPG).
             </p>
         </div>
@@ -161,13 +186,13 @@
         <ol class="steps">
             <li>Dans l'<a href="parametrage.html">éditeur de configuration</a>, onglet <strong>Lancements</strong>,
                 cliquez sur <strong>Catalogue…</strong>.</li>
-            <li>Choisissez <strong>VirpilLeds (LED Virpil selon l'avion)</strong>&nbsp;: la commande et le paramètre
+            <li>Choisissez <strong>Cockpit Leds Link (LED Virpil selon l'avion)</strong>&nbsp;: la commande et le paramètre
                 <code>--run</code> sont remplis.</li>
         </ol>
         <p>
             Un second lancement ne fait rien&nbsp;: le suivi tourne une seule fois. Vous pouvez aussi le lancer depuis la
             fenêtre (<strong>Démarrer le suivi DCS</strong>) ou à chaque ouverture de session (<strong>Options…</strong>).
-            Pendant que la fenêtre VirpilLeds est ouverte, le suivi attend et reprend à sa fermeture. DCS fermé ou hors
+            Pendant que la fenêtre Cockpit Leds Link est ouverte, le suivi attend et reprend à sa fermeture. DCS fermé ou hors
             mission&nbsp;: toutes les LED reviennent au réglage de VPC Configurator.
         </p>
 
@@ -180,9 +205,30 @@
                 déjà.</li>
         </ul>
         <p>
-            Lors d'une mise à jour de VisualPosiScreen&nbsp;PRO, VirpilLeds est fermé le temps de remplacer ses fichiers,
+            Lors d'une mise à jour de VisualPosiScreen&nbsp;PRO, Cockpit Leds Link est fermé le temps de remplacer ses fichiers,
             puis le suivi est relancé s'il tournait. Journal du suivi&nbsp;:
-            <code>%LOCALAPPDATA%\VirpilLeds\suivi-dcs.txt</code>.
+            <code>%LOCALAPPDATA%\CockpitLedsLink\suivi-dcs.txt</code>.
+        </p>
+
+        <h2 id="bientot">Bientôt&nbsp;: les panneaux Saitek Pro Flight</h2>
+        <div class="callout warn">
+            <span class="callout-title">En cours de développement</span>
+            <p>Ces fonctions ne sont pas encore disponibles. Elles sont présentées ici pour information.</p>
+        </div>
+        <ul>
+            <li><strong>Radio Panel, Multi Panel, Switch Panel</strong>&nbsp;: leurs voyants (pilote automatique, train
+                d'atterrissage) et leurs afficheurs (fréquences, altitude, cap, vitesse…) suivront l'avion, avec les
+                mêmes réglages par niveau et les mêmes exceptions que les LED Virpil.</li>
+            <li><strong>Les panneaux vus comme un joystick dans DCS</strong>&nbsp;: grâce à <strong>vJoy</strong>
+                (joystick virtuel, à installer vous-même), chaque bouton, interrupteur, sélecteur et molette deviendra
+                un bouton de joystick à assigner directement dans DCS, pour tous les modules. Cockpit Leds Link
+                n'installe jamais vJoy.</li>
+            <li><strong>Flight Instrument Panel</strong> (petit écran couleur)&nbsp;: plus tard.</li>
+        </ul>
+
+        <p style="font-size:.88em;color:var(--text-soft);">
+            DCS World est une marque d'Eagle Dynamics. DCS-BIOS est un projet libre, indépendant, à installer à part.
+            Virpil et Saitek sont des marques de leurs propriétaires respectifs.
         </p>
 
         <div class="pager">
