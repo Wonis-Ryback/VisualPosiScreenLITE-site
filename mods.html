@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.23 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.24 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -71,8 +71,9 @@
                 <tr><td><code>status/@enabled</code></td><td>État déployé (vrai) ou non (faux). Mis à jour par l'application.</td></tr>
                 <tr><td><code>description</code></td><td>Texte affiché dans la liste des mods.</td></tr>
                 <tr><td><code>root</code></td><td>Sous-dossier du mod à copier vers l'<strong>installation</strong> de DCS. Attribut <code>backup</code>&nbsp;: sauvegarder les fichiers écrasés.</td></tr>
-                <tr><td><code>saveGames</code></td><td>Sous-dossier du mod à copier vers <strong>Saved&nbsp;Games</strong>. Attribut <code>backup</code> également.</td></tr>
+                <tr><td><code>saveGames</code></td><td>Sous-dossier du mod à copier vers <strong>Saved&nbsp;Games</strong>. Attribut <code>backup</code> également. Un mod peut n'avoir que l'une des deux parties, <code>root</code> ou <code>saveGames</code>&nbsp;: l'autre élément peut être omis.</td></tr>
                 <tr><td><code>incompatibleMods</code></td><td>Liste de noms de mods incompatibles avec celui-ci.</td></tr>
+                <tr><td><code>companion</code></td><td>Facultatif, répétable&nbsp;: un programme du mod à lancer avec DCS tant que le mod est activé. Voir <a href="#compagnons">Applications fournies par un mod</a>.</td></tr>
                 <tr><td><code>versions</code></td><td>Versions installées du mod, chacune avec ses dossiers&nbsp;: <code>&lt;version num="4" root="versions\4\root" saveGames="versions\4\savegames"/&gt;</code>. Absent tant que le mod n'a qu'une version. Voir <a href="#versions">Versions d'un mod</a>.</td></tr>
             </tbody>
         </table>
@@ -153,6 +154,44 @@
 pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonMod\extension.lua]]) end)</code></pre>
             Enveloppez la ligne dans <code>pcall(...)</code>&nbsp;: une erreur dans votre script n'empêchera pas les autres lignes d'<code>Export.lua</code> de s'exécuter.
         </div>
+
+        <h3 id="compagnons">Applications fournies par un mod</h3>
+        <p>
+            Certains mods ont besoin d'un programme qui tourne à côté de DCS (par exemple un script qui lit le clavier et pilote
+            une caméra). Le mod le déclare dans son <code>manifest.xml</code> par un élément <code>&lt;companion&gt;</code>&nbsp;;
+            tant que le mod est activé, VisualPosiScreen le lance avec DCS, en plus des programmes du profil.
+            Le programme reste dans le dossier du mod&nbsp;: rien n'est copié dans DCS ni dans Saved&nbsp;Games.
+        </p>
+        <div class="callout note">
+            <span class="callout-title">Exemple</span>
+            <pre><code>&lt;companion name="Mon compagnon"
+           path="Compagnon\MonScript.ps1"
+           arguments=""
+           workingDir="Compagnon"
+           start="afterDcs" delaySeconds="0"
+           closeWithDcs="true" window="normal" /&gt;</code></pre>
+        </div>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>name</code></td><td>Nom affiché dans les listes de programmes.</td></tr>
+                <tr><td><code>path</code></td><td>Programme à lancer, <strong>relatif au dossier du mod</strong> (un chemin qui en sort est refusé). <code>.exe</code> lancé directement, <code>.ps1</code> par PowerShell, <code>.bat</code> / <code>.cmd</code> par <code>cmd /c</code>.</td></tr>
+                <tr><td><code>arguments</code></td><td>Paramètres de lancement.</td></tr>
+                <tr><td><code>workingDir</code></td><td>Dossier de travail, relatif au dossier du mod (par défaut, celui du programme).</td></tr>
+                <tr><td><code>start</code></td><td><code>beforeDcs</code> (juste avant DCS) ou <code>afterDcs</code> (une fois DCS démarré, par défaut).</td></tr>
+                <tr><td><code>delaySeconds</code></td><td>Attente avant le lancement.</td></tr>
+                <tr><td><code>closeWithDcs</code></td><td>Fermer le programme, et tout ce qu'il a lancé, quand DCS se ferme (par défaut&nbsp;: oui).</td></tr>
+                <tr><td><code>window</code></td><td><code>normal</code>, <code>minimized</code> ou <code>hidden</code>.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <ul>
+            <li><strong>Où le voir</strong>&nbsp;: dans la liste <strong>Programmes</strong> de la fenêtre principale, en bleu avec l'étiquette <code>mod</code>, d'après les mods qui seront activés au lancement (clic droit sur les mods compris)&nbsp;; et dans <strong>Configurer</strong>, onglet <strong>Lancements</strong>, en bas, pour les mods activés avec le profil.</li>
+            <li><strong>Par profil</strong>&nbsp;: chemin et paramètres viennent du mod et ne se modifient pas&nbsp;; décochez la ligne dans l'onglet Lancements pour qu'un profil ne la lance pas. Seul ce choix est enregistré dans le profil.</li>
+            <li><strong>Confirmation</strong>&nbsp;: au premier lancement, VisualPosiScreen affiche le programme que le mod veut lancer et demande votre accord. L'accord est gardé tant que le fichier ne change pas&nbsp;; une mise à jour du mod qui le modifie redemande l'accord. N'acceptez que les mods d'un auteur de confiance.</li>
+            <li>Un programme déjà en cours n'est pas relancé, et pas deux fois s'il figure aussi dans les programmes du profil. Un lancement avec <kbd>Alt</kbd> (DCS seul) ne lance pas ces programmes.</li>
+        </ul>
 
         <h2>Éditeur de mod</h2>
         <p>Ouvert par <strong>Modifier</strong> ou par le menu, il permet de régler&nbsp;:</p>
@@ -301,7 +340,7 @@ pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonM
             <a class="next" href="lancement.html"><span>Suite</span>Lancer DCS World →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.23.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.24.</footer>
     </div>
     </main>
 </div>

@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.23 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.24 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -53,7 +53,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-23-0-1"><strong>3.23.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>31&nbsp;octobre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut ajouter des lignes à <code>Export.lua</code> tant qu'il est activé&nbsp;; nouvelle fenêtre <strong>À propos</strong>. <span class="badge pro">PRO</span> VirpilLeds devient <strong>Cockpit Leds Link</strong> et gère les <strong>panneaux Saitek</strong> (joystick par vJoy, voyants, afficheurs).</td></tr>
+                <tr><td><a href="#v3-24-0-1"><strong>3.24.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>1<sup>er</sup>&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut fournir un programme lancé avec DCS (et fermé avec lui), avec votre accord&nbsp;; un mod peut n'avoir qu'une partie Saved&nbsp;Games.</td></tr>
+                <tr><td><a href="#v3-23-0-1"><strong>3.23.0.1</strong></a></td><td>31&nbsp;octobre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut ajouter des lignes à <code>Export.lua</code> tant qu'il est activé&nbsp;; nouvelle fenêtre <strong>À propos</strong>. <span class="badge pro">PRO</span> VirpilLeds devient <strong>Cockpit Leds Link</strong> et gère les <strong>panneaux Saitek</strong> (joystick par vJoy, voyants, afficheurs).</td></tr>
                 <tr><td><a href="#v3-22-1-1"><strong>3.22.1.1</strong></a> <span class="badge pro">PRO</span></td><td>29&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> VirpilLeds&nbsp;: nouvelle icône. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-22-0-1"><strong>3.22.0.1</strong></a> <span class="badge pro">PRO</span></td><td>29&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> <strong>LED Virpil</strong>&nbsp;: les LED des périphériques Virpil changent selon l'avion piloté et réagissent au cockpit par DCS-BIOS (outil VirpilLeds livré avec PRO). Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-21-1-1"><strong>3.21.1.1</strong></a></td><td>28&nbsp;octobre&nbsp;2026</td><td><strong>Préparer le PC</strong>&nbsp;: nouvelle fenêtre <strong>PC…</strong> qui vérifie ce qui peut freiner DCS (réglages de Windows, antivirus, programmes ouverts, mémoire vidéo), option Hyper-V coupé pendant le vol&nbsp;; correction de la désactivation des mods.</td></tr>
@@ -282,7 +283,14 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-23-0-1">Version 3.23.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <h3 id="v3-24-0-1">Version 3.24.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <p class="tag-legend">Publiée le 1<sup>er</sup>&nbsp;novembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Mods</strong>&nbsp;: un mod peut fournir une application à lancer avec DCS (avant ou après son démarrage, fermée avec lui si le mod le demande), déclarée dans son <code>manifest.xml</code>. Elle apparaît dans la liste <strong>Programmes</strong> de la fenêtre principale et dans l'onglet <strong>Lancements</strong> de <strong>Configurer</strong>, où chaque profil peut la décocher. Votre accord est demandé au premier lancement, et de nouveau si le programme change. Voir <a href="mods.html#compagnons">Applications fournies par un mod</a>.</li>
+            <li><strong>Mods</strong>&nbsp;: un mod qui n'a qu'une partie Saved&nbsp;Games (sans <code>root</code>) ne fait plus planter la liste des mods et s'active normalement.</li>
+        </ul>
+
+        <h3 id="v3-23-0-1">Version 3.23.0.1</h3>
         <p class="tag-legend">Publiée le 31&nbsp;octobre&nbsp;2026</p>
         <ul>
             <li><strong>Mods</strong>&nbsp;: un mod peut ajouter des lignes au fichier <code>Scripts\Export.lua</code> de DCS tant qu'il est activé, par exemple pour charger une extension DCS-BIOS qu'il livre. Elles sont retirées à sa désactivation, sans toucher au reste du fichier. Voir <a href="mods.html#export-lua">Lignes ajoutées à Export.lua</a>.</li>
