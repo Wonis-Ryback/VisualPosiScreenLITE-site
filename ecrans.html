@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.24 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.25 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -149,6 +149,43 @@
                 préremplie, se fait ensuite en un clic.
             </p>
         </div>
+
+        <h3 id="disposition-magnetique"><span class="badge pro">PRO</span> Disposition magnétique</h3>
+        <p>
+            Windows ne permet pas de placer les écrans au pixel près. La disposition magnétique place chaque écran du profil
+            par rapport à un autre&nbsp;: un <strong>bord</strong> ou le <strong>centre</strong> d'un écran est joint à un bord
+            ou au centre d'un autre écran, horizontalement et verticalement. Les positions sont calculées à partir de ces
+            liens, au pixel près.
+        </p>
+        <ol class="steps">
+            <li>Ouvrez la fenêtre <strong>Écrans…</strong>, choisissez le profil, cliquez sur <strong>Disposition magnétique…</strong>.</li>
+            <li><strong>Glissez un écran</strong> du dessin du profil&nbsp;: près d'un bord ou du centre d'un autre écran, il s'y aimante et le lien est créé. Une jointure bord contre bord (droite contre gauche, haut contre bas) passe avant un simple alignement. Les écrans liés à celui que vous déplacez le suivent. Maintenez <kbd>Alt</kbd> pour déplacer sans aimantation.</li>
+            <li><strong>Cliquez un écran</strong> pour régler ses liens dans le cadre du bas&nbsp;: <em>Horizontal</em> (gauche, centre, droite) et <em>Vertical</em> (haut, centre, bas), écran de référence (ou <em>libre</em>) et décalage en pixels. <strong>Délier cet écran</strong> retire ses deux liens.</li>
+            <li><strong>Enregistrer</strong>&nbsp;: positions et liens sont écrits dans <code>config-ecrans.xml</code> (copie <code>.bak</code> horodatée de l'ancien fichier). <strong>Annuler</strong> abandonne les changements.</li>
+            <li><strong>Positionner les écrans</strong> applique ensuite la disposition à Windows.</li>
+        </ol>
+        <p>
+            Exemple avec un écran principal 3440×1440 en haut et, en dessous, l'écran 1 (1920×1080) centré sur lui, l'écran 5
+            (2000×1200) à sa gauche et l'écran 6 (2000×1200) à sa droite&nbsp;:
+        </p>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Écran</th><th>Lien horizontal</th><th>Lien vertical</th><th>Position enregistrée (DCS)</th><th>Position Windows</th></tr></thead>
+            <tbody>
+                <tr><td>2 (principal)</td><td>libre</td><td>libre</td><td>(1240,&nbsp;0)</td><td>(0,&nbsp;0)</td></tr>
+                <tr><td>1</td><td>centre sur le centre de 2</td><td>haut sur le bas de 2</td><td>(2000,&nbsp;1440)</td><td>(760,&nbsp;1440)</td></tr>
+                <tr><td>5</td><td>droite sur la gauche de 1</td><td>haut sur le bas de 2</td><td>(0,&nbsp;1440)</td><td>(−1240,&nbsp;1440)</td></tr>
+                <tr><td>6</td><td>gauche sur la droite de 1</td><td>haut sur le bas de 2</td><td>(3920,&nbsp;1440)</td><td>(2680,&nbsp;1440)</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <ul>
+            <li><strong>Coordonnées positives</strong>&nbsp;: DCS attend des coordonnées positives. Les positions enregistrées dans le profil sont donc <strong>recalées</strong> sur le coin haut-gauche de l'ensemble des écrans, placé en (0,&nbsp;0). Ce sont elles qu'il faut reporter dans le fichier d'écrans de DCS (<code>MonitorSetup</code>, Helios). La fenêtre les affiche sur la ligne <em>Coordonnées DCS</em>, avec la surface totale.</li>
+            <li><strong>Écran principal</strong>&nbsp;: Windows place toujours l'écran principal en (0,&nbsp;0). Au positionnement, et pour comparer au bureau, toutes les positions du profil sont décalées d'autant&nbsp;; un écran situé à gauche ou au-dessus de l'écran principal a alors des coordonnées Windows négatives, comme ci-dessus.</li>
+            <li><strong>Liens tracés</strong>&nbsp;: les liens du profil sont dessinés en orange (trait plein&nbsp;: bord contre bord&nbsp;; tirets&nbsp;: alignement ou centrage&nbsp;; pointillés&nbsp;: avec décalage).</li>
+            <li><strong>Alertes</strong>&nbsp;: la fenêtre signale un profil aux coordonnées négatives, et des positions qui ne correspondent plus aux liens (taille d'un écran changée dans l'éditeur)&nbsp;: ouvrir <strong>Disposition magnétique…</strong> les recalcule. Pendant l'édition, des liens en boucle, un lien vers un écran absent ou des écrans qui se chevauchent sont signalés en rouge.</li>
+            <li>Une <a href="#resynchronisation">resynchronisation</a> qui renumérote les écrans met aussi les liens à jour.</li>
+        </ul>
 
         <h2>L'onglet « Écrans » de l'éditeur</h2>
         <p>
@@ -300,7 +337,7 @@
             <a class="next" href="mods.html"><span>Suite</span>Gestion des mods →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.24.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.25.</footer>
     </div>
     </main>
 </div>

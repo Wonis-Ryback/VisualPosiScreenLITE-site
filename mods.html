@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.24 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.25 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -194,7 +194,7 @@ pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonM
         </ul>
 
         <h2>Éditeur de mod</h2>
-        <p>Ouvert par <strong>Modifier</strong> ou par le menu, il permet de régler&nbsp;:</p>
+        <p>Ouvert par <strong>Modifier</strong> ou par le menu, il a deux onglets. L'onglet <strong>Général</strong> permet de régler&nbsp;:</p>
         <ul>
             <li><strong>Répertoire Root</strong> et <strong>Répertoire Partie enregistrée</strong> (SaveGames), avec sélecteur de dossier — les chemins sont mémorisés relativement au dossier du mod.</li>
             <li>Cases <strong>sauvegarde</strong> pour Root et pour SaveGames.</li>
@@ -202,6 +202,16 @@ pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonM
             <li>Le bouton <strong>Versions du mod…</strong>&nbsp;: ajout et suppression de versions (voir <a href="#versions">Versions d'un mod</a>).</li>
             <li><strong>Incompatibilités</strong>&nbsp;: liste à cocher des autres mods incompatibles.</li>
             <li><strong>Profils</strong>&nbsp;: pour chaque profil, case <strong>cochée</strong> = mod actif avec ce profil, <strong>vide</strong> = désactivé au lancement, <strong>grisée</strong> = non géré, laissé tel quel (un clic passe d'un état à l'autre). Met à jour l'onglet <a href="parametrage.html#mods-associes">« Mods associés »</a> de chaque profil.</li>
+        </ul>
+        <p id="editeur-compagnons">
+            L'onglet <strong>Applications compagnon</strong> déclare les <a href="#compagnons">applications fournies par le mod</a>
+            sans modifier le <code>manifest.xml</code> à la main&nbsp;:
+        </p>
+        <ul>
+            <li><strong>Ajouter</strong> ouvre le choix du programme. Un programme situé hors du dossier du mod peut y être copié, dans le sous-dossier <code>companions</code> (tout son dossier, ou le fichier seul)&nbsp;; la copie est faite tout de suite et reste même si vous annulez.</li>
+            <li>Pour chaque application&nbsp;: nom, programme, paramètres, dossier de travail, lancement avant ou après DCS, délai, fenêtre, fermeture avec DCS. La ligne de commande exacte s'affiche en dessous, ou le problème en rouge.</li>
+            <li><strong>Tester</strong> lance l'application tout de suite avec les réglages affichés&nbsp;; <strong>Retirer</strong> la supprime.</li>
+            <li>À la validation, une application sans programme ou un nom en double sont refusés. Les cases «&nbsp;ne pas lancer&nbsp;» des profils suivent un renommage et disparaissent avec l'application retirée.</li>
         </ul>
         <p>À la validation, le <code>manifest.xml</code> du mod et le fichier <code>config-ecrans.xml</code> sont réécrits.</p>
 
@@ -340,7 +350,7 @@ pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonM
             <a class="next" href="lancement.html"><span>Suite</span>Lancer DCS World →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.24.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.25.</footer>
     </div>
     </main>
 </div>

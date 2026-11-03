@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.24 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.25 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -230,7 +230,7 @@
                 <tr><td><code>&lt;dcsMainFile&gt;</code></td><td>0..n</td><td>Copie de fichier&nbsp;: <code>@source</code> (nom d'un fichier du dossier du profil ; l'éditeur remplace un chemin complet par un nom unique en copiant le fichier dans le dossier du profil), <code>@destination</code> (requis, chemin relatif à DCS avec le vrai nom du fichier), <code>@force</code>, <code>@backup</code>.</td></tr>
                 <tr><td><code>&lt;launchCommand&gt;</code></td><td>0..n</td><td>Programme compagnon (texte = chemin)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@workingdir</code>, <code>@needAdminRights</code>, <code>@param1</code>…<code>@param9</code>.</td></tr>
                 <tr><td><code>&lt;Helios&gt;</code></td><td>0..1</td><td>texte = fichier de profil (relatif à <code>@profiledir</code>, ou chemin complet)&nbsp;: <code>@runtimeTag</code> (<code>all</code>/<code>2D</code>/<code>VR</code>), <code>@profiledir</code>, <code>@controlcenter</code> (<code>Control Center.exe</code>). Lancé au démarrage de la session.</td></tr>
-                <tr class="pro-row"><td><code>&lt;ecran&gt;</code></td><td>0..n</td><td>Écran (voir <a href="ecrans.html">Gestion des écrans</a>)&nbsp;: <code>@index</code>, <code>@deviceName</code>, <code>@HwId</code> (requis), <code>@primary</code>, <code>@orientation</code>, enfants <code>width</code>, <code>height</code>, <code>pos_X</code>, <code>pos_Y</code>, <code>oldPos_X</code>, <code>oldPos_Y</code>. <span class="badge pro">PRO</span> appliqué&nbsp;; <span class="badge lite">LITE</span> documentaire.</td></tr>
+                <tr class="pro-row"><td><code>&lt;ecran&gt;</code></td><td>0..n</td><td>Écran (voir <a href="ecrans.html">Gestion des écrans</a>)&nbsp;: <code>@index</code>, <code>@deviceName</code>, <code>@HwId</code> (requis), <code>@primary</code>, <code>@orientation</code>, enfants <code>width</code>, <code>height</code>, <code>pos_X</code>, <code>pos_Y</code>, <code>oldPos_X</code>, <code>oldPos_Y</code>, et facultativement <code>lienX</code> / <code>lienY</code> (<span class="badge pro">PRO</span> <a href="ecrans.html#disposition-magnetique">disposition magnétique</a>&nbsp;: <code>@ref</code> = index de l'écran de référence, <code>@bord</code> et <code>@bordRef</code> = <code>gauche</code>/<code>centre</code>/<code>droite</code> ou <code>haut</code>/<code>centre</code>/<code>bas</code>, <code>@decalage</code> en pixels). <span class="badge pro">PRO</span> appliqué&nbsp;; <span class="badge lite">LITE</span> documentaire.</td></tr>
                 <tr><td><code>&lt;mods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods à activer automatiquement pour ce profil.</td></tr>
                 <tr><td><code>&lt;ignoredMods&gt;/&lt;mod&gt;</code></td><td>bloc, 0..n noms</td><td>Mods que ce profil ne gère pas&nbsp;: ni activés ni désactivés au lancement. Après <code>&lt;mods&gt;</code>. Les autres mods actifs non listés dans <code>&lt;mods&gt;</code> sont désactivés.</td></tr>
             </tbody>
@@ -266,7 +266,7 @@
             <a class="next" href="faq.html"><span>Suite</span>FAQ &amp; dépannage →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.24.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.25.</footer>
     </div>
     </main>
 </div>

@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.24 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.25 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -53,7 +53,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-24-0-1"><strong>3.24.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>1<sup>er</sup>&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut fournir un programme lancé avec DCS (et fermé avec lui), avec votre accord&nbsp;; un mod peut n'avoir qu'une partie Saved&nbsp;Games.</td></tr>
+                <tr><td><a href="#v3-25-0-1"><strong>3.25.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>3&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: onglet <strong>Applications compagnon</strong> dans l'éditeur de mod&nbsp;; <strong>Comparer</strong> suit le profil du dernier lancement. <span class="badge pro">PRO</span> <strong>Disposition magnétique</strong> des écrans&nbsp;: bords et centres joints au pixel près, coordonnées positives pour DCS.</td></tr>
+                <tr><td><a href="#v3-24-0-1"><strong>3.24.0.1</strong></a></td><td>1<sup>er</sup>&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut fournir un programme lancé avec DCS (et fermé avec lui), avec votre accord&nbsp;; un mod peut n'avoir qu'une partie Saved&nbsp;Games.</td></tr>
                 <tr><td><a href="#v3-23-0-1"><strong>3.23.0.1</strong></a></td><td>31&nbsp;octobre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut ajouter des lignes à <code>Export.lua</code> tant qu'il est activé&nbsp;; nouvelle fenêtre <strong>À propos</strong>. <span class="badge pro">PRO</span> VirpilLeds devient <strong>Cockpit Leds Link</strong> et gère les <strong>panneaux Saitek</strong> (joystick par vJoy, voyants, afficheurs).</td></tr>
                 <tr><td><a href="#v3-22-1-1"><strong>3.22.1.1</strong></a> <span class="badge pro">PRO</span></td><td>29&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> VirpilLeds&nbsp;: nouvelle icône. Pas de nouvelle version LITE.</td></tr>
                 <tr><td><a href="#v3-22-0-1"><strong>3.22.0.1</strong></a> <span class="badge pro">PRO</span></td><td>29&nbsp;octobre&nbsp;2026</td><td><span class="badge pro">PRO</span> <strong>LED Virpil</strong>&nbsp;: les LED des périphériques Virpil changent selon l'avion piloté et réagissent au cockpit par DCS-BIOS (outil VirpilLeds livré avec PRO). Pas de nouvelle version LITE.</td></tr>
@@ -283,7 +284,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-24-0-1">Version 3.24.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <h3 id="v3-25-0-1">Version 3.25.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <p class="tag-legend">Publiée le 3&nbsp;novembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Mods</strong>&nbsp;: l'éditeur de mod a un onglet <strong>Applications compagnon</strong> pour déclarer les programmes lancés avec DCS sans modifier le <code>manifest.xml</code> à la main (ajout avec copie dans le mod, test immédiat, ligne de commande affichée). Voir <a href="mods.html#editeur-compagnons">Éditeur de mod</a>.</li>
+            <li><strong>Comparer</strong>&nbsp;: la comparaison porte sur le profil du dernier lancement de DCS, et non plus sur le profil sélectionné&nbsp;; choisir un autre profil ne rend plus le bouton rouge à tort.</li>
+            <li><span class="badge pro">PRO</span> <strong>Disposition magnétique</strong> dans la fenêtre <strong>Écrans</strong>&nbsp;: on glisse un écran, il s'aimante aux bords et aux centres des autres, et le lien est enregistré&nbsp;; réglage au pixel près, liens tracés sur le dessin. Les positions du profil sont recalées pour être toutes positives (DCS), Windows recevant l'écran principal en (0,&nbsp;0). Voir <a href="ecrans.html#disposition-magnetique">Disposition magnétique</a>.</li>
+        </ul>
+
+        <h3 id="v3-24-0-1">Version 3.24.0.1</h3>
         <p class="tag-legend">Publiée le 1<sup>er</sup>&nbsp;novembre&nbsp;2026</p>
         <ul>
             <li><strong>Mods</strong>&nbsp;: un mod peut fournir une application à lancer avec DCS (avant ou après son démarrage, fermée avec lui si le mod le demande), déclarée dans son <code>manifest.xml</code>. Elle apparaît dans la liste <strong>Programmes</strong> de la fenêtre principale et dans l'onglet <strong>Lancements</strong> de <strong>Configurer</strong>, où chaque profil peut la décocher. Votre accord est demandé au premier lancement, et de nouveau si le programme change. Voir <a href="mods.html#compagnons">Applications fournies par un mod</a>.</li>
