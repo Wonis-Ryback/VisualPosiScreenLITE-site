@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.26 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.27 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -53,7 +53,8 @@
         <table>
             <thead><tr><th>Version</th><th>Date</th><th>Résumé</th></tr></thead>
             <tbody>
-                <tr><td><a href="#v3-26-0-1"><strong>3.26.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>3&nbsp;novembre&nbsp;2026</td><td><strong>Abonnements de mods</strong>&nbsp;: une association qui change de préfixe de clés garde les clés de ses membres.</td></tr>
+                <tr><td><a href="#v3-27-0-1"><strong>3.27.0.1</strong></a> <span class="badge lite">Dernière LITE</span></td><td>8&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: réparation après une mise à jour de DCS&nbsp;; avec DCS Steam, partie DCS des mods posée seulement pendant le vol&nbsp;; désactivation plus sûre.</td></tr>
+                <tr><td><a href="#v3-26-0-1"><strong>3.26.0.1</strong></a></td><td>3&nbsp;novembre&nbsp;2026</td><td><strong>Abonnements de mods</strong>&nbsp;: une association qui change de préfixe de clés garde les clés de ses membres.</td></tr>
                 <tr><td><a href="#v3-25-0-1"><strong>3.25.0.1</strong></a></td><td>3&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: onglet <strong>Applications compagnon</strong> dans l'éditeur de mod&nbsp;; <strong>Comparer</strong> suit le profil du dernier lancement. <span class="badge pro">PRO</span> <strong>Disposition magnétique</strong> des écrans&nbsp;: bords et centres joints au pixel près, coordonnées positives pour DCS.</td></tr>
                 <tr><td><a href="#v3-24-0-1"><strong>3.24.0.1</strong></a></td><td>1<sup>er</sup>&nbsp;novembre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut fournir un programme lancé avec DCS (et fermé avec lui), avec votre accord&nbsp;; un mod peut n'avoir qu'une partie Saved&nbsp;Games.</td></tr>
                 <tr><td><a href="#v3-23-0-1"><strong>3.23.0.1</strong></a></td><td>31&nbsp;octobre&nbsp;2026</td><td><strong>Mods</strong>&nbsp;: un mod peut ajouter des lignes à <code>Export.lua</code> tant qu'il est activé&nbsp;; nouvelle fenêtre <strong>À propos</strong>. <span class="badge pro">PRO</span> VirpilLeds devient <strong>Cockpit Leds Link</strong> et gère les <strong>panneaux Saitek</strong> (joystick par vJoy, voyants, afficheurs).</td></tr>
@@ -285,7 +286,15 @@
 
         <h2>Historique détaillé</h2>
 
-        <h3 id="v3-26-0-1">Version 3.26.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <h3 id="v3-27-0-1">Version 3.27.0.1 <span class="badge lite">Dernière LITE</span></h3>
+        <p class="tag-legend">Publiée le 8&nbsp;novembre&nbsp;2026</p>
+        <ul>
+            <li><strong>Mods et mises à jour de DCS</strong>&nbsp;: à l'ouverture, l'application repère les mods activés dont une mise à jour de DCS a remplacé ou effacé des fichiers (icône d'avertissement). Clic droit, <strong>Réparer le mod</strong>&nbsp;: les fichiers sont reposés et les fichiers neufs de DCS mis de côté. La réparation est aussi proposée au lancement de DCS. Voir <a href="mods.html#maj-dcs">Mise à jour de DCS et mods</a>.</li>
+            <li><strong>DCS installé par Steam</strong>&nbsp;: la partie d'un mod qui va dans le dossier de DCS n'y est posée que <strong>pendant le vol</strong> (au lancement par VR / 2D) et retirée à la fermeture de DCS, même si l'application a été fermée entre-temps. Automatique pour Steam, réglable mod par mod (clic droit). Voir <a href="mods.html#pendant-le-vol">Partie DCS seulement pendant le vol</a>.</li>
+            <li><strong>Désactivation plus sûre</strong>&nbsp;: seuls les fichiers qui sont encore ceux du mod sont retirés&nbsp;; un fichier mis à jour par DCS entre-temps est gardé. Une sauvegarde de Saved&nbsp;Games qui n'était qu'une copie du mod n'est plus remise (les fichiers du mod revenaient après la désactivation).</li>
+        </ul>
+
+        <h3 id="v3-26-0-1">Version 3.26.0.1</h3>
         <p class="tag-legend">Publiée le 3&nbsp;novembre&nbsp;2026</p>
         <ul>
             <li><strong>Abonnements de mods</strong>&nbsp;: une association qui change de préfixe de clés (en changeant d'hébergement, par exemple) garde les clés de ses membres&nbsp;: elles restent reconnues sous l'ancien préfixe, et une clé au nouveau préfixe passe avant. Rien à faire de votre côté. Voir <a href="mods.html">Mods</a>.</li>

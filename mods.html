@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.26 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.27 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -87,6 +87,7 @@
                 <ul>
                     <li><em>Enable</em> / <em>Disable</em>&nbsp;: déploie ou retire le mod <strong>immédiatement</strong> (barre de progression).</li>
                     <li><em>Ajouter/Supprimer de la liste des mods à activer</em> ou <em>à désactiver</em>&nbsp;: modifie les <strong>actions planifiées</strong> pour le profil courant (appliquées au lancement). Ajouter un mod à activer planifie aussi la désactivation des mods actifs qui lui sont incompatibles.</li>
+                    <li><em>Réparer le mod</em> et <em>Partie DCS seulement pendant le vol</em>&nbsp;: voir <a href="#maj-dcs">Mise à jour de DCS et mods</a>.</li>
                 </ul>
             </li>
             <li><strong>Double-clic</strong> sur un mod&nbsp;: <strong>bascule</strong> son état immédiatement (déployé&nbsp;→ retiré, retiré&nbsp;→ déployé), avec la gestion des incompatibilités ci-dessous.</li>
@@ -129,8 +130,8 @@
 
         <h3>Que fait le retrait d'un mod</h3>
         <ol class="steps">
-            <li>Les fichiers du mod présents aux emplacements de destination sont supprimés.</li>
-            <li>Si une sauvegarde <code>.BAK</code> existe, les fichiers d'origine sont restaurés.</li>
+            <li>Les fichiers du mod présents aux emplacements de destination sont supprimés, un par un, seulement s'ils sont encore ceux du mod.</li>
+            <li>Si une sauvegarde <code>.BAK</code> existe, les fichiers d'origine sont restaurés. Un fichier que DCS a remplacé entre-temps (mise à jour) est gardé tel quel&nbsp;: c'est le plus récent, l'ancienne sauvegarde est jetée.</li>
             <li>Les dossiers devenus vides sont supprimés.</li>
             <li>Les lignes que le mod avait ajoutées à <code>Export.lua</code> sont retirées.</li>
             <li>L'état <code>enabled</code> repasse à « non » et le <code>manifest.xml</code> est réécrit.</li>
@@ -338,19 +339,54 @@ pcall(function() local l = require('lfs'); dofile(l.writedir() .. [[Scripts\MonM
             L'éditeur d'un mod en abonnement peut le déclarer <strong>incompatible</strong> avec d'autres mods du domaine (par exemple deux variantes d'un même mod)&nbsp;: la déclaration est reprise à l'installation et s'applique comme les <a href="#incompatibilites">incompatibilités</a> que vous déclarez vous-même. Ajouter un mod à un domaine ou y publier une version ne se fait pas ici&nbsp;: c'est le rôle des administrateurs du domaine.
         </p>
 
-        <h2>Mise à jour de DCS et mods</h2>
+        <h2 id="maj-dcs">Mise à jour de DCS et mods</h2>
         <p>
             Avant une mise à jour de DCS, il est recommandé de <strong>désactiver les mods</strong>
             qui touchent l'installation, pour éviter que le programme de mise à jour ne détecte
             des fichiers modifiés. Réactivez-les ensuite via le profil.
         </p>
+        <p>
+            Si une mise à jour a eu lieu avec des mods activés, l'application le voit&nbsp;: à l'ouverture,
+            elle compare les fichiers de chaque mod activé avec ceux qui sont dans DCS.
+        </p>
+        <ul>
+            <li>Un mod dont DCS a remplacé ou effacé des fichiers prend une <strong>icône d'avertissement</strong> (infobulle «&nbsp;à réparer&nbsp;»).</li>
+            <li><strong>Clic droit, <em>Réparer le mod</em></strong>&nbsp;: les fichiers manquants ou remplacés sont reposés. Les fichiers neufs de DCS sont mis de côté à la place des anciens&nbsp;: c'est eux qui reviendront quand le mod sera désactivé.</li>
+            <li>Au lancement de DCS (<strong>VR</strong> / <strong>2D</strong>), si un mod est à réparer, l'application propose de le faire avant le vol.</li>
+        </ul>
+        <div class="callout note">
+            <span class="callout-title">Un fichier a changé dans DCS</span>
+            <p>Si la réparation a dû reposer un fichier que DCS a modifié, le mod a été fait pour une version plus ancienne de DCS. Il peut encore fonctionner, mais en cas de souci, demandez une version à jour du mod.</p>
+        </div>
+
+        <h3 id="pendant-le-vol">Partie DCS seulement pendant le vol</h3>
+        <p>
+            Avec DCS installé par <strong>Steam</strong>, les mises à jour se font sans prévenir et écrasent
+            les fichiers qu'un mod a posés dans le dossier de DCS. L'option
+            <strong>Partie DCS seulement pendant le vol</strong> (clic droit sur le mod) évite cela&nbsp;:
+        </p>
+        <ol class="steps">
+            <li>Le mod activé n'a hors vol que sa partie <em>Saved&nbsp;Games</em>&nbsp;; sa partie DCS (<code>root</code>) reste dans le dossier du mod.</li>
+            <li>Au lancement de DCS par VisualPosiScreen, la partie DCS est posée (avec ses sauvegardes, comme une activation).</li>
+            <li>Une petite tâche de fond attend la fermeture de DCS, puis retire cette partie et remet les fichiers d'origine. Elle fonctionne même si VisualPosiScreen a été fermé entre-temps.</li>
+            <li>Si DCS ne démarre pas, ou si le PC s'éteint avant la fin, la partie DCS est retirée tout de suite, ou à la prochaine ouverture de l'application.</li>
+        </ol>
+        <p>
+            L'option est cochée <strong>automatiquement</strong> pour un DCS installé par Steam (le menu indique
+            «&nbsp;automatique&nbsp;: DCS Steam&nbsp;»). Vous pouvez la cocher ou la décocher pour chaque mod&nbsp;;
+            votre choix remplace alors le choix automatique. Elle n'apparaît que pour un mod qui a une partie DCS.
+        </p>
+        <div class="callout warn">
+            <span class="callout-title">Lancer DCS par l'application</span>
+            <p>Un mod en «&nbsp;partie DCS pendant le vol&nbsp;» n'est complet que si DCS est lancé par VisualPosiScreen (ou par le bouton <em>Lancer DCS</em> de l'application de mods en abonnement). Lancé directement par Steam, DCS démarre sans la partie DCS de ces mods.</p>
+        </div>
 
         <div class="pager">
             <a class="prev" href="ecrans.html"><span>Précédent</span>← Gestion des écrans</a>
             <a class="next" href="lancement.html"><span>Suite</span>Lancer DCS World →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.26.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.27.</footer>
     </div>
     </main>
 </div>
