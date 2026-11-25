@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.28 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.29 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -144,6 +144,35 @@
             </p>
         </div>
 
+        <h2 id="dcs-control"><span class="badge pro">PRO</span> Lancer DCS par DCS Control</h2>
+        <p>
+            <a href="https://github.com/NIGos/dcs-control">DCS Control</a> est une application gratuite, indépendante de
+            VisualPosiScreen, qui apporte aux casques Pimax avec une carte NVIDIA RTX le Quad Views, le DLSS&nbsp;5 et la
+            génération d'images (2× ou 3×). Ses couches VR ne se chargent que si c'est lui qui démarre DCS. Avec la balise
+            <code>&lt;dcsControl&gt;</code>, VisualPosiScreen prépare la session comme d'habitude (mods, fichiers du profil,
+            écrans, profil de session, programmes), puis confie le démarrage de DCS à DCS Control au lieu de le démarrer
+            lui-même.
+        </p>
+        <pre><code>&lt;dcs&gt;
+  …
+  &lt;dcsControl tags="VR" /&gt;
+&lt;/dcs&gt;</code></pre>
+        <ol>
+            <li>Installez DCS Control, réglez-le pour votre casque et appliquez son profil (un premier vol lancé depuis DCS Control permet de vérifier que tout fonctionne).</li>
+            <li>Ajoutez <code>&lt;dcsControl&gt;</code> dans <code>&lt;dcs&gt;</code> (voir la <a href="reference-xml.html#dcscontrol">référence</a>). Sans <code>path</code>, l'installation par défaut est utilisée.</li>
+            <li>Lancez en VR depuis VisualPosiScreen&nbsp;: DCS Control remet son profil à jour puis démarre DCS.</li>
+        </ol>
+        <div class="callout warn">
+            <span class="callout-title">À savoir</span>
+            <p>
+                Laissez désactivés le <em>CPU Boost</em> et le <em>Free VRAM</em> de DCS Control si vous utilisez le
+                profil de session&nbsp;: les deux feraient le même travail. DCS Control n'est testé qu'en solo&nbsp;: en
+                multijoueur, c'est à vos risques. Avant une mise à jour ou une réparation de DCS, utilisez
+                <em>Back to stock DCS</em> dans DCS Control. Si DCS Control refuse de lancer DCS, son message s'affiche et
+                figure dans le journal&nbsp;; <code>enabled="false"</code> revient au lancement direct.
+            </p>
+        </div>
+
         <h2>Tester sans lancer DCS</h2>
         <ul>
             <li><strong>Double-clic</strong> sur une ligne de la liste <em>Fichiers DCS</em>&nbsp;: exécute uniquement cette copie.</li>
@@ -174,7 +203,7 @@
             <a class="next" href="pc.html"><span>Suite</span>Préparer le PC →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.28.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.29.</footer>
     </div>
     </main>
 </div>

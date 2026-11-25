@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.28 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.29 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -196,12 +196,14 @@
         <p>Voir <a href="pc.html#hyperv">Préparer le PC</a>.</p>
 
         <h3 id="session"><span class="badge pro">PRO</span> <code>&lt;session&gt;</code> — profil de session DCS (0..1)</h3>
-        <pre><code>&lt;session enabled="true" powerPlan="Bitsum Highest Performance" cpuCores="performance"&gt;
+        <pre><code>&lt;session enabled="true" powerPlan="Bitsum Highest Performance" cpuCores="performance" priority="abovenormal"&gt;
   &lt;process name="opera" /&gt;
   &lt;process name="OneDrive" closeArgs="/shutdown" /&gt;
   &lt;process name="Docker Desktop" force="true" /&gt;
   &lt;service name="WSearch" /&gt;
   &lt;command when="before" path="wsl.exe" args="--shutdown" /&gt;
+  &lt;background name="Discord" /&gt;
+  &lt;background name="msedge" /&gt;
 &lt;/session&gt;</code></pre>
         <div class="table-wrap">
         <table>
@@ -210,13 +212,41 @@
                 <tr><td><code>enabled</code></td><td>Active le profil (vrai par défaut).</td></tr>
                 <tr><td><code>powerPlan</code></td><td>Plan d'alimentation pendant le vol (GUID ou nom, partiel accepté), rétabli à la fin. Ignoré si Process Lasso change déjà le plan pour <code>dcs.exe</code>.</td></tr>
                 <tr><td><code>cpuCores="performance"</code></td><td>Place DCS sur les cœurs performants des processeurs hybrides (Intel 12<sup>e</sup> génération et suivants). Ignoré si Process Lasso impose déjà les cœurs de <code>dcs.exe</code>.</td></tr>
+                <tr><td><code>priority</code></td><td>Priorité de DCS pendant le vol&nbsp;: <code>normal</code>, <code>abovenormal</code> (conseillé) ou <code>high</code> (peut gêner le son, les commandes et les services du casque)&nbsp;; absent = inchangée. Ignoré si Process Lasso impose déjà une priorité à <code>dcs.exe</code>.</td></tr>
                 <tr><td><code>&lt;process&gt;</code></td><td>Programme fermé avant DCS&nbsp;: <code>name</code> (nom du processus sans <code>.exe</code>), <code>restart</code> (relancé à la fin, vrai par défaut), <code>force</code> (arrêt forcé s'il ne se ferme pas), <code>timeout</code> (secondes, 10 par défaut), <code>closeArgs</code> (fermeture par une commande du programme), <code>restartArgs</code> (arguments de relance).</td></tr>
                 <tr><td><code>&lt;service&gt;</code></td><td>Service Windows arrêté avant DCS (<code>name</code>&nbsp;: nom court), redémarré à la fin s'il tournait (<code>restart</code>).</td></tr>
                 <tr><td><code>&lt;command&gt;</code></td><td>Commande lancée avant DCS (<code>when="before"</code>) ou à la fin (<code>when="after"</code>)&nbsp;: <code>path</code>, <code>args</code>, <code>wait</code> (attendre sa fin, 60&nbsp;s au plus).</td></tr>
+                <tr><td><code>&lt;background&gt;</code></td><td>Programme laissé ouvert mais mis en retrait pendant le vol (<code>name</code>&nbsp;: nom du processus sans <code>.exe</code>, après les <code>&lt;command&gt;</code>)&nbsp;: priorité inférieure à la normale et, sur un processeur hybride, cœurs efficaces. Ses nouveaux processus (onglets…) sont pris toutes les 15&nbsp;s&nbsp;; tout est rétabli à la fin de DCS. Ce que Process Lasso règle déjà pour ce programme n'est pas touché.</td></tr>
             </tbody>
         </table>
         </div>
         <p>Voir <a href="pc.html#session">Profil de session DCS</a>. En LITE, la balise est ignorée.</p>
+
+        <h3 id="dcscontrol"><span class="badge pro">PRO</span> <code>&lt;dcsControl&gt;</code> — lancer DCS par DCS Control (0..1, après <code>&lt;session&gt;</code>)</h3>
+        <pre><code>&lt;dcsControl enabled="true" path="C:\Users\…\AppData\Local\Programs\DcsControl" tags="VR" /&gt;</code></pre>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>enabled</code></td><td>Active le lancement par DCS Control (vrai par défaut).</td></tr>
+                <tr><td><code>path</code></td><td>Dossier d'installation de DCS Control, ou chemin de <code>DcsVr.Cli.exe</code>&nbsp;; absent = <code>%LOCALAPPDATA%\Programs\DcsControl</code>.</td></tr>
+                <tr><td><code>tags</code></td><td>Démarrages concernés&nbsp;: <code>VR</code> (par défaut), <code>2D</code> ou <code>all</code>.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>VisualPosiScreen appelle <code>DcsVr.Cli.exe launch --dcs &lt;DCS.exe du démarrage&gt;</code> à la place de démarrer DCS. L'option «&nbsp;droits administrateur&nbsp;» du démarrage est alors ignorée. Voir <a href="lancement.html#dcs-control">Lancer DCS par DCS Control</a>. En LITE, la balise est ignorée.</p>
+
+        <h3 id="graphicsoptimizer"><span class="badge pro">PRO</span> <code>&lt;graphicsOptimizer&gt;</code> — emplacement de DCS Graphics Optimizer (0..1, après <code>&lt;dcsControl&gt;</code>)</h3>
+        <pre><code>&lt;graphicsOptimizer path="D:\Outils\DCSGraphicsOptimizer.exe" /&gt;</code></pre>
+        <div class="table-wrap">
+        <table>
+            <thead><tr><th>Attribut</th><th>Rôle</th></tr></thead>
+            <tbody>
+                <tr><td><code>path</code></td><td>Chemin de <code>DCSGraphicsOptimizer.exe</code>, ou dossier qui le contient&nbsp;; absent = le plus récent trouvé dans <em>Téléchargements</em> ou sur le <em>Bureau</em>.</td></tr>
+            </tbody>
+        </table>
+        </div>
+        <p>Écrit par le bouton <strong>Optimiser…</strong> quand vous désignez le fichier. Voir <a href="outils.html#optimiseur">Optimiser les graphismes</a>. En LITE, la balise est ignorée.</p>
 
         <h2>Élément <code>&lt;config&gt;</code></h2>
         <div class="table-wrap">
@@ -266,7 +296,7 @@
             <a class="next" href="faq.html"><span>Suite</span>FAQ &amp; dépannage →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.28.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.29.</footer>
     </div>
     </main>
 </div>

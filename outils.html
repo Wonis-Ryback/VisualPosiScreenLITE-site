@@ -11,7 +11,7 @@
 
     <aside class="sidebar">
         <a class="brand" href="index.html">VisualPosiScreen&nbsp;LITE<span>Guide utilisateur</span></a>
-        <div class="ver">Version&nbsp;3.28 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
+        <div class="ver">Version&nbsp;3.29 &nbsp;·&nbsp; Ryback&nbsp;Games</div>
         <nav>
             <div class="group">Présentation</div>
             <a href="index.html">Accueil</a>
@@ -105,7 +105,7 @@
             <li>Les liens s'ouvrent dans le navigateur par défaut d'un simple clic.</li>
         </ul>
 
-        <h2>Comparaison d'<code>options.lua</code></h2>
+        <h2 id="comparaison-options">Comparaison d'<code>options.lua</code></h2>
         <p>
             Bouton <strong>Comparer</strong> de la barre d'outils. Compare&nbsp;:
         </p>
@@ -138,6 +138,42 @@
                 Vous avez peaufiné des réglages graphiques <em>dans</em> DCS pendant une
                 session. De retour dans VisualPosiScreen&nbsp;LITE, <strong>Comparer</strong>
                 vous montre ce qui a changé et vous propose de sauvegarder ces réglages dans le profil pour les conserver.
+            </p>
+        </div>
+
+        <h2 id="optimiseur"><span class="badge pro">PRO</span> Optimiser les graphismes</h2>
+        <p>
+            <a href="https://github.com/Fox3Luck/DCS-Graphics-Optimizer">DCS Graphics Optimizer</a>, de Fox3, est un
+            programme gratuit, indépendant de VisualPosiScreen&nbsp;: il teste vos réglages graphiques en lançant DCS
+            plusieurs fois sur une petite mission en Caucase, puis recommande les plus beaux réglages que votre PC tient
+            sans saccades. Il ne touche ni à la résolution, ni à la VR, ni à la synchronisation verticale, ni au plafond
+            d'images par seconde&nbsp;: seulement aux textures, ombres, nuages, distances, anticrénelage, etc.
+        </p>
+        <p>
+            Il réécrit l'<code>Options.lua</code> de DCS. Or VisualPosiScreen remet celui du profil à chaque lancement&nbsp;:
+            sans report dans le profil, son résultat serait perdu. Le bouton <strong>Optimiser…</strong> de la barre
+            d'outils enchaîne tout&nbsp;:
+        </p>
+        <ol>
+            <li>l'<code>Options.lua</code> du <strong>profil sélectionné</strong> (et son fichier d'écrans) est mis en place dans DCS, et les mods du profil sont activés&nbsp;: l'optimiseur mesure votre configuration de vol&nbsp;;</li>
+            <li>si un <a href="pc.html#session">profil de session</a> est défini, ses réglages s'appliquent pendant les tests, à chaque démarrage de DCS&nbsp;: priorité et cœurs P de DCS, programmes mis en retrait. Les programmes que le profil ferme avant un vol sont seulement mis en retrait ici&nbsp;;</li>
+            <li>DCS Graphics Optimizer s'ouvre&nbsp;: lancez son test (10 à 20&nbsp;minutes pour le test rapide), puis <em>Apply</em> si sa recommandation vous convient. VisualPosiScreen attend qu'il soit fermé&nbsp;;</li>
+            <li>à sa fermeture, tout revient comme avant, puis la <a href="#comparaison-options">comparaison</a> s'ouvre&nbsp;: <strong>Récupérer</strong> reporte les nouveaux réglages dans le profil (l'ancien fichier est gardé en <code>.bak</code>). Si l'optimiseur n'a rien appliqué, un message le dit et le profil reste tel quel.</li>
+        </ol>
+        <p>
+            Rien à installer&nbsp;: téléchargez <code>DCSGraphicsOptimizer.exe</code> depuis sa
+            <a href="https://github.com/Fox3Luck/DCS-Graphics-Optimizer/releases">page de téléchargement</a>.
+            VisualPosiScreen le cherche dans <em>Téléchargements</em> et sur le <em>Bureau</em>&nbsp;; ailleurs, il vous
+            demande où il est la première fois et note l'emplacement dans <code>config-ecrans.xml</code>
+            (<a href="reference-xml.html#graphicsoptimizer"><code>&lt;graphicsOptimizer&gt;</code></a>).
+        </p>
+        <div class="callout warn">
+            <span class="callout-title">À savoir</span>
+            <p>
+                DCS doit être fermé, avec la carte gratuite Caucase installée et la connexion automatique activée.
+                Pendant le test, laissez le PC tranquille&nbsp;: DCS démarre et se ferme plusieurs fois. Les réglages sont
+                optimisés pour un écran par défaut&nbsp;; le test dans le casque est encore en essai chez l'auteur et ne
+                vaut qu'en point de départ pour la VR. Optimisez chaque profil séparément (2D, VR…).
             </p>
         </div>
 
@@ -289,7 +325,7 @@
             <a class="next" href="commandes.html"><span>Suite</span>Commandes des joysticks →</a>
         </div>
 
-        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.28.</footer>
+        <footer class="site">© Ryback Games — VisualPosiScreen LITE 3.29.</footer>
     </div>
     </main>
 </div>
